@@ -1,0 +1,159 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="description" content="">
+<meta name="author" content="">
+
+<title>CARWASH MAIN</title>
+
+<!-- Bootstrap core CSS -->
+<link href="resources/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+<!-- Custom fonts for this template -->
+<link href="resources/vendor/font-awesome/css/font-awesome.min.css"	rel="stylesheet" type="text/css">
+<link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Merriweather:400,300,300italic,400italic,700,700italic,900,900italic' rel='stylesheet' type='text/css'>
+
+<!-- Bootstrap core JavaScript -->
+<script src="resources/vendor/jquery/jquery.min.js"></script>
+<script src="resources/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+<!-- Plugin JavaScript -->
+<script src="resources/vendor/jquery-easing/jquery.easing.min.js"></script>
+<script src="resources/vendor/scrollreveal/scrollreveal.min.js"></script>
+<script src="resources/vendor/magnific-popup/jquery.magnific-popup.min.js"></script>
+
+<!-- Custom scripts for this template -->
+<script src="resources/js/creative.min.js"></script>
+
+<!-- Plugin CSS -->
+<link href="resources/vendor/magnific-popup/magnific-popup.css" rel="stylesheet">
+
+<!-- Custom styles for this template -->
+<link href="resources/css/creative.min.css" rel="stylesheet">
+</head>
+
+<body id="page-top">
+	
+	<!-- Header -->
+	<jsp:include page="WEB-INF/common/header.jsp"></jsp:include>
+	<!-- Header -->
+
+	<!-- Contents -->
+	<header class="masthead text-center text-white d-flex">
+		<div class="container my-auto">
+			<div class="row">
+				<div class="col-lg-8 mx-auto">
+					<a class="btn btn-primary btn-xl js-scroll-trigger btn-first" href="#about" style="opacity: 0.5;">☞&nbsp; Go Reservation</a>
+				</div>
+			</div>
+		</div>
+	</header>
+
+
+	<section class="bg-primary" id="about">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-8 mx-auto text-center">
+					<h2 class="section-heading text-white">What About Car Wash?!</h2>
+					<hr class="light my-4">
+					<p class="text-faded mb-4">[공지] 가을맞이 카워시 홈페이지 오픈!!</p>
+					<a class="btn btn-light btn-xl js-scroll-trigger" href="#">Go Notice</a>
+				</div>
+			</div>
+		</div>
+	</section>
+
+
+	<section id="services">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-12 text-center">
+					<h2 class="section-heading">At Your Service</h2>
+					<hr class="my-4">
+				</div>
+			</div>
+		</div>
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-3 col-md-6 text-center">
+					<div class="service-box mt-5 mx-auto">
+						<i class="fa fa-4x fa-diamond text-primary mb-3 sr-icons"></i>
+						<h3 class="mb-3">INFORMATION</h3>
+						<p class="text-muted mb-0">세차가능한 지역과 요금안내</p>
+					</div>
+				</div>
+				<div class="col-lg-3 col-md-6 text-center">
+					<div class="service-box mt-5 mx-auto">
+						<i class="fa fa-4x fa-paper-plane text-primary mb-3 sr-icons"></i>
+						<h3 class="mb-3">RESERVATION</h3>
+						<p class="text-muted mb-0">실시간예약과 예약현황 정보</p>
+					</div>
+				</div>
+				<div class="col-lg-3 col-md-6 text-center">
+					<div class="service-box mt-5 mx-auto">
+						<i class="fa fa-4x fa-newspaper-o text-primary mb-3 sr-icons"></i>
+						<h3 class="mb-3">COMMUNITY</h3>
+						<p class="text-muted mb-0">사용자 간의 다양한 정보공유</p>
+					</div>
+				</div>
+				<div class="col-lg-3 col-md-6 text-center">
+					<div class="service-box mt-5 mx-auto">
+						<i class="fa fa-4x fa-heart text-primary mb-3 sr-icons"></i>
+						<h3 class="mb-3">SERVICE CENTER</h3>
+						<p class="text-muted mb-0">무엇이든지 물어보세요!</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+
+	<section class="bg-dark text-white">
+		<div class="container text-center">
+			<h2 class="mb-4">Check Members' Reviews!</h2>
+			<a class="btn btn-light btn-xl sr-button"
+				href="http://startbootstrap.com/template-overviews/creative/">GO REVIEW</a>
+		</div>
+	</section>
+
+
+	<section id="contact">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-8 mx-auto text-center">
+					<h2 class="section-heading">Let's Get In Touch!</h2>
+					<hr class="my-4">
+					<p class="mb-5">카워시 사이트 방문하시고 좋은 정보 얻으셨나요?<br />
+					손세차 예약이나 궁금한 사항 있으시면 전화 또는 이메일로 문의주세요!</p>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-lg-4 ml-auto text-center">
+					<i class="fa fa-phone fa-3x mb-3 sr-contact"></i>
+					<p>043-222-2222</p>
+				</div>
+				<div class="col-lg-4 mr-auto text-center">
+					<i class="fa fa-envelope-o fa-3x mb-3 sr-contact"></i>
+					<p>
+						<a href="http://www.google.co.kr">carwash@gmail.com</a>
+					</p>
+				</div>
+			</div>
+		</div>
+	</section>
+	<!-- Contents -->
+
+	<!-- Footer -->
+	<jsp:include page="WEB-INF/common/footer.jsp"></jsp:include>
+	<!-- Footer -->
+
+</body>
+
+</html>
