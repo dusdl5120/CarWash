@@ -9,8 +9,10 @@
 <meta name="author" content="">
 <title>CARWASH MAIN</title>
 
+<link rel="icon" href="favicon.ico" type="image/x-icon" />
 <!-- Bootstrap core CSS -->
 <link href="resources/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+<!-- <link href="resources/css/theme-default.css" rel="stylesheet"> -->
 
 <!-- Custom fonts for this template -->
 <link href="resources/vendor/font-awesome/css/font-awesome.min.css"	rel="stylesheet" type="text/css">
@@ -38,133 +40,221 @@
 
 </head>
 
-<body id="page-top">
+<body>
 	<!-- Header -->
 	<jsp:include page="../../../common/header.jsp"></jsp:include>
 	<!-- Header -->
 	
 	<!-- Contents -->
-	<div class="page-content-wrap">
 	
-		<div class="row">
-			<div class="col-md-12">
-				<form class="form-horizontal">
-					<div class="panel panel-default">
-						<div class="panel-body" style="margin-top: 140px;">
-							<p>
-								회원가입 (<b style="color: red;">*</b>표시는 필수 입력항목입니다.)
-							</p>
-						</div>
-						<div class="panel-body form-group-separated">
-	
-							<div class="form-group">
-			                   <div class="col-md-12">
-			                   		<label class="col-md-3 col-xs-12 control-label">아이디</label>
-			                       <input type="text" class="form-control" id="joinId" placeholder="ID를 입력하세요"/>
-			                   </div>
-			               </div>
-			               <div class="form-group">
-			                   <div class="col-md-12">
-			                       <input type="password" class="form-control" id="loginPw" placeholder="비밀번호"/>
-			                   </div>
-			               </div>
-							<div class="form-group">
-								<label class="col-md-3 col-xs-12 control-label">Text
-									Field</label>
-								<div class="col-md-6 col-xs-12">
-									<div class="input-group">
-										<span class="input-group-addon"><span
-											class="fa fa-pencil"></span></span> <input type="text"
-											class="form-control" />
+	<div class="container-fluid" >
+		<div style=''>
+			<div class="container">
+				<div class="row">
+					<div class="col-md-12">
+						<form>
+							<div class="panel">
+								<div class="panel-body">
+									<h4 class="modal-titles fa fa-user">&nbsp;&nbsp;<strong>회원가입</strong>&nbsp;(<b style="color: red;">*</b> 표시는 필수 입력항목입니다.)</h4>
+									<hr class="hr-1">
+								</div>
+								
+								<div id="panel-form">
+			
+									<div class="form-group">
+										<label class="col-md-3 control-label">이름<b style="color: red;">&nbsp;*</b></label>
+										<input type="text" class="form-input-control col-md-9" placeholder="이름을 입력하세요" required />
 									</div>
-									<span class="help-block">This is sample of text field</span>
-								</div>
-							</div>
-	
-							<div class="form-group">
-								<label class="col-md-3 col-xs-12 control-label">Password</label>
-								<div class="col-md-6 col-xs-12">
-									<div class="input-group">
-										<span class="input-group-addon"><span
-											class="fa fa-unlock-alt"></span></span> <input type="password"
-											class="form-control" />
+			
+									<div class="form-group">
+										<label class="col-md-3 control-label">아이디<b style="color: red;">&nbsp;*</b></label>
+										<input type="text" id="form-id" placeholder="ID를 입력하세요" required />
+										<button type="button" class="btn btn-default">중복확인</button>
 									</div>
-									<span class="help-block">Password field sample</span>
-								</div>
-							</div>
-	
-							<div class="form-group">
-								<label class="col-md-3 col-xs-12 control-label">Datepicker</label>
-								<div class="col-md-6 col-xs-12">
-									<div class="input-group">
-										<span class="input-group-addon"><span
-											class="fa fa-calendar"></span></span> <input type="text"
-											class="form-control datepicker" value="2014-11-01">
+			
+									<div class="form-group">
+										<label class="col-md-3 control-label">비밀번호<b style="color: red;">&nbsp;*</b></label>
+										<input type="password" class="form-input-control" placeholder="비밀번호를 입력하세요" required />
 									</div>
-									<span class="help-block">Click on input field to get
-										datepicker</span>
-								</div>
+			
+									<div class="form-group">
+										<label class="col-md-3 control-label">비밀번호 확인<b style="color: red;">&nbsp;*</b></label>
+										<input type="password" class="form-input-control" placeholder="비밀번호를 한번 더 확인하세요" required />
+									</div>
+			
+									<div class="form-group">
+										<label class="col-md-3 control-label">생년월일</label>
+										<select class="select-md6">
+											<option>2000</option>
+											<option>2001</option>
+											<option>2002</option>
+											<option>2003</option>
+										</select>&nbsp;년&nbsp;
+										<select class="select-md6">
+											<option>1</option>
+											<option>2</option>
+											<option>3</option>
+											<option>4</option>
+										</select>&nbsp;월&nbsp;
+										<select class="select-md6">
+											<option>11</option>
+											<option>12</option>
+											<option>13</option>
+											<option>14</option>
+										</select>&nbsp;일
+									</div>
+									
+								    <a class="btn btn-primary" id="joinBtn">가입하기</a> 
+								    <a class="btn btn-primary" id="joinCancle" href="/carwash">취소</a> 
+								</div>	
 							</div>
-	
-							<div class="form-group">
-								<label class="col-md-3 col-xs-12 control-label">Textarea</label>
-								<div class="col-md-6 col-xs-12">
-									<textarea class="form-control" rows="5"></textarea>
-									<span class="help-block">Default textarea field</span>
-								</div>
-							</div>
-	
-							<div class="form-group">
-								<label class="col-md-3 col-xs-12 control-label">Tags</label>
-								<div class="col-md-6 col-xs-12">
-									<input type="text" class="tagsinput" value="First,Second,Third" />
-									<span class="help-block">Default textarea field</span>
-								</div>
-							</div>
-	
-							<div class="form-group">
-								<label class="col-md-3 col-xs-12 control-label">Select</label>
-								<div class="col-md-6 col-xs-12">
-									<select class="form-control select">
-										<option>Option 1</option>
-										<option>Option 2</option>
-										<option>Option 3</option>
-										<option>Option 4</option>
-										<option>Option 5</option>
-									</select> <span class="help-block">Select box example</span>
-								</div>
-							</div>
-	
-							<div class="form-group">
-								<label class="col-md-3 col-xs-12 control-label">File</label>
-								<div class="col-md-6 col-xs-12">
-									<input type="file" class="fileinput btn-primary" name="filename"
-										id="filename" title="Browse file" /> <span class="help-block">Input
-										type file</span>
-								</div>
-							</div>
-	
-							<div class="form-group">
-								<label class="col-md-3 col-xs-12 control-label">Checkbox</label>
-								<div class="col-md-6 col-xs-12">
-									<label class="check"><input type="checkbox"
-										class="icheckbox" checked="checked" /> Checkbox title</label> <span
-										class="help-block">Checkbox sample, easy to use</span>
-								</div>
-							</div>
-	
-						</div>
-						<div class="panel-footer">
-							<button class="btn btn-default">Clear Form</button>
-							<button class="btn btn-primary pull-right">Submit</button>
-						</div>
+						</form>
 					</div>
-				</form>
-	
+				</div>
 			</div>
 		</div>
-	
 	</div>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<!-- <div class="container-fluid">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-12">
+					<form class="form-horizontal">
+						<div class="panel panel-default">
+							<div style="">
+								<div class="panel-body" style="margin-top: 100px; text-align: center;">
+									<h4 class="modal-titles fa fa-user" style="margin-top: 30px;">&nbsp;&nbsp;<strong>회원가입</strong>&nbsp;(<b style="color: red;">*</b> 표시는 필수 입력항목입니다.)</h4>
+									<hr class="my-4" style="width: 40%;">
+								</div>
+								<div class="panel-body form-group-separated" id="panel-form">
+		
+									<div class="form-group">
+										<label class="col-md-3 control-label">이름<b style="color: red;">&nbsp;*</b></label>
+										<input type="text" class="form-input-control col-md-9" placeholder="이름을 입력하세요" required />
+									</div>
+			
+									<div class="form-group">
+										<label class="col-md-3 control-label">아이디<b style="color: red;">&nbsp;*</b></label>
+										<input type="text" id="form-id" placeholder="ID를 입력하세요" required />
+										<button type="button" class="btn btn-default">중복확인</button>
+									</div>
+			
+									<div class="form-group">
+										<label class="col-md-3 control-label">비밀번호<b style="color: red;">&nbsp;*</b></label>
+										<input type="password" class="form-input-control" placeholder="비밀번호를 입력하세요" required />
+									</div>
+			
+									<div class="form-group">
+										<label class="col-md-3 control-label">비밀번호 확인<b style="color: red;">&nbsp;*</b></label>
+										<input type="password" class="form-input-control" placeholder="비밀번호를 한번 더 확인하세요" required />
+									</div>
+			
+									<div class="form-group">
+										<label class="col-md-3 control-label">생년월일</label>
+										<select class="select-md6">
+											<option>2000</option>
+											<option>2001</option>
+											<option>2002</option>
+											<option>2003</option>
+										</select>&nbsp;년&nbsp;
+										<select class="select-md6">
+											<option>1</option>
+											<option>2</option>
+											<option>3</option>
+											<option>4</option>
+										</select>&nbsp;월&nbsp;
+										<select class="select-md6">
+											<option>11</option>
+											<option>12</option>
+											<option>13</option>
+											<option>14</option>
+										</select>&nbsp;일
+									</div>
+									
+									<div style="margin-right: 135px;">	
+										<div class="form-group">
+											<label class="col-md-3 control-label" id="label-addr">주소<b style="color: red;">&nbsp;*</b></label>
+											<input type="text" class="form-addr" id="input-addr" disabled/>
+											<button type="button" class="btn btn-default">우편번호</button>
+										</div>
+									</div>
+									
+									<div class="form-group">
+										<label class="col-md-3 control-label" id="label-detail-addr">상세주소<b style="color: red;">&nbsp;*</b></label>
+										<input type="text" class="form-addr" id="input-detail-addr1" /><input type="text" class="form-addr" id="input-detail-addr2"style="margin-left:5px;" />
+									</div>
+									
+									<div style="margin-right: -10px;">	
+										<div class="form-group">
+											<label class="col-md-3 control-label">전화번호<b style="color: red;">&nbsp;&nbsp;*</b></label>
+											<select class="select-md6">
+												<option>02</option>
+												<option>031</option>
+												<option>032</option>
+												<option>041</option>
+												<option>042</option>
+												<option>043</option>
+											</select>&nbsp;&nbsp;-&nbsp;&nbsp;
+											<input type="text" class="form-addr" id="input-tel1" maxlength="4"/>&nbsp;-&nbsp;
+											<input type="text" class="form-addr" id="input-tel2" maxlength="4"/>
+										</div>
+									</div>
+									
+									<div style="margin-right: -10px;">	
+										<div class="form-group">
+											<label class="col-md-3 control-label">휴대전화<b style="color: red;">&nbsp;&nbsp;*</b></label>
+											<select class="select-md6">
+												<option>010</option>
+												<option>011</option>
+												<option>016</option>
+												<option>017</option>
+												<option>018</option>
+												<option>019</option>
+											</select>&nbsp;&nbsp;-&nbsp;&nbsp;
+											<input type="text" class="form-addr" id="input-phone1" maxlength="4"/>&nbsp;-&nbsp;
+											<input type="text" class="form-addr" id="input-phone2" maxlength="4"/>
+										</div>
+									</div>
+									
+									<div class="form-group">
+										<label class="col-md-3 control-label">이메일주소<b style="color: red;">&nbsp;&nbsp;</b></label>
+										<input type="email" class="form-input-control" placeholder="이메일주소를 입력하세요" />
+									</div>
+	
+									<div style="margin-right: 291px;">	
+										<div class="form-group">
+											<label class="col-md-3 col-xs-12 control-label" style="padding-right: 2px; margin-right: 24px;">수신여부</label>
+											<label class="check"><input type="checkbox" class="icheckbox" id="chkSms"/>&nbsp;SMS</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+											<label class="check"><input type="checkbox" class="icheckbox" id="chkEmail"/>&nbsp;이메일</label> 
+										</div>
+									</div>
+									
+								    <a class="btn btn-primary" id="joinBtn">가입하기</a> 
+								    <a class="btn btn-primary" id="joinCancle" href="/carwash">취소</a> 
+									
+								</div>
+							</div>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div> -->
 	
 	<!-- Contents -->
 	
@@ -173,5 +263,43 @@
 	<!-- Footer -->
 
 </body>
+
+<script>
+$(function() {
+	
+	$('#chkSms').prop('checked', true); 	// SMS 수신여부 Checks
+	$('#chkSms').prop('checked', false); 	// SMS 수신여부 Unchecks
+
+	$('#chkEmail').prop('checked', true); 	// 이메일 수신여부 Checks
+	$('#chkEmail').prop('checked', false); 	// 이메일 수신여부 Unchecks
+	
+	
+	// 휴대폰번호 숫자만 입력
+	$("#input-phone1").keyup(function(){							
+		$(this).val( $(this).val().replace(/[^0-9]/g,"") );		// 첫번째 input 박스
+	});		
+
+	$("#input-phone2").keyup(function(){
+		$(this).val( $(this).val().replace(/[^0-9]/g,"") );		// 두번째 input 박스
+	});
+	
+	
+	// 전화번호 숫자만 입력
+	$("#input-tel1").keyup(function(){							// 첫번째 input 박스
+		$(this).val( $(this).val().replace(/[^0-9]/g,"") );
+	});
+
+	$("#input-tel2").keyup(function(){
+		$(this).val( $(this).val().replace(/[^0-9]/g,"") );		// 두번째 input 박스
+	});
+
+	
+});
+
+
+</script>
+
 </html>
+
+
 

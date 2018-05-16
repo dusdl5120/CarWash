@@ -57,6 +57,9 @@ html {
   padding-left: 15px;
   margin-right: auto;
   margin-left: auto;
+  background-color: #e5e5e5; 
+  margin-top: 100px; 
+  height: 900px;
 }
 
 .row {

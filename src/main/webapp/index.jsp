@@ -38,13 +38,14 @@
 
 <!--  Custom styles for this template -->
 <link href="resources/css/creative.min.css" rel="stylesheet">
-</head>
 
-<body id="page-top">
-	
 	<!-- Header -->
 	<jsp:include page="WEB-INF/common/header.jsp"></jsp:include>
 	<!-- Header -->
+	
+</head>
+
+<body id="page-top">
 
 	<!-- Contents -->
 	<header class="masthead text-center text-white d-flex">
@@ -63,7 +64,7 @@
 			<div class="row">
 				<div class="col-lg-8 mx-auto text-center">
 					<h2 class="section-heading text-white">세차에 대한 모든 것?!</h2>
-					<hr class="light my-4">
+					<hr class="light my-4" style="width: 50%;">
 					<p class="text-faded mb-4">[공지] 가을맞이 카워시 홈페이지 오픈!!</p>
 					<a class="btn btn-light btn-xl js-scroll-trigger" href="#">☞&nbsp; 공지사항</a>
 				</div>
@@ -77,7 +78,7 @@
 			<div class="row">
 				<div class="col-lg-12 text-center">
 					<h2 class="section-heading">CARWASH의 서비스!</h2>
-					<hr class="my-4">
+					<hr class="my-4" style="width: 90%;">
 				</div>
 			</div>
 		</div>
@@ -129,7 +130,7 @@
 			<div class="row">
 				<div class="col-lg-8 mx-auto text-center">
 					<h2 class="section-heading">관리자에게 물어보세요!</h2>
-					<hr class="my-4">
+					<hr class="my-4" style="width: 60%;">
 					<p class="mb-5">카워시 사이트 방문하시고 좋은 정보 얻으셨나요?<br />
 					손세차 예약이나 궁금한 사항 있으시면 전화 또는 이메일로 문의주세요!</p>
 				</div>
@@ -150,10 +151,13 @@
 	</section>
 	<!-- Contents -->
 
+</body>
+
+<footer>
 	<!-- Footer -->
 	<jsp:include page="WEB-INF/common/footer.jsp"></jsp:include>
 	<!-- Footer -->
+</footer>
 
-</body>
 
 </html>
