@@ -11,7 +11,7 @@
 
 <link rel="icon" href="favicon.ico" type="image/x-icon" />
 <!-- Bootstrap core CSS -->
-<link href="resources/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+<link href="resources/vendor/bootstrap/css/bootstrap.css" rel="stylesheet">
 <!-- <link href="resources/css/theme-default.css" rel="stylesheet"> -->
 
 <!-- Custom fonts for this template -->
@@ -46,79 +46,99 @@
 	<!-- Header -->
 	
 	<!-- Contents -->
-	
-	<div class="container-fluid" >
-		<div style=''>
-			<div class="container">
-				<div class="row">
-					<div class="col-md-12">
-						<form>
-							<div class="panel">
-								<div class="panel-body">
-									<h4 class="modal-titles fa fa-user">&nbsp;&nbsp;<strong>회원가입</strong>&nbsp;(<b style="color: red;">*</b> 표시는 필수 입력항목입니다.)</h4>
-									<hr class="hr-1">
-								</div>
-								
-								<div id="panel-form">
-			
-									<div class="form-group">
-										<label class="col-md-3 control-label">이름<b style="color: red;">&nbsp;*</b></label>
-										<input type="text" class="form-input-control col-md-9" placeholder="이름을 입력하세요" required />
-									</div>
-			
-									<div class="form-group">
-										<label class="col-md-3 control-label">아이디<b style="color: red;">&nbsp;*</b></label>
-										<input type="text" id="form-id" placeholder="ID를 입력하세요" required />
-										<button type="button" class="btn btn-default">중복확인</button>
-									</div>
-			
-									<div class="form-group">
-										<label class="col-md-3 control-label">비밀번호<b style="color: red;">&nbsp;*</b></label>
-										<input type="password" class="form-input-control" placeholder="비밀번호를 입력하세요" required />
-									</div>
-			
-									<div class="form-group">
-										<label class="col-md-3 control-label">비밀번호 확인<b style="color: red;">&nbsp;*</b></label>
-										<input type="password" class="form-input-control" placeholder="비밀번호를 한번 더 확인하세요" required />
-									</div>
-			
-									<div class="form-group">
-										<label class="col-md-3 control-label">생년월일</label>
-										<select class="select-md6">
-											<option>2000</option>
-											<option>2001</option>
-											<option>2002</option>
-											<option>2003</option>
-										</select>&nbsp;년&nbsp;
-										<select class="select-md6">
-											<option>1</option>
-											<option>2</option>
-											<option>3</option>
-											<option>4</option>
-										</select>&nbsp;월&nbsp;
-										<select class="select-md6">
-											<option>11</option>
-											<option>12</option>
-											<option>13</option>
-											<option>14</option>
-										</select>&nbsp;일
-									</div>
-									
-								    <a class="btn btn-primary" id="joinBtn">가입하기</a> 
-								    <a class="btn btn-primary" id="joinCancle" href="/carwash">취소</a> 
-								</div>	
-							</div>
-						</form>
-					</div>
+
+	<div class="container-fluid">
+		<div class="container">
+			<div class="row"> <!--  col-md-9 col-md-offset-3 -->
+				
+				<div class="col-md-4 " style="background-color: skyblue;"></div>
+				<div class="col-md-4" style="text-align: center;">
+					<h4 class="modal-titles fa fa-user">&nbsp;&nbsp;<strong>회원가입</strong>&nbsp;(<b style="color: red;">*</b>표시는 필수 입력항목입니다.)</h4>
 				</div>
+				<div class="col-md-4" style="background-color: green;"></div>
+				
+					<br><br>
+				
+				<hr class="hr-1">
+
+				
+				
+					
 			</div>
 		</div>
 	</div>
-	
-	
-	
-	
-	
+
+
+
+
+	<!-- form 태그 이전
+	<div class="panel">
+		<div class="panel-body">
+			<h4 class="modal-titles fa fa-user">&nbsp;&nbsp;<strong>회원가입</strong>&nbsp;(<b style="color: red;">*</b> 표시는 필수 입력항목입니다.)</h4>
+			<hr class="hr-1">
+			
+			<div class="form-group row">
+			    <label for="inputName" class="col-md-2 col-form-label">이름<b style="color: red;">&nbsp;*</b></label>
+			    <div class="col-md-4">
+			      <input type="text" class="form-control" id="inputName" placeholder="이름을 입력하세요">
+			    </div>
+			</div>
+			
+			<div class="form-group row">
+			    <label for="inputId" class="col-md-2 col-form-label">아이디<b style="color: red;">&nbsp;*</b></label>
+			    <div class="col-md-3">
+			      <input type="text" class="form-control" id="inputId" placeholder="아이디를 입력하세요">							      
+			    </div>
+			    <button type="button" class="btn btn-default">중복확인</button>
+			</div>
+			
+			<div class="form-group row">
+			    <label for="inputPassword" class="col-md-2 col-form-label">비밀번호<b style="color: red;">&nbsp;*</b></label>
+			    <div class="col-md-4">
+			      <input type="password" class="form-control" id="inputPassword1" placeholder="비밀번호를 입력하세요">
+			    </div>
+			</div>
+			
+			<div class="form-group row">
+			    <label for="inputPassword" class="col-md-2 col-form-label">비밀번호 확인<b style="color: red;">&nbsp;*</b></label>
+			    <div class="col-md-4">
+			      <input type="password" class="form-control" id="inputPassword2" placeholder="비밀번호를 한번 더 입력하세요">
+			    </div>
+			</div>
+			
+			<div class="form-group row">
+				<label class="col-md-4 control-label">생년월일</label>
+                            <div class="col-md-3">                                                                                            
+                                <select class="form-control select">
+                                    <option>Option 1</option>
+                                    <option>Option 2</option>
+                                    <option>Option 3</option>
+                                    <option>Option 4</option>
+                                    <option>Option 5</option>
+                                </select>&nbsp;년&nbsp;
+                                <select class="form-control select">
+                                    <option>Option 1</option>
+                                    <option>Option 2</option>
+                                    <option>Option 3</option>
+                                    <option>Option 4</option>
+                                    <option>Option 5</option>
+                                </select>&nbsp;월&nbsp;
+                                <select class="form-control select">
+                                    <option>Option 1</option>
+                                    <option>Option 2</option>
+                                    <option>Option 3</option>
+                                    <option>Option 4</option>
+                                    <option>Option 5</option>
+                                </select>&nbsp;일
+                            </div>
+                        </div>
+			
+			<a class="btn btn-primary" id="joinBtn">가입하기</a> 
+		    <a class="btn btn-primary" id="joinCancle" href="/carwash">취소</a> 
+			
+		</div>
+	</div>
+	 -->
 	
 	
 	
@@ -143,48 +163,6 @@
 								</div>
 								<div class="panel-body form-group-separated" id="panel-form">
 		
-									<div class="form-group">
-										<label class="col-md-3 control-label">이름<b style="color: red;">&nbsp;*</b></label>
-										<input type="text" class="form-input-control col-md-9" placeholder="이름을 입력하세요" required />
-									</div>
-			
-									<div class="form-group">
-										<label class="col-md-3 control-label">아이디<b style="color: red;">&nbsp;*</b></label>
-										<input type="text" id="form-id" placeholder="ID를 입력하세요" required />
-										<button type="button" class="btn btn-default">중복확인</button>
-									</div>
-			
-									<div class="form-group">
-										<label class="col-md-3 control-label">비밀번호<b style="color: red;">&nbsp;*</b></label>
-										<input type="password" class="form-input-control" placeholder="비밀번호를 입력하세요" required />
-									</div>
-			
-									<div class="form-group">
-										<label class="col-md-3 control-label">비밀번호 확인<b style="color: red;">&nbsp;*</b></label>
-										<input type="password" class="form-input-control" placeholder="비밀번호를 한번 더 확인하세요" required />
-									</div>
-			
-									<div class="form-group">
-										<label class="col-md-3 control-label">생년월일</label>
-										<select class="select-md6">
-											<option>2000</option>
-											<option>2001</option>
-											<option>2002</option>
-											<option>2003</option>
-										</select>&nbsp;년&nbsp;
-										<select class="select-md6">
-											<option>1</option>
-											<option>2</option>
-											<option>3</option>
-											<option>4</option>
-										</select>&nbsp;월&nbsp;
-										<select class="select-md6">
-											<option>11</option>
-											<option>12</option>
-											<option>13</option>
-											<option>14</option>
-										</select>&nbsp;일
-									</div>
 									
 									<div style="margin-right: 135px;">	
 										<div class="form-group">
