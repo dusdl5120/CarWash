@@ -20,8 +20,8 @@
 
 	<!-- Resolves views selected for rendering by @Controllers to .jsp resources in the /WEB-INF/views directory -->
 	<beans:bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
-		<beans:property name="prefix" value="/" />			<!-- 이 경로를 /로만 해주면 : wepapp폴더부터 시작. 그러면 다른 폴더에 있는 jsp를 실행할수 있고,  -->
-		<beans:property name="suffix" value=".jsp" />		<!-- views폴더 이외의 jsp를 실행하고 싶으면 컨트롤러에서 /WEB-INF/common/ ~~ .jsp 등으로 경로를 지정해줘야함 -->
+		<beans:property name="prefix" value="/WEB-INF/views" />			<!-- 이 경로를 /로만 해주면 : wepapp폴더부터 시작. 그러면 다른 폴더에 있는 jsp를 실행할수 있고,  -->
+		<beans:property name="suffix" value=".jsp" />					<!-- views폴더 이외의 jsp를 실행하고 싶으면 컨트롤러에서 /WEB-INF/common/ ~~ .jsp 등으로 경로를 지정해줘야함 -->
 	</beans:bean>
 	
 	<context:component-scan base-package="kr.green.carwash" />

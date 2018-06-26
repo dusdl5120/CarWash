@@ -1,4 +1,4 @@
-package kr.green.carwash;
+package kr.green.carwash.controller;
 
 import java.text.DateFormat;
 import java.util.Date;
@@ -31,11 +31,6 @@ public class HomeController {
 		return "index";
 	}
 	
-	// Join ÆûÈ­¸é
-	@RequestMapping(value="/join", method= RequestMethod.GET)
-	public String joinForm() {
-		
-		return "WEB-INF/views/user/join/join";
-	}
+	
 	
 }

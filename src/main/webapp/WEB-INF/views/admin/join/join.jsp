@@ -11,32 +11,32 @@
 
 <link rel="icon" href="favicon.ico" type="image/x-icon" />
 <!-- Bootstrap core CSS -->
-<link href="resources/vendor/bootstrap/css/bootstrap.css" rel="stylesheet">
+<link href="../resources/vendor/bootstrap/css/bootstrap.css" rel="stylesheet">
 <!-- <link href="resources/css/theme-default.css" rel="stylesheet"> -->
 
 <!-- Custom fonts for this template -->
-<link href="resources/vendor/font-awesome/css/font-awesome.min.css"	rel="stylesheet" type="text/css">
+<link href="../resources/vendor/font-awesome/css/font-awesome.min.css"	rel="stylesheet" type="text/css">
 <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
 <link href='https://fonts.googleapis.com/css?family=Merriweather:400,300,300italic,400italic,700,700italic,900,900italic' rel='stylesheet' type='text/css'>
 
 <!-- Bootstrap core JavaScript -->
-<script src="resources/vendor/jquery/jquery.min.js"></script>
-<script src="resources/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-<script src="resources/vendor/bootstrap/js/bootstrap.min.js"></script>
+<script src="../resources/vendor/jquery/jquery.min.js"></script>
+<script src="../resources/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="../resources/vendor/bootstrap/js/bootstrap.min.js"></script>
 
 <!-- Plugin JavaScript -->
-<script src="resources/vendor/jquery-easing/jquery.easing.min.js"></script>
-<script src="resources/vendor/scrollreveal/scrollreveal.min.js"></script>
-<script src="resources/vendor/magnific-popup/jquery.magnific-popup.min.js"></script>
+<script src="../resources/vendor/jquery-easing/jquery.easing.min.js"></script>
+<script src="../resources/vendor/scrollreveal/scrollreveal.min.js"></script>
+<script src="../resources/vendor/magnific-popup/jquery.magnific-popup.min.js"></script>
 
 <!-- Custom scripts for this template -->
-<script src="resources/js/creative.min.js"></script>
+<script src="../resources/js/creative.min.js"></script>
 
 <!-- Plugin CSS -->
-<link href="resources/vendor/magnific-popup/magnific-popup.css" rel="stylesheet">
+<link href="../resources/vendor/magnific-popup/magnific-popup.css" rel="stylesheet">
 
 <!-- Custom styles for this template -->
-<link href="resources/css/creative.min.css" rel="stylesheet">
+<link href="../resources/css/creative.min.css" rel="stylesheet">
 
 </head>
 

@@ -23,7 +23,7 @@
 			</ul>
 			<ul class="navbar-nav ml-auto">
 				<li class="nav-item"><a class="nav-link js-scroll-trigger" data-toggle="modal" href="#loginModal" style="magrin-left: 50px;">Login</a></li>
-				<li class="nav-item"><a class="nav-link js-scroll-trigger" href="join">Join</a></li>
+				<li class="nav-item"><a class="nav-link js-scroll-trigger" href="/carwash/admin/join">Join</a></li>
 			</ul>
 		</div>
 	</div>
