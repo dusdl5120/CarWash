@@ -15,22 +15,22 @@
 	
 	<bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
 		<property name="driverClassName" value="com.mysql.cj.jdbc.Driver"></property>
-		<property name="url" value="jdbc:mysql://localhost:3306/egovweb?useSSL=false&amp;serverTimezone=UTC"></property>
+		<property name="url" value="jdbc:mysql://localhost:3306/carwash?useSSL=false&amp;serverTimezone=UTC"></property>
 		<property name="username" value="root"></property>
 		<property name="password" value="cjgreen"></property>
 	</bean>  
 	
-	<!-- <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+	<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
 	    <property name="dataSource" ref="dataSource" />
-	    <property name="mapperLocations" value="classpath:mappers/**/*Mapper.xml"></property>
+	    <property name="mapperLocations" value="classpath:mappers/admin/**/*Mapper.xml"></property>
 	</bean>
 	
-	<bean id="Mapper" class="org.mybatis.spring.mapper.MapperFactoryBean">
-	    <property name="mapperInterface" value="kr.green.carwash.dao.Mapper"></property>
+	<bean id="adminNoticeMapper" class="org.mybatis.spring.mapper.MapperFactoryBean">
+	    <property name="mapperInterface" value="kr.green.carwash.dao.admin.Mapper"></property>
 	    <property name="sqlSessionFactory" ref="sqlSessionFactory"></property>
-	</bean> -->
+	</bean> 
 	
 	
-	<mybatis-spring:scan base-package="kr.green.carwash.controller.dao"/>
+	<mybatis-spring:scan base-package="kr.green.carwash.controller.dao.admin"/>
 		
 </beans>

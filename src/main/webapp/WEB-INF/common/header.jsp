@@ -16,14 +16,14 @@
 		<div class="collapse navbar-collapse" id="navbarResponsive">
 			<ul class="navbar-nav ml-auto">
 				<li class="nav-item"><a class="nav-link js-scroll-trigger" href="/carwash">Home</a></li>
-				<li class="nav-item"><a class="nav-link js-scroll-trigger" href="#">공지사항</a></li>
+				<li class="nav-item"><a class="nav-link js-scroll-trigger" href="/carwash/admin/notice/list">공지사항</a></li>
 				<li class="nav-item"><a class="nav-link js-scroll-trigger" href="#">이용안내</a></li>
 				<li class="nav-item"><a class="nav-link js-scroll-trigger" href="#">예약하기</a></li>
 				<li class="nav-item"><a class="nav-link js-scroll-trigger" href="#">자유게시판</a></li>
 			</ul>
 			<ul class="navbar-nav ml-auto">
 				<li class="nav-item"><a class="nav-link js-scroll-trigger" data-toggle="modal" href="#loginModal" style="magrin-left: 50px;">Login</a></li>
-				<li class="nav-item"><a class="nav-link js-scroll-trigger" href="/carwash/admin/join">Join</a></li>
+				<li class="nav-item"><a class="nav-link js-scroll-trigger" href="/carwash/admin/member/join">Join</a></li>
 			</ul>
 		</div>
 	</div>

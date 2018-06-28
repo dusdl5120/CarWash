@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="kr.green.carwash.dao.admin.adminNoticeMapper">
+
+	<select id="listPage" resultType="kr.green.carwash.vo.admin.AdminBoardVO">
+		SELECT 
+			*
+		FROM
+			carwash_orig_bkup
+		limit #{cri.pageStart}, #{cri.perPageNum}
+	</select>
+	
+	<select id="countNotice" resultType="int">
+		SELECT
+			COUNT(*)
+		FROM 
+			carwash_orig_bkup
+	</select>
+
+
+</mapper>

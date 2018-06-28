@@ -66,7 +66,7 @@
 					<h2 class="section-heading text-white">세차에 대한 모든 것?!</h2>
 					<hr class="light my-4" style="width: 50%;">
 					<p class="text-faded mb-4">[공지] 가을맞이 카워시 홈페이지 오픈!!</p>
-					<a class="btn btn-light btn-xl js-scroll-trigger" href="#">☞&nbsp; 공지사항</a>
+					<a class="btn btn-light btn-xl js-scroll-trigger" href="admin/notice/list">☞&nbsp; 공지사항</a>
 				</div>
 			</div>
 		</div>
