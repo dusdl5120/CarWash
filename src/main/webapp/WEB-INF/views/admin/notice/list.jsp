@@ -67,18 +67,17 @@
 							<th>제목</th>
 							<th>작성자</th>
 							<th>작성일시</th>
-							<th>조회수</th>
 						</tr>
 					</thead>
 					<tbody>
-						<tr>
-							<td>Tiger Nixon</td>
-							<td>System Architect</td>
-							<td>Edinburgh</td>
-							<td>61</td>
-							<td>2011/04/25</td>
-							<td>$320,800</td>
-						</tr>
+						<c:forEach var="list" items="${list}" varStatus="status">
+							<tr>
+								<td>${list.id }</td>
+								<td>${list.title }</td> 
+								<td>${list.registered_id }</td>
+								<td>${list.registered_date }</td>
+							</tr>
+						</c:forEach>
 					</tbody>
 				</table>
 	
