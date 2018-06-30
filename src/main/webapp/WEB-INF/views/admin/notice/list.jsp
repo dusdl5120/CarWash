@@ -60,13 +60,13 @@
 				
 				<hr class="hr-2">
 
-				<table class="table datatable">
+				<table class="table" style="text-align: center;">
 					<thead>
 						<tr>
-							<th>순번</th>
-							<th>제목</th>
-							<th>작성자</th>
-							<th>작성일시</th>
+							<th style="width: 10%;">순번</th>
+							<th style="width: 50%;">제목</th>
+							<th style="width: 10%;">작성자</th>
+							<th style="width: 30%;">작성일시</th>
 						</tr>
 					</thead>
 					<tbody>
@@ -80,9 +80,9 @@
 						</c:forEach>
 					</tbody>
 				</table>
-	
-				<button type="button" class="btn btn-dark" style="float: right; margin-top: 50px;" onclick="location.href='/board/insert'">등록</button>	
 			</div>
+			
+			<button type="button" class="btn btn-dark" style="float: right; margin-top: 50px;" onclick="location.href='/board/insert'">등록</button>	
 			
 			<ul class="pagination"  style="justify-content: center;">
 				<c:if test="${pageMaker.prev}">

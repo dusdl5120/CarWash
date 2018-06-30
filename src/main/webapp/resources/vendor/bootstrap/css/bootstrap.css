@@ -580,11 +580,15 @@ pre code {
 
 .container-fluid {
   width: 100%;
+  height: 85%;
 	margin-top: 3%;
-	margin-bottom: 2%;
+	/* margin-bottom: 2%; */
 	background-color: #ebedef;
 	margin-right: auto;
 	margin-left: auto;
+	-webkit-justify-content: center;
+	text-align: -webkit-center;
+	font-family: 'Open Sans', 'Helvetica Neue', Arial, sans-serif;
 }
 
 .row {

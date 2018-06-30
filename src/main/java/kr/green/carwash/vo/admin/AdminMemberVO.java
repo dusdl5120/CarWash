@@ -1,5 +1,7 @@
 package kr.green.carwash.vo.admin;
 
+import java.util.Date;
+
 public class AdminMemberVO {
 
 	private String id;								// 세차장정보 일련번호
@@ -9,14 +11,13 @@ public class AdminMemberVO {
 	private String water_quality_permi_num;			// 수질허가번호
 	private String road_name_addr;					// 소재지도로명주소	
 	private String carwash_type;					// 세차유형
+	private String phoneNumber;						// 휴대폰번호
 	private String busin_place_tele_num;			// 사업장전화번호
 	private String closed_date;						// 휴무일
 	private String registered_id;					// 등록자ID
 	private String updated_id;						// 수정자ID
-	private String registered_date;					// 등록일시
-	private String updated_date;					// 수정일시
-	
-	
+	private Date registered_date;					// 등록일시
+	private Date updated_date;						// 수정일시
 	public String getId() {
 		return id;
 	}
@@ -59,6 +60,12 @@ public class AdminMemberVO {
 	public void setCarwash_type(String carwash_type) {
 		this.carwash_type = carwash_type;
 	}
+	public String getPhoneNumber() {
+		return phoneNumber;
+	}
+	public void setPhoneNumber(String phoneNumber) {
+		this.phoneNumber = phoneNumber;
+	}
 	public String getBusin_place_tele_num() {
 		return busin_place_tele_num;
 	}
@@ -83,25 +90,27 @@ public class AdminMemberVO {
 	public void setUpdated_id(String updated_id) {
 		this.updated_id = updated_id;
 	}
-	public String getRegistered_date() {
+	public Date getRegistered_date() {
 		return registered_date;
 	}
-	public void setRegistered_date(String registered_date) {
+	public void setRegistered_date(Date registered_date) {
 		this.registered_date = registered_date;
 	}
-	public String getUpdated_date() {
+	public Date getUpdated_date() {
 		return updated_date;
 	}
-	public void setUpdated_date(String updated_date) {
+	public void setUpdated_date(Date updated_date) {
 		this.updated_date = updated_date;
 	}
 	
-	
-	
-	
-	
-	
-	
+	@Override
+	public String toString() {
+		return "AdminMemberVO [id=" + id + ", busin_place_name=" + busin_place_name + ", busin_place_code_name=" + busin_place_code_name 
+				+ ", ceo_name=" + ceo_name + ", water_quality_permi_num=" + water_quality_permi_num + ", road_name_addr=" + road_name_addr 
+				+ ", carwash_type=" + carwash_type + ", phoneNumber=" + phoneNumber + ", busin_place_tele_num=" + busin_place_tele_num 
+				+ ", closed_date=" + closed_date + ", registered_id=" + registered_id + ", updated_id=" + updated_id 
+				+ ", registered_date=" + registered_date + ", updated_date=" + updated_date + "]";
+	}
 	
 }
 
