@@ -70,7 +70,7 @@
 	                    <div class="col-md-8">                                            
 	                        <div class="input-group">
 	                            <span class="input-group-addon"><span class="fa fa-pencil"></span></span>
-	                            <input type="text" class="form-control"/>
+	                            <input type="text" class="form-control" name="registered_id"/>
 	                        </div>                                            
 	                    </div>
 	                </div>
@@ -80,7 +80,7 @@
 	                    <div class="col-md-8">                                            
 	                        <div class="input-group">
 	                            <span class="input-group-addon"><span class="fa fa-pencil"></span></span>
-	                            <input type="text" class="form-control"/>
+	                            <input type="text" class="form-control" name="title"/>
 	                        </div>                                            
 	                    </div>
 	                </div>
@@ -90,7 +90,7 @@
 	                    <div class="col-md-8">                                            
 	                        <div class="input-group">
 	                            <span class="input-group-addon"><span class="fa fa-pencil"></span></span>
-	                            <textarea class="form-control"></textarea>
+	                            <textarea class="form-control" name="contents"></textarea>
 	                        </div>                                            
 	                    </div>
 	                </div>

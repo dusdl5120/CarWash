@@ -11,6 +11,6 @@ public interface AdminMapper {
 
 	public List<AdminBoardVO> noticeListPage(Criteria cri) throws Exception;
 	public int countNotice(Criteria cri);
-	public String noticeInsert(AdminBoardVO adBoardVO) throws Exception;
+	public void noticeInsert(AdminBoardVO adBoardVO) throws Exception;
 
 }

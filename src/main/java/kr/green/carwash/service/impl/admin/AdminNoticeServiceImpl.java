@@ -28,8 +28,9 @@ public class AdminNoticeServiceImpl implements AdminNoticeService {
 	}
 
 	@Override
-	public String noticeInsert(AdminBoardVO adBoardVO) throws Exception {
-		return adminMapper.noticeInsert(adBoardVO);
+	public void noticeInsert(AdminBoardVO adBoardVO) throws Exception {
+		adminMapper.noticeInsert(adBoardVO);
 	}
+	
 	
 }
