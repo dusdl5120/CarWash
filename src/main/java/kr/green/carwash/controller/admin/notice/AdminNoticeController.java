@@ -52,9 +52,9 @@ public class AdminNoticeController {
 	@RequestMapping(value="/insert", method=RequestMethod.POST)
 	public String noticeInsertPost(Model model, Criteria cri, AdminBoardVO adBoardVO, String title, String contents, String registered_id) throws Exception {
 		
-		adBoardVO.setTitle(title);
-		adBoardVO.setContents(contents);
-		adBoardVO.setRegistered_id(registered_id);;
+		adBoardVO.setTitle("hehe");
+		adBoardVO.setContents("zzzzzzzzz");
+		adBoardVO.setRegistered_id("1313");;
 		
 		adminNoticeService.noticeInsert(adBoardVO);
 		
