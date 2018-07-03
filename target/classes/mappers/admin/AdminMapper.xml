@@ -9,7 +9,7 @@
 		FROM
 			board_carwash
 		ORDER BY ID DESC
-		LIMIT #{cri.pageStart}, #{cri.perPageNum}
+		LIMIT #{pageStart}, #{perPageNum}
 	</select>
 	
 	<select id="countNotice" resultType="int">
@@ -19,5 +19,19 @@
 			board_carwash
 	</select>
 
+	<insert id="noticeInsert" parameterType="kr.green.carwash.vo.admin.AdminBoardVO"> 
+		INSERT INTO board_carwash (
+			title
+			, contents
+			, registered_id
+			, registered_date
+		)VALUES(
+			#{title}
+			, #{contents}
+			, #{registered_id}
+			, now()
+		)
+			
+	</insert>
 
 </mapper>
