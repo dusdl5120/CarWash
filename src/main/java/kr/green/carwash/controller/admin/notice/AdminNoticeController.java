@@ -60,7 +60,7 @@ public class AdminNoticeController {
 		
 		System.out.println("title : " + adBoardVO.getTitle() + ", contents : " + adBoardVO.getContents() + " , regi_id : " + adBoardVO.getRegistered_id()); 
 		
-		return "redirect:/admin/notice/list";
+		return "redirect:/admin/notice/list"; 
 	}
 	
 	
