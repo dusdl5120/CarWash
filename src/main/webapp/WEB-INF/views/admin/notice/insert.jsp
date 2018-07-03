@@ -91,7 +91,7 @@
 	                        <div class="input-group">
 	                            <span class="input-group-addon"><span class="fa fa-pencil"></span></span>
 	                            <textarea class="form-control" name="contents"></textarea>
-	                        </div>                                             
+	                        </div>                                            
 	                    </div>
 	                </div>
 	            </div>

@@ -31,6 +31,6 @@ public class AdminNoticeServiceImpl implements AdminNoticeService {
 	public void noticeInsert(AdminBoardVO adBoardVO) throws Exception {
 		adminMapper.noticeInsert(adBoardVO);
 	}
-	 
+	
 	
 }
