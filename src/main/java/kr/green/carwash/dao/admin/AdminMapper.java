@@ -7,9 +7,9 @@ import org.apache.ibatis.annotations.Param;
 import kr.green.carwash.common.pagination.Criteria;
 import kr.green.carwash.vo.admin.AdminBoardVO;
 
-public interface AdminNoticeMapper {
+public interface AdminMapper {
 
 	public int countNotice();
-	public List<AdminBoardVO> listPage(@Param("cri") Criteria cri); 
+	public List<AdminBoardVO> noticeListPage(@Param("cri") Criteria cri); 
 
 }

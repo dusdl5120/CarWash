@@ -243,9 +243,6 @@ header.masthead p {
 	background-color: #c0c0c0 !important
 }
 
-/* .btn-primary:active,.btn-primary:focus{
-	box-shadow:0 0 0 10px #6F6565!important
-} */
 .logo {
 	font-weight: 700;
 	text-transform: uppercase;
@@ -318,56 +315,6 @@ header.masthead p {
 	text-align: right;
 }
 
-.form-labels {
-	height: 30px;
-	width: 50px;
-	font-size: 15px;
-	line-height: 18px;
-	-moz-box-shadow: none;
-	-webkit-box-shadow: none;
-	box-shadow: none;
-	-webkit-appearance: none;
-	font-weight: 600;
-	font-family: 'Open Sans', 'Helvetica Neue', Arial, sans-serif;
-}
-
-.form-labels:focus {
-	border-color: #C5C5C5;
-	-moz-box-shadow: none;
-	-webkit-box-shadow: none;
-	box-shadow: none;
-	border-color: #C1C1C1;
-	background: #FFF;
-}
-
-.form-labels[disabled], .form-labels[readonly] {
-	color: #ffffff;
-}
-
-.form-labels[disabled]:focus, .form-labels[readonly]:focus {
-	background: #EEE;
-	color: #ffffff;
-	border-color: #D5D5D5;
-}
-
-.input-group-addon {
-	border-color: #FFF;
-	background-color: #FFF;
-	margin: 5px 10px 10px 5px;
-	line-height: 28px;
-	color: #6F6565;
-	text-align: center;
-	min-width: 130px;
-	font-weight: 600;
-	font-family: 'Open Sans', 'Helvetica Neue', Arial, sans-serif;
-}
-
-.input-form {
-	font-weight: 600;
-	color: #808080;
-	font-family: 'Open Sans', 'Helvetica Neue', Arial, sans-serif;
-	margin-bottom: 20px;
-}
 
 .btn-default {
 	font-weight: 700;
@@ -376,73 +323,6 @@ header.masthead p {
 	border-radius: .25rem;
 	margin-bottom: 3px;
 	font-family: 'Open Sans', 'Helvetica Neue', Arial, sans-serif
-}
-/* 
-.container-fluid2 {
-	width: 100%;
-	margin-top: 7%;
-	margin-bottom: 2%;
-	background-color: #ebedef;
-	margin-right: auto;
-	margin-left: auto;
-} */
-
-.panel {
-	width: 100%;
-	margin-top: 20px;
-	padding-bottom: 30px;
-	border-top: 3px #343a40;
-	position: relative;
-}
-
-.panel .panel-body {
-	padding: 15px;
-	position: relative;
-	text-align: center;
-}
-
-.col-md-3.control-label {
-	flex: 0 0 25%;
-	max-width: 11%;
-	text-align: right;
-	font-weight: 600;
-	color: #495057;
-	font-family: 'Open Sans', 'Helvetica Neue', Arial, sans-serif;
-}
-
-.form-input-control {
-	display: inline;
-	width: 25%;
-	padding: .375rem .75rem;
-	font-size: 1rem;
-	line-height: 1.5;
-	color: #495057;
-	background-color: #fff;
-	background-clip: padding-box;
-	border: 1px solid #ced4da;
-	border-radius: .25rem;
-	transition: border-color .15s ease-in-out, box-shadow .15s ease-in-out;
-}
-
-#panel-form {
-	text-align: center;
-	/* margin-right: 130px;
-	margin-top: 50px; */
-}
-
-.select-md6 {
-	display: inline;
-	padding: .375rem .75rem;
-	font-size: 1rem;
-	line-height: 1.5;
-	color: #495057;
-	background-color: #fff;
-	background-clip: padding-box;
-	border: 1px solid #ced4da;
-	border-radius: .25rem;
-	transition: border-color .15s ease-in-out, box-shadow .15s ease-in-out;
-	flex: 0 0 50%;
-	width: 7%;
 }
 
 #footer-fix {
@@ -455,72 +335,10 @@ header.masthead p {
 	margin-top: 50px;
 }
 
-#form-id {
-	display: inline;
-	width: 19%;
-	margin-right: 12px;
-	padding: .375rem .75rem;
-	font-size: 1rem;
-	line-height: 1.5;
-	color: #495057;
-	background-color: #fff;
-	background-clip: padding-box;
-	border: 1px solid #ced4da;
-	border-radius: .25rem;
-	transition: border-color .15s ease-in-out, box-shadow .15s ease-in-out;
-}
-
-.form-addr {
-	display: inline;
-	width: 12.1%;
-	margin-left: 2px;
-	margin-right: 11px;
-	padding: .375rem .75rem;
-	font-size: 1rem;
-	line-height: 1.5;
-	color: #495057;
-	background-color: #fff;
-	background-clip: padding-box;
-	border: 1px solid #ced4da;
-	border-radius: .25rem;
-	transition: border-color .15s ease-in-out, box-shadow .15s ease-in-out;
-}
-
 .modal-titles {
 	text-align: center;
 	color: #495057;
 	margin-top: 20%;
-}
-
-#label-detail-addr {
-	margin-right: -3px;
-	padding-right: 4px;
-}
-
-#input-detail-addr1 {
-	margin-left: 13px;
-}
-
-#input-detail-addr2 {
-	margin-left: 3px;
-}
-
-#label-addr {
-	margin-right: -3px;
-	padding-right: 101px;
-}
-
-#input-addr {
-	margin-left: -82px;
-	width: 6.5%;
-}
-
-#input-phone1 {
-	width: 7.2%;
-}
-
-#input-phone2 {
-	width: 7.2%;
 }
 
 .hr-1 {
@@ -532,18 +350,5 @@ header.masthead p {
 	margin-bottom: 30px;
 	width: 80s%;
 }
-
-.form-group.row {
-	-webkit-justify-content: center;
-	text-align: -webkit-right;
-	font-family: 'Open Sans', 'Helvetica Neue', Arial, sans-serif;
-}
-
-.form-control.sel-cont {
-	width: 8.2%;
-	
-}
-
-
 
 
