@@ -19,7 +19,7 @@
 			board_carwash
 	</select>
 
-	<insert id="noticeInsert" parameterType="kr.green.carwash.vo.admin.AdminBoardVO"> 
+	<insert id="noticeInsert" parameterType="kr.green.carwash.vo.admin.AdminBoardVO">  
 		INSERT INTO board_carwash (
 			title
 			, contents

@@ -14,3 +14,4 @@ public interface AdminMapper {
 	public void noticeInsert(AdminBoardVO adBoardVO) throws Exception;
 
 }
+ 

@@ -11,4 +11,4 @@ public interface AdminNoticeService {
 	public int countNotice(Criteria cri);
 	public void noticeInsert(AdminBoardVO adBoardVO) throws Exception;
 
-}
+} 
