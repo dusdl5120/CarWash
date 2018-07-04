@@ -4,7 +4,7 @@ import java.util.Date;
 
 public class AdminBoardVO {
 
-	private String id;					// 일련번호
+	private Integer id;					// 일련번호
 	private String title;				// 게시글 제목
 	private String contents;			// 게시글 내용
     private String file_name;			// 파일명
@@ -17,10 +17,10 @@ public class AdminBoardVO {
 	private Date updated_date;			// 수정일시
 	
 	
-	public String getId() {
+	public Integer getId() {
 		return id;
 	}
-	public void setId(String id) {
+	public void setId(Integer id) {
 		this.id = id;
 	}
 	public String getTitle() {

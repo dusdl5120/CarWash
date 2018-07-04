@@ -34,4 +34,45 @@
 			
 	</insert>
 
+
+	<select id="noticeRead" resultType="kr.green.carwash.vo.admin.AdminBoardVO">
+		select
+			id 
+			, title
+			, contents
+			, registered_id
+			, registered_date
+		from
+			board_carwash
+		where
+			id = #{id}
+	</select>
+
+	<update id="noticeUpdate">
+		update
+			board_carwash
+		set
+			title = #{title}
+			, contents = #{contents}
+			, registered_id = #{registered_id}
+			, registered_date = now()
+			, updated_id = #{registered_id}
+			, updated_date = now()
+		where
+			id = #{id}
+	</update>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 </mapper>

@@ -5,8 +5,7 @@
 <html lang="en">
 
 <head>
-<title>공지사항 등록</title>
-
+<title>공지사항 상세</title>
 </head>
 
 <body>
@@ -32,14 +31,15 @@
 				<hr class="hr-2">
 			</div>
 
-			<form method="post">
+			<form>
 				<div>
+				<input type="hidden" name="id" value="${board.id }" />
 	                <div class="form-group">
 	                    <label class="col-md-4 control-label">작성자</label>
 	                    <div class="col-md-8">                                            
 	                        <div class="input-group">
-	                            <span class="input-group-addon"><span class="fa fa-pencil"></span></span>
-	                            <input type="text" class="form-control" name="registered_id"/>
+                           		<span class="input-group-addon"><span class="fa fa-pencil"></span></span>
+	                            <input type="text" class="form-control" name="registered_id" value="${board.registered_id }" readonly/>
 	                        </div>                                            
 	                    </div>
 	                </div>
@@ -49,7 +49,7 @@
 	                    <div class="col-md-8">                                            
 	                        <div class="input-group">
 	                            <span class="input-group-addon"><span class="fa fa-pencil"></span></span>
-	                            <input type="text" class="form-control" name="title"/>
+	                            <input type="text" class="form-control" name="title" value="${board.title }" readonly/>
 	                        </div>                                            
 	                    </div>
 	                </div>
@@ -59,14 +59,15 @@
 	                    <div class="col-md-8">                                            
 	                        <div class="input-group">
 	                            <span class="input-group-addon"><span class="fa fa-pencil"></span></span>
-	                            <textarea class="form-control" name="contents"></textarea>
+	                            <textarea class="form-control" name="contents" readonly>${board.contents }</textarea>
 	                        </div>                                            
 	                    </div>
 	                </div>
 	            </div>
 	            
-	            <button type="button" class="btn btn-dark" style="float: right; margin-top: 50px; margin-left: 10px;" onclick="location.href='/carwash/admin/notice/list'">취소</button>
-				<button type="submit" class="btn btn-dark" style="float: right; margin-top: 50px;" onclick="location.href='/carwash/admin/notice/insert'">등록</button>
+	            <button type="button" class="btn btn-dark" style="float: right; margin-top: 50px; margin-left: 10px;" onclick="location.href='/carwash/admin/notice/list'">목록</button>
+				<button type="button" class="btn btn-dark" style="float: right; margin-top: 50px; margin-left: 10px;" 
+				onclick="location.href='/carwash/admin/notice/update'">수정</button>
             </form>
 
 

@@ -4,46 +4,35 @@
 
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<meta name="description" content="">
-<meta name="author" content="">
-<title>CARWASH MAIN</title>
+<!-- Header -->
+	<jsp:include page="../../../common/header.jsp"></jsp:include>
+<!-- Header -->
 
-<link rel="icon" href="favicon.ico" type="image/x-icon" />
-<!-- Bootstrap core CSS -->
-<link href="<c:url value='/resources/vendor/bootstrap/css/bootstrap.css'/>" rel="stylesheet"> 
 
-<!-- Custom fonts for this template -->
-<link href="<c:url value='/resources/vendor/font-awesome/css/font-awesome.min.css'/>" rel="stylesheet" type="text/css"> 
-<link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
-<link href='https://fonts.googleapis.com/css?family=Merriweather:400,300,300italic,400italic,700,700italic,900,900italic' rel='stylesheet' type='text/css'>
+<title>공지사항 목록</title>
 
-<!-- Bootstrap core JavaScript -->
-<script src="<c:url value='/resources/vendor/jquery/jquery.min.js'/>"></script>
-<script src="<c:url value='/resources/vendor/bootstrap/js/bootstrap.bundle.min.js'/>"></script>
-<script src="<c:url value='/resources/vendor/bootstrap/js/bootstrap.min.js'/>"></script>
+<style>
 
-<!-- Plugin JavaScript -->
-<script src="<c:url value='/resources/vendor/jquery-easing/jquery.easing.min.js'/>"></script>
-<script src="<c:url value='/resources/vendor/scrollreveal/scrollreveal.min.js'/>"></script>
-<script src="<c:url value='/resources/vendor/magnific-popup/jquery.magnific-popup.min.js'/>"></script>
+/* 체크박스 없이 테이블 행 선택 */
+.selected {
+	background-color: gray !important;
+} 
 
-<!-- Custom scripts for this template -->
-<script src="<c:url value='/resources/js/creative.min.js'/>"></script>
+</style>
 
-<!-- Plugin CSS -->
-<link href="<c:url value='/resources/vendor/magnific-popup/magnific-popup.css'/>" rel="stylesheet">
+<script>
+$(document).ready(function() {
 
-<!-- Custom styles for this template -->
-<link href="<c:url value='/resources/css/creative.min.css'/>" rel="stylesheet"> 
-
+	$('#example tbody').on('click', 'tr', function() {
+		$(this).toggleClass('selected');
+	});
+	   
+});
+</script>
 </head>
 <body>
-	<!-- Header -->
-	<jsp:include page="../../../common/header.jsp"></jsp:include>
-	<!-- Header -->
+	
 	
 	<!-- Contents -->
 
@@ -61,7 +50,7 @@
 				
 				<hr class="hr-2">
 
-				<table class="table" style="text-align: center;">
+				<table id="example" class="table" style="text-align: center;">
 					<thead>
 						<tr>
 							<th style="width: 10%;">순번</th>
@@ -74,7 +63,7 @@
 						<c:forEach var="list" items="${list}" varStatus="status">
 							<tr>
 								<td>${list.id }</td>
-								<td>${list.title }</td> 
+								<td><a href="/carwash/admin/notice/read?id=${list.id }">${list.title }</a></td>  
 								<td>${list.registered_id }</td>
 								<td><fmt:formatDate value="${list.registered_date}" pattern="yyyy-MM-dd"/></td>
 							</tr>
@@ -112,8 +101,10 @@
 	<!-- Footer -->
 	<jsp:include page="../../../common/footer.jsp"></jsp:include>
 	<!-- Footer -->
-
-
+	
 
 </body>
+
+
+
 </html>

@@ -4,6 +4,7 @@ import java.util.ArrayList;
 
 import javax.annotation.Resource;
 
+import org.junit.runner.Request;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -64,13 +65,39 @@ public class AdminNoticeController {
 	}
 	
 	
+	/* 공지사항 게시글 정보 */
+	@RequestMapping(value="/read")
+	public String noticeRead(Model model, AdminBoardVO adBoardVO) throws Exception {
+		
+		AdminBoardVO board = adminNoticeService.noticeRead(adBoardVO);
+		model.addAttribute("board", board);
+		
+		return "/admin/notice/read";
+	}
 	
 	
+	/* 공지사항 게시글 수정 폼화면 */ 
+	@RequestMapping(value="/update", method=RequestMethod.GET)
+	public String noticeUpdateForm(Model model, AdminBoardVO adBoardVO, Integer id) throws Exception {
+		
+		AdminBoardVO board = adminNoticeService.noticeRead(adBoardVO);
+		board.setId(id);
+		
+		System.out.println("=================== board : " + adBoardVO.getId());
+
+		model.addAttribute("board", board);
+		return "/admin/notice/update";
+	}
 	
 	
-	
-	
-	
+	/* 공지사항 게시글 수정처리 */ 
+	@RequestMapping(value="/update", method=RequestMethod.POST)
+	public String noticeUpdatePost(Model model, AdminBoardVO adBoardVO, Integer id) throws Exception {
+ 
+		adminNoticeService.noticeUpdate(adBoardVO);
+		
+		return "redirect:/admin/notice/list";
+	}
 	
 	
 	
