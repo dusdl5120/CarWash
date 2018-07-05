@@ -219,9 +219,9 @@ header.masthead p {
 }
 
 .btn {
-	font-weight: 700;
+	font-weight: 600;
 	border: none;
-	border-radius: 300px;
+	border-radius: 0px;
 	font-family: 'Open Sans', 'Helvetica Neue', Arial, sans-serif
 }
 

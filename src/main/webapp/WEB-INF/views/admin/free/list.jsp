@@ -10,7 +10,7 @@
 <!-- Header -->
 
 
-<title>공지사항 목록</title>
+<title>자유게시판 목록</title>
 
 <style>
 
@@ -31,10 +31,10 @@
 	<div class="container-fluid">
 		<div class="container">
 			<div class="row">
-				<div style="width: 100%; margin-bottom: 3%;">
+				<div style="width: 100%; margin-bottom: 7%;">
 					<div class="col-md-4 "></div>
 					<div class="col-md-4" style="text-align: center;">
-						<h4 class="modal-titles fa fa-list">&nbsp;&nbsp;<strong>공지사항</strong></h4>
+						<h4 class="modal-titles fa fa-list">&nbsp;&nbsp;<strong>자유게시판</strong></h4>
 					</div>
 					<div class="col-md-4"></div>
 				</div>
@@ -43,7 +43,7 @@
 				<!-- <hr class="hr-2"> -->
 				
 				<div style="width: 100%;"><br>
-					<!-- <div style="width: 100%; margin-bottom: 25px;">
+					<div style="width: 100%; margin-bottom: 25px;">
 						<form class="form-inline" style="display: inline-block; float: left;">
 							<div class="form-group">
 								<input class="form-control mr-sm-2" type="text" name="search" size="25">
@@ -56,8 +56,7 @@
 							<button type="button" class="btn btn-danger" style="float: right; margin-right: 10px;" 
 									onclick="location.href='/carwash/admin/notice/delete'">선택삭제</button>
 						</div><br>
-					</div> -->
-					
+					</div>
 					<table id="dataTable" class="table" style="text-align: center;">
 						<thead>
 							<tr>
@@ -83,7 +82,7 @@
 				</div>
 				
 				<div style="width: 100%;">
-					<ul class="pagination" style="float: left;">
+					<ul class="pagination" style="justify-content: center;">
 						<c:if test="${pageMaker.prev}">
 							<li class="page-item"><a class="page-link" href="/carwash/admin/notice/list?page=${pageMaker.startPage - 1 }">Previous</a></li>
 						</c:if>
@@ -94,12 +93,6 @@
 							<li class="page-item"><a class="page-link" href="/carwash/admin/notice/list?page=${pageMaker.endPage + 1 }">Next</a></li>
 						</c:if>
 					</ul>
-					
-					<div style="margin-top: 25px;"> 
-						<button type="button" class="btn btn-dark" style="float: right;" onclick="location.href='/carwash/admin/notice/insert'">등록</button>
-						<button type="button" class="btn btn-danger" style="float: right; margin-right: 10px;" 
-								onclick="location.href='/carwash/admin/notice/delete'">선택삭제</button>
-					</div><br>
 				</div>
 			</div>
 		</div>

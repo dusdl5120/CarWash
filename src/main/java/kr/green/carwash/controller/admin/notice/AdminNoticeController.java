@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import kr.green.carwash.common.pagination.Criteria;
 import kr.green.carwash.common.pagination.PageMaker;
 import kr.green.carwash.service.admin.AdminNoticeService;
-import kr.green.carwash.vo.admin.AdminBoardVO;
+import kr.green.carwash.vo.admin.AdminNoticeVO;
 
 @Controller
 @RequestMapping(value="/admin/notice/*")
@@ -24,14 +24,14 @@ public class AdminNoticeController {
 
 	/* 공지사항 목록 */
 	@RequestMapping(value="/list", method= RequestMethod.GET)
-	public String noticeListPage(Model model, Criteria cri, AdminBoardVO adBoardVO) throws Exception {
+	public String noticeListPage(Model model, Criteria cri, AdminNoticeVO adNoticeVO) throws Exception {
 		
 		int totCnt = adminNoticeService.countNotice(cri);
 		PageMaker pageMaker = new PageMaker();
 		pageMaker.setCriteria(cri);
 		pageMaker.setTotalCount(totCnt);
 		
-		ArrayList<AdminBoardVO> list = (ArrayList) adminNoticeService.noticeListPage(pageMaker.getCriteria());
+		ArrayList<AdminNoticeVO> list = (ArrayList) adminNoticeService.noticeListPage(pageMaker.getCriteria());
 		
 		System.out.println("******** pageMaker : " + pageMaker + ", totCnt : " + totCnt + " ********");
  
@@ -51,15 +51,15 @@ public class AdminNoticeController {
 	
 	/* 공지사항 등록처리 */
 	@RequestMapping(value="/insert", method=RequestMethod.POST)
-	public String noticeInsertPost(Model model, Criteria cri, AdminBoardVO adBoardVO, String title, String contents, String registered_id) throws Exception {
+	public String noticeInsertPost(Model model, Criteria cri, AdminNoticeVO adNoticeVO, String title, String contents, String registered_id) throws Exception {
 		
-		adBoardVO.setTitle(title);
-		adBoardVO.setContents(contents);
-		adBoardVO.setRegistered_id(registered_id);
+		adNoticeVO.setTitle(title);
+		adNoticeVO.setContents(contents);
+		adNoticeVO.setRegistered_id(registered_id);
 		
-		adminNoticeService.noticeInsert(adBoardVO);
+		adminNoticeService.noticeInsert(adNoticeVO);
 		
-		System.out.println("title : " + adBoardVO.getTitle() + ", contents : " + adBoardVO.getContents() + " , regi_id : " + adBoardVO.getRegistered_id()); 
+		System.out.println("title : " + adNoticeVO.getTitle() + ", contents : " + adNoticeVO.getContents() + " , regi_id : " + adNoticeVO.getRegistered_id()); 
 		
 		return "redirect:/admin/notice/list";    
 	}
@@ -67,9 +67,9 @@ public class AdminNoticeController {
 	
 	/* 공지사항 게시글 정보 */
 	@RequestMapping(value="/read")
-	public String noticeRead(Model model, AdminBoardVO adBoardVO) throws Exception {
+	public String noticeRead(Model model, AdminNoticeVO adNoticeVO) throws Exception {
 		
-		AdminBoardVO board = adminNoticeService.noticeRead(adBoardVO);
+		AdminNoticeVO board = adminNoticeService.noticeRead(adNoticeVO);
 		model.addAttribute("board", board);
 		
 		return "/admin/notice/read";
@@ -78,12 +78,12 @@ public class AdminNoticeController {
 	
 	/* 공지사항 게시글 수정 폼화면 */ 
 	@RequestMapping(value="/update", method=RequestMethod.GET)
-	public String noticeUpdateForm(Model model, AdminBoardVO adBoardVO, Integer id) throws Exception {
+	public String noticeUpdateForm(Model model, AdminNoticeVO adNoticeVO, Integer id) throws Exception {
 		
-		AdminBoardVO board = adminNoticeService.noticeRead(adBoardVO);
+		AdminNoticeVO board = adminNoticeService.noticeRead(adNoticeVO);
 		board.setId(id);
 		
-		System.out.println("=================== board : " + adBoardVO.getId());
+		System.out.println("=================== board : " + adNoticeVO.getId());
 
 		model.addAttribute("board", board);
 		return "/admin/notice/update";
@@ -92,16 +92,22 @@ public class AdminNoticeController {
 	
 	/* 공지사항 게시글 수정처리 */ 
 	@RequestMapping(value="/update", method=RequestMethod.POST)
-	public String noticeUpdatePost(Model model, AdminBoardVO adBoardVO, Integer id) throws Exception {
+	public String noticeUpdatePost(Model model, AdminNoticeVO adNoticeVO, Integer id) throws Exception {
  
-		adminNoticeService.noticeUpdate(adBoardVO);
+		adminNoticeService.noticeUpdate(adNoticeVO);
 		
 		return "redirect:/admin/notice/list";
 	}
 	
 	
-	
-	
+	/* 공지사항 게시글 삭제 */
+	@RequestMapping(value="delete")
+	public String noticeDelete(AdminNoticeVO adNoticeVO, Integer id) throws Exception {
+		
+		adminNoticeService.noticeDelete(adNoticeVO);
+		
+		return "redirect:/admin/notice/list";
+	}
 	
 	
 	

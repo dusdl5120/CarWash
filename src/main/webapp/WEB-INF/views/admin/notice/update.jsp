@@ -3,16 +3,20 @@
 
 <!DOCTYPE html>
 <html lang="en">
-
+	<!-- Header -->
+		<jsp:include page="../../../common/header.jsp"></jsp:include>
+	<!-- Header -->
+	
 <head>
-<title>공지사항 상세</title>
+<title>공지사항 수정</title>
 </head>
 
 <body>
-	<!-- Header -->
-	<jsp:include page="../../../common/header.jsp"></jsp:include>
-	<!-- Header -->
-
+	
+	<!-- Menu -->
+		<jsp:include page="../../../common/menu.jsp"></jsp:include>
+	<!-- Menu -->
+	
 	<!-- Contents -->
 
 	<div class="container-fluid">
@@ -68,7 +72,6 @@
 	            <button type="button" class="btn btn-dark" style="float: right; margin-top: 50px; margin-left: 10px;" onclick="location.href='/carwash/admin/notice/list'">목록</button>
 				<button type="submit" class="btn btn-dark" style="float: right; margin-top: 50px; margin-left: 10px;" 
 				onclick="location.href='/carwash/admin/notice/update'">수정</button>
-				<button type="button" class="btn btn-dark" style="float: right; margin-top: 50px;" onclick="location.href='/carwash/admin/notice/delete'">삭제</button>
             </form>
 
 

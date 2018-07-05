@@ -6,40 +6,6 @@
 
 <head>
 
-<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<meta name="description" content="">
-<meta name="author" content="">
-
-<title>CARWASH MAIN</title>
-<link rel="icon" href="favicon.ico" type="image/x-icon" />
-<!-- Bootstrap core CSS -->
-<link href="<c:url value='/resources/vendor/bootstrap/css/bootstrap.css'/>" rel="stylesheet"> 
-
-<!-- Custom fonts for this template -->
-<link href="<c:url value='/resources/vendor/font-awesome/css/font-awesome.min.css'/>" rel="stylesheet" type="text/css"> 
-<link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
-<link href='https://fonts.googleapis.com/css?family=Merriweather:400,300,300italic,400italic,700,700italic,900,900italic' rel='stylesheet' type='text/css'>
-
-<!-- Bootstrap core JavaScript -->
-<script src="<c:url value='/resources/vendor/jquery/jquery.min.js'/>"></script>
-<script src="<c:url value='/resources/vendor/bootstrap/js/bootstrap.bundle.min.js'/>"></script>
-<script src="<c:url value='/resources/vendor/bootstrap/js/bootstrap.min.js'/>"></script>
-
-<!-- Plugin JavaScript -->
-<script src="<c:url value='/resources/vendor/jquery-easing/jquery.easing.min.js'/>"></script>
-<script src="<c:url value='/resources/vendor/scrollreveal/scrollreveal.min.js'/>"></script>
-<script src="<c:url value='/resources/vendor/magnific-popup/jquery.magnific-popup.min.js'/>"></script>
-
-<!-- Custom scripts for this template -->
-<script src="<c:url value='/resources/js/creative.min.js'/>"></script>
-
-<!-- Plugin CSS -->
-<link href="<c:url value='/resources/vendor/magnific-popup/magnific-popup.css'/>" rel="stylesheet">
-
-<!-- Custom styles for this template -->
-<link href="<c:url value='/resources/css/creative.min.css'/>" rel="stylesheet"> 
-
-
 <!-- Header -->
 <jsp:include page="WEB-INF/common/header.jsp"></jsp:include>
 <!-- Header -->
@@ -47,6 +13,10 @@
 </head>
 
 <body id="page-top">
+	<!-- Menu -->
+		<jsp:include page="WEB-INF/common/menu.jsp"></jsp:include>
+	<!-- Menu -->
+
 
 	<!-- Contents -->
 	<header class="masthead text-center text-white d-flex">

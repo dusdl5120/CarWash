@@ -3,17 +3,21 @@
 
 <!DOCTYPE html>
 <html lang="en">
-
+	<!-- Header -->
+		<jsp:include page="../../../common/header.jsp"></jsp:include>
+	<!-- Header -->
 <head>
 <title>공지사항 등록</title>
 
 </head>
 
 <body>
-	<!-- Header -->
-	<jsp:include page="../../../common/header.jsp"></jsp:include>
-	<!-- Header -->
+	
 
+	<!-- Menu -->
+		<jsp:include page="../../../common/menu.jsp"></jsp:include>
+	<!-- Menu -->
+	
 	<!-- Contents -->
 
 	<div class="container-fluid">

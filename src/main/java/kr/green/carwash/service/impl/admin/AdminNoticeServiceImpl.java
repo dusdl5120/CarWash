@@ -9,7 +9,7 @@ import org.springframework.stereotype.Service;
 import kr.green.carwash.common.pagination.Criteria;
 import kr.green.carwash.dao.admin.AdminMapper;
 import kr.green.carwash.service.admin.AdminNoticeService;
-import kr.green.carwash.vo.admin.AdminBoardVO;
+import kr.green.carwash.vo.admin.AdminNoticeVO;
 
 @Service("adminNoticeService")
 public class AdminNoticeServiceImpl implements AdminNoticeService {
@@ -18,7 +18,7 @@ public class AdminNoticeServiceImpl implements AdminNoticeService {
 	AdminMapper adminMapper;
 
 	@Override
-	public List<AdminBoardVO> noticeListPage(Criteria cri) throws Exception {
+	public List<AdminNoticeVO> noticeListPage(Criteria cri) throws Exception {
 		return adminMapper.noticeListPage(cri);
 	}
 
@@ -28,19 +28,24 @@ public class AdminNoticeServiceImpl implements AdminNoticeService {
 	}
 
 	@Override
-	public void noticeInsert(AdminBoardVO vo) throws Exception {
+	public void noticeInsert(AdminNoticeVO vo) throws Exception {
 		adminMapper.noticeInsert(vo);
 	}
 
 	@Override
-	public AdminBoardVO noticeRead(AdminBoardVO vo) throws Exception { 
-		AdminBoardVO adBoardVO = adminMapper.noticeRead(vo);
+	public AdminNoticeVO noticeRead(AdminNoticeVO vo) throws Exception { 
+		AdminNoticeVO adBoardVO = adminMapper.noticeRead(vo);
 		return adBoardVO;
 	}
 
 	@Override
-	public void noticeUpdate(AdminBoardVO vo) throws Exception {
+	public void noticeUpdate(AdminNoticeVO vo) throws Exception {
 		adminMapper.noticeUpdate(vo);
+	}
+
+	@Override
+	public void noticeDelete(AdminNoticeVO vo) throws Exception {
+		adminMapper.noticeDelete(vo);
 	}
 	
 	

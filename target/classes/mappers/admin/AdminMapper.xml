@@ -2,12 +2,13 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="kr.green.carwash.dao.admin.AdminMapper">
-
-	<select id="noticeListPage" resultType="kr.green.carwash.vo.admin.AdminBoardVO">
+	
+	<!-- 공지사항 -->
+	<select id="noticeListPage" resultType="kr.green.carwash.vo.admin.AdminNoticeVO">
 		SELECT 
 			*
 		FROM
-			board_carwash
+			notice
 		ORDER BY ID DESC
 		LIMIT #{pageStart}, #{perPageNum}
 	</select>
@@ -16,11 +17,11 @@
 		SELECT
 			COUNT(*)
 		FROM 
-			board_carwash
+			notice
 	</select>
 
-	<insert id="noticeInsert" parameterType="kr.green.carwash.vo.admin.AdminBoardVO"> 
-		INSERT INTO board_carwash (
+	<insert id="noticeInsert" parameterType="kr.green.carwash.vo.admin.AdminNoticeVO"> 
+		INSERT INTO notice (
 			title
 			, contents
 			, registered_id
@@ -31,11 +32,9 @@
 			, #{registered_id}
 			, now()
 		)
-			
 	</insert>
 
-
-	<select id="noticeRead" resultType="kr.green.carwash.vo.admin.AdminBoardVO">
+	<select id="noticeRead" resultType="kr.green.carwash.vo.admin.AdminNoticeVO">
 		select
 			id 
 			, title
@@ -43,14 +42,14 @@
 			, registered_id
 			, registered_date
 		from
-			board_carwash
+			notice
 		where
 			id = #{id}
 	</select>
 
 	<update id="noticeUpdate">
 		update
-			board_carwash
+			notice
 		set
 			title = #{title}
 			, contents = #{contents}
@@ -61,6 +60,56 @@
 		where
 			id = #{id}
 	</update>
+
+	<delete id="noticeDelete">
+		delete from 
+			notice
+		where
+			id = #{id}
+	</delete>
+
+	
+	<!-- 자유게시판 -->
+	<select id="countBoard" resultType="int">
+		select 
+			count(*)
+		from
+			free_board
+	</select>
+
+	<select id="boardListPage" resultType="kr.green.carwash.vo.admin.AdminFreeBoardVO">
+		select
+			*
+		from
+			free_board
+		ORDER BY ID DESC
+		LIMIT #{pageStart}, #{perPageNum}
+	</select>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
