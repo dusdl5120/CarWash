@@ -7,7 +7,8 @@ import kr.green.carwash.vo.admin.AdminFreeBoardVO;
 
 public interface AdminFreeBoardService {
 
-	int countBoard(Criteria cri);
-	List<AdminFreeBoardVO> boardListPage(Criteria cri) throws Exception;
+	public int countBoard(Criteria cri);
+	public List<AdminFreeBoardVO> boardListPage(Criteria cri) throws Exception;
+	public AdminFreeBoardVO boardRead(AdminFreeBoardVO vo) throws Exception;
 
 }

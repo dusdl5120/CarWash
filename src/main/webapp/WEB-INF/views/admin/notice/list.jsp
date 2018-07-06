@@ -63,9 +63,10 @@
 							<tr>
 								<th style="width: 10%;"><input type="checkbox" id="allCheck" class="icheck"></th>
 								<th style="width: 10%;">순번</th>
-								<th style="width: 40%;">제목</th>
+								<th style="width: 50%;">제목</th>
 								<th style="width: 10%;">작성자</th>
-								<th style="width: 30%;">작성일시</th>
+								<th style="width: 10%;">조회수</th>
+								<th style="width: 10%;">작성일시</th>
 							</tr>
 						</thead>
 						<tbody>
@@ -75,6 +76,7 @@
 									<td>${list.id }</td>
 									<td><a href="/carwash/admin/notice/read?id=${list.id }">${list.title }</a></td>
 									<td>${list.registered_id }</td>
+									<td>${list.cnt }</td>
 									<td><fmt:formatDate value="${list.registered_date}" pattern="yyyy-MM-dd" /></td>
 								</tr>
 							</c:forEach>

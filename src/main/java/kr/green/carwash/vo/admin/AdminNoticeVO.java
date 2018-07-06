@@ -73,11 +73,9 @@ public class AdminNoticeVO {
 	
 	@Override
 	public String toString() {
-		return "AdminNoticeVO [id=" + id + ", title=" + title + ", contents=" + contents + ", cnt=" + cnt + ", registered_id=" + registered_id + ", updated_id=" + updated_id 
-				+ ", registered_date=" + registered_date + ", updated_date=" + updated_date + ", chkYn=" + chkYn + "]";
+		return "AdminNoticeVO [id=" + id + ", title=" + title + ", contents=" + contents + ", cnt=" + cnt
+				+ ", registered_id=" + registered_id + ", updated_id=" + updated_id + ", registered_date="
+				+ registered_date + ", updated_date=" + updated_date + ", chkYn=" + chkYn + "]";
 	}
 	
-	
-	
 }
-

@@ -16,6 +16,8 @@ public class AdminFreeBoardVO {
 	private Date registered_date;		// 작성일시
 	private Date updated_date;			// 수정일시
 	private String chkYn;				// 체크여부
+	
+	
 	public Integer getId() {
 		return id;
 	}
@@ -89,7 +91,6 @@ public class AdminFreeBoardVO {
 		this.chkYn = chkYn;
 	}
 	
-	
 	@Override
 	public String toString() {
 		return "AdminFreeBoardVO [id=" + id + ", title=" + title + ", contents=" + contents + ", file_name=" + file_name
@@ -97,5 +98,6 @@ public class AdminFreeBoardVO {
 				+ ", registered_id=" + registered_id + ", updated_id=" + updated_id + ", registered_date="
 				+ registered_date + ", updated_date=" + updated_date + ", chkYn=" + chkYn + "]";
 	}
+	
 	
 }

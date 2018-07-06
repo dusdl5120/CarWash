@@ -1,7 +1,9 @@
 package kr.green.carwash.service.impl.admin;
 
 import java.util.List;
+
 import javax.annotation.Resource;
+
 import org.springframework.stereotype.Service;
 
 import kr.green.carwash.common.pagination.Criteria;
@@ -17,11 +19,19 @@ public class AdminFreeBoardServiceImpl implements AdminFreeBoardService {
 
 	@Override
 	public int countBoard(Criteria cri) {
-		return adminMapper.countBoard(cri); 
+		return adminMapper.countBoard(cri);
 	}
 
 	@Override
 	public List<AdminFreeBoardVO> boardListPage(Criteria cri) throws Exception {
 		return adminMapper.boardListPage(cri);
 	}
+
+	@Override
+	public AdminFreeBoardVO boardRead(AdminFreeBoardVO vo) throws Exception {
+		return adminMapper.boardRead(vo);
+	}
+	
+	
+	
 }

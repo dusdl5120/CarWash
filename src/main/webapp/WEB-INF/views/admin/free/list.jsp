@@ -31,7 +31,7 @@
 	<div class="container-fluid">
 		<div class="container">
 			<div class="row">
-				<div style="width: 100%; margin-bottom: 7%;">
+				<div style="width: 100%; margin-bottom: 3%;">
 					<div class="col-md-4 "></div>
 					<div class="col-md-4" style="text-align: center;">
 						<h4 class="modal-titles fa fa-list">&nbsp;&nbsp;<strong>자유게시판</strong></h4>
@@ -43,7 +43,7 @@
 				<!-- <hr class="hr-2"> -->
 				
 				<div style="width: 100%;"><br>
-					<div style="width: 100%; margin-bottom: 25px;">
+					<!-- <div style="width: 100%; margin-bottom: 25px;">
 						<form class="form-inline" style="display: inline-block; float: left;">
 							<div class="form-group">
 								<input class="form-control mr-sm-2" type="text" name="search" size="25">
@@ -56,7 +56,8 @@
 							<button type="button" class="btn btn-danger" style="float: right; margin-right: 10px;" 
 									onclick="location.href='/carwash/admin/notice/delete'">선택삭제</button>
 						</div><br>
-					</div>
+					</div> -->
+					
 					<table id="dataTable" class="table" style="text-align: center;">
 						<thead>
 							<tr>
@@ -64,7 +65,9 @@
 								<th style="width: 10%;">순번</th>
 								<th style="width: 40%;">제목</th>
 								<th style="width: 10%;">작성자</th>
-								<th style="width: 30%;">작성일시</th>
+								<th style="width: 10%;">조회수</th>
+								<th style="width: 10%;">첨부파일</th>
+								<th style="width: 10%;">작성일시</th>
 							</tr>
 						</thead>
 						<tbody>
@@ -72,8 +75,10 @@
 								<tr>
 									<td><input type="checkbox" id="checkbox" name="chkYn" /></td>
 									<td>${list.id }</td>
-									<td><a href="/carwash/admin/notice/read?id=${list.id }">${list.title }</a></td>
+									<td><a href="/carwash/admin/free/read?id=${list.id }">${list.title }</a></td>
 									<td>${list.registered_id }</td>
+									<td>${list.cnt }</td>
+									<td>${list.file_name }</td>
 									<td><fmt:formatDate value="${list.registered_date}" pattern="yyyy-MM-dd" /></td>
 								</tr>
 							</c:forEach>
@@ -82,17 +87,23 @@
 				</div>
 				
 				<div style="width: 100%;">
-					<ul class="pagination" style="justify-content: center;">
+					<ul class="pagination" style="float: left;">
 						<c:if test="${pageMaker.prev}">
-							<li class="page-item"><a class="page-link" href="/carwash/admin/notice/list?page=${pageMaker.startPage - 1 }">Previous</a></li>
+							<li class="page-item"><a class="page-link" href="/carwash/admin/free/list?page=${pageMaker.startPage - 1 }">Previous</a></li>
 						</c:if>
 						<c:forEach begin="${pageMaker.startPage }" end="${pageMaker.endPage}" var="page">
-							<li class="page-item"><a class="page-link" href="/carwash/admin/notice/list?page=${page }">${page }</a></li>
+							<li class="page-item"><a class="page-link" href="/carwash/admin/free/list?page=${page }">${page }</a></li>
 						</c:forEach>
 						<c:if test="${pageMaker.next}">
-							<li class="page-item"><a class="page-link" href="/carwash/admin/notice/list?page=${pageMaker.endPage + 1 }">Next</a></li>
+							<li class="page-item"><a class="page-link" href="/carwash/admin/free/list?page=${pageMaker.endPage + 1 }">Next</a></li>
 						</c:if>
 					</ul>
+					
+					<div style="margin-top: 25px;"> 
+						<button type="button" class="btn btn-dark" style="float: right;" onclick="location.href='/carwash/admin/free/insert'">등록</button>
+						<button type="button" class="btn btn-danger" style="float: right; margin-right: 10px;" 
+								onclick="location.href='/carwash/admin/free/delete'">선택삭제</button>
+					</div><br>
 				</div>
 			</div>
 		</div>

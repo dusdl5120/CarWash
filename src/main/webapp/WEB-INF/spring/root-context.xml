@@ -25,6 +25,12 @@
 	    <property name="mapperLocations" value="classpath:mappers/admin/*Mapper.xml"></property>
 	</bean>
 	
+	<bean id="adminMapper" class="org.mybatis.spring.mapper.MapperFactoryBean">
+	    <property name="mapperInterface" value="kr.green.carwash.dao.admin.AdminMapper"></property>
+	    <property name="sqlSessionFactory" ref="sqlSessionFactory"></property>
+	</bean>
+	
+	
 	<mybatis-spring:scan base-package="kr.green.carwash.dao.admin"/>
 		
 </beans>

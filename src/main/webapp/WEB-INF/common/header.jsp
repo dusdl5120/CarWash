@@ -6,7 +6,8 @@
 <meta name="author" content="">
 <title>CARWASH</title>
 
-<link rel="icon" href="favicon.ico" type="image/x-icon" />
+<!-- <link rel="icon" href="favicon.ico" type="image/x-icon" /> -->
+<link rel="shortcut icon" href="<c:url value='/resources/images/tent32.png' />" type="image/x-icon"/>
 <script src="<c:url value='/resources/js/icheck.min.js'/>"></script> 
 
 <!-- Bootstrap core CSS -->

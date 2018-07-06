@@ -1,4 +1,4 @@
-package kr.green.carwash.controller.admin.board;
+package kr.green.carwash.controller.admin.free;
 
 import java.util.ArrayList;
 
@@ -23,7 +23,7 @@ public class AdminFreeBoardController {
 	
 	/* 자유게시판 목록 */
 	@RequestMapping(value="/list", method= RequestMethod.GET)
-	public String noticeListPage(Model model, Criteria cri, AdminFreeBoardVO adFreeVO) throws Exception {
+	public String freeBoardListPage(Model model, Criteria cri, AdminFreeBoardVO adFreeVO) throws Exception {
 		
 		int totCnt = adminFreeBoardService.countBoard(cri);
 		PageMaker pageMaker = new PageMaker();
@@ -39,4 +39,25 @@ public class AdminFreeBoardController {
 		
 		return "/admin/free/list";
 	}
+	
+	/* 자유게시판 게시글 정보 */
+	@RequestMapping(value="/read", method= RequestMethod.GET)
+	public String freeBoardRead(Model model, Criteria cri, AdminFreeBoardVO adFreeVO) throws Exception {
+		
+		AdminFreeBoardVO board = adminFreeBoardService.boardRead(adFreeVO);
+		
+		model.addAttribute("board", board);
+		
+		return "/admin/free/read";
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 }

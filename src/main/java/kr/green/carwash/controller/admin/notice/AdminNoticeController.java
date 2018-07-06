@@ -1,7 +1,10 @@
 package kr.green.carwash.controller.admin.notice;
 
 import java.util.ArrayList;
+
 import javax.annotation.Resource;
+
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -15,10 +18,10 @@ import kr.green.carwash.vo.admin.AdminNoticeVO;
 @Controller
 @RequestMapping(value="/admin/notice/*")
 public class AdminNoticeController {
-	
+
 	@Resource(name="adminNoticeService")
 	AdminNoticeService adminNoticeService;
-
+	
 	/* 공지사항 목록 */
 	@RequestMapping(value="/list", method= RequestMethod.GET)
 	public String noticeListPage(Model model, Criteria cri, AdminNoticeVO adNoticeVO) throws Exception {
@@ -98,13 +101,33 @@ public class AdminNoticeController {
 	
 	
 	/* 공지사항 게시글 삭제 */
-	@RequestMapping(value="delete")
+	@RequestMapping(value="/delete")
 	public String noticeDelete(AdminNoticeVO adNoticeVO, Integer id) throws Exception {
 		
 		adminNoticeService.noticeDelete(adNoticeVO);
 		
 		return "redirect:/admin/notice/list";
 	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	
 	
 	

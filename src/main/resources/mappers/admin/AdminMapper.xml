@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-<mapper namespace="kr.green.carwash.dao.admin.notice.NoticeMapper">
+<mapper namespace="kr.green.carwash.dao.admin.AdminMapper">
 
-
+ 
 	<!-- 공지사항 -->
 	<select id="noticeListPage" resultType="kr.green.carwash.vo.admin.AdminNoticeVO">
 		SELECT 
@@ -69,7 +69,8 @@
 			id = #{id}
 	</delete>
 
-	
+
+
 	<!-- 자유게시판 -->
 	<select id="countBoard" resultType="int">
 		select 
@@ -87,42 +88,42 @@
 		LIMIT #{pageStart}, #{perPageNum}
 	</select>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+	<select id="boardRead" resultType="kr.green.carwash.vo.admin.AdminFreeBoardVO">
+		select
+			id
+			, title
+			, contents
+			, cnt
+			, registered_id
+			, registered_date
+			, file_name
+		from
+			free_board
+		where
+			id = #{id}
+	</select>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 
 </mapper>

@@ -1,11 +1,10 @@
 package kr.green.carwash.service.impl.admin;
 
 import java.util.List;
-
 import javax.annotation.Resource;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
 import kr.green.carwash.common.pagination.Criteria;
 import kr.green.carwash.dao.admin.AdminMapper;
 import kr.green.carwash.service.admin.AdminNoticeService;
@@ -16,7 +15,7 @@ public class AdminNoticeServiceImpl implements AdminNoticeService {
 
 	@Resource(name="adminMapper")
 	AdminMapper adminMapper;
-
+	
 	@Override
 	public List<AdminNoticeVO> noticeListPage(Criteria cri) throws Exception {
 		return adminMapper.noticeListPage(cri);
@@ -47,6 +46,5 @@ public class AdminNoticeServiceImpl implements AdminNoticeService {
 	public void noticeDelete(AdminNoticeVO vo) throws Exception {
 		adminMapper.noticeDelete(vo);
 	}
-	
-	
+
 }
