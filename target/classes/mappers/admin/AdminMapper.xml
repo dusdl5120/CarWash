@@ -1,14 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-<mapper namespace="kr.green.carwash.dao.admin.AdminMapper">
-	
+<mapper namespace="kr.green.carwash.dao.admin.notice.NoticeMapper">
+
+
 	<!-- 공지사항 -->
 	<select id="noticeListPage" resultType="kr.green.carwash.vo.admin.AdminNoticeVO">
 		SELECT 
 			*
 		FROM
-			notice
+			notice_board
 		ORDER BY ID DESC
 		LIMIT #{pageStart}, #{perPageNum}
 	</select>
@@ -17,11 +18,11 @@
 		SELECT
 			COUNT(*)
 		FROM 
-			notice
+			notice_board
 	</select>
 
 	<insert id="noticeInsert" parameterType="kr.green.carwash.vo.admin.AdminNoticeVO"> 
-		INSERT INTO notice (
+		INSERT INTO notice_board (
 			title
 			, contents
 			, registered_id
@@ -42,14 +43,14 @@
 			, registered_id
 			, registered_date
 		from
-			notice
+			notice_board
 		where
 			id = #{id}
 	</select>
 
 	<update id="noticeUpdate">
 		update
-			notice
+			notice_board
 		set
 			title = #{title}
 			, contents = #{contents}
@@ -63,7 +64,7 @@
 
 	<delete id="noticeDelete">
 		delete from 
-			notice
+			notice_board
 		where
 			id = #{id}
 	</delete>

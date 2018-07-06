@@ -1,10 +1,7 @@
 package kr.green.carwash.controller.admin.notice;
 
 import java.util.ArrayList;
-
 import javax.annotation.Resource;
-
-import org.junit.runner.Request;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
