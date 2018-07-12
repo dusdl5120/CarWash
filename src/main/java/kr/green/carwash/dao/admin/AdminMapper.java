@@ -12,7 +12,7 @@ import kr.green.carwash.vo.admin.AdminNoticeVO;
 //@Repository("adminMapper")
 public interface AdminMapper {
 
-	/* °øÁö»çÇ× */
+	/* ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ */
 	public List<AdminNoticeVO> noticeListPage(Criteria cri) throws Exception;
 	public int countNotice(Criteria cri);
 	public void noticeInsert(AdminNoticeVO vo) throws Exception;
@@ -21,7 +21,7 @@ public interface AdminMapper {
 	public void noticeDelete(AdminNoticeVO vo) throws Exception;
 	public int noticeCnt(AdminNoticeVO vo);
 	
-	/* ÀÚÀ¯°Ô½ÃÆÇ */
+	/* ï¿½ï¿½ï¿½ï¿½ï¿½Ô½ï¿½ï¿½ï¿½ */
 	public List<AdminFreeBoardVO> boardListPage(Criteria cri) throws Exception;
 	public int countBoard(Criteria cri);
 	public AdminFreeBoardVO boardRead(AdminFreeBoardVO vo) throws Exception;
@@ -30,6 +30,7 @@ public interface AdminMapper {
 	public void freeUpdate(AdminFreeBoardVO vo) throws Exception;
 	public void freeDelete(AdminFreeBoardVO vo) throws Exception;
 
-	/* È¸¿ø°¡ÀÔ */
+	/* È¸ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ */
 	public List<AdminMemberVO> carwashInfo(String bsPlaceCode) throws Exception;
+	public List<AdminMemberVO> carwashInfoAll() throws Exception;;
 }

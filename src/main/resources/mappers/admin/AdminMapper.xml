@@ -172,7 +172,13 @@
 		where 
 			code = #{code}
 	</select>
-	
+	<select id="carwashInfoAll" resultType="kr.green.carwash.vo.admin.AdminMemberVO">
+		select 
+			code
+			, busin_place_code_name 
+		from 
+			busin_place 
+	</select>
 	
 	
 	
