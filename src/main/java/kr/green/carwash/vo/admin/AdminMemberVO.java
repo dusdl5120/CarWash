@@ -4,25 +4,47 @@ import java.util.Date;
 
 public class AdminMemberVO {
 
-	private String id;								// 세차장정보 일련번호
+	private String admin_id;						// 관리자아이디
+	private String admin_passwd;					// 관리자비밀번호
+	private String admin_name;						// 관리자이름
+	private String admin_phone;						// 관리자휴대폰번호
 	private String busin_place_name;				// 사업장명
 	private String busin_place_code_name;			// 사업장업종명
 	private String ceo_name;						// 대표자명
+	private String carwash_type;					// 세차유형
 	private String water_quality_permi_num;			// 수질허가번호
 	private String road_name_addr;					// 소재지도로명주소	
-	private String carwash_type;					// 세차유형
-	private String phoneNumber;						// 휴대폰번호
 	private String busin_place_tele_num;			// 사업장전화번호
 	private String closed_date;						// 휴무일
 	private String registered_id;					// 등록자ID
 	private String updated_id;						// 수정자ID
 	private Date registered_date;					// 등록일시
 	private Date updated_date;						// 수정일시
-	public String getId() {
-		return id;
+	
+	
+	public String getAdmin_id() {
+		return admin_id;
 	}
-	public void setId(String id) {
-		this.id = id;
+	public void setAdmin_id(String admin_id) {
+		this.admin_id = admin_id;
+	}
+	public String getAdmin_passwd() {
+		return admin_passwd;
+	}
+	public void setAdmin_passwd(String admin_passwd) {
+		this.admin_passwd = admin_passwd;
+	}
+	public String getAdmin_name() {
+		return admin_name;
+	}
+	public void setAdmin_name(String admin_name) {
+		this.admin_name = admin_name;
+	}
+	public String getAdmin_phone() {
+		return admin_phone;
+	}
+	public void setAdmin_phone(String admin_phone) {
+		this.admin_phone = admin_phone;
 	}
 	public String getBusin_place_name() {
 		return busin_place_name;
@@ -42,6 +64,12 @@ public class AdminMemberVO {
 	public void setCeo_name(String ceo_name) {
 		this.ceo_name = ceo_name;
 	}
+	public String getCarwash_type() {
+		return carwash_type;
+	}
+	public void setCarwash_type(String carwash_type) {
+		this.carwash_type = carwash_type;
+	}
 	public String getWater_quality_permi_num() {
 		return water_quality_permi_num;
 	}
@@ -53,18 +81,6 @@ public class AdminMemberVO {
 	}
 	public void setRoad_name_addr(String road_name_addr) {
 		this.road_name_addr = road_name_addr;
-	}
-	public String getCarwash_type() {
-		return carwash_type;
-	}
-	public void setCarwash_type(String carwash_type) {
-		this.carwash_type = carwash_type;
-	}
-	public String getPhoneNumber() {
-		return phoneNumber;
-	}
-	public void setPhoneNumber(String phoneNumber) {
-		this.phoneNumber = phoneNumber;
 	}
 	public String getBusin_place_tele_num() {
 		return busin_place_tele_num;
@@ -103,13 +119,14 @@ public class AdminMemberVO {
 		this.updated_date = updated_date;
 	}
 	
+	
 	@Override
 	public String toString() {
-		return "AdminMemberVO [id=" + id + ", busin_place_name=" + busin_place_name + ", busin_place_code_name=" + busin_place_code_name 
-				+ ", ceo_name=" + ceo_name + ", water_quality_permi_num=" + water_quality_permi_num + ", road_name_addr=" + road_name_addr 
-				+ ", carwash_type=" + carwash_type + ", phoneNumber=" + phoneNumber + ", busin_place_tele_num=" + busin_place_tele_num 
-				+ ", closed_date=" + closed_date + ", registered_id=" + registered_id + ", updated_id=" + updated_id 
-				+ ", registered_date=" + registered_date + ", updated_date=" + updated_date + "]";
+		return "AdminMemberVO [admin_id=" + admin_id + ", admin_passwd=" + admin_passwd + ", admin_name=" + admin_name + ", admin_phone=" + admin_phone 
+				+ ", busin_place_name=" + busin_place_name + ", busin_place_code_name=" + busin_place_code_name + ", ceo_name=" + ceo_name + ", carwash_type=" + carwash_type
+				+ ", water_quality_permi_num=" + water_quality_permi_num + ", road_name_addr=" + road_name_addr + ", busin_place_tele_num=" + busin_place_tele_num 
+				+ ", closed_date=" + closed_date + ", registered_id=" + registered_id + ", updated_id=" + updated_id + ", registered_date=" + registered_date
+				+ ", updated_date=" + updated_date + "]";
 	}
 	
 }

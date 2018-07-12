@@ -37,7 +37,14 @@
 
 			<form>
 				<div style="margin-right: 80px;">
-				<input type="hidden" name="id" value="${board.id }" />
+					<input type="hidden" name="id" value="${board.id }" />
+					
+					<div class="form-group" style="display: inline-flex;">
+						<label class="col-md-12 control-label">조회수 : </label> 
+						<label for="cnt">${board.cnt }</label>
+					</div>
+					<br>
+				
 	                <div class="form-group" style="display: inline-flex;">
 	                    <label class="col-md-12 control-label">작성자 : </label>
 	                    <label for="registered_id">${board.registered_id }</label>

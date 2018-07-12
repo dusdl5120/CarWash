@@ -101,8 +101,7 @@
 					
 					<div style="margin-top: 25px;"> 
 						<button type="button" class="btn btn-dark" style="float: right;" onclick="location.href='/carwash/admin/free/insert'">등록</button>
-						<button type="button" class="btn btn-danger" style="float: right; margin-right: 10px;" 
-								onclick="location.href='/carwash/admin/free/delete'">선택삭제</button>
+						<button type="button" class="btn btn-danger" style="float: right; margin-right: 10px;" id="btnDel">선택삭제</button>
 					</div><br>
 				</div>
 			</div>
@@ -139,6 +138,17 @@
 					$("input[name=chkYn]").prop("checked", false);
 				}
 			});
+			
+			/* 선택삭제 버튼 클릭 시 체크한 행만 삭제 */
+			$("#btnDel").click(function() {
+				$('input[name="chkYn"]').mask('(000) 000 0000');
+			};
+				
+				/* 
+				if (checked == true) {
+					$(this).next().remove(); //span내용지우기
+					$(this).remove(); //checkbox 지우기
+				} */
 
 		});
 	</script>

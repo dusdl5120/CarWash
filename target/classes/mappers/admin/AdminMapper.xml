@@ -39,6 +39,7 @@
 		select
 			id 
 			, title
+			, cnt
 			, contents
 			, registered_id
 			, registered_date
@@ -47,6 +48,15 @@
 		where
 			id = #{id}
 	</select>
+	
+	<update id="noticeCnt" parameterType="int">
+		UPDATE
+			notice_board
+		SET
+			cnt = cnt + 1
+		WHERE
+			id = #{id}
+	</update>
 
 	<update id="noticeUpdate">
 		update
@@ -94,6 +104,7 @@
 			, title
 			, contents
 			, cnt
+			, short_comment
 			, registered_id
 			, registered_date
 			, file_name
@@ -102,6 +113,66 @@
 		where
 			id = #{id}
 	</select>
+	
+	<update id="freeBoardCnt" parameterType="int">
+		UPDATE
+			free_board
+		SET
+			cnt = cnt + 1
+		WHERE
+			id = #{id}
+	</update>
+	
+	<insert id="freeInsert" parameterType="kr.green.carwash.vo.admin.AdminFreeBoardVO">
+		INSERT INTO free_board (
+			title
+			, contents
+			, registered_id
+			, file_name
+			, registered_date
+		)VALUES(
+			#{title}
+			, #{contents}
+			, #{registered_id}
+			, #{file_name}
+			, now()
+		)
+	</insert>
+	
+	<update id="freeUpdate">
+		update
+			free_board
+		set
+			title = #{title}
+			, contents = #{contents}
+			, file_name = #{file_name}
+			, registered_id = #{registered_id}
+			, registered_date = now()
+			, updated_id = #{registered_id}
+			, updated_date = now()
+		where
+			id = #{id}
+	</update>
+	
+	
+	<delete id="freeDelete">
+		delete from free_board
+		where id = #{id}
+	</delete>
+	
+	
+	<!-- 회원가입 -->
+	
+	<select id="carwashInfo" resultType="kr.green.carwash.vo.admin.AdminMemberVO">
+		select 
+			code
+			, busin_place_code_name 
+		from 
+			busin_place 
+		where 
+			code = #{code}
+	</select>
+	
 	
 	
 	

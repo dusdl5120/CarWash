@@ -47,4 +47,9 @@ public class AdminNoticeServiceImpl implements AdminNoticeService {
 		adminMapper.noticeDelete(vo);
 	}
 
+	@Override
+	public int noticeCnt(AdminNoticeVO vo) {
+		return adminMapper.noticeCnt(vo);
+	}
+
 }

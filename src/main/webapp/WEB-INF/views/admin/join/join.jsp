@@ -8,6 +8,16 @@
 		<jsp:include page="../../../common/header.jsp"></jsp:include>
 	<!-- Header -->
 	
+	<script src="<c:url value='/resources/vendor/jquery/jquery.mask.js'/>"></script>
+
+   
+   <script>
+      $(document).ready(function(){
+           $('#birth').mask('00/00/0000',{placeholder: "__/__/____"});         /* ,{placeholder: "__/__/____"} */
+           $('#admin_phone').mask('(000)-0000-0000');      /* , {placeholder: "(___)-____-____"} */
+      });
+   </script>
+	
 </head>
 
 <body>
@@ -19,24 +29,284 @@
 
 	<div class="container-fluid">
 		<div class="container">
-			<div class="row"> <!--  col-md-9 col-md-offset-3 -->
+			<div class="row">  <!-- col-md-9 col-md-offset-3 -->
 				
-				<div class="col-md-4 " style="background-color: skyblue;"></div>
+				<div class="col-md-4"></div>
 				<div class="col-md-4" style="text-align: center;">
 					<h4 class="modal-titles fa fa-user">&nbsp;&nbsp;<strong>회원가입</strong>&nbsp;(<b style="color: red;">*</b>표시는 필수 입력항목입니다.)</h4>
 				</div>
-				<div class="col-md-4" style="background-color: green;"></div>
+				<div class="col-md-4"></div>
 				
 					<br><br>
 				
-				<hr class="hr-1">
-
+				<hr class="hr-2"> <br><br>
 				
-				
+				<div style="width:100%; padding-top: 30px;">
+					<div class="row"> 
+						<div class="col-md-1"></div>
+						
+						<div class="col-md-2" style="text-align: right; padding-top: 6px;">
+							<label class="control-label" for="admin_id">관리자ID<b style="color: red;">&nbsp;*</b></label>
+						</div>
+	
+						<div class="col-md-5"> 
+							<input type="text" class="input form-control" id="admin_id" name="admin_id">
+						</div>
+						
+						<div class="col-md-2">
+							<button type="button" class="btn btn-dark" style="width:100%;">중복확인</button>
+						</div>
+						
+						<div class="col-md-2"></div>
+					</div>
+					<br> <br>
+	
+					<div class="row"> 
+						<div class="col-md-1"></div>
+						
+						<div class="col-md-2" style="text-align: right; padding-top: 6px;">
+							<label class="control-label" for="admin_passwd">관리자비밀번호<b style="color: red;">&nbsp;*</b></label>
+						</div>
+	
+						<div class="col-md-7"> 
+							<input type="password" class="input form-control" id="admin_passwd" name="admin_passwd">
+						</div>
+						<div class="col-md-2"></div>
+					</div>
+					<br> <br>
 					
+					<div class="row"> 
+						<div class="col-md-1"></div>
+						
+						<div class="col-md-2" style="text-align: right; padding-top: 6px;">
+							<label class="control-label" for="admin_passwd">관리자비밀번호 확인<b style="color: red;">&nbsp;*</b></label>
+						</div>
+	
+						<div class="col-md-7"> 
+							<input type="password" class="input form-control" id="admin_passwd" name="admin_passwd"> 
+						</div>
+						<div class="col-md-2"></div>
+					</div>
+					<br> <br>
+	
+					<div class="row"> 
+						<div class="col-md-1"></div>
+						
+						<div class="col-md-2" style="text-align: right; padding-top: 6px;">
+							<label class="control-label" for="admin_name">관리자이름<b style="color: red;">&nbsp;*</b></label>
+						</div>
+	
+						<div class="col-md-7"> 
+							<input type="text" class="input form-control" id="admin_name" name="admin_name">
+						</div>
+						<div class="col-md-2"></div>
+					</div>
+					<br> <br>
+	
+					<div class="row"> 
+						<div class="col-md-1"></div>
+						
+						<div class="col-md-2" style="text-align: right; padding-top: 6px;">
+							<label class="control-label" for="admin_phone">관리자휴대폰번호<b style="color: red;">&nbsp;*</b></label>
+						</div>
+	
+						<div class="col-md-7"> 
+							<input type="text" class="input form-control" id="admin_phone" name="admin_phone" placeholder="'-' 제외하고 숫자로만 입력하세요">
+						</div>
+						<div class="col-md-2"></div>
+					</div>
+					<br> <br>
+					
+					<div class="row"> 
+						<div class="col-md-1"></div>
+						
+						<div class="col-md-2" style="text-align: right; padding-top: 6px;"> 
+							<label class="control-label" for="busin_place_name">사업장명<b style="color: red;">&nbsp;*</b></label>
+						</div>
+	
+						<div class="col-md-7"> 
+							<input type="text" class="input form-control" id="busin_place_name" name="busin_place_name">
+						</div>
+						<div class="col-md-2"></div>
+					</div>
+					<br> <br>
+					
+					<div class="row"> 
+						<div class="col-md-1"></div>
+						
+						<div class="col-md-2" style="text-align: right; padding-top: 6px;">
+							<label class="control-label" for="busin_place_code_name">사업장업종명<b style="color: red;">&nbsp;*</b></label>
+						</div>
+	
+						<div class="col-md-7"> 
+							<!-- <input type="text" class="input form-control" id="busin_place_code_name" name="busin_place_code_name"> -->
+							<c:if test="${!empty placeCodeList}" >
+							   <select name="selectBox" id="selectBox">
+							      <c:forEach var="pcl" items="${placeCodeList}">
+							         <option value="${pcl.busin_place_code_name}">${pcl.busin_place_code_name}</option>
+							      </c:forEach>
+							   </select>
+							</c:if>
+						</div>
+						
+						<div class="col-md-2"></div>
+					</div>
+					<br> <br>
+					
+					<div class="row"> 
+						<div class="col-md-1"></div>
+						
+						<div class="col-md-2" style="text-align: right; padding-top: 6px;">
+							<label class="control-label" for="ceo_name">대표자명<b style="color: red;">&nbsp;*</b></label>
+						</div>
+	
+						<div class="col-md-7"> 
+							<input type="text" class="input form-control" id="ceo_name" name="ceo_name">
+						</div>
+						<div class="col-md-2"></div>
+					</div>
+					<br> <br>
+					
+					<div class="row"> 
+						<div class="col-md-1"></div>
+						
+						<div class="col-md-2" style="text-align: right; padding-top: 6px;">
+							<label class="control-label" for="carwash_type">세차유형<b style="color: red;">&nbsp;*</b></label>
+						</div>
+	
+						<div class="col-md-7"> 
+							<input type="text" class="input form-control" id="carwash_type" name="carwash_type">
+						</div>
+						<div class="col-md-2"></div>
+					</div>
+					<br> <br>
+					
+					<div class="row"> 
+						<div class="col-md-1"></div>
+						
+						<div class="col-md-2" style="text-align: right; padding-top: 6px;">
+							<label class="control-label" for="water_quality_permi_num">수질허가번호<b style="color: red;">&nbsp;*</b></label>
+						</div>
+	
+						<div class="col-md-7"> 
+							<input type="text" class="input form-control" id="water_quality_permi_num" name="water_quality_permi_num">
+						</div>
+						<div class="col-md-2"></div>
+					</div>
+					<br> <br>
+					
+					<div class="row"> 
+						<div class="col-md-1"></div>
+						
+						<div class="col-md-2" style="text-align: right; padding-top: 6px;">
+							<label class="control-label" for="busin_place_tele_num">소재지도로명주소<b style="color: red;">&nbsp;*</b></label>
+						</div>
+	
+						<div class="col-md-7"> 
+							<input type="text" class="input form-control" id="busin_place_tele_num" name="busin_place_tele_num">
+						</div>
+						<div class="col-md-2"></div>
+					</div>
+					<br> <br>
+					
+					<div class="row"> 
+						<div class="col-md-1"></div>
+						
+						<div class="col-md-2" style="text-align: right; padding-top: 6px;">
+							<label class="control-label" for="closed_date">휴무일<b style="color: red;">&nbsp;*</b></label>
+						</div>
+	
+						<div class="col-md-7"> 
+							<input type="text" class="input form-control" id="closed_date" name="closed_date">
+						</div>
+						<div class="col-md-2"></div>
+					</div>
+					<br> <br>
+					
+				
+				
+				
+				
+				
+				
+				</div>
 			</div>
 		</div>
 	</div>
+
+
+
+
+
+	<%-- 유니 회원가입 
+	
+	<div class="container" style="height:850px">   
+      <br><br><br><br>
+      
+      <!-- <p style="text-align:center; font-family:Meiryo; color: #343a40; text-decoration:underline; font-size:18px;">NOTICE</p><br> -->
+      <h4 style="text-align:center; font-family:Segoe Print;">Detail</h4> <br><br>
+      
+      <div class="row"> 
+         <div class="col-md-1"></div>
+         
+         <div class="col-md-2" style="font-family:돋움; text-align:right; padding-top:7px;">
+            <label class="control-label" for="num">번호</label>
+         </div>
+         
+         <div class="col-md-7" style="font-family:돋움;">
+            <input type="text" class="input form-control" id="num" name="number" style="background-color:white;" value="${notice.no}" >
+         </div>
+         <div class="col-md-1"></div>
+      </div>
+      <br><br>
+      
+      <div class="row"> 
+         <div class="col-md-1"></div>
+         
+         <div class="col-md-2" style="font-family:돋움; text-align:right; padding-top:7px;">
+            <label class="control-label" for="sub">제목</label>
+         </div>
+         
+         <div class="col-md-7" style="font-family:돋움;">
+            <input type="text" class="input form-control" id="phone" name="phone" style="background-color:white;"  value="${notice.subject}">
+         </div>
+         <div class="col-md-1"></div>
+      </div>
+      <br><br>
+      
+      <div class="row"> 
+         <div class="col-md-1"></div>
+         
+         <div class="col-md-2" style="font-family:돋움; text-align:right; padding-top:7px;">
+            <label class="control-label" for="auth">작성자</label>
+         </div>
+         
+         <div class="col-md-7" style="font-family:돋움;">
+            <input type="text" class="form-control" id="birth" name="birth" data-inputmask='"mask": "(999)9999-9999"' data-mask>
+         </div>
+         <div class="col-md-1"></div>
+      </div>
+      <br><br>
+      
+      <div class="row"> 
+         <div class="col-md-1"></div>
+         
+         <div class="col-md-2" style="font-family:돋움; text-align:right; padding-top:7px;">
+            <label class="control-label" for="cont">내용</label>
+         </div>
+         
+         <div class="col-md-7" style="font-family:돋움;">
+            <textarea rows="8" cols="79" id="cont" name="contents" style="background-color:white;" disabled>${notice.contents}</textarea>
+         </div>
+         <div class="col-md-1"></div>
+      </div>
+      
+               
+      <a href="/camping/notice/list"> 
+       <button type="button" class="btn11 btn-primary11 " style="color:white; font-size:15px; width:100px; height:30px; ">목록</button>
+        </a>         
+               
+      </div> --%>
 
 
 
@@ -213,36 +483,19 @@
 </body>
 
 <script>
-$(function() {
+$(document).ready(function($){
 	
-	$('#chkSms').prop('checked', true); 	// SMS 수신여부 Checks
+	/* $('#chkSms').prop('checked', true); 	// SMS 수신여부 Checks
 	$('#chkSms').prop('checked', false); 	// SMS 수신여부 Unchecks
 
 	$('#chkEmail').prop('checked', true); 	// 이메일 수신여부 Checks
-	$('#chkEmail').prop('checked', false); 	// 이메일 수신여부 Unchecks
+	$('#chkEmail').prop('checked', false); 	// 이메일 수신여부 Unchecks */
 	
 	
-	// 휴대폰번호 숫자만 입력
-	$("#input-phone1").keyup(function(){							
-		$(this).val( $(this).val().replace(/[^0-9]/g,"") );		// 첫번째 input 박스
-	});		
-
-	$("#input-phone2").keyup(function(){
-		$(this).val( $(this).val().replace(/[^0-9]/g,"") );		// 두번째 input 박스
-	});
-	
-	
-	// 전화번호 숫자만 입력
-	$("#input-tel1").keyup(function(){							// 첫번째 input 박스
-		$(this).val( $(this).val().replace(/[^0-9]/g,"") );
-	});
-
-	$("#input-tel2").keyup(function(){
-		$(this).val( $(this).val().replace(/[^0-9]/g,"") );		// 두번째 input 박스
-	});
 
 	
 });
+
 
 
 </script>

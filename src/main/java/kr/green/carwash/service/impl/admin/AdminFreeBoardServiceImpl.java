@@ -31,7 +31,27 @@ public class AdminFreeBoardServiceImpl implements AdminFreeBoardService {
 	public AdminFreeBoardVO boardRead(AdminFreeBoardVO vo) throws Exception {
 		return adminMapper.boardRead(vo);
 	}
-	
+
+	@Override
+	public int freeBoardCnt(AdminFreeBoardVO vo) throws Exception {
+		return adminMapper.freeBoardCnt(vo);
+	}
+
+	@Override
+	public void freeInsert(AdminFreeBoardVO vo) throws Exception {
+		adminMapper.freeInsert(vo);
+	}
+
+	@Override
+	public void freeUpdate(AdminFreeBoardVO vo) throws Exception {
+		adminMapper.freeUpdate(vo);
+	}
+
+	@Override
+	public void freeDelete(AdminFreeBoardVO vo) throws Exception {
+		adminMapper.freeDelete(vo);
+	}
+
 	
 	
 }

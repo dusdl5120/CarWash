@@ -40,16 +40,79 @@ public class AdminFreeBoardController {
 		return "/admin/free/list";
 	}
 	
+	
+	/* 자유게시판 게시글 등록 */
+	@RequestMapping(value="insert", method=RequestMethod.GET)
+	public String freeBoardInsert(Model model, Criteria cri, AdminFreeBoardVO adFreeVO) throws Exception {
+		 
+		return "/admin/free/insert";
+	}
+	
+	
+	/* 자유게시판 게시글 등록처리 */
+	@RequestMapping(value="insert", method=RequestMethod.POST)
+	public String freeBoardInsertPost(Model model, Criteria cri, AdminFreeBoardVO adFreeVO, String title, String contents, String registered_id, String file_name) throws Exception {
+		 
+		adFreeVO.setTitle(title);
+		adFreeVO.setContents(contents);
+		adFreeVO.setRegistered_id(registered_id);
+		adFreeVO.setFile_name(file_name); 
+		
+		adminFreeBoardService.freeInsert(adFreeVO);
+		
+		return "redirect:/admin/free/list";
+	}
+	
+	
+	/* 자유게시판 게시글 수정 */
+	@RequestMapping(value="/update", method= RequestMethod.GET)
+	public String freeBoardUpdate(Model model, Criteria cri, AdminFreeBoardVO adFreeVO) throws Exception {
+		
+		/* 상세정보 */
+		AdminFreeBoardVO board = adminFreeBoardService.boardRead(adFreeVO);
+		model.addAttribute("board", board);
+		
+		return "/admin/free/update";
+	}
+	
+	
 	/* 자유게시판 게시글 정보 */
 	@RequestMapping(value="/read", method= RequestMethod.GET)
 	public String freeBoardRead(Model model, Criteria cri, AdminFreeBoardVO adFreeVO) throws Exception {
 		
+		/* 조회수 증가 */
+		adminFreeBoardService.freeBoardCnt(adFreeVO);
+		
+		/* 상세정보 */
 		AdminFreeBoardVO board = adminFreeBoardService.boardRead(adFreeVO);
 		
 		model.addAttribute("board", board);
 		
 		return "/admin/free/read";
 	}
+	
+	
+	/* 자유게시판 게시글 수정처리 */
+	@RequestMapping(value="/update", method= RequestMethod.POST)
+	public String freeBoardUpdatePost(Model model, Criteria cri, AdminFreeBoardVO adFreeVO) throws Exception {
+		
+		adminFreeBoardService.freeUpdate(adFreeVO);
+		
+		return "redirect:/admin/free/list";
+	}
+	
+	
+	/* 자유게시판 게시글 삭제 */
+	@RequestMapping(value="/delete")
+	public String freeBoardDeletePost(Model model, Criteria cri, AdminFreeBoardVO adFreeVO) throws Exception {
+		
+		adminFreeBoardService.freeDelete(adFreeVO);
+		
+		return "redirect:/admin/free/list";
+	}
+	
+	
+	
 	
 	
 	

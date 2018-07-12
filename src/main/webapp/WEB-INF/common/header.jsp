@@ -6,9 +6,7 @@
 <meta name="author" content="">
 <title>CARWASH</title>
 
-<!-- <link rel="icon" href="favicon.ico" type="image/x-icon" /> -->
-<link rel="shortcut icon" href="<c:url value='/resources/images/tent32.png' />" type="image/x-icon"/>
-<script src="<c:url value='/resources/js/icheck.min.js'/>"></script> 
+<link rel="shortcut icon" href="<c:url value='/resources/images/car.png' />" type="image/x-icon"/>
 
 <!-- Bootstrap core CSS -->
 <link href="<c:url value='/resources/vendor/bootstrap/css/bootstrap.css'/>" rel="stylesheet"> 
@@ -17,6 +15,7 @@
 <link href="<c:url value='/resources/vendor/font-awesome/css/font-awesome.min.css'/>" rel="stylesheet" type="text/css"> 
 <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
 <link href='https://fonts.googleapis.com/css?family=Merriweather:400,300,300italic,400italic,700,700italic,900,900italic' rel='stylesheet' type='text/css'>
+<link href='https://cdnjs.cloudflare.com/ajax/libs/jquery.maskedinput/1.4.1/jquery.maskedinput.js' rel='stylesheet' type='text/css'>
 
 <!-- Bootstrap core JavaScript -->
 <script src="<c:url value='/resources/vendor/jquery/jquery.min.js'/>"></script>
@@ -36,6 +35,7 @@
 
 <!-- Custom styles for this template -->
 <link href="<c:url value='/resources/css/creative.min.css'/>" rel="stylesheet"> 
+
 
 <!-- DataTable 관련 라이브러리 --> 
 <!-- <script type="text/javascript" language="javascript" src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>

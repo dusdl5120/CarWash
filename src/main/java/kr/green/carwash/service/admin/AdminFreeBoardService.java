@@ -10,5 +10,9 @@ public interface AdminFreeBoardService {
 	public int countBoard(Criteria cri);
 	public List<AdminFreeBoardVO> boardListPage(Criteria cri) throws Exception;
 	public AdminFreeBoardVO boardRead(AdminFreeBoardVO vo) throws Exception;
+	public int freeBoardCnt(AdminFreeBoardVO vo) throws Exception;
+	public void freeInsert(AdminFreeBoardVO vo) throws Exception;
+	public void freeUpdate(AdminFreeBoardVO vo) throws Exception;
+	public void freeDelete(AdminFreeBoardVO vo) throws Exception;;
 
 }

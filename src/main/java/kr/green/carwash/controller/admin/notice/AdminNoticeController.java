@@ -69,6 +69,10 @@ public class AdminNoticeController {
 	@RequestMapping(value="/read")
 	public String noticeRead(Model model, AdminNoticeVO adNoticeVO) throws Exception {
 		
+		/* 조회수 증가 */
+		adminNoticeService.noticeCnt(adNoticeVO);
+		
+		/* 게시글 상세정보 불러오기 */
 		AdminNoticeVO board = adminNoticeService.noticeRead(adNoticeVO);
 		model.addAttribute("board", board);
 		

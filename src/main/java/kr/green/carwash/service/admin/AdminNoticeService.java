@@ -12,5 +12,6 @@ public interface AdminNoticeService {
 	public AdminNoticeVO noticeRead(AdminNoticeVO vo) throws Exception;
 	public void noticeUpdate(AdminNoticeVO vo) throws Exception;
 	public void noticeDelete(AdminNoticeVO vo) throws Exception;
+	public int noticeCnt(AdminNoticeVO vo) throws Exception;;
 
 }
