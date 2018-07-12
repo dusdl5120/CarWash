@@ -7,7 +7,7 @@ import kr.green.carwash.vo.admin.AdminMemberVO;
 public interface AdminMemberService {
 
 	public List<AdminMemberVO> carwashInfo(String bsPlaceCode) throws Exception;
-
+	public List<AdminMemberVO> carwashInfoAll() throws Exception;
 
 
 }

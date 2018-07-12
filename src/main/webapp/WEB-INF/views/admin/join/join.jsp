@@ -83,7 +83,7 @@
 						</div>
 	
 						<div class="col-md-7"> 
-							<input type="password" class="input form-control" id="admin_passwd" name="admin_passwd"> 
+							<input type="password" class="input form-control" id="admin_passwd_confirm" name="admin_passwd_confirm"> 
 						</div>
 						<div class="col-md-2"></div>
 					</div>

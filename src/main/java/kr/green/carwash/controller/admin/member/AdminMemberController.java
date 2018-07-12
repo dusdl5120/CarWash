@@ -22,12 +22,13 @@ public class AdminMemberController {
 	AdminMemberService adminMemberSerivice;
 	
 	
-	/* È¸¿ø°¡ÀÔ Æû È­¸é */
+	/* È¸ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ È­ï¿½ï¿½ */
 	@RequestMapping(value="/join", method= RequestMethod.GET)
 	public String joinForm(AdminMemberVO adMemberVO, Model model, Criteria cri) throws Exception {
 		
-		/* »ç¾÷Àå¾÷Á¾¸í ÄÚµå ºÒ·¯¿À±â */
-		ArrayList<AdminMemberVO> adMember = (ArrayList) adminMemberSerivice.carwashInfo(adMemberVO.getBusin_place_code_name());
+		/* ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Úµï¿½ ï¿½Ò·ï¿½ï¿½ï¿½ï¿½ï¿½ */
+		
+		ArrayList<AdminMemberVO> adMember = (ArrayList) adminMemberSerivice.carwashInfoAll();
 		
 		
 		System.out.println("///////////////// placeCodeName : " + adminMemberSerivice.carwashInfo(adMemberVO.getBusin_place_code_name()));
@@ -38,7 +39,7 @@ public class AdminMemberController {
 	}
 	
 	
-	/* È¸¿ø°¡ÀÔ µî·ÏÃ³¸® */
+	/* È¸ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ã³ï¿½ï¿½ */
 	
 	
 	

@@ -21,6 +21,12 @@ public class AdminMemberServiceImpl implements AdminMemberService {
 		return adminMapper.carwashInfo(bsPlaceCode);
 	}
 
+	@Override
+	public List<AdminMemberVO> carwashInfoAll() throws Exception {
+		// TODO Auto-generated method stub
+		return adminMapper.carwashInfoAll();
+	}
+
 	
 
 }
