@@ -162,17 +162,7 @@
 	
 	
 	<!-- 회원가입 -->
-	
-	<select id="carwashInfo" resultType="kr.green.carwash.vo.admin.AdminMemberVO">
-		select 
-			code
-			, busin_place_code_name 
-		from 
-			busin_place 
-		where 
-			code = #{code}
-	</select>
-	<select id="carwashInfoAll" resultType="kr.green.carwash.vo.admin.AdminMemberVO">
+	<select id="placeCodeAll" resultType="kr.green.carwash.vo.admin.AdminMemberVO">
 		select 
 			code
 			, busin_place_code_name 
@@ -180,7 +170,55 @@
 			busin_place 
 	</select>
 	
+	<select id="carwashTypeAll" resultType="kr.green.carwash.vo.admin.AdminMemberVO">
+		select 
+			code
+			, carwash_type
+		from 
+			carwash_type 
+	</select>
 	
+	<select id="closedDateAll" resultType="kr.green.carwash.vo.admin.AdminMemberVO">
+		select 
+			id
+			, closed_date
+		from 
+			oper_time 
+	</select>
+	
+	<insert id="insertAdminJoin" parameterType="kr.green.carwash.vo.admin.AdminMemberVO">
+		INSERT INTO admin_account (
+			admin_id
+			, admin_passwd
+			, admin_name
+			, admin_phone
+			, busin_place_name
+			, busin_place_code_name
+			, ceo_name
+			, carwash_type
+			, water_quality_permi_num
+			, road_name_addr
+			, busin_place_tele_num
+			, closed_date
+			, registered_id
+			, registered_date
+		)VALUES(
+			#{admin_id}
+			, #{admin_passwd}
+			, #{admin_name}
+			, #{admin_phone}
+			, #{busin_place_name}
+			, #{busin_place_code_name}
+			, #{ceo_name}
+			, #{carwash_type}
+			, #{water_quality_permi_num}
+			, #{road_name_addr}
+			, #{busin_place_tele_num}
+			, #{closed_date}
+			, #{registered_id}
+			, now()
+		)
+	</insert>
 	
 	
 	

@@ -27,5 +27,26 @@
 	<context:component-scan base-package="kr.green.carwash" />
 	
 	
+	<beans:bean id="loginInterceptor" class="kr.green.carwash.common.interceptor.LoginInterceptor"></beans:bean>
+	
+	<interceptors>
+		<interceptor>
+			<mapping path="/carwash"/>
+			<beans:ref bean="loginInterceptor"/>
+		</interceptor>
+	
+	
+	</interceptors>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	
 </beans:beans>

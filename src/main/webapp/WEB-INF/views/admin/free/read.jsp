@@ -4,94 +4,131 @@
 
 <!DOCTYPE html>
 <html lang="en">
-	<!-- Header -->
-		<jsp:include page="../../../common/header.jsp"></jsp:include>
-	<!-- Header -->
-
 <head>
-<title>공지사항 상세</title>
+<!-- Header -->
+	<jsp:include page="../../../common/header.jsp"></jsp:include>
+<!-- Header -->
 </head>
 
 <body>
 	
-	<!-- Menu -->
-		<jsp:include page="../../../common/menu.jsp"></jsp:include>
-	<!-- Menu -->
-	
+<!-- Menu -->
+	<jsp:include page="../../../common/menu.jsp"></jsp:include>
+<!-- Menu -->
+
 	<!-- Contents -->
 
-	<div class="container-fluid">
-		<div class="container">
-			<div class="row">
+	<div class="container" style="height: 750px;">
+		<div class="rows">
 
-				<div class="col-md-4 "></div>
-				<div class="col-md-4" style="text-align: center;">
-					<h4 class="modal-titles fa fa-list">&nbsp;&nbsp;<strong>자유게시판 상세</strong>
-					</h4>
-				</div>
-				<div class="col-md-4"></div>
-
-				<br><br>
-
-				<hr class="hr-2">
+			<div class="col-md-4 "></div>
+			<div class="col-md-4" style="text-align: center; color: #6c757d;">
+				<label class="fa fa-list" style="font-size: 20px;">&nbsp;&nbsp;<strong>자유게시판 상세</strong></label>
 			</div>
+			<div class="col-md-4"></div>
 
-			<form method="post">
-				<div style="margin-right: 80px;">
-					<input type="hidden" name="id" value="${board.id }" />
-					<div class="form-group" style="display: inline-flex;">
-						<label class="col-md-12 control-label">작성자 : </label>
-						<label for="registered_id">${board.registered_id }</label>
-					</div>
-					<br>
-
-					<div class="form-group" style="display: inline-flex;">
-						<label class="col-md-12 control-label">제목 : </label> 
-						<label for="title">${board.title }</label>
-					</div>
-					<br>
-
-					<div class="form-group" style="display: inline-flex;">
-						<label class="col-md-12 control-label">내용 : </label> 
-						<label for="contents">${board.contents }</label>
-					</div>
-					<br>
-
-					<div class="form-group" style="display: inline-flex;">
-						<label class="col-md-12 control-label">조회수 : </label> 
-						<label for="cnt">${board.cnt }</label>
-					</div>
-					<br>
-
-					<div class="form-group" style="display: inline-flex;">
-						<label class="col-md-12 control-label">파일첨부 : </label> 
-						<label for="file_name">${board.file_name }</label>
-					</div>
-					<br>
-
-					<div class="input-group">
-						<span class="input-group-addon"></span>
-						<input type="text" class="form-control" name="short_comment" />
-						<button type="submit" class="btn btn-dark" onclick="location.href='/carwash/admin/free/comment'">댓글등록</button>
-					</div>
-				</div>
-
-				<button type="button" class="btn btn-dark" style="float: right; margin-top: 50px; margin-left: 10px;" onclick="location.href='/carwash/admin/free/list'">목록</button>
-				<button type="button" class="btn btn-dark" style="float: right; margin-top: 50px; margin-left: 10px;" 
-				onclick="location.href='/carwash/admin/free/update?id=${board.id}'">수정</button>
-				<button type="button" class="btn btn-danger" style="float: right; margin-top: 50px; margin-left: 10px;" 
-				onclick="location.href='/carwash/admin/free/delete?id=${board.id}'">삭제</button>
-            </form>
-
-
-
-			
+			<br><br>
 
 		</div>
+		
+		
+		<form method="post" style="width: 100%; text-align: webkit-center;"> 
+			<div style="padding-top: 30px;"> 
+			 
+				<div class="row" style="margin-bottom: -30px;"> 
+					<div class="col-md-1"></div>
+					<div class="col-md-2" style="text-align: right; padding-top: 6px;"> 
+						<label class="control-label" for="registered_id">작성자</label>
+					</div>
+					<div class="col-md-7"> 
+						<label for="registered_id">${board.registered_id }</label>
+					</div>
+					<div class="col-md-2"></div>
+				</div>
+				<br> <br>
+				
+				
+				<div class="row" style="margin-bottom: -30px;"> 
+					<div class="col-md-1"></div>
+					<div class="col-md-2" style="text-align: right; padding-top: 6px;"> 
+						<label class="control-label" for="title">제목</label>
+					</div>
+					<div class="col-md-7"> 
+						<label for="title">${board.title }</label>
+					</div>
+					<div class="col-md-2"></div>
+				</div>
+				<br> <br>
+				
+				
+				<div class="row" style="margin-bottom: -30px;"> 
+					<div class="col-md-1"></div>
+					<div class="col-md-2" style="text-align: right; padding-top: 6px;"> 
+						<label class="control-label" for="contents">내용</label>
+					</div>
+					<div class="col-md-7"> 
+						<label for="contents">${board.contents }</label>
+					</div>
+					<div class="col-md-2"></div>
+				</div>
+				<br> <br>
+				
+				
+				<div class="row" style="margin-bottom: -30px;"> 
+					<div class="col-md-1"></div>
+					<div class="col-md-2" style="text-align: right; padding-top: 6px;"> 
+						<label class="control-label" for="cnt">조회수</label>
+					</div>
+					<div class="col-md-7"> 
+						<label for="cnt">${board.cnt }</label>
+					</div>
+					<div class="col-md-2"></div>
+				</div>
+				<br> <br>
+				
+				
+				<div class="row" style="margin-bottom: -30px;"> 
+					<div class="col-md-1"></div>
+					<div class="col-md-2" style="text-align: right; padding-top: 6px;"> 
+						<label class="control-label" for="contents">첨부파일</label>
+					</div>
+					<div class="col-md-7"> 
+						<label for="file_name">${board.file_name }</label>
+					</div>
+					<div class="col-md-2"></div>
+				</div>
+				<br> <br>
+				
+				<div class="row" style="margin-bottom: -30px;"> 
+					<div class="col-md-1"></div>
+					<div class="col-md-2" style="text-align: right; padding-top: 6px;">
+						<label class="control-label" for="short_comment">댓글등록</label>
+					</div>
+					<div class="col-md-5"> 
+						<input type="text" class="input form-control" id="short_comment" name="short_comment">
+					</div>
+					<div class="col-md-2">
+						<button type="button" class="btn btn-secondary" style="width:100%;">등록</button>
+					</div>
+					<div class="col-md-2"></div>
+				</div>
+				<br> <br>
+				
+				
+				<div class="row" style="margin-top: 25px;"> 
+					<div class="col-md-1"></div>
+					<div class="col-md-2"></div>
+					<div class="col-md-7"> 
+						<button type="button" class="btn btn-dark" style="float: right; margin-top: 50px; margin-left: 10px;" onclick="location.href='/carwash/admin/free/list'">목록</button>
+						<button type="button" class="btn btn-dark" style="float: right; margin-top: 50px; margin-left: 10px;" onclick="location.href='/carwash/admin/free/update?id=${board.id}'">수정</button>
+						<button type="button" class="btn btn-danger" style="float: right; margin-top: 50px;" onclick="location.href='/carwash/admin/free/delete?id=${board.id}'">삭제</button>
+					</div>
+					<div class="col-md-2"></div>
+				</div>
+			</div>
+		</form>
+		
 	</div>
-
-
-
 
 	<!-- Contents -->
 

@@ -1,34 +1,46 @@
 package kr.green.carwash.controller;
 
-import java.text.DateFormat;
-import java.util.Date;
-import java.util.Locale;
+import javax.annotation.Resource;
+import javax.servlet.http.HttpServletRequest;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import kr.green.carwash.service.LoginService;
+import kr.green.carwash.vo.LoginVO;
+
 @Controller
 public class HomeController {
 	
-	private static final Logger logger = LoggerFactory.getLogger(HomeController.class);
+	@Resource(name="loginService")
+	LoginService loginService;
+	
+	/*@Resource(name="passwordEncoder")
+	BCryptPasswordEncoder passwordEncoder;*/
 	
 	// index»≠∏È
-	@RequestMapping(value = "/", method = RequestMethod.GET)
-	public String home(Locale locale, Model model) {
-		logger.info("Welcome home! The client locale is {}.", locale);
+	@RequestMapping(value = "/login", method = RequestMethod.POST)
+	public String home(Model model, HttpServletRequest request) throws Exception { 
 		
-		Date date = new Date();
-		DateFormat dateFormat = DateFormat.getDateTimeInstance(DateFormat.LONG, DateFormat.LONG, locale);
+		String id = request.getParameter("id");
+		String passwd = request.getParameter("passwd");
 		
-		String formattedDate = dateFormat.format(date);
+		LoginVO user = loginService.loginById(id);
 		
-		model.addAttribute("serverTime", formattedDate );
+	  /*  if(user != null && passwordEncoder.matches(passwd, user.getPasswd())) {
+	        model.addAttribute("user", user);
+	        return "redirect:/carwash";
+	    }*/
 		
-		return "index";
+		if(user != null) {
+	        model.addAttribute("user", user);
+	        return "redirect:/carwash";
+		}
+		
+		return "redirect:/admin/notice/list";
 	}
 	
 	

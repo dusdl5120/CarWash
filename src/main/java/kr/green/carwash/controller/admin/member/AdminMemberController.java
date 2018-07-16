@@ -1,10 +1,10 @@
 package kr.green.carwash.controller.admin.member;
 
 import java.util.ArrayList;
-import java.util.List;
 
 import javax.annotation.Resource;
 
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -21,27 +21,34 @@ public class AdminMemberController {
 	@Resource(name="adminMemberService")
 	AdminMemberService adminMemberSerivice;
 	
-	
-	/* È¸ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ È­ï¿½ï¿½ */
+	/* È¸¿ø°¡ÀÔ ÆûÈ­¸é */
 	@RequestMapping(value="/join", method= RequestMethod.GET)
 	public String joinForm(AdminMemberVO adMemberVO, Model model, Criteria cri) throws Exception {
 		
-		/* ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Úµï¿½ ï¿½Ò·ï¿½ï¿½ï¿½ï¿½ï¿½ */
+		/* »ç¾÷Àå¾÷Á¾ÄÚµå Á¤º¸ ºÒ·¯¿À±â */
+		ArrayList<AdminMemberVO> placeCodeList = (ArrayList) adminMemberSerivice.placeCodeAll();
+		model.addAttribute("placeCodeList", placeCodeList);
 		
-		ArrayList<AdminMemberVO> adMember = (ArrayList) adminMemberSerivice.carwashInfoAll();
+		/* ¼¼Â÷À¯Çü Á¤º¸ ºÒ·¯¿À±â */
+		ArrayList<AdminMemberVO> carwashTypeList = (ArrayList) adminMemberSerivice.carwashTypeAll();
+		model.addAttribute("carwashTypeList", carwashTypeList);
 		
-		
-		System.out.println("///////////////// placeCodeName : " + adminMemberSerivice.carwashInfo(adMemberVO.getBusin_place_code_name()));
-		
-		model.addAttribute("placeCodeList", adMember);
+		/* ÈÞ¹«ÀÏ Á¤º¸ ºÒ·¯¿À±â */
+		ArrayList<AdminMemberVO> closedDateList = (ArrayList) adminMemberSerivice.closedDateAll();
+		model.addAttribute("closedDateList", closedDateList);
 		
 		return "/admin/join/join";
 	}
 	
 	
-	/* È¸ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ã³ï¿½ï¿½ */
-	
-	
+	/* È¸¿ø°¡ÀÔ µî·ÏÃ³¸® */
+	@RequestMapping(value="/join", method=RequestMethod.POST)
+	public String joinPost(AdminMemberVO adMemberVO) throws Exception {
+		
+		adminMemberSerivice.insertAdminJoin(adMemberVO);
+		
+		return "redirect:/";
+	}
 	
 	
 	

@@ -17,14 +17,23 @@ public class AdminMemberServiceImpl implements AdminMemberService {
 	AdminMapper adminMapper;
 
 	@Override
-	public List<AdminMemberVO> carwashInfo(String bsPlaceCode) throws Exception {
-		return adminMapper.carwashInfo(bsPlaceCode);
+	public List<AdminMemberVO> placeCodeAll() throws Exception {
+		return adminMapper.placeCodeAll();
 	}
 
 	@Override
-	public List<AdminMemberVO> carwashInfoAll() throws Exception {
-		// TODO Auto-generated method stub
-		return adminMapper.carwashInfoAll();
+	public List<AdminMemberVO> carwashTypeAll() throws Exception {
+		return adminMapper.carwashTypeAll();
+	}
+
+	@Override
+	public List<AdminMemberVO> closedDateAll() throws Exception {
+		return adminMapper.closedDateAll();
+	}
+
+	@Override
+	public void insertAdminJoin(AdminMemberVO vo) throws Exception {
+		adminMapper.insertAdminJoin(vo);
 	}
 
 	

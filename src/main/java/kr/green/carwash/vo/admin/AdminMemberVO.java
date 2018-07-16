@@ -13,6 +13,7 @@ public class AdminMemberVO {
 	private String ceo_name;						// 대표자명
 	private String carwash_type;					// 세차유형
 	private String water_quality_permi_num;			// 수질허가번호
+	private String zip_code;						// 우편번호
 	private String road_name_addr;					// 소재지도로명주소	
 	private String busin_place_tele_num;			// 사업장전화번호
 	private String closed_date;						// 휴무일
@@ -69,6 +70,12 @@ public class AdminMemberVO {
 	}
 	public void setCarwash_type(String carwash_type) {
 		this.carwash_type = carwash_type;
+	}
+	public String getZip_code() {
+		return zip_code;
+	}
+	public void setZip_code(String zip_code) {
+		this.zip_code = zip_code;
 	}
 	public String getWater_quality_permi_num() {
 		return water_quality_permi_num;

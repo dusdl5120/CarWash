@@ -9,9 +9,6 @@
 	<jsp:include page="../../../common/header.jsp"></jsp:include>
 <!-- Header -->
 
-
-<title>자유게시판 목록</title>
-
 <style>
 
 /* 체크박스 없이 테이블 행 선택 */
@@ -22,19 +19,18 @@
 </head>
 <body>
 
-	<!-- Menu -->
-		<jsp:include page="../../../common/menu.jsp"></jsp:include>
-	<!-- Menu -->
+<!-- Menu -->
+	<jsp:include page="../../../common/menu.jsp"></jsp:include>
+<!-- Menu -->
 
 	<!-- Contents -->
 
-	<div class="container-fluid">
-		<div class="container">
-			<div class="row">
-				<div style="width: 100%; margin-bottom: 3%;">
+		<div class="container" style="height: 750px;">
+			<div class="rows">
+				<div style="width: 100%;">
 					<div class="col-md-4 "></div>
-					<div class="col-md-4" style="text-align: center;">
-						<h4 class="modal-titles fa fa-list">&nbsp;&nbsp;<strong>자유게시판</strong></h4>
+					<div class="col-md-4" style="text-align: center; color: #6c757d;">
+						<h4 class="modal-titles fa fa-list" style="font-size: 20px;">&nbsp;&nbsp;<strong>자유게시판</strong></h4>
 					</div>
 					<div class="col-md-4"></div>
 				</div>
@@ -43,25 +39,9 @@
 				<!-- <hr class="hr-2"> -->
 				
 				<div style="width: 100%;"><br>
-					<!-- <div style="width: 100%; margin-bottom: 25px;">
-						<form class="form-inline" style="display: inline-block; float: left;">
-							<div class="form-group">
-								<input class="form-control mr-sm-2" type="text" name="search" size="25">
-								<button class="btn btn-dark" type="submit">검색</button>
-							</div>
-						</form>
-						
-						<div>
-							<button type="button" class="btn btn-dark" style="float: right;" onclick="location.href='/carwash/admin/notice/insert'">등록</button>
-							<button type="button" class="btn btn-danger" style="float: right; margin-right: 10px;" 
-									onclick="location.href='/carwash/admin/notice/delete'">선택삭제</button>
-						</div><br>
-					</div> -->
-					
 					<table id="dataTable" class="table" style="text-align: center;">
 						<thead>
 							<tr>
-								<th style="width: 10%;"><input type="checkbox" id="allCheck" class="icheck"></th>
 								<th style="width: 10%;">순번</th>
 								<th style="width: 40%;">제목</th>
 								<th style="width: 10%;">작성자</th>
@@ -73,7 +53,6 @@
 						<tbody>
 							<c:forEach var="list" items="${list}" varStatus="status">
 								<tr>
-									<td><input type="checkbox" id="checkbox" name="chkYn" /></td>
 									<td>${list.id }</td>
 									<td><a href="/carwash/admin/free/read?id=${list.id }">${list.title }</a></td>
 									<td>${list.registered_id }</td>
@@ -86,27 +65,40 @@
 					</table>
 				</div>
 				
-				<div style="width: 100%;">
-					<ul class="pagination" style="float: left;">
-						<c:if test="${pageMaker.prev}">
-							<li class="page-item"><a class="page-link" href="/carwash/admin/free/list?page=${pageMaker.startPage - 1 }">Previous</a></li>
-						</c:if>
-						<c:forEach begin="${pageMaker.startPage }" end="${pageMaker.endPage}" var="page">
-							<li class="page-item"><a class="page-link" href="/carwash/admin/free/list?page=${page }">${page }</a></li>
-						</c:forEach>
-						<c:if test="${pageMaker.next}">
-							<li class="page-item"><a class="page-link" href="/carwash/admin/free/list?page=${pageMaker.endPage + 1 }">Next</a></li>
-						</c:if>
-					</ul>
-					
-					<div style="margin-top: 25px;"> 
-						<button type="button" class="btn btn-dark" style="float: right;" onclick="location.href='/carwash/admin/free/insert'">등록</button>
-						<button type="button" class="btn btn-danger" style="float: right; margin-right: 10px;" id="btnDel">선택삭제</button>
-					</div><br>
+				
+				<div style="width: 100%; margin-top: 2%;"> 
+					<div class="row" >
+						<div class="col-md-3">
+							<form role="form" style="float: left; font-size: 17px;"> 
+								<span style="display: inline-block;"><i class="fa fa-search"></i><input type="text" name="search" size="12" placeholder="search.."/></span> 
+	                        </form>
+						</div>
+						
+						<div class="col-md-6">
+							<div style="width: 100%;">
+								<ul class="pagination pagination-sm" style="justify-content: center;">
+									<c:if test="${pageMaker.prev}">
+										<li class="page-item"><a class="page-link" href="/carwash/admin/free/list?page=${pageMaker.startPage - 1 }">&laquo;</a></li>
+									</c:if>
+									<c:forEach begin="${pageMaker.startPage }" end="${pageMaker.endPage}" var="page">
+										<li class="page-item"><a class="page-link" href="/carwash/admin/free/list?page=${page }">${page }</a></li>
+									</c:forEach>
+									<c:if test="${pageMaker.next}">
+										<li class="page-item"><a class="page-link" href="/carwash/admin/free/list?page=${pageMaker.endPage + 1 }">&raquo;</a></li>
+									</c:if>
+								</ul>
+							</div>
+						</div>
+							
+						<div class="col-md-3">
+							<button type="button" class="btn btn-dark" style="float: right;" onclick="location.href='/carwash/admin/free/insert'">등록</button>
+						</div>
+					</div>
 				</div>
+				
 			</div>
 		</div>
-	</div>
+				
 	<!-- Contents -->
 
 	<!-- Footer -->
@@ -142,7 +134,7 @@
 			/* 선택삭제 버튼 클릭 시 체크한 행만 삭제 */
 			$("#btnDel").click(function() {
 				$('input[name="chkYn"]').mask('(000) 000 0000');
-			};
+			});
 				
 				/* 
 				if (checked == true) {

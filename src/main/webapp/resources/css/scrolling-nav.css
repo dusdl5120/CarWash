@@ -1,0 +1,98 @@
+/*!
+ * Start Bootstrap - Scrolling Nav (https://startbootstrap.com/template-overviews/scrolling-nav)
+ * Copyright 2013-2017 Start Bootstrap
+ * Licensed under MIT (https://github.com/BlackrockDigital/startbootstrap-scrolling-nav/blob/master/LICENSE)
+ */
+
+header {
+	padding: 154px 0 100px;
+}
+
+@media (min-width: 992px) {
+  header {
+  	padding: 156px 0 100px;
+  }
+}
+
+section {
+	padding: 100px 0;
+}
+
+#lead {
+	font-size: 3.25rem;
+	font-weight: 600;
+}
+
+.h4Size {
+	font-weight: 600;
+}
+
+#loginBtn {
+	text-align: center;
+}
+
+.rows {
+  display: -ms-flexbox;
+  text-align: -webkit-center;
+  display: flex;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  margin-right: -15px;
+  margin-left: -15px;
+  margin-top: 16%;
+}
+
+.pagination {
+  width: 100%;
+  margin: 10px 0px;
+}
+.pagination > li > a,
+.pagination > li > span {
+  margin-left: 3px;
+  -moz-border-radius: 3px;
+  -webkit-border-radius: 3px;
+  border-radius: 3px;
+  color: #22262e;
+  border-color: #E5E5E5;
+}
+.pagination > li > a:hover,
+.pagination > li > span:hover {
+  color: #222;
+}
+.pagination > li.active > a,
+.pagination > li.active > a:hover {
+  background: #1b1e24;
+  color: #FFF;
+  border-color: #1b1e24;
+}
+.pagination.pagination-sm {
+  margin: 0px;
+  width: auto;
+}
+.pagination.pagination-sm.push-down-20 {
+  margin-bottom: 20px;
+}
+.pagination.pagination-sm.push-up-20 {
+  margin-top: 20px;
+}
+
+.main-image {
+	background-image: url("../images/main.png");
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -7,35 +7,26 @@
 <title>CARWASH</title>
 
 <link rel="shortcut icon" href="<c:url value='/resources/images/car.png' />" type="image/x-icon"/>
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" 
+integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
 
 <!-- Bootstrap core CSS -->
 <link href="<c:url value='/resources/vendor/bootstrap/css/bootstrap.css'/>" rel="stylesheet"> 
+<link href="<c:url value='/resources/css/scrolling-nav.css'/>" rel="stylesheet"> 
 
 <!-- Custom fonts for this template -->
-<link href="<c:url value='/resources/vendor/font-awesome/css/font-awesome.min.css'/>" rel="stylesheet" type="text/css"> 
 <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
 <link href='https://fonts.googleapis.com/css?family=Merriweather:400,300,300italic,400italic,700,700italic,900,900italic' rel='stylesheet' type='text/css'>
-<link href='https://cdnjs.cloudflare.com/ajax/libs/jquery.maskedinput/1.4.1/jquery.maskedinput.js' rel='stylesheet' type='text/css'>
+<
 
 <!-- Bootstrap core JavaScript -->
 <script src="<c:url value='/resources/vendor/jquery/jquery.min.js'/>"></script>
+<script src="<c:url value='/resources/js/scrolling-nav.js'/>"></script>
 <script src="<c:url value='/resources/vendor/bootstrap/js/bootstrap.bundle.min.js'/>"></script>
 <script src="<c:url value='/resources/vendor/bootstrap/js/bootstrap.min.js'/>"></script>
 
 <!-- Plugin JavaScript -->
 <script src="<c:url value='/resources/vendor/jquery-easing/jquery.easing.min.js'/>"></script>
-<script src="<c:url value='/resources/vendor/scrollreveal/scrollreveal.min.js'/>"></script>
-<script src="<c:url value='/resources/vendor/magnific-popup/jquery.magnific-popup.min.js'/>"></script>
-
-<!-- Custom scripts for this template -->
-<script src="<c:url value='/resources/js/creative.min.js'/>"></script>
-
-<!-- Plugin CSS -->
-<link href="<c:url value='/resources/vendor/magnific-popup/magnific-popup.css'/>" rel="stylesheet">
-
-<!-- Custom styles for this template -->
-<link href="<c:url value='/resources/css/creative.min.css'/>" rel="stylesheet"> 
-
 
 <!-- DataTable 관련 라이브러리 --> 
 <!-- <script type="text/javascript" language="javascript" src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>

@@ -9,10 +9,10 @@ import kr.green.carwash.vo.admin.AdminFreeBoardVO;
 import kr.green.carwash.vo.admin.AdminMemberVO;
 import kr.green.carwash.vo.admin.AdminNoticeVO;
 
-//@Repository("adminMapper")
+@Repository("adminMapper")
 public interface AdminMapper {
 
-	/* ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ */
+	/* °øÁö»çÇ× */
 	public List<AdminNoticeVO> noticeListPage(Criteria cri) throws Exception;
 	public int countNotice(Criteria cri);
 	public void noticeInsert(AdminNoticeVO vo) throws Exception;
@@ -21,7 +21,7 @@ public interface AdminMapper {
 	public void noticeDelete(AdminNoticeVO vo) throws Exception;
 	public int noticeCnt(AdminNoticeVO vo);
 	
-	/* ï¿½ï¿½ï¿½ï¿½ï¿½Ô½ï¿½ï¿½ï¿½ */
+	/* ÀÚÀ¯°Ô½ÃÆÇ */
 	public List<AdminFreeBoardVO> boardListPage(Criteria cri) throws Exception;
 	public int countBoard(Criteria cri);
 	public AdminFreeBoardVO boardRead(AdminFreeBoardVO vo) throws Exception;
@@ -30,7 +30,38 @@ public interface AdminMapper {
 	public void freeUpdate(AdminFreeBoardVO vo) throws Exception;
 	public void freeDelete(AdminFreeBoardVO vo) throws Exception;
 
-	/* È¸ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ */
-	public List<AdminMemberVO> carwashInfo(String bsPlaceCode) throws Exception;
-	public List<AdminMemberVO> carwashInfoAll() throws Exception;;
+	/* È¸¿ø°¡ÀÔ */
+	public List<AdminMemberVO> placeCodeAll() throws Exception;;	// »ç¾÷Àå¾÷Á¾ÄÚµå¸í ºÒ·¯¿À±â
+	public List<AdminMemberVO> carwashTypeAll() throws Exception;	// ¼¼Â÷À¯Çü¸í ºÒ·¯¿À±â
+	public List<AdminMemberVO> closedDateAll()throws Exception;     // ÈÞ¹«ÀÏ ºÒ·¯¿À±â
+	public void insertAdminJoin(AdminMemberVO vo) throws Exception;
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 }
