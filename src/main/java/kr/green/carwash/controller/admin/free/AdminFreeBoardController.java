@@ -8,9 +8,11 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.multipart.MultipartFile;
 
 import kr.green.carwash.common.pagination.Criteria;
 import kr.green.carwash.common.pagination.PageMaker;
+import kr.green.carwash.common.utils.UploadFileUtils;
 import kr.green.carwash.service.admin.AdminFreeBoardService;
 import kr.green.carwash.vo.admin.AdminFreeBoardVO;
 
@@ -20,6 +22,12 @@ public class AdminFreeBoardController {
 
 	@Resource(name="adminFreeBoardService")
 	AdminFreeBoardService adminFreeBoardService;
+	
+	/*@Resource(name="uploadFileUtils")
+	UploadFileUtils uploadFileUtils;
+	
+	@Resource
+	private String uploadPath;*/
 	
 	/* 자유게시판 목록 */
 	@RequestMapping(value="/list", method= RequestMethod.GET)
@@ -51,12 +59,23 @@ public class AdminFreeBoardController {
 	
 	/* 자유게시판 게시글 등록처리 */
 	@RequestMapping(value="insert", method=RequestMethod.POST)
-	public String freeBoardInsertPost(Model model, Criteria cri, AdminFreeBoardVO adFreeVO, String title, String contents, String registered_id, String file_name) throws Exception {
+	public String freeBoardInsertPost(Model model, Criteria cri, AdminFreeBoardVO adFreeVO, String title, String contents, String registered_id, 
+			String file_name, MultipartFile file) throws Exception {
 		 
 		adFreeVO.setTitle(title);
 		adFreeVO.setContents(contents);
 		adFreeVO.setRegistered_id(registered_id);
-		adFreeVO.setFile_name(file_name); 
+		
+		
+		/*if(file != null) {
+			
+			지워진 코드 : uploadFile(file.getOriginalFilename(),file.getBytes());
+			추가된 코드 : 서버의경로, 해당하는 파일의 이름, 해당하는 데이터
+			
+			file_name = UploadFileUtils.uploadFile(uploadPath, file.getOriginalFilename(),file.getBytes());
+			adFreeVO.setFile_name(file_name); 
+			
+		}*/
 		
 		adminFreeBoardService.freeInsert(adFreeVO);
 		

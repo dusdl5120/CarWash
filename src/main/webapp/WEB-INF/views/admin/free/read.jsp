@@ -93,7 +93,7 @@
 						<label class="control-label" for="contents">첨부파일</label>
 					</div>
 					<div class="col-md-7"> 
-						<label for="file_name">${board.file_name }</label>
+						<label for="file_name"></label>
 					</div>
 					<div class="col-md-2"></div>
 				</div>

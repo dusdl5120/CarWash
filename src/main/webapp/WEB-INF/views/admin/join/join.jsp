@@ -8,15 +8,15 @@
 		<jsp:include page="../../../common/header.jsp"></jsp:include>
 	<!-- Header -->
 	
-	<!-- 우편번호 -->
-	<script src="http://dmaps.daum.net/map_js_init/postcode.v2.js"></script>
-	
 	<!-- jQuery 유효성검사 -->
 	<script src="http://code.jquery.com/jquery-3.3.1.js"></script>
 	<script src="<c:url value='/resources/js/jquery.validate.js'/>"></script>
 	<script src="<c:url value='/resources/js/additional-methods.js'/>"></script>
 	
 	<link href='https://cdnjs.cloudflare.com/ajax/libs/jquery.maskedinput/1.4.1/jquery.maskedinput.js' rel='stylesheet' type='text/css'>
+	
+	<!-- 우편번호 -->
+	<script src="http://dmaps.daum.net/map_js_init/postcode.v2.js"></script>
 	
 </head> 
 
@@ -41,7 +41,6 @@
 			
 			<form method="post" style="width: 100%;"> 
 				<div style="width:100%; padding-top: 30px;">
-				
 					<div class="row" style="margin-bottom: -30px;"> 
 						<div class="col-md-1"></div>
 						<div class="col-md-2" style="text-align: right; padding-top: 6px;">
@@ -275,8 +274,7 @@ $(document).ready(function($){
 			placeholder : "__/__/____"
 		}); */ 									/* ,{placeholder: "__/__/____"} */
 		
-	$('#admin_phone').mask('(000)-0000-0000'); /* , {placeholder: "(___)-____-____"} */
-	$('#busin_place_tele_num').mask('(000)-000-0000'); 
+	$('#busin_place_tele_num').mask('(000)-000-0000'); /* , {placeholder: "(___)-____-____"} */
 
 	$("form").validate({
 		rules : { // 규칙 정해줘야햠
@@ -294,11 +292,11 @@ $(document).ready(function($){
 				minlength : 8,
 				equalTo : admin_passwd
 			},
-			admin_name : {
+			/*admin_name : {
 				required : true,
-				minlength : 2
+				minlength : 2 
 			},
-			/* admin_phone : {
+			 admin_phone : {
 				digits : true
 			}, */
 		/* email: {
@@ -326,11 +324,11 @@ $(document).ready(function($){
 				minlength : "최소 {0}글자이상이어야 합니다",
 				equalTo : "비밀번호가 일치하지 않습니다."
 			},
-			admin_name : {
+			/*admin_name : {
 				required : "필수로입력하세요",
 				minlength : "최소 {0}글자이상이어야 합니다"
 			},
-			/* admin_phone : {
+			 admin_phone : {
 				digits : "'-'없이 숫자만 입력하세요"
 			}, */
 		/*  email: {

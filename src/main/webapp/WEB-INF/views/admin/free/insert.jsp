@@ -32,7 +32,7 @@
 		</div>
 
 
-		<form method="post" style="width: 100%; text-align: webkit-center;" enctype="multipart/form-data"> 
+		<form method="post" style="width: 100%; text-align: webkit-center;"> 
 			<div style="width:100%; padding-top: 30px;">
 			 
 				<div class="row" style="margin-bottom: -30px;"> 
@@ -77,7 +77,7 @@
 				<div class="row" style="margin-bottom: -30px;"> 
 					<div class="col-md-1"></div>
 					<div class="col-md-2" style="text-align: right; padding-top: 6px;"> 
-						<label class="control-label" for="contents">첨부파일</label>
+						<label class="control-label" for="file_name">첨부파일</label>
 					</div>
 					<div class="col-md-7"> 
 						<input type="file" class="input form-control" name="file_name"/>

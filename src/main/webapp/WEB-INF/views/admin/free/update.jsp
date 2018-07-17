@@ -83,7 +83,7 @@
 						<label class="control-label" for="contents">첨부파일</label>
 					</div>
 					<div class="col-md-7"> 
-						<input type="file" class="input form-control" name="file_name" value="${board.file_name }" />
+						<input type="file" class="input form-control" name="file_name" />
 					</div>
 					<div class="col-md-2"></div>
 				</div>

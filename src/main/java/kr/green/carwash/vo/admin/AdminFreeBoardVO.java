@@ -7,7 +7,7 @@ public class AdminFreeBoardVO {
 	private Integer id;					// 일련번호
 	private String title;				// 게시글 제목
 	private String contents;			// 게시글 내용
-    private String file_name;			// 파일명
+    //private String file_name;			// 파일명
     private String save_route;			// 저장경로
     private String short_comment;		// 한줄평
 	private int cnt;					// 조회수
@@ -36,12 +36,12 @@ public class AdminFreeBoardVO {
 	public void setContents(String contents) {
 		this.contents = contents;
 	}
-	public String getFile_name() {
+	/*public String getFile_name() {
 		return file_name;
 	}
 	public void setFile_name(String file_name) {
 		this.file_name = file_name;
-	}
+	}*/
 	public String getSave_route() {
 		return save_route;
 	}
@@ -93,7 +93,7 @@ public class AdminFreeBoardVO {
 	
 	@Override
 	public String toString() {
-		return "AdminFreeBoardVO [id=" + id + ", title=" + title + ", contents=" + contents + ", file_name=" + file_name
+		return "AdminFreeBoardVO [id=" + id + ", title=" + title + ", contents=" + contents 
 				+ ", save_route=" + save_route + ", short_comment=" + short_comment + ", cnt=" + cnt
 				+ ", registered_id=" + registered_id + ", updated_id=" + updated_id + ", registered_date="
 				+ registered_date + ", updated_date=" + updated_date + ", chkYn=" + chkYn + "]";

@@ -57,7 +57,7 @@
 									<td><a href="/carwash/admin/free/read?id=${list.id }">${list.title }</a></td>
 									<td>${list.registered_id }</td>
 									<td>${list.cnt }</td>
-									<td>${list.file_name }</td>
+									<td>N</td>
 									<td><fmt:formatDate value="${list.registered_date}" pattern="yyyy-MM-dd" /></td>
 								</tr>
 							</c:forEach>
@@ -123,18 +123,18 @@
 			}); */
 
 			/* checkbox 전체선택/해제 */
-			$("#allCheck").click(function() {
+			/* $("#allCheck").click(function() {
 				if ($("#allCheck").prop("checked")) {
 					$("input[name=chkYn]").prop("checked", true);
 				} else {
 					$("input[name=chkYn]").prop("checked", false);
 				}
-			});
+			}); */
 			
 			/* 선택삭제 버튼 클릭 시 체크한 행만 삭제 */
-			$("#btnDel").click(function() {
+			/* $("#btnDel").click(function() {
 				$('input[name="chkYn"]').mask('(000) 000 0000');
-			});
+			}); */
 				
 				/* 
 				if (checked == true) {

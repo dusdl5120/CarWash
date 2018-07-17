@@ -107,7 +107,6 @@
 			, short_comment
 			, registered_id
 			, registered_date
-			, file_name
 		from
 			free_board
 		where
@@ -128,13 +127,11 @@
 			title
 			, contents
 			, registered_id
-			, file_name
 			, registered_date
 		)VALUES(
 			#{title}
 			, #{contents}
 			, #{registered_id}
-			, #{file_name}
 			, now()
 		)
 	</insert>
@@ -145,7 +142,6 @@
 		set
 			title = #{title}
 			, contents = #{contents}
-			, file_name = #{file_name}
 			, registered_id = #{registered_id}
 			, registered_date = now()
 			, updated_id = #{registered_id}
@@ -190,8 +186,6 @@
 		INSERT INTO admin_account (
 			admin_id
 			, admin_passwd
-			, admin_name
-			, admin_phone
 			, busin_place_name
 			, busin_place_code_name
 			, ceo_name
@@ -200,13 +194,12 @@
 			, road_name_addr
 			, busin_place_tele_num
 			, closed_date
+			, zip_code
 			, registered_id
 			, registered_date
 		)VALUES(
 			#{admin_id}
 			, #{admin_passwd}
-			, #{admin_name}
-			, #{admin_phone}
 			, #{busin_place_name}
 			, #{busin_place_code_name}
 			, #{ceo_name}
@@ -215,6 +208,7 @@
 			, #{road_name_addr}
 			, #{busin_place_tele_num}
 			, #{closed_date}
+			, #{zip_code}
 			, #{registered_id}
 			, now()
 		)

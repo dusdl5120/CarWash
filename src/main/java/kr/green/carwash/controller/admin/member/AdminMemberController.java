@@ -4,6 +4,7 @@ import java.util.ArrayList;
 
 import javax.annotation.Resource;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -20,6 +21,9 @@ public class AdminMemberController {
 
 	@Resource(name="adminMemberService")
 	AdminMemberService adminMemberSerivice;
+	
+	@Autowired
+	BCryptPasswordEncoder passwordEncoder;
 	
 	/* 회원가입 폼화면 */
 	@RequestMapping(value="/join", method= RequestMethod.GET)
@@ -51,6 +55,16 @@ public class AdminMemberController {
 	}
 	
 	
+	@RequestMapping(value ="/dd")
+	public String test(AdminMemberVO adMemberVO) throws Exception {
+	    String encPw = passwordEncoder.encode("1234");
+	    String id = "1234";
+	    AdminMemberVO user = new AdminMemberVO();
+	    user.setAdmin_id(id);
+	    user.setAdmin_passwd(encPw);
+	    adminMemberSerivice.insertAdminJoin(adMemberVO);
+	    return "redirect:/";
+	}
 	
 	
 	

@@ -3,6 +3,7 @@ package kr.green.carwash.controller;
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -18,11 +19,11 @@ public class HomeController {
 	@Resource(name="loginService")
 	LoginService loginService;
 	
-	/*@Resource(name="passwordEncoder")
-	BCryptPasswordEncoder passwordEncoder;*/
+	@Autowired
+	BCryptPasswordEncoder passwordEncoder;
 	
 	// index»≠∏È
-	@RequestMapping(value = "/login", method = RequestMethod.POST)
+	/*@RequestMapping(value = "/login", method = RequestMethod.POST)
 	public String home(Model model, HttpServletRequest request) throws Exception { 
 		
 		String id = request.getParameter("id");
@@ -30,10 +31,10 @@ public class HomeController {
 		
 		LoginVO user = loginService.loginById(id);
 		
-	  /*  if(user != null && passwordEncoder.matches(passwd, user.getPasswd())) {
+	    if(user != null && passwordEncoder.matches(passwd, user.getPasswd())) {
 	        model.addAttribute("user", user);
 	        return "redirect:/carwash";
-	    }*/
+	    }
 		
 		if(user != null) {
 	        model.addAttribute("user", user);
@@ -41,8 +42,23 @@ public class HomeController {
 		}
 		
 		return "redirect:/admin/notice/list";
-	}
+	}*/
 	
+	
+	@RequestMapping(value = "/", method = RequestMethod.GET)
+	public String home(Model model, HttpServletRequest request) throws Exception {
+	    String id = request.getParameter("id");
+	    String pw = request.getParameter("pw");
+
+	    LoginVO user = loginService.loginById(id);
+
+	    if(user != null && passwordEncoder.matches(pw, user.getPasswd())) {
+	        model.addAttribute("user", user);
+	        return "redirect:/board/list"; 
+	    }
+
+	    return "redirect:/admin/notice/list";
+	}
 	
 	
 }
