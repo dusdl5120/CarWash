@@ -41,6 +41,14 @@ public class AdminMemberController {
 		ArrayList<AdminMemberVO> closedDateList = (ArrayList) adminMemberSerivice.closedDateAll();
 		model.addAttribute("closedDateList", closedDateList);
 		
+		String encPw = passwordEncoder.encode("1234");
+	    String id = "1234";
+		
+	    AdminMemberVO user = new AdminMemberVO();
+	    user.setAdmin_id(id);
+	    user.setAdmin_passwd(encPw);
+	    userMapper.signup(user);
+	    
 		return "/admin/join/join";
 	}
 	
@@ -49,13 +57,15 @@ public class AdminMemberController {
 	@RequestMapping(value="/join", method=RequestMethod.POST)
 	public String joinPost(AdminMemberVO adMemberVO) throws Exception {
 		
+		
+		
 		adminMemberSerivice.insertAdminJoin(adMemberVO);
 		
 		return "redirect:/";
 	}
 	
 	
-	@RequestMapping(value ="/dd")
+	/*@RequestMapping(value ="/dd")
 	public String test(AdminMemberVO adMemberVO) throws Exception {
 	    String encPw = passwordEncoder.encode("1234");
 	    String id = "1234";
@@ -64,7 +74,7 @@ public class AdminMemberController {
 	    user.setAdmin_passwd(encPw);
 	    adminMemberSerivice.insertAdminJoin(adMemberVO);
 	    return "redirect:/";
-	}
+	}*/
 	
 	
 	

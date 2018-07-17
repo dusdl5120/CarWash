@@ -59,8 +59,7 @@ public class AdminFreeBoardController {
 	
 	/* 자유게시판 게시글 등록처리 */
 	@RequestMapping(value="insert", method=RequestMethod.POST)
-	public String freeBoardInsertPost(Model model, Criteria cri, AdminFreeBoardVO adFreeVO, String title, String contents, String registered_id, 
-			String file_name, MultipartFile file) throws Exception {
+	public String freeBoardInsertPost(Model model, Criteria cri, AdminFreeBoardVO adFreeVO, String title, String contents, String registered_id) throws Exception {
 		 
 		adFreeVO.setTitle(title);
 		adFreeVO.setContents(contents);
