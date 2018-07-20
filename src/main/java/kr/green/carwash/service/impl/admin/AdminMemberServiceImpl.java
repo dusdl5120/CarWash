@@ -36,6 +36,16 @@ public class AdminMemberServiceImpl implements AdminMemberService {
 		adminMapper.insertAdminJoin(vo);
 	}
 
+	@Override
+	public AdminMemberVO login(String id, String passwd) throws Exception {
+		return adminMapper.login(id, passwd);
+	}
+
+	@Override
+	public AdminMemberVO loginById(String id) throws Exception {
+		return adminMapper.loginById(id); 
+	}
+
 	
 
 }

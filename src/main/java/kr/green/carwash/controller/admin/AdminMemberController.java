@@ -1,8 +1,10 @@
-package kr.green.carwash.controller.admin.member;
+package kr.green.carwash.controller.admin;
 
 import java.util.ArrayList;
 
 import javax.annotation.Resource;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
@@ -41,14 +43,6 @@ public class AdminMemberController {
 		ArrayList<AdminMemberVO> closedDateList = (ArrayList) adminMemberSerivice.closedDateAll();
 		model.addAttribute("closedDateList", closedDateList);
 		
-		String encPw = passwordEncoder.encode("1234");
-	    String id = "1234";
-		
-	    AdminMemberVO user = new AdminMemberVO();
-	    user.setAdmin_id(id);
-	    user.setAdmin_passwd(encPw);
-	    userMapper.signup(user);
-	    
 		return "/admin/join/join";
 	}
 	
@@ -57,32 +51,49 @@ public class AdminMemberController {
 	@RequestMapping(value="/join", method=RequestMethod.POST)
 	public String joinPost(AdminMemberVO adMemberVO) throws Exception {
 		
-		
-		
-		adminMemberSerivice.insertAdminJoin(adMemberVO);
+		String encPw = passwordEncoder.encode(adMemberVO.getAdmin_passwd());
+
+		adMemberVO.setAdmin_passwd(encPw);
+	    adminMemberSerivice.insertAdminJoin(adMemberVO);
 		
 		return "redirect:/";
 	}
 	
 	
-	/*@RequestMapping(value ="/dd")
-	public String test(AdminMemberVO adMemberVO) throws Exception {
-	    String encPw = passwordEncoder.encode("1234");
-	    String id = "1234";
-	    AdminMemberVO user = new AdminMemberVO();
-	    user.setAdmin_id(id);
-	    user.setAdmin_passwd(encPw);
-	    adminMemberSerivice.insertAdminJoin(adMemberVO);
-	    return "redirect:/";
-	}*/
+	/* 로그인 */
+	@RequestMapping(value = "/login", method = RequestMethod.POST)
+	public String login(Model model, HttpServletRequest request) throws Exception {
+		
+		/* 관리자로 로그인했을 때의 아이디랑 비번 정보를 가져옴 */
+	    String id = request.getParameter("admin_id");
+	    String pw = request.getParameter("admin_passwd");
+	    
+	    /* 로그인할때 id의 값을 가져와서 user객체에 담아 */
+	    AdminMemberVO user = adminMemberSerivice.loginById(id);
+	    
+	    /* id를 가져온 정보가 null이 아니고 , 입력한 비밀번호와 암호화된 비밀번호와 일치했을 경우 모델에 담아서 메인으로 리다이렉트 */
+	    if(user != null && passwordEncoder.matches(pw, user.getAdmin_passwd())) {
+	        model.addAttribute("user", user);
+	        return "redirect:/"; 
+	    }
+	    
+	    /* 일치하지 않을 경우 로그인 페이지로 이동 */
+	    return "/admin/login/login";
+	}
 	
 	
-	
-	
-	
-	
-	
-	
+	/* 로그아웃 */
+	@RequestMapping(value = "/logout")
+	public String logut(Model model, HttpServletRequest request) {
+		
+		HttpSession session = request.getSession();
+		AdminMemberVO user = (AdminMemberVO) session.getAttribute("user");	 
+		
+		if(user != null) 
+			session.removeAttribute("user");
+		
+		return "redirect:/";
+	}
 	
 	
 	

@@ -1,4 +1,4 @@
-package kr.green.carwash.controller.admin.notice;
+package kr.green.carwash.controller.admin;
 
 import java.util.ArrayList;
 

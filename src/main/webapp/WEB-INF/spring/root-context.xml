@@ -30,10 +30,6 @@
 	    <property name="sqlSessionFactory" ref="sqlSessionFactory"></property>
 	</bean>
 	
-	<bean id="loginMapper" class="org.mybatis.spring.mapper.MapperFactoryBean">
-	    <property name="mapperInterface" value="kr.green.carwash.dao.LoginMapper"></property>
-	    <property name="sqlSessionFactory" ref="sqlSessionFactory"></property>
-	</bean>
 	
 	
 	<mybatis-spring:scan base-package="kr.green.carwash.dao.admin"/>

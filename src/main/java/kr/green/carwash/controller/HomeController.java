@@ -1,7 +1,7 @@
 package kr.green.carwash.controller;
 
-import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
@@ -10,55 +10,34 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-import kr.green.carwash.service.LoginService;
-import kr.green.carwash.vo.LoginVO;
+import kr.green.carwash.vo.admin.AdminMemberVO;
 
 @Controller
 public class HomeController {
 	
-	@Resource(name="loginService")
-	LoginService loginService;
-	
 	@Autowired
 	BCryptPasswordEncoder passwordEncoder;
 	
-	// index화면
-	/*@RequestMapping(value = "/login", method = RequestMethod.POST)
+	
+	/* index화면 */
+	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public String home(Model model, HttpServletRequest request) throws Exception { 
 		
-		String id = request.getParameter("id");
-		String passwd = request.getParameter("passwd");
+		/*  */
+		HttpSession session = request.getSession();
+		AdminMemberVO user = (AdminMemberVO) session.getAttribute("user");
 		
-		LoginVO user = loginService.loginById(id);
+		boolean admin = false;
 		
-	    if(user != null && passwordEncoder.matches(passwd, user.getPasswd())) {
-	        model.addAttribute("user", user);
-	        return "redirect:/carwash";
-	    }
-		
-		if(user != null) {
-	        model.addAttribute("user", user);
-	        return "redirect:/carwash";
+		if(user != null /*&& user.getAdmin().compareTo("admin") != 0*/) {
+			
+			admin = true;
+			model.addAttribute("admin", admin);
+			System.out.println(admin);
+			return "/index";
 		}
-		
-		return "redirect:/admin/notice/list";
-	}*/
-	
-	
-	@RequestMapping(value = "/", method = RequestMethod.GET)
-	public String home(Model model, HttpServletRequest request) throws Exception {
-	    String id = request.getParameter("id");
-	    String pw = request.getParameter("pw");
-
-	    LoginVO user = loginService.loginById(id);
-
-	    if(user != null && passwordEncoder.matches(pw, user.getPasswd())) {
-	        model.addAttribute("user", user);
-	        return "redirect:/board/list"; 
-	    }
-
-	    return "redirect:/admin/notice/list";
+		model.addAttribute("admin", admin);
+		return "/index";//추후 로그인 페이지 구현하면 해당 페이지로 리다이렉트 할것!!
 	}
-	
 	
 }

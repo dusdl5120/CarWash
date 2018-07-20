@@ -15,8 +15,16 @@
 			<li class="nav-item"><a class="nav-link js-scroll-trigger" href="#">이용안내</a></li>
 			<li class="nav-item"><a class="nav-link js-scroll-trigger" href="#">예약하기</a></li>
 			<li class="nav-item"><a class="nav-link js-scroll-trigger" href="/carwash/admin/free/list">자유게시판</a></li>
-			<li class="nav-item" style="margin-left:  50px;"><a class="nav-link js-scroll-trigger" data-toggle="modal" href="#loginModal" style="magrin-left: 50px;">Login</a></li>
-			<li class="nav-item"><a class="nav-link js-scroll-trigger" data-toggle="modal" href="#joinModal">Join</a></li>
+			<c:if test="${admin}">
+				<li class="nav-item"><a class="nav-link js-scroll-trigger" href="/carwash/admin/member/myPage" style="magrin-left: 50px;">마이페이지</a></li>  
+				<li class="nav-item">
+					<a class="nav-link js-scroll-trigger" href="/carwash/admin/member/logout">로그아웃</a>
+				</li>
+			</c:if>
+			<c:if test="${!admin }">
+				<li class="nav-item"><a class="nav-link js-scroll-trigger" data-toggle="modal" href="#loginModal" style="magrin-left: 50px;">로그인</a></li>
+				<li class="nav-item"><a class="nav-link js-scroll-trigger" data-toggle="modal" href="#joinModal">회원가입</a></li>
+			</c:if>
 		</ul>
 	</div>
 </nav>
@@ -32,15 +40,15 @@
 				<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
 			</div><br />
 			
-			<form method="post">
+			<form method="post" action="/carwash/admin/member/login">
 				<div class="form-group">
 	                <div class="col-md-12">
-	                    <input type="text" class="form-control" id="loginId" placeholder="로그인ID"/>
+	                    <input type="text" class="form-control" id="loginId" name="admin_id" placeholder="로그인ID"/>
 	                </div>
 	            </div>
 	            <div class="form-group">
 	                <div class="col-md-12">
-	                    <input type="password" class="form-control" id="loginPw" placeholder="비밀번호"/>
+	                    <input type="password" class="form-control" id="loginPw" name="admin_passwd" placeholder="비밀번호"/>
 	                </div>
 	            </div>
 	            <div class="form-group">
@@ -48,7 +56,7 @@
 	                    <a href="#" id="forgotPw">비밀번호를 깜빡하셨어요?</a>
 	                </div><br />
 	                <div class="col-md-12" id="loginBtn">
-	                    <button type="submit" class="btn btn-primary js-scroll-trigger" onclick="location.href='/carwash/login'">LOGIN</button>
+	                    <button type="submit" class="btn btn-primary js-scroll-trigger">LOGIN</button>
 	                </div>
 	            </div>
 	    	</form>

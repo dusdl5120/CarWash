@@ -1,4 +1,4 @@
-package kr.green.carwash.controller.admin.free;
+package kr.green.carwash.controller.admin;
 
 import java.util.ArrayList;
 
@@ -8,11 +8,9 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.multipart.MultipartFile;
 
 import kr.green.carwash.common.pagination.Criteria;
 import kr.green.carwash.common.pagination.PageMaker;
-import kr.green.carwash.common.utils.UploadFileUtils;
 import kr.green.carwash.service.admin.AdminFreeBoardService;
 import kr.green.carwash.vo.admin.AdminFreeBoardVO;
 

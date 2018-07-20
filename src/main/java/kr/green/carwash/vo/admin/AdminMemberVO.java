@@ -21,6 +21,7 @@ public class AdminMemberVO {
 	private String updated_id;						// 수정자ID
 	private Date registered_date;					// 등록일시
 	private Date updated_date;						// 수정일시
+	private String admin;							// 로그인 시 사용자와 관리자의 여부
 	
 	
 	public String getAdmin_id() {
@@ -125,15 +126,19 @@ public class AdminMemberVO {
 	public void setUpdated_date(Date updated_date) {
 		this.updated_date = updated_date;
 	}
-	
-	
+	public String getAdmin() {
+		return admin;
+	}
+	public void setAdmin(String admin) {
+		this.admin = admin;
+	}
 	@Override
 	public String toString() {
 		return "AdminMemberVO [admin_id=" + admin_id + ", admin_passwd=" + admin_passwd + ", admin_name=" + admin_name + ", admin_phone=" + admin_phone 
 				+ ", busin_place_name=" + busin_place_name + ", busin_place_code_name=" + busin_place_code_name + ", ceo_name=" + ceo_name + ", carwash_type=" + carwash_type
 				+ ", water_quality_permi_num=" + water_quality_permi_num + ", road_name_addr=" + road_name_addr + ", busin_place_tele_num=" + busin_place_tele_num 
 				+ ", closed_date=" + closed_date + ", registered_id=" + registered_id + ", updated_id=" + updated_id + ", registered_date=" + registered_date
-				+ ", updated_date=" + updated_date + "]";
+				+ ", updated_date=" + updated_date + ", admin=" + admin + "]";
 	}
 	
 }

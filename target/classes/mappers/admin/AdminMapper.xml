@@ -215,8 +215,25 @@
 	</insert>
 	
 	
+	<!-- 로그인 -->
+	<select id="login" resultType="kr.green.carwash.vo.admin.AdminMemberVO">
+		select 
+			* 
+		from 
+			admin_account 
+		where 
+			admin_id = #{id} 
+		and admin_passwd = #{passwd}
+	</select>
 	
-	
+	<select id="loginById" resultType="kr.green.carwash.vo.admin.AdminMemberVO">
+		select 
+			* 
+		from 
+			admin_account 
+		where 
+			admin_id = #{id}
+	</select>
 	
 	
 	

@@ -5,19 +5,8 @@
 
 <head>
 	<!-- Header -->
-		<jsp:include page="../../../common/header.jsp"></jsp:include>
+	<jsp:include page="../../../common/header.jsp"></jsp:include>
 	<!-- Header -->
-	
-	<!-- jQuery 유효성검사 -->
-	<script src="http://code.jquery.com/jquery-3.3.1.js"></script>
-	<script src="<c:url value='/resources/js/jquery.validate.js'/>"></script>
-	<script src="<c:url value='/resources/js/additional-methods.js'/>"></script>
-	
-	<link href='https://cdnjs.cloudflare.com/ajax/libs/jquery.maskedinput/1.4.1/jquery.maskedinput.js' rel='stylesheet' type='text/css'>
-	
-	<!-- 우편번호 -->
-	<script src="http://dmaps.daum.net/map_js_init/postcode.v2.js"></script>
-	
 </head> 
 
 <body>
@@ -39,7 +28,7 @@
 			
 			<hr class="hr-2"> <br><br>
 			
-			<form method="post" style="width: 100%;"> 
+			<form method="post" style="width: 100%;" id="form"> 
 				<div style="width:100%; padding-top: 30px;">
 					<div class="row" style="margin-bottom: -30px;"> 
 						<div class="col-md-1"></div>
@@ -213,6 +202,7 @@
 						<div class="col-md-2" style="text-align: right; padding-top: 6px;"></div>
 						<div class="col-md-7"> 
 							<input type="text" class="input form-control" id="road_name_addr" name="road_name_addr">
+							<span id="guide" style="color:#999"></span>
 						</div>
 						<div class="col-md-2"></div>
 					</div>
@@ -223,7 +213,7 @@
 						<div class="col-md-1"></div>
 						<div class="col-md-2" style="text-align: right; padding-top: 6px;"></div>
 						<div class="col-md-7"> 
-							<input type="text" class="input form-control" id="road_name_addr" name="road_name_addr" placeholder="상세주소">
+							<input type="text" class="input form-control" id="road_name_detail_addr" name="road_name_addr" placeholder="상세주소">
 						</div>
 						<div class="col-md-2"></div>
 					</div>
@@ -261,84 +251,76 @@
 </body>
 
 <script>
-$(document).ready(function($){
+$(document).ready(function(){
 	
-	/* $('#chkSms').prop('checked', true); 	// SMS 수신여부 Checks
-	$('#chkSms').prop('checked', false); 	// SMS 수신여부 Unchecks
-
-	$('#chkEmail').prop('checked', true); 	// 이메일 수신여부 Checks
-	$('#chkEmail').prop('checked', false); 	// 이메일 수신여부 Unchecks */
+	/* 전화번호 마스크 기능 */	
+	$('#busin_place_tele_num').mask('(000)-000-0000');
 	
-
-		/* $('#birth').mask('00/00/0000', {
-			placeholder : "__/__/____"
-		}); */ 									/* ,{placeholder: "__/__/____"} */
+	/* $('#busin_place_tele_num').keyup(function() {
 		
-	$('#busin_place_tele_num').mask('(000)-000-0000'); /* , {placeholder: "(___)-____-____"} */
+		if($(this))
+		
+        alert($(this).val());
+    }); */
 
-	$("form").validate({
+	/* $('#birth').mask('00/00/0000', {
+		placeholder : "__/__/____"
+	}); */ 									/* ,{placeholder: "__/__/____"} */
+});	
+	
+	
+$(document).ready(function(){
+	
+	/* 컬럼 유효성검사 */
+	$("#form").validate({
 		rules : { // 규칙 정해줘야햠
-			admin_id : {
+			admin_id : { 
 				required : true,
 				minlength : 4
 			},
 			admin_passwd : {
 				required : true,
 				minlength : 8,
-				regex : /^(?=\w{8,20}$)\w*(\d[A-z]|[A-z]\d)\w*$/
+				regex : /^(?=\w{8,15}$)\w*(\d[A-z]|[A-z]\d)\w*$/
 			},
 			admin_passwd_confirm : {
 				required : true,
 				minlength : 8,
 				equalTo : admin_passwd
 			},
-			/*admin_name : {
+			busin_place_name : { 
 				required : true,
-				minlength : 2 
+				minlength : 2
 			},
-			 admin_phone : {
-				digits : true
-			}, */
-		/* email: {
-		    required : true,
-		    minlength : 2,
-		    email : true
-		},
-		homepage: {
-		    url : true
-		} */
+			busin_place_tele_num : { 
+				required : true,
+				minlength : 6
+			}
 		},
 		//규칙체크 실패시 출력될 메시지
 		messages : {
 			admin_id : {
-				required : "필수로입력하세요",
+				required : "필수입력사항입니다.",
 				minlength : "최소 {0}글자이상이어야 합니다"
 			},
 			admin_passwd : {
-				required : "필수로입력하세요",
+				required : "필수입력사항입니다",
 				minlength : "최소 {0}글자이상이어야 합니다",
-				regex : "영문자, 숫자로 이루어져있으며 최소 하나이상 포함"
+				regex : "영문자와 숫자로 이루어져있으며 최소 하나이상 포함"
 			},
 			admin_passwd_confirm : {
-				required : "필수로입력하세요",
+				required : "필수입력사항입니다",
 				minlength : "최소 {0}글자이상이어야 합니다",
 				equalTo : "비밀번호가 일치하지 않습니다."
 			},
-			/*admin_name : {
-				required : "필수로입력하세요",
+			busin_place_name : {
+				required : "필수입력사항입니다.",
 				minlength : "최소 {0}글자이상이어야 합니다"
 			},
-			 admin_phone : {
-				digits : "'-'없이 숫자만 입력하세요"
-			}, */
-		/*  email: {
-		     required : "필수로입력하세요",
-		     minlength : "최소 {0}글자이상이어야 합니다",
-		     email : "메일규칙에 어긋납니다"
-		 },
-		 homepage: {
-		     url : "정상적인 URL이 아닙니다"
-		 } */
+			busin_place_tele_num : {
+				required : "필수입력사항입니다.",
+				minlength : "숫자만 입력해주세요",
+			}
 		}
 	});
 
@@ -346,14 +328,11 @@ $(document).ready(function($){
 		var re = new RegExp(regexp);
 		return this.optional(element) || re.test(value);
 	}, "Please check your input.");
-	
-	
-	 
-	
-	
 
 });
 
+
+/* 우편번호 */
 function postCode() {
     new daum.Postcode({
         oncomplete: function(data) {

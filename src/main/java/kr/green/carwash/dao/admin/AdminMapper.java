@@ -36,6 +36,9 @@ public interface AdminMapper {
 	public List<AdminMemberVO> closedDateAll()throws Exception;     // 휴무일 불러오기
 	public void insertAdminJoin(AdminMemberVO vo) throws Exception;
 	
+	/* 로그인 */
+	public AdminMemberVO login(String id, String passwd) throws Exception;
+	public AdminMemberVO loginById(String id) throws Exception;
 	
 	
 	
