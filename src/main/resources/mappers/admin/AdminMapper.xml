@@ -329,8 +329,25 @@
     </select>
 	
 	
-	
-	
+	<!-- 마이페이지 -->
+	<select id="myPageRead" resultType="kr.green.carwash.vo.admin.AdminMemberVO">
+		select
+			admin_id
+			, admin_passwd
+			, busin_place_name
+			, busin_place_code_name
+			, ceo_name
+			, carwash_type
+			, road_name_addr
+			, busin_place_tele_num
+			, closed_date
+			, zip_code
+			, registered_date
+		from
+			admin_account
+		where
+			admin_id = #{admin_id}
+	</select>
 	
 	
 	

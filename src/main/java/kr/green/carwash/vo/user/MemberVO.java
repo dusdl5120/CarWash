@@ -10,10 +10,10 @@ public class MemberVO {
 	private String address;					// 도로명주소
 	private Integer zip_code;				// 우편번호
 	private Date birth;						// 생년월일
-	private String phoneNumber;				// 휴대폰번호
+	private String phone_num;				// 휴대폰번호
 	private String email;					// 이메일주소
-	private String phoneCheckYn;			// SMS수신여부
-	private String emailCheckYn;			// 이메일수신여부
+	private String phone_yn;				// SMS수신여부
+	private String email_yn;				// 이메일수신여부
 	private Date registered_date;			// 등록일시
 	private Date updated_date;				// 수정일시
 	
@@ -54,11 +54,11 @@ public class MemberVO {
 	public void setBirth(Date birth) {
 		this.birth = birth;
 	}
-	public String getPhoneNumber() {
-		return phoneNumber;
+	public String getPhone_num() {
+		return phone_num;
 	}
-	public void setPhoneNumber(String phoneNumber) {
-		this.phoneNumber = phoneNumber;
+	public void setPhone_num(String phone_num) {
+		this.phone_num = phone_num;
 	}
 	public String getEmail() {
 		return email;
@@ -66,17 +66,17 @@ public class MemberVO {
 	public void setEmail(String email) {
 		this.email = email;
 	}
-	public String getPhoneCheckYn() {
-		return phoneCheckYn;
+	public String getPhone_yn() {
+		return phone_yn;
 	}
-	public void setPhoneCheckYn(String phoneCheckYn) {
-		this.phoneCheckYn = phoneCheckYn;
+	public void setPhone_yn(String phone_yn) {
+		this.phone_yn = phone_yn;
 	}
-	public String getEmailCheckYn() {
-		return emailCheckYn;
+	public String getEmail_yn() {
+		return email_yn;
 	}
-	public void setEmailCheckYn(String emailCheckYn) {
-		this.emailCheckYn = emailCheckYn;
+	public void setEmail_yn(String email_yn) {
+		this.email_yn = email_yn;
 	}
 	public Date getRegistered_date() {
 		return registered_date;
@@ -94,9 +94,9 @@ public class MemberVO {
 	@Override
 	public String toString() {
 		return "MemberVO [user_id=" + user_id + ", user_name=" + user_name + ", user_passwd=" + user_passwd
-				+ ", address=" + address + ", zip_code=" + zip_code + ", birth=" + birth + ", phoneNumber="
-				+ phoneNumber + ", email=" + email + ", phoneCheckYn=" + phoneCheckYn + ", emailCheckYn=" + emailCheckYn
-				+ ", registered_date=" + registered_date + ", updated_date=" + updated_date + "]";
+				+ ", address=" + address + ", zip_code=" + zip_code + ", birth=" + birth + ", phone_num=" + phone_num
+				+ ", email=" + email + "]";
 	}
+	
 	
 }

@@ -46,5 +46,10 @@ public class AdminMemberServiceImpl implements AdminMemberService {
 		return adminMapper.loginById(id); 
 	}
 
+	@Override
+	public AdminMemberVO myPageRead(AdminMemberVO vo) throws Exception {
+		return adminMapper.myPageRead(vo);
+	}
+
 
 }

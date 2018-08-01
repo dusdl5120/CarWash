@@ -53,6 +53,9 @@ public interface AdminMapper {
 	/* 댓글 */
 	public List<ReplyVO> replyList(Integer free_id) throws Exception;
 	
+	/* 마이페이지 */
+	public AdminMemberVO myPageRead(AdminMemberVO vo) throws Exception;
+	
 	
 	
 	

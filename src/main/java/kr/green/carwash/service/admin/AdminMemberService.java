@@ -14,6 +14,9 @@ public interface AdminMemberService {
 	/* 로그인 */
 	public AdminMemberVO login(String id, String passwd) throws Exception;
 	public AdminMemberVO loginById(String id) throws Exception;
+	
+	/* 마이페이지 */
+	public AdminMemberVO myPageRead(AdminMemberVO vo) throws Exception;
 
 
 

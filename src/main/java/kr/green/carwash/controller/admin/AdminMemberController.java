@@ -19,6 +19,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import kr.green.carwash.common.pagination.Criteria;
 import kr.green.carwash.service.admin.AdminMemberService;
+import kr.green.carwash.vo.admin.AdminFreeBoardVO;
 import kr.green.carwash.vo.admin.AdminMemberVO;
 
 @Controller
@@ -116,6 +117,47 @@ public class AdminMemberController {
 		
 		return "redirect:/";
 	}
+	
+	
+	/* 마이페이지 */
+	@RequestMapping(value="/myPage")
+	public String myPageRead(Model model, HttpServletRequest request, AdminMemberVO adMemberVO) throws Exception {
+		
+		HttpSession session = request.getSession();
+		AdminMemberVO user = (AdminMemberVO) session.getAttribute("user");	 
+		
+		boolean admin = false;
+		if(user != null)
+			admin = true;
+		
+		adMemberVO.setAdmin_id(user.getAdmin_id());
+		System.out.println("---------" + adMemberVO.getAdmin_id()); 
+		
+		AdminMemberVO my = adminMemberSerivice.myPageRead(adMemberVO);
+		
+		
+		
+		model.addAttribute("admin", admin);
+		model.addAttribute("my", my);
+		
+		return "/admin/mypage/mypage";
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	
 	
 	
