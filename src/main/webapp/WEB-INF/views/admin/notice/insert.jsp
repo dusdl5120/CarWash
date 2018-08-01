@@ -19,12 +19,12 @@
 	
 	<!-- Contents -->
 
-	<div class="container" style="height: 750px;">
+	<div class="container" style="height: 820px;">
 		<div class="rows">
 
 			<div class="col-md-4 "></div>
 			<div class="col-md-4" style="text-align: center; color: #6c757d;">
-				<label class="fa fa-list" style="font-size: 20px;">&nbsp;&nbsp;<strong>공지사항 등록</strong></label>
+				<label style="font-size: 20px;">&nbsp;&nbsp;<strong>글쓰기</strong></label>
 			</div>
 			<div class="col-md-4"></div>
 
@@ -40,10 +40,10 @@
 				<div class="row" style="margin-bottom: -30px;"> 
 					<div class="col-md-1"></div>
 					<div class="col-md-2" style="text-align: right; padding-top: 6px;"> 
-						<label class="control-label" for="registered_id">작성자<b style="color: red;">&nbsp;*</b></label>
+						<label class="control-label" for="admin_id">작성자</label>
 					</div>
 					<div class="col-md-7"> 
-						<input type="text" class="input form-control" id="registered_id" name="registered_id">
+						<input type="text" class="input form-control" id="admin_id" name="admin_id" value="${adNoticeVO.admin_name }" disabled>
 					</div>
 					<div class="col-md-2"></div>
 				</div>
@@ -82,7 +82,9 @@
 					<div class="col-md-2"></div>
 					<div class="col-md-7"> 
 						<button type="button" class="btn btn-dark" style="float: right; margin-top: 50px; margin-left: 10px;" onclick="location.href='/carwash/admin/notice/list'">취소</button>
-						<button type="submit" class="btn btn-dark" style="float: right; margin-top: 50px;" onclick="location.href='/carwash/admin/notice/insert'">등록</button>
+						<c:if test="${admin}">
+							<button type="submit" class="btn btn-dark" style="float: right; margin-top: 50px;" onclick="location.href='/carwash/admin/notice/insert'">등록</button>
+						</c:if>
 					</div>
 					<div class="col-md-2"></div>
 				</div>

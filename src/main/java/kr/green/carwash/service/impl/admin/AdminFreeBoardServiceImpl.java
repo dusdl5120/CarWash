@@ -26,6 +26,16 @@ public class AdminFreeBoardServiceImpl implements AdminFreeBoardService {
 	public List<AdminFreeBoardVO> boardListPage(Criteria cri) throws Exception {
 		return adminMapper.boardListPage(cri);
 	}
+	
+	@Override
+	public int searchCountBoard(Criteria cri, String search, Integer type) {
+		return adminMapper.searchCountBoard(cri, search, type);
+	}
+	
+	@Override
+	public List<AdminFreeBoardVO> boardSearchListPage(Criteria cri, String search, Integer type) {
+		return adminMapper.boardSearchListPage(cri, search, type);
+	}
 
 	@Override
 	public AdminFreeBoardVO boardRead(AdminFreeBoardVO vo) throws Exception {
@@ -52,6 +62,9 @@ public class AdminFreeBoardServiceImpl implements AdminFreeBoardService {
 		adminMapper.freeDelete(vo);
 	}
 
+
+
+	
 	
 	
 }

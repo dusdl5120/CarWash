@@ -7,15 +7,13 @@ public class AdminFreeBoardVO {
 	private Integer id;					// 일련번호
 	private String title;				// 게시글 제목
 	private String contents;			// 게시글 내용
-    //private String file_name;			// 파일명
-    private String save_route;			// 저장경로
-    private String short_comment;		// 한줄평
+    private String reply;				// 한줄평
+    private int reply_cnt;				// 리스트에 뿌려줄 댓글 수
 	private int cnt;					// 조회수
     private String registered_id;		// 작성자ID
 	private String updated_id;			// 수정자ID
 	private Date registered_date;		// 작성일시
 	private Date updated_date;			// 수정일시
-	private String chkYn;				// 체크여부
 	
 	
 	public Integer getId() {
@@ -36,23 +34,17 @@ public class AdminFreeBoardVO {
 	public void setContents(String contents) {
 		this.contents = contents;
 	}
-	/*public String getFile_name() {
-		return file_name;
+	public String getReply() {
+		return reply;
 	}
-	public void setFile_name(String file_name) {
-		this.file_name = file_name;
-	}*/
-	public String getSave_route() {
-		return save_route;
+	public void setReply(String reply) {
+		this.reply = reply;
 	}
-	public void setSave_route(String save_route) {
-		this.save_route = save_route;
+	public int getReply_cnt() {
+		return reply_cnt;
 	}
-	public String getShort_comment() {
-		return short_comment;
-	}
-	public void setShort_comment(String short_comment) {
-		this.short_comment = short_comment;
+	public void setReply_cnt(int reply_cnt) {
+		this.reply_cnt = reply_cnt;
 	}
 	public int getCnt() {
 		return cnt;
@@ -84,20 +76,11 @@ public class AdminFreeBoardVO {
 	public void setUpdated_date(Date updated_date) {
 		this.updated_date = updated_date;
 	}
-	public String getChkYn() {
-		return chkYn;
-	}
-	public void setChkYn(String chkYn) {
-		this.chkYn = chkYn;
-	}
 	
 	@Override
 	public String toString() {
-		return "AdminFreeBoardVO [id=" + id + ", title=" + title + ", contents=" + contents 
-				+ ", save_route=" + save_route + ", short_comment=" + short_comment + ", cnt=" + cnt
-				+ ", registered_id=" + registered_id + ", updated_id=" + updated_id + ", registered_date="
-				+ registered_date + ", updated_date=" + updated_date + ", chkYn=" + chkYn + "]";
+		return "AdminFreeBoardVO [id=" + id + ", title=" + title + ", contents=" + contents + ", reply=" + reply
+				+ ", reply_cnt=" + reply_cnt + ", cnt=" + cnt + "]";
 	}
-	
 	
 }

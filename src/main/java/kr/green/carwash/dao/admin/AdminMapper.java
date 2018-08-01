@@ -2,19 +2,22 @@ package kr.green.carwash.dao.admin;
 
 import java.util.List;
 
+import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Repository;
 
 import kr.green.carwash.common.pagination.Criteria;
 import kr.green.carwash.vo.admin.AdminFreeBoardVO;
 import kr.green.carwash.vo.admin.AdminMemberVO;
 import kr.green.carwash.vo.admin.AdminNoticeVO;
+import kr.green.carwash.vo.admin.ReplyVO;
 
 @Repository("adminMapper")
 public interface AdminMapper {
 
 	/* 공지사항 */
 	public List<AdminNoticeVO> noticeListPage(Criteria cri) throws Exception;
-	public int countNotice(Criteria cri);
+	public List<AdminNoticeVO> searchNoticeListPage(@Param("cri") Criteria cri, @Param("search") String search, @Param("type") Integer type) throws Exception;
+	public int countNotice(@Param("cri") Criteria cri, @Param("search") String search, @Param("type") Integer type);
 	public void noticeInsert(AdminNoticeVO vo) throws Exception;
 	public AdminNoticeVO noticeRead(AdminNoticeVO vo) throws Exception;
 	public void noticeUpdate(AdminNoticeVO vo) throws Exception;
@@ -23,6 +26,8 @@ public interface AdminMapper {
 	
 	/* 자유게시판 */
 	public List<AdminFreeBoardVO> boardListPage(Criteria cri) throws Exception;
+	public List<AdminFreeBoardVO> boardSearchListPage(@Param("cri") Criteria cri, @Param("search") String search, @Param("type") Integer type);		// 검색조건 포함한 리스트
+	public int searchCountBoard(@Param("cri") Criteria cri, @Param("search") String search, @Param("type") Integer type);	 						// 검색조건 포함한 리스트 카운트
 	public int countBoard(Criteria cri);
 	public AdminFreeBoardVO boardRead(AdminFreeBoardVO vo) throws Exception;
 	public int freeBoardCnt(AdminFreeBoardVO vo);
@@ -39,6 +44,16 @@ public interface AdminMapper {
 	/* 로그인 */
 	public AdminMemberVO login(String id, String passwd) throws Exception;
 	public AdminMemberVO loginById(String id) throws Exception;
+	
+	
+	/* ID 중복확인 */
+	public boolean checkUser(String admin_id) throws Exception;
+	
+	
+	/* 댓글 */
+	public List<ReplyVO> replyList(Integer free_id) throws Exception;
+	
+	
 	
 	
 	

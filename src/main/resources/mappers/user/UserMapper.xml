@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="kr.green.carwash.dao.user.UserMapper">
+
+	
+	<!-- 회원가입 -->
+	<insert id="insertUserJoin" parameterType="kr.green.carwash.vo.user.MemberVO">
+		INSERT INTO user_account (
+			user_id
+			, user_passwd
+			, user_name
+			, address
+			, birth
+			, phone_num
+			, email
+			, phone_yn
+			, email_yn
+			, zip_code
+			, registered_date
+		)VALUES(
+			#{user_id}
+			, #{user_passwd}
+			, #{user_name}
+			, #{address}
+			, #{birth}
+			, #{phone_num}
+			, #{email}
+			, #{phone_yn}
+			, #{email_yn}
+			, #{zip_code}
+			, now()
+		)
+	</insert>
+
+	<!-- 로그인 -->
+	<select id="login" resultType="kr.green.carwash.vo.user.MemberVO">
+		select 
+			* 
+		from 
+			user_account 
+		where 
+			user_id = #{id} 
+		and user_passwd = #{passwd}
+	</select>
+	
+	<select id="loginById" resultType="kr.green.carwash.vo.user.MemberVO">
+		select 
+			* 
+		from 
+			user_account 
+		where 
+			user_id = #{id}
+	</select>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+
+</mapper>

@@ -33,7 +33,7 @@ section {
 	text-align: center;
 }
 
-.rows {
+.rows { 
   display: -ms-flexbox;
   text-align: -webkit-center;
   display: flex;
@@ -41,7 +41,7 @@ section {
   flex-wrap: wrap;
   margin-right: -15px;
   margin-left: -15px;
-  margin-top: 16%;
+  margin-top: 12%;
 }
 
 .pagination {
@@ -134,7 +134,10 @@ section {
 	-webkit-logical-height: 200px;
 	background-position: center center;
 }
-
+label.error{
+	float:left;
+	color:red;
+}
 
 
 

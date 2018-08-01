@@ -1,18 +1,27 @@
 package kr.green.carwash.controller.admin;
 
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 
 import javax.annotation.Resource;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import kr.green.carwash.common.pagination.Criteria;
 import kr.green.carwash.common.pagination.PageMaker;
 import kr.green.carwash.service.admin.AdminFreeBoardService;
+import kr.green.carwash.service.admin.ReplyService;
 import kr.green.carwash.vo.admin.AdminFreeBoardVO;
+import kr.green.carwash.vo.admin.AdminMemberVO;
+import kr.green.carwash.vo.admin.ReplyVO;
 
 @Controller
 @RequestMapping(value="/admin/free/*")
@@ -21,6 +30,9 @@ public class AdminFreeBoardController {
 	@Resource(name="adminFreeBoardService")
 	AdminFreeBoardService adminFreeBoardService;
 	
+	@Resource(name="replyService")
+	ReplyService replyService;
+	
 	/*@Resource(name="uploadFileUtils")
 	UploadFileUtils uploadFileUtils;
 	
@@ -28,11 +40,39 @@ public class AdminFreeBoardController {
 	private String uploadPath;*/
 	
 	/* 자유게시판 목록 */
-	@RequestMapping(value="/list", method= RequestMethod.GET)
-	public String freeBoardListPage(Model model, Criteria cri, AdminFreeBoardVO adFreeVO) throws Exception {
+	@RequestMapping(value="/list")
+	public String freeBoardListPage(Model model, Criteria cri, AdminFreeBoardVO adFreeVO, String search, Integer type, HttpServletRequest request) throws Exception {
 		
-		int totCnt = adminFreeBoardService.countBoard(cri);
+		HttpSession session = request.getSession();
+		AdminMemberVO user = (AdminMemberVO) session.getAttribute("user");
+		
+		boolean admin = false;
+		if(user != null)
+			admin = true;
+		
+		int totCnt = 0;
 		PageMaker pageMaker = new PageMaker();
+		pageMaker.setCriteria(cri);
+		
+		
+		if (type == null) {
+			type = 0;
+		}
+		
+		ArrayList<AdminFreeBoardVO> list = (ArrayList) adminFreeBoardService.boardSearchListPage(pageMaker.getCriteria(), "%" + search + "%", type); 
+		totCnt = adminFreeBoardService.searchCountBoard(cri, "%" + search + "%", type);
+		pageMaker.setTotalCount(totCnt);
+		
+		System.out.println("******** pageMaker : " + pageMaker + ", totCnt : " + totCnt + " ********");
+		
+		
+		model.addAttribute("admin", admin);
+		model.addAttribute("list", list);
+		model.addAttribute("pageMaker", pageMaker);
+		model.addAttribute("search", search);
+		model.addAttribute("type", type);
+		
+		/*totCnt = adminFreeBoardService.countBoard(cri);
 		pageMaker.setCriteria(cri);
 		pageMaker.setTotalCount(totCnt);
 		
@@ -41,7 +81,7 @@ public class AdminFreeBoardController {
 		System.out.println("******** pageMaker : " + pageMaker + ", totCnt : " + totCnt + " ********");
   
 		model.addAttribute("list", list);
-		model.addAttribute("pageMaker", pageMaker);
+		model.addAttribute("pageMaker", pageMaker);*/
 		
 		return "/admin/free/list";
 	}
@@ -49,30 +89,42 @@ public class AdminFreeBoardController {
 	
 	/* 자유게시판 게시글 등록 */
 	@RequestMapping(value="insert", method=RequestMethod.GET)
-	public String freeBoardInsert(Model model, Criteria cri, AdminFreeBoardVO adFreeVO) throws Exception {
+	public String freeBoardInsert(Model model, Criteria cri, AdminFreeBoardVO adFreeVO, HttpServletRequest request) throws Exception {
 		 
+		HttpSession session = request.getSession();
+		AdminMemberVO user = (AdminMemberVO) session.getAttribute("user");
+		
+		boolean admin = false;
+		if(user != null)
+			admin = true;
+		
+		adFreeVO.setRegistered_id(user.getAdmin_id());
+		
+		model.addAttribute("adFreeVO", adFreeVO);
+		model.addAttribute("admin", admin);
+		
 		return "/admin/free/insert";
 	}
 	
 	
 	/* 자유게시판 게시글 등록처리 */
 	@RequestMapping(value="insert", method=RequestMethod.POST)
-	public String freeBoardInsertPost(Model model, Criteria cri, AdminFreeBoardVO adFreeVO, String title, String contents, String registered_id) throws Exception {
-		 
+	public String freeBoardInsertPost(Model model, Criteria cri, AdminFreeBoardVO adFreeVO, String title, String contents, String registered_id, HttpServletRequest request) throws Exception {
+		
+		HttpSession session = request.getSession();
+		AdminMemberVO user = (AdminMemberVO) session.getAttribute("user");
+		
+		boolean admin = false;
+		if(user != null)
+			admin = true;
+		
+		model.addAttribute("admin", admin);
+		
 		adFreeVO.setTitle(title);
 		adFreeVO.setContents(contents);
-		adFreeVO.setRegistered_id(registered_id);
+		adFreeVO.setRegistered_id(user.getAdmin_id());
 		
-		
-		/*if(file != null) {
-			
-			지워진 코드 : uploadFile(file.getOriginalFilename(),file.getBytes());
-			추가된 코드 : 서버의경로, 해당하는 파일의 이름, 해당하는 데이터
-			
-			file_name = UploadFileUtils.uploadFile(uploadPath, file.getOriginalFilename(),file.getBytes());
-			adFreeVO.setFile_name(file_name); 
-			
-		}*/
+		model.addAttribute("adFreeVO", adFreeVO);
 		
 		adminFreeBoardService.freeInsert(adFreeVO);
 		
@@ -82,7 +134,17 @@ public class AdminFreeBoardController {
 	
 	/* 자유게시판 게시글 수정 */
 	@RequestMapping(value="/update", method= RequestMethod.GET)
-	public String freeBoardUpdate(Model model, Criteria cri, AdminFreeBoardVO adFreeVO) throws Exception {
+	public String freeBoardUpdate(Model model, Criteria cri, AdminFreeBoardVO adFreeVO, Integer id, HttpServletRequest request) throws Exception {
+		
+		HttpSession session = request.getSession();
+		AdminMemberVO user = (AdminMemberVO) session.getAttribute("user");
+		
+		boolean admin = false;
+		if(user != null)
+			admin = true;
+		
+		adFreeVO.setRegistered_id(user.getAdmin_id());
+		model.addAttribute("admin", admin);
 		
 		/* 상세정보 */
 		AdminFreeBoardVO board = adminFreeBoardService.boardRead(adFreeVO);
@@ -94,7 +156,17 @@ public class AdminFreeBoardController {
 	
 	/* 자유게시판 게시글 정보 */
 	@RequestMapping(value="/read", method= RequestMethod.GET)
-	public String freeBoardRead(Model model, Criteria cri, AdminFreeBoardVO adFreeVO) throws Exception {
+	public String freeBoardRead(Model model, Criteria cri, AdminFreeBoardVO adFreeVO, HttpServletRequest request) throws Exception {
+		
+		HttpSession session = request.getSession();
+		AdminMemberVO user = (AdminMemberVO) session.getAttribute("user");
+		
+		boolean admin = false;
+		if(user != null)
+			admin = true;
+		
+		adFreeVO.setRegistered_id(user.getAdmin_id());
+		model.addAttribute("admin", admin);
 		
 		/* 조회수 증가 */
 		adminFreeBoardService.freeBoardCnt(adFreeVO);
@@ -110,7 +182,22 @@ public class AdminFreeBoardController {
 	
 	/* 자유게시판 게시글 수정처리 */
 	@RequestMapping(value="/update", method= RequestMethod.POST)
-	public String freeBoardUpdatePost(Model model, Criteria cri, AdminFreeBoardVO adFreeVO) throws Exception {
+	public String freeBoardUpdatePost(Model model, Criteria cri, AdminFreeBoardVO adFreeVO, Integer id, HttpServletRequest request) throws Exception {
+		
+		HttpSession session = request.getSession();
+		AdminMemberVO user = (AdminMemberVO) session.getAttribute("user");
+		
+		boolean admin = false;
+		if(user != null)
+			admin = true;
+		
+		adFreeVO.setRegistered_id(user.getAdmin_id());
+		
+		System.out.println("========" + adFreeVO.getRegistered_id());
+		System.out.println("========" + adFreeVO.getTitle());
+		System.out.println("========" + adFreeVO.getContents());
+		
+		model.addAttribute("admin", admin);
 		
 		adminFreeBoardService.freeUpdate(adFreeVO);
 		
@@ -120,7 +207,16 @@ public class AdminFreeBoardController {
 	
 	/* 자유게시판 게시글 삭제 */
 	@RequestMapping(value="/delete")
-	public String freeBoardDeletePost(Model model, Criteria cri, AdminFreeBoardVO adFreeVO) throws Exception {
+	public String freeBoardDeletePost(Model model, Criteria cri, AdminFreeBoardVO adFreeVO, HttpServletRequest request) throws Exception {
+		
+		HttpSession session = request.getSession();
+		AdminMemberVO user = (AdminMemberVO) session.getAttribute("user");
+		
+		boolean admin = false;
+		if(user != null)
+			admin = true;
+		
+		model.addAttribute("admin", admin);
 		
 		adminFreeBoardService.freeDelete(adFreeVO);
 		
@@ -128,14 +224,24 @@ public class AdminFreeBoardController {
 	}
 	
 	
+	@RequestMapping("/reply")
+	@ResponseBody
+	public Map<Object, Object> replyList(@RequestBody Integer free_id) throws Exception{
+		
+	    Map<Object, Object> map = new HashMap<Object, Object>();
+	    
+	    ReplyVO reply = (ReplyVO) replyService.replyList(free_id);
+	    
+	    map.put("reply", reply);
+	    
+	    return map;
 	
 	
 	
 	
 	
 	
-	
-	
+	}
 	
 	
 	

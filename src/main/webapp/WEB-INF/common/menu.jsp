@@ -78,7 +78,7 @@
 			</div><br />
             <div class="form-group">
                <div class="col-md-12" style="text-align: center;">
-                   <button type="button" class="btn btn-dark" onclick="location.href=''">사용자</button>
+                   <button type="button" class="btn btn-dark" onclick="location.href='/carwash/user/member/join'">사용자</button>
                    <button type="button" class="btn btn-dark" onclick="location.href='/carwash/admin/member/join'" style="margin-left: 10%;">관리자</button>
                </div>
            </div>

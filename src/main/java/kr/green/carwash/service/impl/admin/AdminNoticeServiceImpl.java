@@ -22,8 +22,8 @@ public class AdminNoticeServiceImpl implements AdminNoticeService {
 	}
 
 	@Override
-	public int countNotice(Criteria cri) {
-		return adminMapper.countNotice(cri);
+	public int countNotice(Criteria cri, String search, Integer type) {
+		return adminMapper.countNotice(cri, search, type);
 	}
 
 	@Override
@@ -51,5 +51,12 @@ public class AdminNoticeServiceImpl implements AdminNoticeService {
 	public int noticeCnt(AdminNoticeVO vo) {
 		return adminMapper.noticeCnt(vo);
 	}
+
+	@Override
+	public List<AdminNoticeVO> searchNoticeListPage(Criteria cri, String search, Integer type) throws Exception { 
+		return adminMapper.searchNoticeListPage(cri, search, type);
+	}
+
+	
 
 }

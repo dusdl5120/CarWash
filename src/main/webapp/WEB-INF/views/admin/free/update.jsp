@@ -19,12 +19,12 @@
 	
 	<!-- Contents -->
 
-	<div class="container" style="height: 750px;">
+	<div class="container" style="height: 820px;">
 		<div class="rows">
 
 			<div class="col-md-4 "></div>
 			<div class="col-md-4" style="text-align: center; color: #6c757d;">
-				<label class="fa fa-list" style="font-size: 20px;">&nbsp;&nbsp;<strong>자유게시판 수정</strong></label>
+				<label style="font-size: 20px;">&nbsp;&nbsp;<strong>수정하기</strong></label>
 			</div>
 			<div class="col-md-4"></div>
 
@@ -33,7 +33,7 @@
 		</div>
 		
 		
-		<form method="post" style="width: 100%; text-align: webkit-center;" enctype="multipart/form-data"> 
+		<form method="post" style="width: 100%; text-align: webkit-center;"> 
 			<div style="width:100%; padding-top: 30px;">
 			
 			 	<input type="hidden" name="id" value="${board.id }" />

@@ -20,18 +20,26 @@
 		<property name="password" value="cjgreen"></property>
 	</bean>  
 	
+	<!-- 모든 MAPPER -->
 	<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
 	    <property name="dataSource" ref="dataSource" />
-	    <property name="mapperLocations" value="classpath:mappers/admin/*Mapper.xml"></property>
+	    <property name="mapperLocations" value="classpath:mappers/**/*Mapper.xml"></property>
 	</bean>
 	
+	<!-- ADMIN MAPPER -->
 	<bean id="adminMapper" class="org.mybatis.spring.mapper.MapperFactoryBean">
 	    <property name="mapperInterface" value="kr.green.carwash.dao.admin.AdminMapper"></property>
 	    <property name="sqlSessionFactory" ref="sqlSessionFactory"></property>
 	</bean>
 	
+	<!-- USER MAPPER -->
+	<bean id="userMapper" class="org.mybatis.spring.mapper.MapperFactoryBean">
+	    <property name="mapperInterface" value="kr.green.carwash.dao.user.UserMapper"></property>
+	    <property name="sqlSessionFactory" ref="sqlSessionFactory"></property>
+	</bean>
 	
 	
-	<mybatis-spring:scan base-package="kr.green.carwash.dao.admin"/>
+	
+	<mybatis-spring:scan base-package="kr.green.carwash.dao.*"/>
 		
 </beans>

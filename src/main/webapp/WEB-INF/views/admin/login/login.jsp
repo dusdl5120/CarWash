@@ -17,12 +17,12 @@
 	
 	<!-- Contents -->
 
-	<div class="container" style="height: 750px;">
+	<div class="container" style="height: 820px;">
 		<div class="rows">
 
 			<div class="col-md-4 "></div>
 			<div class="col-md-4" style="text-align: center; color: #6c757d;">
-				<label class="fa fa-list" style="font-size: 20px;">&nbsp;&nbsp;<strong>로그인</strong></label>
+				<label style="font-size: 20px;">&nbsp;&nbsp;<strong>로그인</strong></label>
 			</div>
 			<div class="col-md-4"></div>
 
@@ -58,6 +58,15 @@
 					<div class="col-md-2"></div>
 				</div>
 				<br> <br>
+				
+				<div class="row" style="margin-bottom: -30px;"> 
+					<div class="col-md-3"></div>
+					<div class="col-md-7" style="text-align: left; padding-top: 6px;"> 
+						 <a href="/carwash/admin/member/forgot" id="forgotPw">비밀번호가 기억이 안나시나요?</a><br>
+						 <a href="/carwash/admin/member/join">아직 회원이 아니시라면?</a>
+					</div>
+					<div class="col-md-2"></div>
+				</div>
 				
 				<div class="row" style="margin-top: 25px;"> 
 					<div class="col-md-1"></div>

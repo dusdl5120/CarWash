@@ -33,7 +33,7 @@ public class HomeController {
 			
 			admin = true;
 			model.addAttribute("admin", admin);
-			System.out.println(admin);
+			//System.out.println(admin);
 			return "/index";
 		}
 		model.addAttribute("admin", admin);

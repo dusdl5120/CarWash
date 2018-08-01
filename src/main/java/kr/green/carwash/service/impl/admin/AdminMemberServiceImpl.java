@@ -46,6 +46,5 @@ public class AdminMemberServiceImpl implements AdminMemberService {
 		return adminMapper.loginById(id); 
 	}
 
-	
 
 }

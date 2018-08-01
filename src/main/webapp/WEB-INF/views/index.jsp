@@ -42,7 +42,9 @@
 					</div>
 					<div class="col-md-8">
 						<div class="row text-center">
-							<div class="col-md-3 bg-fee"></div>
+							<div class="col-md-3 bg-fee">
+								<p style="margin-top: 59%;">요금안내</p>
+							</div>
 							<div class="col-md-3 bg-calendar"></div>
 							<div class="col-md-3 bg-list"></div>
 							<div class="col-md-3 bg-faq"></div> 
@@ -128,8 +130,7 @@
 						</div>
 					</div>
 					<div class="col-md-3">
-						<h5>고객센터 : 0000 - 0000</h5><br>
-						<h5>이메일 : carwash@carwash.com</h5><br>
+						
 					</div>
 				</div>
 			</div>

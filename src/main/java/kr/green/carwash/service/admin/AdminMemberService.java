@@ -16,4 +16,5 @@ public interface AdminMemberService {
 	public AdminMemberVO loginById(String id) throws Exception;
 
 
+
 }

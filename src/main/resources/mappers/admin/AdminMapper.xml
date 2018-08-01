@@ -5,11 +5,31 @@
 
  
 	<!-- 공지사항 -->
+	<select id="searchNoticeListPage" resultType="kr.green.carwash.vo.admin.AdminNoticeVO">
+		SELECT 
+			*
+		FROM
+			notice
+		WHERE 1=1
+			<if test="type==1">
+				 and title like #{search}
+			</if>
+			<if test="type==2">
+				 and registered_id like #{search}
+			</if>
+			<if test="type==3">
+				 and contents like #{search}
+			</if>
+		ORDER BY ID DESC
+		LIMIT #{cri.pageStart}, #{cri.perPageNum}
+	</select>
+	
+	
 	<select id="noticeListPage" resultType="kr.green.carwash.vo.admin.AdminNoticeVO">
 		SELECT 
 			*
 		FROM
-			notice_board
+			notice
 		ORDER BY ID DESC
 		LIMIT #{pageStart}, #{perPageNum}
 	</select>
@@ -18,19 +38,34 @@
 		SELECT
 			COUNT(*)
 		FROM 
-			notice_board
+			notice
+		WHERE 1=1
+			<if test="type==1">
+				 and title like #{search}
+			</if>
+			<if test="type==2">
+				 and super_id like #{search}
+			</if>
+			<if test="type==3">
+				 and contents like #{search}
+			</if>
 	</select>
+	
+
+
 
 	<insert id="noticeInsert" parameterType="kr.green.carwash.vo.admin.AdminNoticeVO"> 
-		INSERT INTO notice_board (
+		INSERT INTO notice (
 			title
 			, contents
-			, registered_id
+			, admin_id
+			, admin_name
 			, registered_date
 		)VALUES(
 			#{title}
 			, #{contents}
-			, #{registered_id}
+			, #{admin_id}
+			, #{admin_name}
 			, now()
 		)
 	</insert>
@@ -41,17 +76,17 @@
 			, title
 			, cnt
 			, contents
-			, registered_id
+			, admin_id
 			, registered_date
 		from
-			notice_board
+			notice
 		where
 			id = #{id}
 	</select>
 	
 	<update id="noticeCnt" parameterType="int">
 		UPDATE
-			notice_board
+			notice
 		SET
 			cnt = cnt + 1
 		WHERE
@@ -60,13 +95,13 @@
 
 	<update id="noticeUpdate">
 		update
-			notice_board
+			notice
 		set
 			title = #{title}
 			, contents = #{contents}
-			, registered_id = #{registered_id}
+			, admin_id = #{admin_id}
 			, registered_date = now()
-			, updated_id = #{registered_id}
+			, updated_id = #{admin_id}
 			, updated_date = now()
 		where
 			id = #{id}
@@ -74,7 +109,7 @@
 
 	<delete id="noticeDelete">
 		delete from 
-			notice_board
+			notice
 		where
 			id = #{id}
 	</delete>
@@ -86,16 +121,67 @@
 		select 
 			count(*)
 		from
-			free_board
+			free
 	</select>
 
-	<select id="boardListPage" resultType="kr.green.carwash.vo.admin.AdminFreeBoardVO">
+<!-- 	<select id="boardListPage" resultType="kr.green.carwash.vo.admin.AdminFreeBoardVO">
+		select
+			distinct f.id
+			, f.title
+			, f.contents
+			, f.short_comment
+			, f.registered_id
+			, f.registered_date
+			, (SELECT COUNT(*) FROM reply_board WHERE id=r.free_id) AS replyCnt
+		from
+			free f, reply_board r
+		ORDER BY ID DESC
+		LIMIT #{pageStart}, #{perPageNum}
+	</select> -->
+	
+	 <select id="boardListPage" resultType="kr.green.carwash.vo.admin.AdminFreeBoardVO">
 		select
 			*
 		from
-			free_board
+			free
 		ORDER BY ID DESC
 		LIMIT #{pageStart}, #{perPageNum}
+	</select>
+	
+	<select id="boardSearchListPage" resultType="kr.green.carwash.vo.admin.AdminFreeBoardVO">
+		SELECT 
+			*
+		FROM
+			free
+		WHERE 1=1
+			<if test="type==1">
+				 and title like #{search}
+			</if>
+			<if test="type==2">
+				 and registered_id like #{search}
+			</if>
+			<if test="type==3">
+				 and contents like #{search}
+			</if>
+		ORDER BY ID DESC
+		LIMIT #{cri.pageStart}, #{cri.perPageNum}
+	</select>
+	
+	<select id="searchCountBoard" resultType="int">
+		SELECT
+			COUNT(*)
+		FROM 
+			free
+		WHERE 1=1
+			<if test="type==1">
+				 and title like #{search}
+			</if>
+			<if test="type==2">
+				 and registered_id like #{search}
+			</if>
+			<if test="type==3">
+				 and contents like #{search}
+			</if>
 	</select>
 
 	<select id="boardRead" resultType="kr.green.carwash.vo.admin.AdminFreeBoardVO">
@@ -104,18 +190,18 @@
 			, title
 			, contents
 			, cnt
-			, short_comment
+			, reply
 			, registered_id
 			, registered_date
 		from
-			free_board
+			free
 		where
 			id = #{id}
 	</select>
 	
 	<update id="freeBoardCnt" parameterType="int">
 		UPDATE
-			free_board
+			free
 		SET
 			cnt = cnt + 1
 		WHERE
@@ -123,7 +209,7 @@
 	</update>
 	
 	<insert id="freeInsert" parameterType="kr.green.carwash.vo.admin.AdminFreeBoardVO">
-		INSERT INTO free_board (
+		INSERT INTO free (
 			title
 			, contents
 			, registered_id
@@ -138,7 +224,7 @@
 	
 	<update id="freeUpdate">
 		update
-			free_board
+			free
 		set
 			title = #{title}
 			, contents = #{contents}
@@ -152,7 +238,7 @@
 	
 	
 	<delete id="freeDelete">
-		delete from free_board
+		delete from free
 		where id = #{id}
 	</delete>
 	
@@ -190,12 +276,10 @@
 			, busin_place_code_name
 			, ceo_name
 			, carwash_type
-			, water_quality_permi_num
 			, road_name_addr
 			, busin_place_tele_num
 			, closed_date
 			, zip_code
-			, registered_id
 			, registered_date
 		)VALUES(
 			#{admin_id}
@@ -204,16 +288,14 @@
 			, #{busin_place_code_name}
 			, #{ceo_name}
 			, #{carwash_type}
-			, #{water_quality_permi_num}
 			, #{road_name_addr}
 			, #{busin_place_tele_num}
 			, #{closed_date}
 			, #{zip_code}
-			, #{registered_id}
 			, now()
 		)
 	</insert>
-	
+
 	
 	<!-- 로그인 -->
 	<select id="login" resultType="kr.green.carwash.vo.admin.AdminMemberVO">
@@ -234,6 +316,30 @@
 		where 
 			admin_id = #{id}
 	</select>
+	
+	
+	
+	<!-- 댓글 -->
+	<select id="replyList" resultType="kr.green.carwash.vo.admin.ReplyVO">
+        SELECT 
+        	*
+        FROM 
+        	reply_board
+        WHERE free_id = #{free_id}
+    </select>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	
 	
 	

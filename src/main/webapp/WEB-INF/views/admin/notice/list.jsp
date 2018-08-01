@@ -19,18 +19,41 @@
 <!-- Menu -->
 
 	<!-- Contents -->
-		<div class="container" style="height: 750px;">
+		<div class="container" style="height: 820px;">
 			<div class="rows">
 				<div style="width: 100%;">
 					<div class="col-md-4 "></div>
 					<div class="col-md-4" style="text-align: center; color: #6c757d;">
-						<label class="fa fa-list" style="font-size: 20px;">&nbsp;&nbsp;<strong>공지사항</strong></label>
+						<label style="font-size: 20px;">&nbsp;&nbsp;<strong>공지사항</strong></label>
 					</div>
 					<div class="col-md-4"></div>
 				</div>
 				<br><br>
 
 				<!-- <hr class="hr-2"> -->
+				
+				<div style="width: 100%; margin-top: 6%; margin-bottom: -16px;"> 
+					<div class="row" >
+						<div class="col-md-3"></div>
+						
+						<div class="col-md-9">
+							<form role="form" method="post" style="float: right; font-size: 17px;"> 
+								<select class="custom-select" name="type" style="margin-right: 5px; width:100px;">
+									<option value="0" <c:out value="${type == 0 ? 'selected' : ''}"/>>선택</option>
+									<option value="1" <c:out value="${type == 1 ? 'selected' : ''}"/>>제목</option>
+									<option value="3" <c:out value="${type == 3 ? 'selected' : ''}"/>>내용</option>
+								</select>
+								<span style="display: inline-block;"><input type="text" class="input form-control" name="search" size="15" value="${search }"/></span>
+								<c:if test="${admin }">
+									<button type="button" class="btn btn-dark" style="float: right; margin-left: 20px;" onclick="location.href='/carwash/admin/notice/insert'">등록</button>
+								</c:if>
+								<button type="submit" class="btn btn-secondary" style="float: right; margin-left: 5px;">검색</button> 
+								
+	                        </form>
+							
+						</div>
+					</div>
+				</div>
 				
 				<div style="width: 100%;"><br>
 					<table id="dataTable" class="table" style="text-align: center;">
@@ -48,7 +71,7 @@
 								<tr>
 									<td>${list.id }</td>
 									<td><a href="/carwash/admin/notice/read?id=${list.id }">${list.title }</a></td>
-									<td>${list.registered_id }</td>
+									<td>${list.admin_name}</td>
 									<td>${list.cnt }</td>
 									<td><fmt:formatDate value="${list.registered_date}" pattern="yyyy-MM-dd" /></td>
 								</tr>
@@ -59,31 +82,27 @@
 				
 				<div style="width: 100%; margin-top: 2%;"> 
 					<div class="row" >
-						<div class="col-md-3">
-							<form role="form" style="float: left; font-size: 17px;"> 
-								<span style="display: inline-block;"><i class="fa fa-search"></i><input type="text" name="search" size="12" placeholder="search.."/></span> 
-	                        </form>
-						</div>
+						<div class="col-md-3"></div>
 						
 						<div class="col-md-6">
 							<div style="width: 100%;">
 								<ul class="pagination pagination-sm" style="justify-content: center;">
 									<c:if test="${pageMaker.prev}">
-										<li class="page-item"><a class="page-link" href="/carwash/admin/notice/list?page=${pageMaker.startPage - 1 }">&laquo;</a></li>
+										<li class="page-item"><a class="page-link" href="/carwash/admin/notice/list?page=${pageMaker.startPage - 1 }&search=${search}&type=${type}">&laquo;</a></li>
 									</c:if>
 									<c:forEach begin="${pageMaker.startPage }" end="${pageMaker.endPage}" var="page">
-										<li class="page-item"><a class="page-link" href="/carwash/admin/notice/list?page=${page }">${page }</a></li>
+										<li class="page-item"><a class="page-link" href="/carwash/admin/notice/list?page=${page }&search=${search}&type=${type}">${page }</a></li>
 									</c:forEach>
 									<c:if test="${pageMaker.next}">
-										<li class="page-item"><a class="page-link" href="/carwash/admin/notice/list?page=${pageMaker.endPage + 1 }">&raquo;</a></li>
+										<li class="page-item"><a class="page-link" href="/carwash/admin/notice/list?page=${pageMaker.endPage + 1 }&search=${search}&type=${type}">&raquo;</a></li>
 									</c:if>
 								</ul>
 							</div>
 						</div>
-							
-						<div class="col-md-3">
-							<button type="button" class="btn btn-dark" style="float: right;" onclick="location.href='/carwash/admin/notice/insert'">등록</button>
-						</div>
+						
+						<%-- <c:if test="${admin}">	 --%>
+							<div class="col-md-3"></div>
+						<%-- </c:if> --%>
 					</div>
 				</div>
 				

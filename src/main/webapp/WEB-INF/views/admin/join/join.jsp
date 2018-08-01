@@ -6,6 +6,7 @@
 <head>
 	<!-- Header -->
 	<jsp:include page="../../../common/header.jsp"></jsp:include>
+	<base href="http://localhost:8181/">
 	<!-- Header -->
 </head> 
 
@@ -15,12 +16,12 @@
 	<!-- Menu -->
 	
 	<!-- Contents -->
-	<div class="container" style="height: 920px;">
+	<div class="container" style="height: 950px;">
 		<div class="row" style="margin-top: 16%;">  
 			
 			<div class="col-md-2"></div>
 			<div class="col-md-8" style="text-align: center; color: #6c757d;">
-				<label class="fa fa-user" style="font-size: 20px;">&nbsp;&nbsp;<strong>회원가입</strong>&nbsp;(<b style="color: red;">*</b>표시는 필수 입력항목입니다.)</label>
+				<label style="font-size: 20px;">&nbsp;&nbsp;<strong>가입하기</strong>&nbsp;</label>
 			</div>
 			<div class="col-md-2"></div>
 			
@@ -39,7 +40,7 @@
 							<input type="text" class="input form-control" id="admin_id" name="admin_id">
 						</div>
 						<div class="col-md-2">
-							<button type="button" class="btn btn-dark" style="width:100%;">중복확인</button>
+							<button type="button" class="btn btn-dark" id="dup" style="width:100%;">중복확인</button> 
 						</div>
 						<div class="col-md-2"></div>
 					</div>
@@ -254,7 +255,9 @@
 $(document).ready(function(){
 	
 	/* 전화번호 마스크 기능 */	
-	$('#busin_place_tele_num').mask('(000)-000-0000');
+	$('#busin_place_tele_num').mask('(000)-0000-0000', {
+		placeholder : "(___)-____-____"
+	});
 	
 	/* $('#busin_place_tele_num').keyup(function() {
 		
@@ -263,9 +266,6 @@ $(document).ready(function(){
         alert($(this).val());
     }); */
 
-	/* $('#birth').mask('00/00/0000', {
-		placeholder : "__/__/____"
-	}); */ 									/* ,{placeholder: "__/__/____"} */
 });	
 	
 	
@@ -331,7 +331,28 @@ $(document).ready(function(){
 
 });
 
+$(document).ready(function(){
+	$("#dup").on("click",function(){
+		var id = $("#admin_id").val();//id가 id인 input 태그에 입력된 id 가져오기
+		$.ajax({
+			async:true,
+			type:'POST',
+			data:id,
+			url:"carwash/admin/member/dup",
+			dataType:"json",
+			contentType:"application/json; charset=UTF-8",
+			success : function(data){
+				if(data.cnt > 0){
+					alert("동일한 아이디가 존재합니다. 다시 입력해주세요.");
+				}else{
+					alert("사용가능한 아이디입니다.");
+				}
+			}
+		});
+	});
+});
 
+	
 /* 우편번호 */
 function postCode() {
     new daum.Postcode({
