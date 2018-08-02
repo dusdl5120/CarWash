@@ -22,7 +22,7 @@
 
 			<div class="col-md-4 "></div>
 			<div class="col-md-4" style="text-align: center; color: #6c757d;">
-				<label style="font-size: 20px;">&nbsp;&nbsp;<strong>로그인</strong></label>
+				<label style="font-size: 20px;">&nbsp;&nbsp;<strong>회원탈퇴</strong></label>
 			</div>
 			<div class="col-md-4"></div>
 
@@ -32,20 +32,18 @@
 			
 		</div>
 		 
-		<form method="post" style="width: 100%; text-align: webkit-center;"> 
+		<form method="post" style="width: 100%; text-align: webkit-center;" id="form"> 
 			<div style="width:100%; padding-top: 30px;">
 			 
-				<div class="row" style="margin-bottom: -30px;"> 
-					<div class="col-md-1"></div>
-					<div class="col-md-2" style="text-align: right; padding-top: 6px;"> 
-						<label class="control-label" for="admin_id">아이디</label>
-					</div>
-					<div class="col-md-7"> 
-						<input type="text" class="input form-control" id="admin_id" name="admin_id">
+				<div class="row" style="margin-bottom: 50px;"> 
+					<div class="col-md-3"></div>
+					<div class="col-md-7" style="text-align: left; padding-top: 6px;"> 
+						 <p>지금 탈퇴하시면 예약내역 및 개인정보가 모두 삭제됩니다.</p>
+						 <p>카워시를 탈퇴하시겠습니까? 정말 탈퇴를 원하시면 비밀번호를 입력해주세요.</p>
 					</div>
 					<div class="col-md-2"></div>
 				</div>
-				<br> <br>
+				
 				
 				<div class="row" style="margin-bottom: -30px;"> 
 					<div class="col-md-1"></div>
@@ -59,21 +57,13 @@
 				</div>
 				<br> <br>
 				
-				<div class="row" style="margin-bottom: -30px;"> 
-					<div class="col-md-3"></div>
-					<div class="col-md-7" style="text-align: left; padding-top: 6px;"> 
-						 <a href="/carwash/admin/member/forgot" id="forgotPw">비밀번호가 기억이 안나시나요?</a><br>
-						 <a href="/carwash/admin/member/adminYn">아직 회원이 아니시라면?</a>
-					</div>
-					<div class="col-md-2"></div>
-				</div>
 				
 				<div class="row" style="margin-top: 25px;"> 
 					<div class="col-md-1"></div>
 					<div class="col-md-2"></div>
 					<div class="col-md-7"> 
-						<button type="button" class="btn btn-dark" style="float: right; margin-top: 50px; margin-left: 10px;" onclick="location.href='/carwash/admin/member/join'">회원가입</button>
-						<button type="submit" class="btn btn-dark" style="float: right; margin-top: 50px;" onclick="location.href='/carwash/admin/member/login'">로그인</button>
+						<button type="submit" class="btn btn-danger" style="float: right; margin-top: 50px;" id="save" onclick="location.href='/carwash/admin/member/myDelete'">탈퇴하기</button>
+						<button type="button" class="btn btn-dark" style="float: right; margin-top: 50px; margin-right: 10px;" onclick="location.href='/carwash'">취소</button>
 					</div>
 					<div class="col-md-2"></div>
 				</div>
@@ -95,7 +85,11 @@
 
 <script>
 	$(function() {
-
+		$('#save').click(function() {
+	    	var str = document.getElementById('form');
+	    	str.submit();
+	    	alert("회원탈퇴가 성공적으로 완료되었습니다.");
+	    });
 	});
 </script>
 

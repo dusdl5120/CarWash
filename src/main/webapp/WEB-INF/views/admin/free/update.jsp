@@ -44,7 +44,7 @@
 						<label class="control-label" for="registered_id">작성자<b style="color: red;">&nbsp;*</b></label>
 					</div>
 					<div class="col-md-7"> 
-						<input type="text" class="input form-control" id="registered_id" name="registered_id" value="${board.registered_id }">
+						<input type="text" class="input form-control" id="registered_id" name="registered_id" value="${board.registered_id }" disabled>
 					</div>
 					<div class="col-md-2"></div>
 				</div>

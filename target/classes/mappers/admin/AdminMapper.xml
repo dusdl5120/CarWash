@@ -276,10 +276,11 @@
 			, busin_place_code_name
 			, ceo_name
 			, carwash_type
-			, road_name_addr
 			, busin_place_tele_num
 			, closed_date
 			, zip_code
+			, road_name_addr
+			, road_detail_addr
 			, registered_date
 		)VALUES(
 			#{admin_id}
@@ -288,10 +289,11 @@
 			, #{busin_place_code_name}
 			, #{ceo_name}
 			, #{carwash_type}
-			, #{road_name_addr}
 			, #{busin_place_tele_num}
 			, #{closed_date}
 			, #{zip_code}
+			, #{road_name_addr}
+			, #{road_detail_addr}
 			, now()
 		)
 	</insert>
@@ -338,10 +340,11 @@
 			, busin_place_code_name
 			, ceo_name
 			, carwash_type
-			, road_name_addr
 			, busin_place_tele_num
 			, closed_date
 			, zip_code
+			, road_name_addr
+			, road_detail_addr
 			, registered_date
 		from
 			admin_account
@@ -350,12 +353,47 @@
 	</select>
 	
 	
+	<update id="myUpdate">
+		update
+			admin_account
+		set
+			admin_passwd = #{admin_passwd}
+			, busin_place_name = #{busin_place_name}
+			, busin_place_code_name =  #{busin_place_code_name}
+			, carwash_type =  #{carwash_type}
+			, busin_place_tele_num = #{busin_place_tele_num}
+			, closed_date =  #{closed_date}
+			, zip_code =  #{zip_code}
+			, road_name_addr = #{road_name_addr}
+			, road_detail_addr = #{road_detail_addr}
+			, registered_date = now()
+		where
+			admin_id = #{admin_id}
+	</update>
 	
 	
+	<update id="myUpdateExceptPasswd">
+		update
+			admin_account
+		set
+			busin_place_name = #{busin_place_name}
+			, busin_place_code_name =  #{busin_place_code_name}
+			, carwash_type =  #{carwash_type}
+			, busin_place_tele_num = #{busin_place_tele_num}
+			, closed_date =  #{closed_date}
+			, zip_code =  #{zip_code}
+			, road_name_addr = #{road_name_addr}
+			, road_detail_addr = #{road_detail_addr}
+			, registered_date = now()
+		where
+			admin_id = #{admin_id}
+	</update>
 	
 	
-	
-	
+	<delete id="myDelete">
+		delete from admin_account
+		where admin_id = #{admin_id}
+	</delete>
 	
 	
 	

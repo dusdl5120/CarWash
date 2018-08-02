@@ -21,7 +21,7 @@
 			
 			<div class="col-md-2"></div>
 			<div class="col-md-8" style="text-align: center; color: #6c757d;">
-				<label style="font-size: 20px;">&nbsp;&nbsp;<strong>가입하기</strong>&nbsp;</label>
+				<label style="font-size: 20px;">&nbsp;&nbsp;<strong>회원정보 수정</strong>&nbsp;</label>
 			</div>
 			<div class="col-md-2"></div>
 			
@@ -34,13 +34,10 @@
 					<div class="row" style="margin-bottom: -30px;"> 
 						<div class="col-md-1"></div>
 						<div class="col-md-2" style="text-align: right; padding-top: 6px;">
-							<label class="control-label" for="admin_id">관리자ID<b style="color: red;">&nbsp;*</b></label>
+							<label class="control-label" for="admin_id">관리자ID</label>
 						</div>
-						<div class="col-md-5"> 
-							<input type="text" class="input form-control" id="admin_id" name="admin_id">
-						</div>
-						<div class="col-md-2">
-							<button type="button" class="btn btn-dark" id="dup" style="width:100%;">중복확인</button> 
+						<div class="col-md-7" style="text-align: left;"> 
+							 <input type="text" class="input form-control" id="admin_id" name="admin_id" value="${my.admin_id }" readonly>
 						</div>
 						<div class="col-md-2"></div>
 					</div>
@@ -50,10 +47,10 @@
 					<div class="row" style="margin-bottom: -30px;"> 
 						<div class="col-md-1"></div>
 						<div class="col-md-2" style="text-align: right; padding-top: 6px;">
-							<label class="control-label" for="admin_passwd">관리자비밀번호<b style="color: red;">&nbsp;*</b></label>
+							<label class="control-label" for="admin_passwd">관리자비밀번호</label>
 						</div>
-						<div class="col-md-7"> 
-							<input type="password" class="input form-control" id="admin_passwd" name="admin_passwd">
+						<div class="col-md-7" style="text-align: left;"> 
+							<input type="password" class="input form-control" id="admin_passwd" name="admin_passwd" > 
 						</div>
 						<div class="col-md-2"></div>
 					</div>
@@ -63,10 +60,10 @@
 					<div class="row" style="margin-bottom: -30px;"> 
 						<div class="col-md-1"></div>
 						<div class="col-md-2" style="text-align: right; padding-top: 6px;">
-							<label class="control-label" for="admin_passwd">관리자비밀번호 확인<b style="color: red;">&nbsp;*</b></label>
+							<label class="control-label" for="admin_passwd">관리자비밀번호 확인</label>
 						</div>
-						<div class="col-md-7"> 
-							<input type="password" class="input form-control" id="admin_passwd_confirm" name="admin_passwd_confirm"> 
+						<div class="col-md-7" style="text-align: left;"> 
+							<input type="password" class="input form-control" id="admin_passwd_confirm" name="admin_passwd_confirm" >
 						</div>
 						<div class="col-md-2"></div>
 					</div>
@@ -76,10 +73,10 @@
 					<div class="row" style="margin-bottom: -30px;"> 
 						<div class="col-md-1"></div>
 						<div class="col-md-2" style="text-align: right; padding-top: 6px;"> 
-							<label class="control-label" for="busin_place_name">사업장명<b style="color: red;">&nbsp;*</b></label>
+							<label class="control-label" for="busin_place_name">사업장명</label>
 						</div>
-						<div class="col-md-7"> 
-							<input type="text" class="input form-control" id="busin_place_name" name="busin_place_name">
+						<div class="col-md-7" style="text-align: left;"> 
+							<input type="text" class="input form-control" id="busin_place_name" name="busin_place_name" value="${my.busin_place_name }" >
 						</div>
 						<div class="col-md-2"></div>
 					</div>
@@ -95,7 +92,7 @@
 							<c:if test="${!empty placeCodeList}" >
 							   <select class="form-control select" name="busin_place_code_name" id="busin_place_code_name">
 							      <c:forEach var="pcl" items="${placeCodeList}">
-							         <option value="${pcl.busin_place_code_name}">${pcl.busin_place_code_name}</option>
+							         <option value="${pcl.busin_place_code_name}" <c:out value="${my.busin_place_code_name.compareTo(pcl.busin_place_code_name )== 0? 'selected':''}"/>>${pcl.busin_place_code_name}</option>
 							      </c:forEach>
 							   </select>
 							</c:if>
@@ -108,23 +105,10 @@
 					<div class="row" style="margin-bottom: -30px;">  
 						<div class="col-md-1"></div>
 						<div class="col-md-2" style="text-align: right; padding-top: 6px;">
-							<label class="control-label" for="busin_place_tele_num">사업장전화번호<b style="color: red;">&nbsp;*</b></label>
+							<label class="control-label" for="busin_place_tele_num">사업장전화번호</label>
 						</div>
-						<div class="col-md-7"> 
-							<input type="text" class="input form-control" id="busin_place_tele_num" name="busin_place_tele_num">
-						</div>
-						<div class="col-md-2"></div>
-					</div>
-					<br> <br>
-					
-					
-					<div class="row" style="margin-bottom: -30px;"> 
-						<div class="col-md-1"></div>
-						<div class="col-md-2" style="text-align: right; padding-top: 6px;">
-							<label class="control-label" for="water_quality_permi_num">수질허가번호<b style="color: red;">&nbsp;*</b></label>
-						</div>
-						<div class="col-md-7"> 
-							<input type="text" class="input form-control" id="water_quality_permi_num" name="water_quality_permi_num">
+						<div class="col-md-7" style="text-align: left;"> 
+							<input type="text" class="input form-control" id="busin_place_tele_num" name="busin_place_tele_num" value="${my.busin_place_tele_num }" >
 						</div>
 						<div class="col-md-2"></div>
 					</div>
@@ -134,10 +118,10 @@
 					<div class="row" style="margin-bottom: -30px;"> 
 						<div class="col-md-1"></div>
 						<div class="col-md-2" style="text-align: right; padding-top: 6px;">
-							<label class="control-label" for="ceo_name">대표자명<b style="color: red;">&nbsp;*</b></label>
+							<label class="control-label" for="ceo_name">대표자명</label>
 						</div>
-						<div class="col-md-7"> 
-							<input type="text" class="input form-control" id="ceo_name" name="ceo_name">
+						<div class="col-md-7" style="text-align: left;"> 
+							<input type="text" class="input form-control" id="ceo_name" name="ceo_name" value="${my.ceo_name }">
 						</div>
 						<div class="col-md-2"></div>
 					</div>
@@ -153,7 +137,7 @@
 							<c:if test="${!empty carwashTypeList}" >
 							   <select class="form-control select" name="carwash_type" id="carwash_type">
 							      <c:forEach var="ctl" items="${carwashTypeList}">
-							         <option value="${ctl.carwash_type}">${ctl.carwash_type}</option>
+							         <option value="${ctl.carwash_type}" <c:out value="${my.carwash_type.compareTo(ctl.carwash_type )== 0? 'selected':''}"/>>${ctl.carwash_type}</option> 
 							      </c:forEach>
 							   </select>
 							</c:if>
@@ -172,7 +156,7 @@
 							<c:if test="${!empty closedDateList}" >
 							   <select class="form-control select" name="closed_date" id="closed_date">
 							      <c:forEach var="cdl" items="${closedDateList}">
-							         <option value="${cdl.closed_date}">${cdl.closed_date}</option>
+							      	 <option value="${cdl.closed_date}" <c:out value="${my.closed_date.compareTo(cdl.closed_date) == 0? 'selected':''}"/>>${cdl.closed_date}</option>
 							      </c:forEach>
 							   </select>
 							</c:if>
@@ -185,10 +169,10 @@
 					<div class="row" style="margin-bottom: -30px;"> 
 						<div class="col-md-1"></div>
 						<div class="col-md-2" style="text-align: right; padding-top: 6px;">
-							<label class="control-label" for="road_name_addr">소재지도로명주소<b style="color: red;">&nbsp;*</b></label>
+							<label class="control-label" for="road_name_addr">우편번호<b style="color: red;">&nbsp;*</b></label>
 						</div>
 						<div class="col-md-5"> 
-							<input type="text" class="input form-control" id="zip_code" name="zip_code">
+							<input type="text" class="input form-control" id="zip_code" name="zip_code" value="${my.zip_code }" readonly>
 						</div>
 						<div class="col-md-2">
 							<button type="button" class="btn btn-dark" onclick="postCode()" style="width:100%;">우편번호찾기</button>
@@ -200,9 +184,9 @@
 					
 					<div class="row" style="margin-bottom: -30px;"> 
 						<div class="col-md-1"></div>
-						<div class="col-md-2" style="text-align: right; padding-top: 6px;"></div>
+						<div class="col-md-2" style="text-align: right; padding-top: 6px;">소재지주소<b style="color: red;">&nbsp;*</b></div>
 						<div class="col-md-7"> 
-							<input type="text" class="input form-control" id="road_name_addr" name="road_name_addr">
+							<input type="text" class="input form-control" id="road_name_addr" name="road_name_addr" value="${my.road_name_addr }" readonly>
 							<span id="guide" style="color:#999"></span>
 						</div>
 						<div class="col-md-2"></div>
@@ -212,9 +196,10 @@
 					
 					<div class="row" style="margin-bottom: -30px;"> 
 						<div class="col-md-1"></div>
-						<div class="col-md-2" style="text-align: right; padding-top: 6px;"></div>
+						<div class="col-md-2" style="text-align: right; padding-top: 6px;">상세주소<b style="color: red;">&nbsp;*</b></div>
 						<div class="col-md-7"> 
-							<input type="text" class="input form-control" id="road_detail_addr" name="road_detail_addr" placeholder="상세주소">
+							<input type="text" class="input form-control" id="road_detail_addr" name="road_detail_addr" value="${my.road_detail_addr }">
+							<span id="guide" style="color:#999"></span>
 						</div>
 						<div class="col-md-2"></div>
 					</div>
@@ -225,8 +210,8 @@
 						<div class="col-md-1"></div>
 						<div class="col-md-2"></div>
 						<div class="col-md-7"> 
-							<button type="submit" class="btn btn-dark" onclick="location.href='/carwash/admin/member/join'" id="save" style="width:15%;">가입하기</button>
-							<button type="button" class="btn btn-dark" style="width:15%; margin-left: 10px;">취소</button>
+							<button type="submit" class="btn btn-dark" onclick="location.href='/carwash/admin/member/myUpdate'" id="save" style="width:15%;">수정하기</button>
+							<button type="button" class="btn btn-dark" onclick="location.href='/carwash'" style="width:15%; margin-left: 10px;">취소</button>
 						</div>
 						<div class="col-md-2"></div>
 					</div>
@@ -259,119 +244,14 @@ $(document).ready(function(){
 		placeholder : "(___)-___-____"
 	});
 	
-	/* $('#busin_place_tele_num').keyup(function() {
-		
-		if($(this))
-		
-        alert($(this).val());
-    }); */
-
-    
-    $('#save').click(function() {
+	$('#save').click(function() {
     	var str = document.getElementById('form');
     	str.submit();
-    	alert("회원가입이 성공적으로 완료되었습니다.");
+    	alert("회원정보수정이 성공적으로 완료되었습니다.");
     });
+
 });	
-	/* 
-function save() {
 
-//		alert($("#password_hint").val());
-
-//		alert($("#member_HP").val());
-
-	var str3 = document.getElementById('join');
-
-	str3.submit();
-
-	alert("가입이 완료되었습니다.")
-
-}
- */
-$(document).ready(function(){
-	
-	/* 컬럼 유효성검사 */
-	$("#form").validate({
-		rules : { // 규칙 정해줘야햠
-			admin_id : { 
-				required : true,
-				minlength : 4
-			},
-			admin_passwd : {
-				required : true,
-				minlength : 8,
-				regex : /^(?=\w{8,15}$)\w*(\d[A-z]|[A-z]\d)\w*$/
-			},
-			admin_passwd_confirm : {
-				required : true,
-				minlength : 8,
-				equalTo : admin_passwd
-			},
-			busin_place_name : { 
-				required : true,
-				minlength : 2
-			},
-			busin_place_tele_num : { 
-				required : true,
-				minlength : 6
-			}
-		},
-		//규칙체크 실패시 출력될 메시지
-		messages : {
-			admin_id : {
-				required : "필수입력사항입니다.",
-				minlength : "최소 {0}글자이상이어야 합니다"
-			},
-			admin_passwd : {
-				required : "필수입력사항입니다",
-				minlength : "최소 {0}글자이상이어야 합니다",
-				regex : "영문자와 숫자로 이루어져있으며 최소 하나이상 포함"
-			},
-			admin_passwd_confirm : {
-				required : "필수입력사항입니다",
-				minlength : "최소 {0}글자이상이어야 합니다",
-				equalTo : "비밀번호가 일치하지 않습니다."
-			},
-			busin_place_name : {
-				required : "필수입력사항입니다.",
-				minlength : "최소 {0}글자이상이어야 합니다"
-			},
-			busin_place_tele_num : {
-				required : "필수입력사항입니다.",
-				minlength : "숫자만 입력해주세요",
-			}
-		}
-	});
-
-	$.validator.addMethod("regex", function(value, element, regexp) {
-		var re = new RegExp(regexp);
-		return this.optional(element) || re.test(value);
-	}, "Please check your input.");
-
-});
-
-$(document).ready(function(){
-	$("#dup").on("click",function(){
-		var id = $("#admin_id").val();//id가 id인 input 태그에 입력된 id 가져오기
-		$.ajax({
-			async:true,
-			type:'POST',
-			data:id,
-			url:"carwash/admin/member/dup",
-			dataType:"json",
-			contentType:"application/json; charset=UTF-8",
-			success : function(data){
-				if(data.cnt > 0){
-					alert("동일한 아이디가 존재합니다. 다시 입력해주세요.");
-				}else{
-					alert("사용가능한 아이디입니다.");
-				}
-			}
-		});
-	});
-});
-
-	
 /* 우편번호 */
 function postCode() {
     new daum.Postcode({
@@ -420,7 +300,7 @@ function postCode() {
             }
         }
     }).open();
-}
+};
 </script>
 
 </html>

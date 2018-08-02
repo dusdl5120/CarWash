@@ -17,6 +17,9 @@ public interface AdminMemberService {
 	
 	/* 마이페이지 */
 	public AdminMemberVO myPageRead(AdminMemberVO vo) throws Exception;
+	public void myUpdate(AdminMemberVO vo) throws Exception;
+	public void myDelete(AdminMemberVO vo) throws Exception;
+	public void myUpdateExceptPasswd(AdminMemberVO vo) throws Exception;;
 
 
 

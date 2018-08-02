@@ -18,11 +18,11 @@
 	<!-- Contents -->
 
 	<div class="container" style="height: 820px;">
-		<div class="rows">
+		<div class="rows" style="margin-top: 16%;">
 
 			<div class="col-md-4 "></div>
 			<div class="col-md-4" style="text-align: center; color: #6c757d;">
-				<label style="font-size: 20px;">&nbsp;&nbsp;<strong>LOGIN</strong></label>
+				<label style="font-size: 20px;">&nbsp;&nbsp;<strong>가입자 유형 선택</strong></label>
 			</div>
 			<div class="col-md-4"></div>
 
@@ -31,32 +31,54 @@
 			<hr class="hr-2">
 			
 		</div>
-	 
-		<div style="width:100%; padding-top: 30px;">
-		 
-			<div class="col-md-2"></div>
-			<div class="col-md-2" style="text-align: right; padding-top: 6px;"> 
-				<label class="control-label" for="admin_id">아이디</label>
-			</div>
-			<div class="col-md-7"> 
-				<input type="text" class="input form-control" id="admin_id" name="admin_id">
-			</div>
-			<div class="col-md-2"></div>
 		
 		
-			<div class="col-md-1"></div>
-			<div class="col-md-2" style="text-align: right; padding-top: 6px;"> 
-				<label class="control-label" for="admin_passwd">비밀번호</label>
-			</div>
-			<div class="col-md-7"> 
-				<input type="password" class="input form-control" id="admin_passwd" name="admin_passwd">
-			</div>
-			<div class="col-md-2"></div>
-		
-			
+		<div class="row">
+			<div class="col-md-12">	
+				<div class="row" style="margin-top: 100px;">	
+					<div class="col-md-2">
+					
+					</div>
+					<div class="col-md-8" style="padding: 50px;">
+						<div class="row text-center">
+						
+							<div class="col-md-1"></div>
+							
+							<div class="col-md-4"><button type="button" class="btn btn-dark" onclick="location.href='/carwash/user/member/join'" 
+							style="width:170px; height: 150px;">사용자</button></div>
+							
+							<div class="col-md-2"></div>
+							
+							<div class="col-md-4"><button type="button" class="btn btn-dark" onclick="location.href='/carwash/admin/member/join'" 
+							style="width:170px; height: 150px;">관리자</button></div>
+							
+							<div class="col-md-1"></div>
+							 
+						</div>
+					</div>
+					<div class="col-md-2">
+					
+					</div>
+				</div>
+			</div>	
 		</div>
 		
+		
+		
+	 
+		<!-- <div style="width:100%; padding-top: 30px;">
+		 
+			<div class="col-md-1"></div>
+			<div class="col-md-4" style="border: 1px solid gray;"> 
+				<button type="button" class="btn btn-dark" onclick="location.href='/carwash/user/member/join'" style="width:15%;">사용자</button>
+			</div>
+			<div class="col-md-2"></div>
+			<div class="col-md-4" style="border: 1px solid gray;"> 
+				<button type="button" class="btn btn-dark" onclick="location.href='/carwash/admin/member/join'" style="width:15%;">관리자</button>
+			</div>
+			<div class="col-md-1"></div>
 
+		</div> -->
 	</div>
 
 	<!-- Contents -->

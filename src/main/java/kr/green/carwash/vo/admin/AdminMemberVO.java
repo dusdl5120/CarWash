@@ -12,6 +12,7 @@ public class AdminMemberVO {
 	private String carwash_type;					// 세차유형
 	private String zip_code;						// 우편번호
 	private String road_name_addr;					// 소재지도로명주소	
+	private String road_detail_addr;					// 상세주소	
 	private String busin_place_tele_num;			// 사업장전화번호
 	private String closed_date;						// 휴무일
 	private Date registered_date;					// 등록일시
@@ -41,6 +42,12 @@ public class AdminMemberVO {
 	}
 	public void setBusin_place_code_name(String busin_place_code_name) {
 		this.busin_place_code_name = busin_place_code_name;
+	}
+	public String getRoad_detail_addr() {
+		return road_detail_addr;
+	}
+	public void setRoad_detail_addr(String road_detail_addr) {
+		this.road_detail_addr = road_detail_addr;
 	}
 	public String getCeo_name() {
 		return ceo_name;
@@ -96,17 +103,14 @@ public class AdminMemberVO {
 	public void setUpdated_date(Date updated_date) {
 		this.updated_date = updated_date;
 	}
-	
 	@Override
 	public String toString() {
 		return "AdminMemberVO [admin_id=" + admin_id + ", admin_passwd=" + admin_passwd + ", busin_place_name="
 				+ busin_place_name + ", busin_place_code_name=" + busin_place_code_name + ", ceo_name=" + ceo_name
 				+ ", carwash_type=" + carwash_type + ", zip_code=" + zip_code + ", road_name_addr=" + road_name_addr
-				+ ", busin_place_tele_num=" + busin_place_tele_num + ", closed_date=" + closed_date + ", admin=" + admin
-				+ "]";
+				+ ", road_detail_addr=" + road_detail_addr + ", busin_place_tele_num=" + busin_place_tele_num
+				+ ", closed_date=" + closed_date + "]";
 	}
-	
-	
 	
 }
 

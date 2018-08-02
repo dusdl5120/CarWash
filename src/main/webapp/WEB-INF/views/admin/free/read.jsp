@@ -41,8 +41,14 @@
 					<div class="col-md-2" style="text-align: right; padding-top: 6px;"> 
 						<label class="control-label" for="cnt">조회수</label>
 					</div>
-					<div class="col-md-7" style="text-align: left;"> 
+					<div class="col-md-1" style="text-align: left;"> 
 						<label class="input form-control" id="cnt">${board.cnt }</label>
+					</div>
+					<div class="col-md-2" style="text-align: right; padding-top: 6px;"> 
+						<label class="control-label" for="cnt">등록일시</label>
+					</div>
+					<div class="col-md-4" style="text-align: left;"> 
+						<label class="input form-control" id="registered_date"><fmt:formatDate value="${board.registered_date}" pattern="yyyy-MM-dd HH:mm:ss" /></label>
 					</div>
 					<div class="col-md-2"></div>
 				</div>
@@ -104,10 +110,10 @@
 					<div class="col-md-2"></div>
 					<div class="col-md-7"> 
 						<button type="button" class="btn btn-dark" style="float: right; margin-top: 50px; margin-left: 10px;" onclick="location.href='/carwash/admin/free/list'">목록</button>
-						<%-- <c:if test="${admin}">	 --%>
+						<c:if test="${admin}">
 							<button type="button" class="btn btn-dark" style="float: right; margin-top: 50px; margin-left: 10px;" onclick="location.href='/carwash/admin/free/update?id=${board.id}'">수정</button>
 							<button type="button" class="btn btn-danger" style="float: right; margin-top: 50px;" onclick="location.href='/carwash/admin/free/delete?id=${board.id}'">삭제</button>
-						<%-- </c:if> --%>
+						</c:if>
 					</div>
 					<div class="col-md-2"></div>
 				</div><br>

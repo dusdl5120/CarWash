@@ -6,7 +6,7 @@
 <head>
 	<!-- Header -->
 	<jsp:include page="../../../common/header.jsp"></jsp:include>
-	<base href="http://localhost:8181/">
+	<base href="http://localhost:8080/">
 	<!-- Header -->
 </head> 
 
@@ -29,7 +29,7 @@
 			
 			<hr class="hr-2"> <br><br>
 			
-			<form method="post" style="width: 100%;" id="form"> 
+			<form style="width: 100%;"> 
 				<div style="width:100%; padding-top: 30px;">
 					<div class="row" style="margin-bottom: -30px;"> 
 						<div class="col-md-1"></div>
@@ -128,7 +128,7 @@
 							<label class="control-label" for="carwash_type">세차유형</label>
 						</div>
 						<div class="col-md-7" style="text-align: left;"> 
-							<input type="text" class="input form-control" id="carwash_type" name="carwash_type" value="${my.carwash_type }" disabled>
+							<input type="text" class="input form-control" id="carwash_type" name="carwash_type" value="${my.carwash_type }" readonly>
 						</div>
 						<div class="col-md-2"></div>
 					</div>
@@ -151,7 +151,7 @@
 					<div class="row" style="margin-bottom: -30px;"> 
 						<div class="col-md-1"></div>
 						<div class="col-md-2" style="text-align: right; padding-top: 6px;">
-							<label class="control-label" for="road_name_addr">소재지주소</label>
+							<label class="control-label" for="road_name_addr">우편번호</label>
 						</div>
 						<div class="col-md-7" style="text-align: left;"> 
 							<input type="text" class="input form-control" id="zip_code" name="zip_code"  value="${my.zip_code }" disabled>
@@ -163,9 +163,25 @@
 					
 					<div class="row" style="margin-bottom: -30px;"> 
 						<div class="col-md-1"></div>
-						<div class="col-md-2" style="text-align: right; padding-top: 6px;"></div>
+						<div class="col-md-2" style="text-align: right; padding-top: 6px;">
+							<label class="control-label" for="road_name_addr">소재지주소</label>	
+						</div>
 						<div class="col-md-7" style="text-align: left;"> 
 							<input type="text" class="input form-control" id="road_name_addr" name="road_name_addr"  value="${my.road_name_addr }" disabled>
+							<span id="guide" style="color:#999"></span>
+						</div>
+						<div class="col-md-2"></div>
+					</div>
+					<br> <br>
+					
+					
+					<div class="row" style="margin-bottom: -30px;"> 
+						<div class="col-md-1"></div>
+						<div class="col-md-2" style="text-align: right; padding-top: 6px;">
+							<label class="control-label" for="road_detail_addr">상세주소</label>
+						</div>
+						<div class="col-md-7" style="text-align: left;"> 
+							<input type="text" class="input form-control" id="road_detail_addr" name="road_detail_addr"  value="${my.road_detail_addr }" disabled>
 							<span id="guide" style="color:#999"></span>
 						</div>
 						<div class="col-md-2"></div>
@@ -177,8 +193,9 @@
 						<div class="col-md-1"></div>
 						<div class="col-md-2"></div>
 						<div class="col-md-7"> 
-							<button type="button" class="btn btn-dark" onclick="location.href='/carwash/admin/member/mypageUpdate'" style="width:15%;">수정하기</button>
-							<button type="button" class="btn btn-dark" style="width:15%; margin-left: 10px;">취소</button>
+							<button type="button" class="btn btn-danger" onclick="location.href='/carwash/admin/member/myDelete'" style="width:15%;">탈퇴하기</button>
+							<button type="button" class="btn btn-dark" onclick="location.href='/carwash/admin/member/myUpdate'" style="width:15%; margin-left: 10px;">수정하기</button>
+							<button type="button" class="btn btn-dark" onclick="location.href='/carwash'" style="width:15%; margin-left: 10px;">취소</button>
 						</div>
 						<div class="col-md-2"></div>
 					</div>

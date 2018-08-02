@@ -51,5 +51,20 @@ public class AdminMemberServiceImpl implements AdminMemberService {
 		return adminMapper.myPageRead(vo);
 	}
 
+	@Override
+	public void myUpdate(AdminMemberVO vo) throws Exception {
+		adminMapper.myUpdate(vo);
+	}
+
+	@Override
+	public void myDelete(AdminMemberVO vo) throws Exception {
+		adminMapper.myDelete(vo);
+	}
+
+	@Override
+	public void myUpdateExceptPasswd(AdminMemberVO vo) throws Exception {
+		adminMapper.myUpdateExceptPasswd(vo);
+	}
+
 
 }
