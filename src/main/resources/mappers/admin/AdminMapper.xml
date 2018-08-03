@@ -321,16 +321,6 @@
 	
 	
 	
-	<!-- 댓글 -->
-	<select id="replyList" resultType="kr.green.carwash.vo.admin.ReplyVO">
-        SELECT 
-        	*
-        FROM 
-        	reply_board
-        WHERE free_id = #{free_id}
-    </select>
-	
-	
 	<!-- 마이페이지 -->
 	<select id="myPageRead" resultType="kr.green.carwash.vo.admin.AdminMemberVO">
 		select
@@ -394,6 +384,39 @@
 		delete from admin_account
 		where admin_id = #{admin_id}
 	</delete>
+	
+	
+	
+	<!-- 댓글 -->
+	<select id="replyList" resultType="kr.green.carwash.vo.admin.ReplyVO">
+        SELECT 
+        	*
+        FROM 
+        	reply
+        where
+        	free_no = #{freeNo}
+    </select>
+	
+	
+	<select id="replyListCnt" resultType="int">
+        SELECT 
+        	count(*)
+        FROM 
+        	reply
+        where
+        	free_no = #{freeNo}
+    </select>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	
 	
 	

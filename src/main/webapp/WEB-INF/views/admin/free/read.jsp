@@ -8,6 +8,18 @@
 <!-- Header -->
 	<jsp:include page="../../../common/header.jsp"></jsp:include>
 <!-- Header -->
+<style>
+	label.input{
+		border: none;	
+	}
+	.container{
+		min-height:850px;
+		
+	}
+	.container::-webkit-scrollbar { 
+	    display: none; 
+	}
+	</style>
 </head>
 
 <body>
@@ -17,8 +29,8 @@
 <!-- Menu -->
 
 	<!-- Contents -->
-
-	<div class="container" style="height: 850px;">
+	
+	<div class="container" >
 		<div class="rows">
 
 			<div class="col-md-4 "></div>
@@ -139,43 +151,91 @@
 			<br> <br>
 		</form>
 						
-		<div class="row" style="margin-bottom: -30px;"> 
-	        <c:forEach var="reply" items="${reply}">
-                <fmt:formatDate value="${reply.registered_date}" pattern="yyyy-MM-dd HH:mm:ss" />
-                <br>
-                ${reply.contents}
-	        </c:forEach>
-       </div>
+		<div class="row" style="margin-top: 30px;">
+		 
+			<div class="col-md-1"></div>
+			<div class="col-md-2" style="text-align: right; padding-top: 6px; color: orange; font-weight: bold;">목록</div>
+			<div class="col-md-7"></div>
+			<div class="col-md-2"></div>
+			
+       </div><br><br>
        
+		<div class="row" id="replyList">
+		 
+			<div class="col-md-1"></div>
+			<div class="col-md-2" style="text-align: right; padding-top: 6px;"></div>
+			<div class="col-md-7"> 
+				
+				<%-- <c:forEach var="list" items="${list}">
+			    	${list.registered_id} &nbsp;&nbsp;${list.contents} &nbsp;&nbsp;
+		            <fmt:formatDate value="${list.registered_date}" pattern="yyyy-MM-dd HH:mm:ss" /><br>
+			    </c:forEach> --%>
+			</div>
+			<div class="col-md-2"></div>
+			
+       </div>
 	</div>
 
 	<!-- Contents -->
-
+	
 	<!-- Footer -->
 	<jsp:include page="../../../common/footer.jsp"></jsp:include>
 	<!-- Footer -->
 
 </body>
 
-<script type="text/javascript">
+<script>
+
 $(document).ready(function() {
-	$("#reply").on("click",function(){
-		var id = $("#short_comment").val();//id가 id인 input 태그에 입력된 id 가져오기
-		$.ajax({
-			async:true,
-			type:'POST',
-			data:id,
-			url:"carwash/admin/free/reply",
-			dataType:"json",
-			contentType:"application/json; charset=UTF-8",
-			success : function(data){
-					alert("댓글이 등록되었습니다.");
-			}
-		});
-	});
+	
+	/* 자유게시판 게시글 일련번호 */
+	
+	replyList();	
 });
 
+function replyList(){
+	
+	var freeNo = '${board.id}'; //게시글 번호
 
+	/* 댓글목록 */
+	 $.ajax({
+       url : '/carwash/reply/list',
+       type : 'get',
+       data : {'freeNo':freeNo},
+       success : function(data){
+           var a =''; 
+           $.each(data, function(key, value){ 
+               /* a += '<div class="replyArea" style="border-bottom:1px solid darkgray; margin-bottom: 15px;">';
+               a += '<div class="replyInfo'+value.reply_no+'">'+' 작성자 : '+value.registered_id;
+               a += '<a onclick="replyUpdate('+value.reply_no+',\''+value.contents+'\');"> 수정 </a>';
+               a += '<a onclick="replyDelete('+value.reply_no+');"> 삭제 </a> </div>';
+               a += '<div class="replyContent'+value.reply_no+'"> <p> 내용 : '+value.contents +'</p>';
+               a += '</div></div>'; */
+               
+                a += '<div class="col-md-1"></div>'
+                a += '<div class="col-md-2" style="text-align: right;">' + value.registered_id + '</div>'
+                a += '<div class="col-md-5" style="text-align: left;">'+ value.contents +'</div>'
+                a += '<div class="col-md-2" style="text-align: center;">'+ '수정' + '&nbsp;삭제</div>'
+                a += '<div class="col-md-2"></div>'
+				
+				
+				
+				
+				
+		    
+           });
+           
+           /* 
+           
+	          
+					
+				
+				 */
+	
+				$("#replyList").html(a);
+			}
+		});
+	};
 </script>
 
 </html>

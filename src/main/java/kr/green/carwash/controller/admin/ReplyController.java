@@ -1,16 +1,12 @@
 package kr.green.carwash.controller.admin;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Map;
+import java.util.List;
 
 import javax.annotation.Resource;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import kr.green.carwash.service.admin.ReplyService;
@@ -24,6 +20,45 @@ public class ReplyController {
 	ReplyService replyService;
 
 	/* ´ñ±Û ¸®½ºÆ® */
+	@ResponseBody
+	@RequestMapping(value="/list")
+	public List<ReplyVO> replyList(Model model, Integer freeNo) throws Exception {
+		
+		return replyService.replyList(freeNo); 
+	}
+	
+	/*@RequestMapping(value="/list", method=RequestMethod.GET)
+	@ResponseBody
+    public String replyList(Model model) throws Exception {
+		
+		ArrayList<ReplyVO> list = (ArrayList) replyService.replyList();
+		model.addAttribute("list", list);
+		
+        return "/admin/free/read";
+    }*/
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	
 	/*@RequestMapping("/dup")
 	@ResponseBody

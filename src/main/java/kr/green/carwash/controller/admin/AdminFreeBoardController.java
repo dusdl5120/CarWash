@@ -165,7 +165,7 @@ public class AdminFreeBoardController {
 		if(user != null)
 			admin = true;
 		
-		adFreeVO.setRegistered_id(user.getAdmin_id());
+		//adFreeVO.setRegistered_id(user.getAdmin_id());
 		model.addAttribute("admin", admin);
 		
 		/* 조회수 증가 */
@@ -173,7 +173,6 @@ public class AdminFreeBoardController {
 		
 		/* 상세정보 */
 		AdminFreeBoardVO board = adminFreeBoardService.boardRead(adFreeVO);
-		
 		model.addAttribute("board", board);
 		
 		return "/admin/free/read";
@@ -223,25 +222,6 @@ public class AdminFreeBoardController {
 		return "redirect:/admin/free/list";
 	}
 	
-	
-	@RequestMapping("/reply")
-	@ResponseBody
-	public Map<Object, Object> replyList(@RequestBody Integer free_id) throws Exception{
-		
-	    Map<Object, Object> map = new HashMap<Object, Object>();
-	    
-	    ReplyVO reply = (ReplyVO) replyService.replyList(free_id);
-	    
-	    map.put("reply", reply);
-	    
-	    return map;
-	
-	
-	
-	
-	
-	
-	}
 	
 	
 	

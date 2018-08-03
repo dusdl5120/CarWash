@@ -17,8 +17,14 @@ public class ReplyServiceImpl implements ReplyService {
 	AdminMapper adminMapper;
 
 	@Override
-	public List<ReplyVO> replyList(Integer free_id) throws Exception {
-		return adminMapper.replyList(free_id);
+	public List<ReplyVO> replyList(Integer freeNo) throws Exception {
+		return adminMapper.replyList(freeNo);
 	}
+
+	@Override
+	public int replyListCnt(Integer freeNo) {
+		return adminMapper.replyListCnt(freeNo);
+	}
+
 	
 }
