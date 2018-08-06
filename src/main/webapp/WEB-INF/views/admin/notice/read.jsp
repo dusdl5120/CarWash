@@ -12,6 +12,19 @@
 <!-- Header -->
 </head>
 
+<style>
+	label.input{
+		border: none;	
+	}
+	.container{
+		min-height:850px;
+		
+	}
+	.container::-webkit-scrollbar { 
+	    display: none; 
+	}
+</style>
+
 <body>
 	
 	<!-- Menu -->
@@ -20,7 +33,7 @@
 	
 	<!-- Contents -->
 
-	<div class="container" style="height: 820px;">
+	<div class="container">
 		<div class="rows">
 
 			<div class="col-md-4"></div>

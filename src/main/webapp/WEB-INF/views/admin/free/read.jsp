@@ -19,7 +19,7 @@
 	.container::-webkit-scrollbar { 
 	    display: none; 
 	}
-	</style>
+</style>
 </head>
 
 <body>
@@ -70,7 +70,7 @@
 				<div class="row" style="margin-bottom: -30px;"> 
 					<div class="col-md-1"></div>
 					<div class="col-md-2" style="text-align: right; padding-top: 6px;"> 
-						<label class="control-label" for="registered_id">작성자<b style="color: red;">&nbsp;*</b></label>
+						<label class="control-label" for="registered_id">작성자</label>
 					</div>
 					<div class="col-md-7" style="text-align: left;"> 
 						<input type="text" class="input form-control" id="registered_id" name="registered_id" value="${board.registered_id }" disabled>
@@ -83,7 +83,7 @@
 				<div class="row" style="margin-bottom: -30px;"> 
 					<div class="col-md-1"></div>
 					<div class="col-md-2" style="text-align: right; padding-top: 6px;"> 
-						<label class="control-label" for="title">제목<b style="color: red;">&nbsp;*</b></label>
+						<label class="control-label" for="title">제목</label>
 					</div>
 					<div class="col-md-7" style="text-align: left;"> 
 						<input type="text" class="input form-control" id="title" name="title" value="${board.title }" disabled>
@@ -96,7 +96,7 @@
 				<div class="row" style="margin-bottom: -30px;"> 
 					<div class="col-md-1"></div>
 					<div class="col-md-2" style="text-align: right; padding-top: 6px;"> 
-						<label class="control-label" for="contents">내용<b style="color: red;">&nbsp;*</b></label>
+						<label class="control-label" for="contents">내용</label>
 					</div>
 					<div class="col-md-7" style="text-align: left;"> 
 						<textarea class="input form-control" id="contents" name="contents" rows="10" disabled>${board.contents }</textarea>
@@ -135,42 +135,38 @@
 		
 		<hr class="hr-2" style="margin-bottom: 30px; width: 66%;">
 		
-		<form method="post">
+		<form name="replyInsertForm">
 			<div class="row" style="margin-bottom: -30px;"> 
+				<input type="hidden" name="freeNo" value="${board.id}"/>
 				<div class="col-md-1"></div>
 				<div class="col-md-2" style="text-align: right; padding-top: 6px;">
-					<label class="control-label" for="short_comment">댓글등록</label>
+					<label class="control-label" for="reply">댓글등록</label>
 				</div>
-				<div class="col-md-5"> 
-					<textarea class="input form-control" id="short_comment" name="short_comment" rows="3"></textarea>
+				<div class="col-md-6"> 
+					<textarea class="input form-control" id="short_reply" name="short_reply" rows="3"></textarea>
 				</div>
-				<div class="col-md-2">
-					<button type="button" class="btn btn-secondary" id="reply" style="width:100%; height: 85px;">등록</button>
+				<div class="col-md-1">
+					<button type="button" class="btn btn-secondary" name="replyInsert" style="width:100%; height: 80px;">등록</button>
 				</div>
 			</div>
 			<br> <br>
 		</form>
 						
-		<div class="row" style="margin-top: 30px;">
+		<div class="row">
 		 
 			<div class="col-md-1"></div>
-			<div class="col-md-2" style="text-align: right; padding-top: 6px; color: orange; font-weight: bold;">목록</div>
+			<div class="col-md-2" style="text-align: right; padding-top: 6px; color: orange; font-weight: bold; text-decoration: underline;">
+				목록(<span id="replyCnt"></span>)</div>
 			<div class="col-md-7"></div>
 			<div class="col-md-2"></div>
 			
        </div><br><br>
        
-		<div class="row" id="replyList">
+		<div class="row" id="replyList" style="margin-top: -20px;">
 		 
 			<div class="col-md-1"></div>
 			<div class="col-md-2" style="text-align: right; padding-top: 6px;"></div>
-			<div class="col-md-7"> 
-				
-				<%-- <c:forEach var="list" items="${list}">
-			    	${list.registered_id} &nbsp;&nbsp;${list.contents} &nbsp;&nbsp;
-		            <fmt:formatDate value="${list.registered_date}" pattern="yyyy-MM-dd HH:mm:ss" /><br>
-			    </c:forEach> --%>
-			</div>
+			<div class="col-md-7"></div>
 			<div class="col-md-2"></div>
 			
        </div>
@@ -186,56 +182,69 @@
 
 <script>
 
-$(document).ready(function() {
-	
-	/* 자유게시판 게시글 일련번호 */
-	
-	replyList();	
-});
+	$(document).ready(function() {
 
-function replyList(){
-	
-	var freeNo = '${board.id}'; //게시글 번호
+		replyList(); // 먼저 replyList() 호출
 
-	/* 댓글목록 */
-	 $.ajax({
-       url : '/carwash/reply/list',
-       type : 'get',
-       data : {'freeNo':freeNo},
-       success : function(data){
-           var a =''; 
-           $.each(data, function(key, value){ 
-               /* a += '<div class="replyArea" style="border-bottom:1px solid darkgray; margin-bottom: 15px;">';
-               a += '<div class="replyInfo'+value.reply_no+'">'+' 작성자 : '+value.registered_id;
-               a += '<a onclick="replyUpdate('+value.reply_no+',\''+value.contents+'\');"> 수정 </a>';
-               a += '<a onclick="replyDelete('+value.reply_no+');"> 삭제 </a> </div>';
-               a += '<div class="replyContent'+value.reply_no+'"> <p> 내용 : '+value.contents +'</p>';
-               a += '</div></div>'; */
-               
-                a += '<div class="col-md-1"></div>'
-                a += '<div class="col-md-2" style="text-align: right;">' + value.registered_id + '</div>'
-                a += '<div class="col-md-5" style="text-align: left;">'+ value.contents +'</div>'
-                a += '<div class="col-md-2" style="text-align: center;">'+ '수정' + '&nbsp;삭제</div>'
-                a += '<div class="col-md-2"></div>'
-				
-				
-				
-				
-				
-		    
-           });
-           
-           /* 
-           
-	          
-					
-				
-				 */
+		var freeNo = '${board.id}'; //게시글 번호
+
+		$('[name=replyInsert]').click(function() { 							// 댓글 등록 버튼 클릭시 
+			
+			var insertData = $('[name=replyInsertForm]').serialize(); 		// replyInsertForm의 내용을 가져옴
+			replyInsert(insertData);										// Insert 함수호출(아래)
+			
+		});
+
+	});
+
+	function replyList() {
+
+		var freeNo = '${board.id}'; //게시글 번호
+
+		/* 댓글목록 */
+		$.ajax({
+			url : '/carwash/reply/list',
+			type : 'get',
+			data : { 'freeNo' : freeNo },
+			success : function(data) {
+
+				var a = '';
+				var cnt = 0;
+
+				$.each(data, function(key, value) {
 	
+						a += '<div class="col-md-1"></div>'
+						a += '<div class="col-md-2" style="text-align: right;">'+ value.registered_id + ' <img src="<c:url value='/resources/images/smile.png'/>"></div>'
+						a += '<div class="col-md-6" style="text-align: left;">'+ value.short_reply + '</div>'
+						a += '<div class="col-md-1" style="text-align: right;">' + '<img src="<c:url value='/resources/images/edit.png'/>">' 
+								+ '&nbsp;&nbsp; <img src="<c:url value='/resources/images/deleted.png'/>"> </div>'
+						a += '<div class="col-md-2"></div>'
+	
+						cnt++;
+	
+					});
+
+				$('#replyCnt').html(cnt);
 				$("#replyList").html(a);
 			}
 		});
 	};
+
+	/* 댓글등록 */
+	function replyInsert(insertData) {
+
+		$.ajax({
+			url : '/carwash/reply/insert',
+			type : 'get',
+			data : insertData,
+			success : function(data) {
+				if (data == 1) {
+					replyList(); 						//댓글 작성 후 댓글 목록 reload
+					$('[name=short_reply]').val('');
+				}
+			}
+		});
+	}
 </script>
 
 </html>

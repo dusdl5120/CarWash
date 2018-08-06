@@ -6,7 +6,7 @@ public class ReplyVO {
 
 	private Integer reply_no;			// ´ñ±Û ÀÏ·Ã¹øÈ£
 	private Integer free_no;			// °Ô½Ã±Û ÀÏ·Ã¹øÈ£
-	private String contents; 			// ´ñ±Û ³»¿ë
+	private String short_reply; 			// ´ñ±Û ³»¿ë
 	private String registered_id;		// ´ñ±Û µî·ÏÀÚID
 	private Date registered_date;		// ´ñ±Û µî·ÏÀÏ½Ã
 	private String updated_id;			// ´ñ±Û ¼öÁ¤ÀÚID
@@ -25,11 +25,11 @@ public class ReplyVO {
 	public void setFree_no(Integer free_no) {
 		this.free_no = free_no;
 	}
-	public String getContents() {
-		return contents;
+	public String getShort_reply() {
+		return short_reply;
 	}
-	public void setContents(String contents) {
-		this.contents = contents;
+	public void setShort_reply(String short_reply) {
+		this.short_reply = short_reply;
 	}
 	public String getRegistered_id() {
 		return registered_id;
@@ -58,9 +58,8 @@ public class ReplyVO {
 	
 	@Override
 	public String toString() {
-		return "ReplyVO [reply_no=" + reply_no + ", free_no=" + free_no + ", contents=" + contents + ", registered_id="
-				+ registered_id + ", registered_date=" + registered_date + "]";
+		return "ReplyVO [reply_no=" + reply_no + ", free_no=" + free_no + ", short_reply=" + short_reply
+				+ ", registered_id=" + registered_id + ", registered_date=" + registered_date + "]";
 	}
-	
 	
 }

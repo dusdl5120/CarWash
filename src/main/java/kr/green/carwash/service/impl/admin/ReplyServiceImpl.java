@@ -26,5 +26,10 @@ public class ReplyServiceImpl implements ReplyService {
 		return adminMapper.replyListCnt(freeNo);
 	}
 
+	@Override
+	public int replyInsert(ReplyVO reply) throws Exception {
+		return adminMapper.replyInsert(reply);
+	}
+
 	
 }

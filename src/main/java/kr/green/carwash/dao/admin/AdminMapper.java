@@ -63,7 +63,8 @@ public interface AdminMapper {
 	
 	/* ´ñ±Û */
 	public List<ReplyVO> replyList(Integer freeNo) throws Exception;
-	public int replyListCnt(Integer freeNo); 
+	public int replyListCnt(Integer freeNo);
+	public int replyInsert(ReplyVO reply) throws Exception;
 	
 	
 	

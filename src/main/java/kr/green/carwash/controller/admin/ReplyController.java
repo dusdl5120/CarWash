@@ -3,13 +3,18 @@ package kr.green.carwash.controller.admin;
 import java.util.List;
 
 import javax.annotation.Resource;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import kr.green.carwash.service.admin.ReplyService;
+import kr.green.carwash.vo.admin.AdminMemberVO;
 import kr.green.carwash.vo.admin.ReplyVO;
 
 @Controller
@@ -27,16 +32,28 @@ public class ReplyController {
 		return replyService.replyList(freeNo); 
 	}
 	
-	/*@RequestMapping(value="/list", method=RequestMethod.GET)
+	/* ´ñ±Û µî·Ï */
 	@ResponseBody
-    public String replyList(Model model) throws Exception {
+	@RequestMapping(value="/insert")
+	public int replyInsert(@RequestParam Integer freeNo, @RequestParam String short_reply, HttpServletRequest request, Model model) throws Exception {
 		
-		ArrayList<ReplyVO> list = (ArrayList) replyService.replyList();
-		model.addAttribute("list", list);
+		HttpSession session = request.getSession();
+		AdminMemberVO user = (AdminMemberVO) session.getAttribute("user");
 		
-        return "/admin/free/read";
-    }*/
-	
+		boolean admin = false;
+		if(user != null)
+			admin = true;
+		
+		model.addAttribute("admin", admin);
+		
+		ReplyVO reply = new ReplyVO();
+		
+		reply.setFree_no(freeNo);
+		reply.setShort_reply(short_reply);
+		reply.setRegistered_id(user.getAdmin_id());
+		
+		return replyService.replyInsert(reply);
+	}
 	
 	
 	

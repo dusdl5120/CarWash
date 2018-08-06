@@ -407,7 +407,21 @@
         	free_no = #{freeNo}
     </select>
 	
-	
+	<insert id="replyInsert" parameterType="kr.green.carwash.vo.admin.ReplyVO">
+		INSERT INTO reply (
+			reply_no
+			, free_no
+			, short_reply
+			, registered_id
+			, registered_date
+		)VALUES(
+			#{reply_no}
+			, #{free_no}
+			, #{short_reply}
+			, #{registered_id}
+			, now()
+		)
+	</insert>
 	
 	
 	
