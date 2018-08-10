@@ -40,31 +40,26 @@
 				
 				<div style="width: 100%; margin-top: 6%; margin-bottom: -16px;"> 
 					<div class="row" >
-						<div class="col-md-3"></div>
-						
-						<div class="col-md-9">
-							<form role="form" method="post" style="float: right; font-size: 17px;"> 
-								<select class="custom-select" name="type" style="margin-right: 5px; width:100px;">
-									<option value="0" <c:out value="${type == 0 ? 'selected' : ''}"/>>선택</option>
+						<div class="col-md-12">
+							<form role="form" method="post" style="float: left;"> 
+								<select class="custom-select" name="type" style="margin-right: 5px; width:100px; font-size: 14px;">
 									<option value="1" <c:out value="${type == 1 ? 'selected' : ''}"/>>제목</option>
 									<option value="2" <c:out value="${type == 2 ? 'selected' : ''}"/>>작성자</option>
 									<option value="3" <c:out value="${type == 3 ? 'selected' : ''}"/>>내용</option>
 								</select>
-								<span style="display: inline-block;"><input type="text" class="input form-control" name="search" size="15" value="${search }"/></span>
+								<span style="display: inline-block; width: 897px; margin-bottom: 4px;"><input type="text" class="input form-control" name="search" value="${search }" style="padding-top:3px; padding-bottom: 7px;"/></span>
 								<button type="button" class="btn btn-dark" style="float: right; margin-left: 20px;" onclick="location.href='/carwash/admin/free/insert'">등록</button>
 								<button type="submit" class="btn btn-secondary" style="float: right; margin-left: 5px;">검색</button> 
-								
 	                        </form>
-							
 						</div>
 					</div>
 				</div>
 				
 				
 				<div style="width: 100%;"><br>
-					<table id="dataTable" class="table" style="text-align: center;">
+					<table class="table" style="text-align: center;">
 						<thead>
-							<tr>
+							<tr> 
 								<th style="width: 10%;">순번</th>
 								<th style="width: 40%;">제목</th>
 								<th style="width: 20%;">작성자</th>
@@ -77,7 +72,8 @@
 							<c:forEach var="list" items="${list}" varStatus="status">
 								<tr>
 									<td>${list.id }</td>
-									<td><a href="/carwash/admin/free/read?id=${list.id }">${list.title }</a></td>
+									<td><a href="/carwash/admin/free/read?id=${list.id }">${list.title }
+										<span class="badge badge-primary" style="margin-left: 5px;">${list.reply_cnt }</span></a></td> 
 									<td>${list.registered_id }</td>
 									<td>${list.cnt }</td>
 									<!-- <td>첨부파일</td> -->
@@ -91,9 +87,8 @@
 				
 				<div style="width: 100%; margin-top: 2%;"> 
 					<div class="row" >
-						<div class="col-md-3"></div>
 						
-						<div class="col-md-6">
+						<div class="col-md-12">
 							<div style="width: 100%;">
 								<ul class="pagination pagination-sm" style="justify-content: center;">
 									<c:if test="${pageMaker.prev}">
@@ -109,7 +104,6 @@
 							</div>
 						</div>
 							
-						<div class="col-md-3"></div>
 					</div>
 				</div>
 				
@@ -122,42 +116,9 @@
 		<jsp:include page="../../../common/footer.jsp"></jsp:include>
 	<!-- Footer -->
 
-	<script type="text/javascript" class="init">
+	<script>
 		$(document).ready(function() {
 
-			/* $('#dataTable').DataTable({
-				 "language": {
-				 "lengthMenu": "한 페이지당 게시글 수 : _MENU_",
-				 "zeroRecords": "검색결과가 없습니다.",
-				 "info": "현재페이지 _PAGE_ / 전체페이지 _PAGES_",
-				 "Search" : "검색" 
-				 }
-			 });  */
-
-			/* DataTable 행 선택 */
-			/* $('#dataTable tbody').on('click', 'tr', function() {
-				$(this).toggleClass('selected');
-			}); */
-
-			/* checkbox 전체선택/해제 */
-			/* $("#allCheck").click(function() {
-				if ($("#allCheck").prop("checked")) {
-					$("input[name=chkYn]").prop("checked", true);
-				} else {
-					$("input[name=chkYn]").prop("checked", false);
-				}
-			}); */
-			
-			/* 선택삭제 버튼 클릭 시 체크한 행만 삭제 */
-			/* $("#btnDel").click(function() {
-				$('input[name="chkYn"]').mask('(000) 000 0000');
-			}); */
-				
-				/* 
-				if (checked == true) {
-					$(this).next().remove(); //span내용지우기
-					$(this).remove(); //checkbox 지우기
-				} */
 
 		});
 	</script>

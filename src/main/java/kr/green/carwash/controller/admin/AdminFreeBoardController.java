@@ -78,6 +78,7 @@ public class AdminFreeBoardController {
 		
 		ArrayList<AdminFreeBoardVO> list = (ArrayList) adminFreeBoardService.boardListPage(pageMaker.getCriteria());
 		
+		
 		System.out.println("******** pageMaker : " + pageMaker + ", totCnt : " + totCnt + " ********");
   
 		model.addAttribute("list", list);

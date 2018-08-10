@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.servlet.ModelAndView;
 
 import kr.green.carwash.common.pagination.Criteria;
 import kr.green.carwash.service.admin.AdminMemberService;
@@ -80,6 +81,16 @@ public class AdminMemberController {
 	      
 	    return map;
 	}
+	
+	
+	/* 로그인 */
+	@RequestMapping(value = "/login", method = RequestMethod.GET)
+	public String loginGet(Model model, HttpServletRequest request) throws Exception {
+		
+	    
+	    return "/admin/login/login";
+	}
+	
 	
 	
 	/* 로그인 */
@@ -258,7 +269,16 @@ public class AdminMemberController {
 	}
 	
 	
-	
+	// 로그인 후 글쓰기
+	   @RequestMapping(value = "/needLogin")
+	   public ModelAndView needLogin() throws Exception {
+	      
+	      ModelAndView mav = new ModelAndView("/admin/free/loginWarning");
+	      mav.addObject("msg","로그인 후 이용해주세요.");
+	      
+	      return mav;
+	   }
+	   
 	
 	
 	

@@ -1,5 +1,6 @@
 package kr.green.carwash.vo.admin;
 
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 public class ReplyVO {
@@ -37,8 +38,11 @@ public class ReplyVO {
 	public void setRegistered_id(String registered_id) {
 		this.registered_id = registered_id;
 	}
-	public Date getRegistered_date() {
-		return registered_date;
+	public String getRegistered_date() {
+		
+		SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd");
+
+		return df.format(registered_date); 
 	}
 	public void setRegistered_date(Date registered_date) {
 		this.registered_date = registered_date;

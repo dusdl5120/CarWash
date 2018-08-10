@@ -29,12 +29,18 @@
 	
 	<beans:bean id="loginInterceptor" class="kr.green.carwash.common.interceptor.LoginInterceptor"></beans:bean>
 	
+	<beans:bean id="adminInterceptor" class="kr.green.carwash.common.interceptor.AdminInterceptor"></beans:bean>
+	
 	<interceptors>
 		<interceptor>
 			<mapping path="/admin/member/login"/>
 			<beans:ref bean="loginInterceptor"/>
 		</interceptor>
 	
+		<interceptor>
+         <mapping path="/admin/free/insert"/>         <!-- 인터셉터가 수행될 페이지 -->
+         <beans:ref bean="adminInterceptor"/>
+      </interceptor>
 	
 	</interceptors>
 	

@@ -186,13 +186,7 @@
 
 	<select id="boardRead" resultType="kr.green.carwash.vo.admin.AdminFreeBoardVO">
 		select
-			id
-			, title
-			, contents
-			, cnt
-			, reply
-			, registered_id
-			, registered_date
+			*
 		from
 			free
 		where
@@ -228,6 +222,7 @@
 		set
 			title = #{title}
 			, contents = #{contents}
+			, reply_cnt = #{reply_cnt}
 			, registered_id = #{registered_id}
 			, registered_date = now()
 			, updated_id = #{registered_id}
@@ -395,6 +390,19 @@
         	reply
         where
         	free_no = #{freeNo}
+   		ORDER BY reply_no DESC
+       	LIMIT #{cri.pageStart}, #{cri.perPageNum}
+    </select>
+    
+    <select id="replyPageList" resultType="kr.green.carwash.vo.admin.ReplyVO">
+        SELECT 
+        	*
+        FROM 
+        	reply
+        where
+        	free_no = #{freeNo}
+       	ORDER BY reply_no DESC
+		LIMIT #{cri.pageStart}, #{cri.perPageNum}
     </select>
 	
 	
@@ -422,10 +430,27 @@
 			, now()
 		)
 	</insert>
+
+
+	<update id="replyUpdate" parameterType="kr.green.carwash.vo.admin.ReplyVO">
+		UPDATE 
+			reply
+		SET
+			short_reply = #{short_reply}
+		WHERE 
+			reply_no = #{reply_no}
+	</update>
+
 	
 	
-	
-	
+	<delete id="replyDelete" parameterType="int">
+        DELETE FROM 
+        	reply 
+        WHERE 
+        	reply_no = #{reply_no}
+    </delete>
+
+
 	
 	
 	

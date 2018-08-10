@@ -62,9 +62,13 @@ public interface AdminMapper {
 
 	
 	/* ´ñ±Û */
-	public List<ReplyVO> replyList(Integer freeNo) throws Exception;
+	public List<ReplyVO> replyList(@Param("freeNo") Integer freeNo, @Param("cri") Criteria cri) throws Exception;
 	public int replyListCnt(Integer freeNo);
 	public int replyInsert(ReplyVO reply) throws Exception;
+	public int replyUpdate(ReplyVO reply) throws Exception;
+	public int replyDelete(Integer reply_no);
+	public List<ReplyVO> replyPageList(@Param("cri") Criteria cri, @Param("freeNo") Integer freeNo) throws Exception;
+	public int replyListCnt(@Param("cri") Criteria cri, @Param("freeNo") Integer freeNo);
 	
 	
 	

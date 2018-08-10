@@ -29,28 +29,24 @@
 					<div class="col-md-4"></div>
 				</div>
 				<br><br>
-
-				<!-- <hr class="hr-2"> -->
 				
 				<div style="width: 100%; margin-top: 6%; margin-bottom: -16px;"> 
 					<div class="row" >
-						<div class="col-md-3"></div>
-						
-						<div class="col-md-9">
-							<form role="form" method="post" style="float: right; font-size: 17px;"> 
-								<select class="custom-select" name="type" style="margin-right: 5px; width:100px;">
-									<option value="0" <c:out value="${type == 0 ? 'selected' : ''}"/>>선택</option>
+						<div class="col-md-12">
+							<form role="form" method="post" style="float: left;"> 
+								<select class="custom-select" name="type" style="margin-right: 5px; width:100px; font-size: 14px;">
 									<option value="1" <c:out value="${type == 1 ? 'selected' : ''}"/>>제목</option>
 									<option value="3" <c:out value="${type == 3 ? 'selected' : ''}"/>>내용</option>
 								</select>
-								<span style="display: inline-block;"><input type="text" class="input form-control" name="search" size="15" value="${search }"/></span>
-								<c:if test="${admin }">
+								<c:if test="${admin}">
+									<span style="display: inline-block; width: 897px; margin-bottom: 4px;"><input type="text" class="input form-control" name="search" value="${search }" style="padding-top:3px; padding-bottom: 7px;"/></span>
 									<button type="button" class="btn btn-dark" style="float: right; margin-left: 20px;" onclick="location.href='/carwash/admin/notice/insert'">등록</button>
 								</c:if>
-								<button type="submit" class="btn btn-secondary" style="float: right; margin-left: 5px;">검색</button> 
-								
+								<c:if test="${!admin}">
+									<span style="display: inline-block; width: 970px; margin-bottom: 4px;"><input type="text" class="input form-control" name="search" value="${search }" style="padding-top:3px; padding-bottom: 7px;"/></span>
+								</c:if>
+								<button type="submit" class="btn btn-secondary" style="float: right; margin-left: 5px;">검색</button>  
 	                        </form>
-							
 						</div>
 					</div>
 				</div>

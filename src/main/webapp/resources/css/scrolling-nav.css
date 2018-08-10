@@ -139,6 +139,41 @@ label.error{
 	color:red;
 }
 
+/* 자유게시판 목록 댓글 수 뱃지 CSS */
+.badge {
+  font-size: 11px;
+  line-height: 20px;
+  font-weight: 500;
+  -moz-border-radius: 3px;
+  -webkit-border-radius: 3px;
+  border-radius: 3px;
+  padding: 0px 8px;
+}
+
+.badge-primary {
+  background-color: #006595; 
+  /* background-color: #006393; */
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
