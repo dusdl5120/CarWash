@@ -4,6 +4,8 @@
  * Licensed under MIT (https://github.com/BlackrockDigital/startbootstrap-scrolling-nav/blob/master/LICENSE)
  */
 
+/* @import url("//netdna.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap-glyphicons.css"); */
+
 header {
 	padding: 154px 0 100px;
 }
@@ -155,7 +157,178 @@ label.error{
   /* background-color: #006393; */
 }
 
+/* BOOTSTRAP DATEPICKER */
+div.datepicker > div {
+  display: none;
+}
+div.datepicker table {
+  width: 100%;
+  margin: 0;
+}
+div.datepicker td,
+div.datepicker th {
+  text-align: center;
+  width: 20px;
+  height: 20px;
+}
+div.datepicker td.day:hover {
+  background: #F5F5F5;
+  cursor: pointer;
+}
+div.datepicker td.day.disabled {
+  color: #CCC;
+}
+div.datepicker td.old,
+div.datepicker td.new {
+  color: #999;
+}
+div.datepicker td.active,
+div.datepicker td.active:hover {
+  background: #1b1e24;
+  color: #fff;
+  -moz-border-radius: 3px;
+  -webkit-border-radius: 3px;
+  border-radius: 3px;
+}
+div.datepicker td span {
+  display: block;
+  width: 31%;
+  height: 54px;
+  line-height: 54px;
+  float: left;
+  margin: 2px;
+  cursor: pointer;
+}
+div.datepicker td span:hover {
+  background: #F5F5F5;
+}
+div.datepicker td span.active {
+  background: #1b1e24;
+  color: #fff;
+  -moz-border-radius: 3px;
+  -webkit-border-radius: 3px;
+  border-radius: 3px;
+}
+div.datepicker td span.old {
+  color: #999;
+}
+div.datepicker th.switch {
+  width: 145px;
+}
+div.datepicker th.next,
+div.datepicker th.prev {
+  font-size: 12px;
+}
+div.datepicker thead tr:first-child th {
+  cursor: pointer;
+  padding: 8px 0px;
+}
+div.datepicker thead tr:first-child th:hover {
+  background: #F5F5F5;
+  -moz-border-radius: 3px;
+  -webkit-border-radius: 3px;
+  border-radius: 3px;
+}
+.input-append.date .add-on i,
+.input-prepend.date .add-on i {
+  display: block;
+  cursor: pointer;
+  width: 16px;
+  height: 16px;
+}
+.datepicker.dropdown-menu:after,
+.datepicker.dropdown-menu:before {
+  left: 16px;
+}
+.datepicker.datepicker-orient-left.dropdown-menu:after,
+.datepicker.datepicker-orient-left.dropdown-menu:before {
+  left: auto;
+  right: 16px;
+}
+/* EOF BOOTSTRAP DATEPICKER */
 
+/* BOOTSTRAP TIMEPICKER */
+.bootstrap-timepicker {
+  position: relative;
+}
+.bootstrap-timepicker.pull-right .bootstrap-timepicker-widget.dropdown-menu {
+  left: auto;
+  right: 0;
+}
+.bootstrap-timepicker .add-on {
+  cursor: pointer;
+}
+.bootstrap-timepicker .add-on i {
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+}
+.bootstrap-timepicker-widget.dropdown-menu.timepicker-orient-top:before,
+.bootstrap-timepicker-widget.dropdown-menu.timepicker-orient-top:after {
+  left: 15px;
+}
+.bootstrap-timepicker-widget.timepicker-orient-bottom:before {
+  bottom: -7px;
+  border-bottom: 0;
+  border-top: 7px solid #E5E5E5;
+}
+.bootstrap-timepicker-widget.timepicker-orient-bottom:after {
+  bottom: -6px;
+  border-bottom: 0;
+  border-top: 6px solid #ffffff;
+}
+.bootstrap-timepicker-widget a.btn,
+.bootstrap-timepicker-widget input {
+  border-radius: 4px;
+}
+.bootstrap-timepicker-widget table {
+  width: 100%;
+  margin: 0;
+}
+.bootstrap-timepicker-widget table td {
+  text-align: center;
+  height: 30px;
+  margin: 0;
+  padding: 2px;
+}
+.bootstrap-timepicker-widget table td:not(.separator) {
+  min-width: 30px;
+}
+.bootstrap-timepicker-widget table td span {
+  width: 100%;
+}
+.bootstrap-timepicker-widget table td a {
+  border: 1px transparent solid;
+  width: 100%;
+  display: inline-block;
+  margin: 0;
+  padding: 8px 0;
+  outline: 0;
+  color: #333;
+}
+.bootstrap-timepicker-widget table td a:hover {
+  text-decoration: none;
+  background-color: #F5F5F5;
+}
+.bootstrap-timepicker-widget table td a i {
+  margin-top: 2px;
+  font-size: 6px;
+  color: #333;
+}
+.bootstrap-timepicker-widget table td input {
+  width: 50px;
+  margin: 0;
+  text-align: center;
+  margin: 0px;
+  padding: 0px;
+}
+.bootstrap-timepicker-widget {
+  display: block;
+}
+.bootstrap-timepicker-widget .modal-content {
+  padding: 4px;
+}
+/* EOF BOOTSTRAP TIMEPICKER */
 
 
 

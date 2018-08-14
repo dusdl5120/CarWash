@@ -47,20 +47,20 @@
 			 
 				<div class="row" style="margin-bottom: -30px;"> 
 					<div class="col-md-2" style="text-align: right; padding-top: 6px;"> 
-						<label class="control-label" for="admin_id">아이디</label>
+						<label class="control-label" for="user_id">아이디</label>
 					</div>
 					<div class="col-md-10"> 
-						<input type="text" class="input form-control" id="admin_id" name="admin_id">
+						<input type="text" class="input form-control" id="user_id" name="user_id">
 					</div>
 				</div>
 				<br> <br>
 				
 				<div class="row" style="margin-bottom: -30px;"> 
 					<div class="col-md-2" style="text-align: right; padding-top: 6px;"> 
-						<label class="control-label" for="admin_passwd">비밀번호</label>
+						<label class="control-label" for="user_passwd">비밀번호</label>
 					</div>
 					<div class="col-md-10"> 
-						<input type="password" class="input form-control" id="admin_passwd" name="admin_passwd">
+						<input type="password" class="input form-control" id="user_passwd" name="user_passwd">
 					</div>
 				</div>
 				<br> <br>
@@ -76,15 +76,15 @@
 				<div class="row" style="margin-bottom: -30px;"> 
 					<div class="col-md-2" style="padding-top: 6px;"></div>
 					<div class="col-md-10 text-left" style="padding-top: 6px;"> 
-						 <a href="/carwash/admin/member/forgot" id="forgotPw">비밀번호를 잊어버리셨어요?</a><br>
-						 <a href="/carwash/admin/member/adminYn">아직 회원이 아니신가요?</a>
+						 <a href="/carwash/user/member/forgot" id="forgotPw">비밀번호를 잊어버리셨어요?</a><br>
+						 <a href="/carwash/user/member/adminYn">아직 회원이 아니신가요?</a>
 					</div>
 				</div>
 				
 				<div class="row" style="margin-top: 25px;"> 
 					<div class="col-md-12 text-right"> 
 						<button type="button" class="btn btn-dark" style="float: right; margin-top: 50px; margin-left: 10px;" onclick="location.href='/carwash/admin/member/adminYn'">회원가입</button>
-						<a href="/carwash/admin/member/login"><button type="submit" onclick="sendit()" class="btn btn-dark" style="float: right; margin-top: 50px;" >로그인</button></a>
+						<a href="/carwash/user/member/login"><button type="submit" onclick="sendit()" class="btn btn-dark" style="float: right; margin-top: 50px;" >로그인</button></a>
 					</div>
 				</div>
 				<br> <br>
@@ -108,7 +108,7 @@
 window.onload = function() {
 
     if (getCookie("id")) { // getCookie함수로 id라는 이름의 쿠키를 불러와서 있을경우
-        document.loginForm.admin_id.value = getCookie("id"); //input 이름이 id인곳에 getCookie("id")값을 넣어줌
+        document.loginForm.user_id.value = getCookie("id"); //input 이름이 id인곳에 getCookie("id")값을 넣어줌
         document.loginForm.idSave.checked = true; // 체크는 체크됨으로
     }
 
@@ -137,21 +137,21 @@ function getCookie(Name) { // 쿠키 불러오는 함수
 
 function sendit() {
     var frm = document.loginForm;
-    if (!frm.admin_id.value) { //아이디를 입력하지 않으면.
+    if (!frm.user_id.value) { //아이디를 입력하지 않으면.
         alert("아이디를 입력 해주세요!");
-        frm.admin_id.focus();
+        frm.user_id.focus();
         return;
     }
-    if (!frm.admin_passwd.value) { //패스워드를 입력하지 않으면.
+    if (!frm.user_passwd.value) { //패스워드를 입력하지 않으면.
         alert("패스워드를 입력 해주세요!");
-        frm.admin_passwd.focus();
+        frm.user_passwd.focus();
         return;
     }
 
     if (document.loginForm.idSave.checked == true) { // 아이디 저장을 체크 하였을때
-        setCookie("id", document.loginForm.admin_id.value, 7); //쿠키이름을 id로 아이디입력필드값을 7일동안 저장
+        setCookie("id", document.loginForm.user_id.value, 7); //쿠키이름을 id로 아이디입력필드값을 7일동안 저장
     } else { // 아이디 저장을 체크 하지 않았을때
-        setCookie("id", document.loginForm.admin_id.value, 0); //날짜를 0으로 저장하여 쿠키삭제
+        setCookie("id", document.loginForm.user_id.value, 0); //날짜를 0으로 저장하여 쿠키삭제
     }
 
     document.loginForm.submit(); //유효성 검사가 통과되면 서버로 전송.

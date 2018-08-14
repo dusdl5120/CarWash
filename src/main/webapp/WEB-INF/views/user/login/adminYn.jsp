@@ -63,22 +63,6 @@
 			</div>	
 		</div>
 		
-		
-		
-	 
-		<!-- <div style="width:100%; padding-top: 30px;">
-		 
-			<div class="col-md-1"></div>
-			<div class="col-md-4" style="border: 1px solid gray;"> 
-				<button type="button" class="btn btn-dark" onclick="location.href='/carwash/user/member/join'" style="width:15%;">사용자</button>
-			</div>
-			<div class="col-md-2"></div>
-			<div class="col-md-4" style="border: 1px solid gray;"> 
-				<button type="button" class="btn btn-dark" onclick="location.href='/carwash/admin/member/join'" style="width:15%;">관리자</button>
-			</div>
-			<div class="col-md-1"></div>
-
-		</div> -->
 	</div>
 
 	<!-- Contents -->

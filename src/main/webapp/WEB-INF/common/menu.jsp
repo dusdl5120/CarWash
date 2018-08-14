@@ -13,7 +13,12 @@
 			<li class="nav-item"><a class="nav-link js-scroll-trigger" href="/carwash">Home</a></li>
 			<li class="nav-item"><a class="nav-link js-scroll-trigger" href="/carwash/admin/notice/list">공지사항</a></li>
 			<li class="nav-item"><a class="nav-link js-scroll-trigger" href="#">이용안내</a></li>
-			<li class="nav-item"><a class="nav-link js-scroll-trigger" href="#">예약하기</a></li>
+			<c:if test="${admin}">
+				<li class="nav-item"><a class="nav-link js-scroll-trigger" href="/carwash/reserve/insert">예약하기</a></li>
+			</c:if>
+			<c:if test="${!admin}">
+				<li class="nav-item"><a class="nav-link js-scroll-trigger" href="/carwash/reserve/insert" onfocus="myFunction(this)">예약하기</a></li>
+			</c:if>
 			<li class="nav-item"><a class="nav-link js-scroll-trigger" href="/carwash/admin/free/list">자유게시판</a></li>
 			<c:if test="${admin}">
 				<li class="nav-item"><a class="nav-link js-scroll-trigger" href="/carwash/admin/member/myPage" style="magrin-left: 50px;">마이페이지</a></li>  
@@ -86,3 +91,10 @@
 	</div>
 </div>
 <!-- Join Modal -->
+
+<script>
+/* 회원만 등록가능, 비회원은 로그인페이지로 */
+function myFunction(x) {
+	window.location.href = "/carwash/admin/member/needLogin"
+}
+</script>

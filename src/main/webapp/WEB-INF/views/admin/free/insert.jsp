@@ -23,8 +23,8 @@
 		<div class="rows">
 
 			<div class="col-md-4"></div>
-			<div class="col-md-4" style="text-align: center; color: #6c757d;">
-				<label style="font-size: 20px;">&nbsp;&nbsp;<strong>글쓰기</strong></label>
+			<div class="col-md-4 text-center" style="color: #6c757d;">
+				<label style="font-size: 15px;">&nbsp;&nbsp;<strong>글쓰기</strong></label>
 			</div>
 			<div class="col-md-4"></div>
 
@@ -36,10 +36,10 @@
 			<div style="width:100%; padding-top: 30px;">
 			 
 				<div class="row" style="margin-bottom: -30px;"> 
-					<div class="col-md-1" style="text-align: right; padding-top: 6px;"> 
+					<div class="col-md-1 text-right" style="padding-top: 6px;"> 
 						<label class="control-label" for="registered_id">작성자</label>
 					</div>
-					<div class="col-md-11" style="text-align: left;"> 
+					<div class="col-md-11 text-left"> 
 						<input type="text" class="input form-control" style="border: none;" id="registered_id" name="registered_id" value="${adFreeVO.registered_id }" disabled>
 					</div>
 				</div>
@@ -47,10 +47,10 @@
 				
 				
 				<div class="row" style="margin-bottom: -30px;"> 
-					<div class="col-md-1" style="text-align: right; padding-top: 6px;"> 
+					<div class="col-md-1 text-right" style="padding-top: 6px;"> 
 						<label class="control-label" for="title">제목<b style="color: red;">&nbsp;*</b></label>
 					</div>
-					<div class="col-md-11" style="text-align: left;"> 
+					<div class="col-md-11 text-left"> 
 						<input type="text" class="input form-control" id="title" name="title">
 					</div>
 				</div>
@@ -58,10 +58,10 @@
 				
 				
 				<div class="row" style="margin-bottom: -30px;"> 
-					<div class="col-md-1" style="text-align: right; padding-top: 6px;"> 
+					<div class="col-md-1 text-right" style="padding-top: 6px;"> 
 						<label class="control-label" for="contents">내용<b style="color: red;">&nbsp;*</b></label>
 					</div>
-					<div class="col-md-11"> 
+					<div class="col-md-11 text-left"> 
 						<textarea class="input form-control" id="contents" name="contents" rows="10"></textarea>
 					</div>
 				</div>
@@ -69,10 +69,10 @@
 				
 				
 				<div class="row" style="margin-bottom: -30px;"> 
-					<div class="col-md-1" style="text-align: right; padding-top: 6px;"> 
+					<div class="col-md-1 text-right" style="padding-top: 6px;"> 
 						<label class="control-label" for="file_name">첨부파일</label>
 					</div>
-					<div class="col-md-11"> 
+					<div class="col-md-11 text-left"> 
 						<input type="file" class="input form-control" name="file_name"/>
 					</div>
 				</div>

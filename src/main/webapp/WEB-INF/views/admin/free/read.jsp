@@ -43,7 +43,7 @@
 
 			<div class="col-md-4 "></div>
 			<div class="col-md-4" style="text-align: center; color: #6c757d;">
-				<label style="font-size: 20px;">&nbsp;&nbsp;<strong>상세정보</strong></label>
+				<label style="font-size: 15px;">&nbsp;&nbsp;<strong>상세정보</strong></label>
 			</div>
 			<div class="col-md-4"></div>
 
@@ -57,16 +57,16 @@
 			 
 				
 				<div class="row" style="margin-bottom: -30px; "> 
-					<div class="col-md-1" style="text-align: right; padding-top: 6px;"> 
+					<div class="col-md-1 text-right" style="padding-top: 6px;"> 
 						<label class="control-label" for="cnt">조회수</label>
 					</div>
-					<div class="col-md-6" style="text-align: left;"> 
+					<div class="col-md-6 text-left"> 
 						<label class="input form-control" id="cnt">${board.cnt }</label>
 					</div>
-					<div class="col-md-2" style="text-align: right; padding-top: 6px;"> 
+					<div class="col-md-2 text-right" style="padding-top: 6px;"> 
 						<label class="control-label" for="cnt">등록일시</label>
 					</div>
-					<div class="col-md-3" style="text-align: left;"> 
+					<div class="col-md-3 text-left"> 
 						<label class="input form-control" id="registered_date"><fmt:formatDate value="${board.registered_date}" pattern="yyyy-MM-dd HH:mm:ss" /></label>
 					</div>
 				</div>
@@ -74,10 +74,10 @@
 				
 				
 				<div class="row" style="margin-bottom: -30px;"> 
-					<div class="col-md-1" style="text-align: right; padding-top: 6px;"> 
+					<div class="col-md-1 text-right" style="padding-top: 6px;"> 
 						<label class="control-label" for="registered_id">작성자</label>
 					</div>
-					<div class="col-md-11" style="text-align: left;"> 
+					<div class="col-md-11 text-left"> 
 						<input type="text" class="input form-control" style="border: none;" id="registered_id" name="registered_id" value="${board.registered_id }" disabled>
 					</div>
 				</div>
@@ -85,10 +85,10 @@
 				
 				
 				<div class="row" style="margin-bottom: -30px;"> 
-					<div class="col-md-1" style="text-align: right; padding-top: 6px;"> 
+					<div class="col-md-1 text-right" style="padding-top: 6px;"> 
 						<label class="control-label" for="title">제목</label>
 					</div>
-					<div class="col-md-11" style="text-align: left;"> 
+					<div class="col-md-11 text-left"> 
 						<input type="text" class="input form-control" id="title" name="title" value="${board.title }" disabled>
 					</div>
 				</div>
@@ -96,10 +96,10 @@
 				
 				
 				<div class="row" style="margin-bottom: -30px;"> 
-					<div class="col-md-1" style="text-align: right; padding-top: 6px;"> 
+					<div class="col-md-1 text-right" style="padding-top: 6px;"> 
 						<label class="control-label" for="contents">내용</label>
 					</div>
-					<div class="col-md-11" style="text-align: left;"> 
+					<div class="col-md-11 text-left"> 
 						<textarea class="input form-control" id="contents" name="contents" rows="10" disabled>${board.contents }</textarea>
 					</div>
 				</div>
@@ -118,7 +118,7 @@
 				
 				
 				<div class="row" style="margin-top: 25px;"> 
-					<div class="col-md-12" style="text-align: right;"> 
+					<div class="col-md-12 text-right"> 
 						<button type="button" class="btn btn-dark" style="float: right; margin-top: 50px; margin-left: 10px;" onclick="location.href='/carwash/admin/free/list'">목록</button>
 						<c:if test="${admin}">
 							<button type="button" class="btn btn-dark" style="float: right; margin-top: 50px; margin-left: 10px;" onclick="location.href='/carwash/admin/free/update?id=${board.id}'">수정</button>
@@ -137,7 +137,7 @@
 			
 					<input type="hidden" name="freeNo" value="${board.id}"/>
 					
-					<div style="text-align: left; padding-top: 6px;">
+					<div class="text-left" style="padding-top: 6px;">
 						<c:if test="${admin}">
 							<input type="text" name="registered_id" value="${user.admin_id}" style="background-color:#fafafa; border: none; width: 171px; height: 36px; margin-top:20px; padding: 0 13px;" placeholder="작성자" readonly>
 						</c:if>
@@ -148,10 +148,10 @@
 					
 					<div style="margin-top: 10px;"> 
 						<c:if test="${admin}">
-							<textarea class="input form-control" name="short_reply" rows="3" placeholder="댓글내용을 작성하세요" id="short_reply"></textarea>
+							<textarea class="input form-control" name="short_reply" rows="3"  placeholder="댓글내용을 작성하세요" id="short_reply"></textarea>
 						</c:if>
 						<c:if test="${!admin}">
-							<textarea class="input form-control" name="short_reply" rows="3" onfocus="myFunction(this)" placeholder="댓글내용을 작성하세요"  id="short_reply"></textarea>
+							<textarea class="input form-control" name="short_reply" rows="3" onfocus="myFunction(this)" placeholder="로그인하고 오세요" id="short_reply"></textarea>
 						</c:if>
 					</div>
 					
@@ -171,7 +171,7 @@
 		<!-- 댓글목록 전체카운트 -->		
 		<div class="row">
 		 
-			<div class="col-md-2" style="text-align: left; padding-top: 6px; color: #006393; font-size:17px; font-weight: bold; ">
+			<div class="col-md-2 text-left" style="padding-top: 6px; color: #006393; font-size:16px; font-weight: bold; ">
 				댓글목록 (<span id="replyCnt"></span>)</div>
 			<div class="col-md-10"></div>
 			
@@ -199,9 +199,11 @@
 		/* 댓글목록함수호출 */
 		replyList(1);			/* 댓글목록함수를 1페이지로 무조건 호출하도록 */
 		replyPaging(1);			/* 댓글목록페이지를 1페이지로 무조건 호출하도록 */
+		
 
 		/* 댓글을 등록하기 위해 자유게시판의 게시글번호 불러와서 변수 freeNo에 담기 */
 		var freeNo = '${board.id}';
+		
 
 		/* 댓글등록버튼 클릭시 이벤트발생 */
 		$('[name=replyInsert]').click(function() {
@@ -209,8 +211,17 @@
 			/* name이 replyInsertForm인 내용을 가져와서 
 			   insertData 변수에 담고 replyInsert함수를 호출 */
 			var insertData = $('[name=replyInsertForm]').serialize();
+			
+			if ($('#short_reply').val() == null || $('#short_reply').val().length < 10){
+				
+		        alert("최소 10글자 이상 입력하셔야 됩니다.");
+		        $('#short_reply').focus();
+		        return ;
+			}
+
 			replyInsert(insertData);
 		});
+		
 		
 		/* 댓글삭제 버튼을 클릭 시 삭제여부 확인창 띄우기 */
 		$('#delete').click(function() {
@@ -225,6 +236,7 @@
 				return false;
 			}
 		});
+		
 		
 	});
 	
@@ -285,6 +297,7 @@
 	function replyInsert(insertData) {
 
 		/* ajax로 데이터 내보내기 */
+		
 		$.ajax({
 			url : '/carwash/reply/insert', 		 	/* 데이터를 보낼 컨트롤러 경로 */
 			type : 'get',
@@ -295,7 +308,8 @@
 				replyList(1); 						/* 댓글목록을 맨처음 1페이지로 reload */
 				$('[name=short_reply]').val(''); 	/* name이 short_reply인 것에 data 값 넣기 */
 				replyPaging(1);						/* 댓글목록페이지를 1페이지로 reload */
-			}
+			},
+			
 		});
 	};
 
@@ -404,7 +418,9 @@
 				
 				/* 페이징번호(마지막페이지까지) for문 돌리기 */
 				for(var i=startPage-1; i<endPage;i++){
-					a += '<li class="page-item"><a class="page-link" onclick="replyPaging('+ (i+1)+');">'+(i+1)+'</a></li>';	/*  */
+					
+					/* i가 반복문 돌리기 위한 변수로 인덱스 0부터 시작하기 때문에 0+1을 해주는 것*/
+					a += '<li class="page-item"><a class="page-link" onclick="replyPaging('+ (i+1)+');">'+(i+1)+'</a></li>';	
 				}
 				
 				
@@ -432,6 +448,3 @@
 </script>
 
 </html>
-
-
-

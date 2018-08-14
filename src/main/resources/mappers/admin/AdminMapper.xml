@@ -124,22 +124,7 @@
 			free
 	</select>
 
-<!-- 	<select id="boardListPage" resultType="kr.green.carwash.vo.admin.AdminFreeBoardVO">
-		select
-			distinct f.id
-			, f.title
-			, f.contents
-			, f.short_comment
-			, f.registered_id
-			, f.registered_date
-			, (SELECT COUNT(*) FROM reply_board WHERE id=r.free_id) AS replyCnt
-		from
-			free f, reply_board r
-		ORDER BY ID DESC
-		LIMIT #{pageStart}, #{perPageNum}
-	</select> -->
-	
-	 <select id="boardListPage" resultType="kr.green.carwash.vo.admin.AdminFreeBoardVO">
+	<select id="boardListPage" resultType="kr.green.carwash.vo.admin.AdminFreeBoardVO">
 		select
 			*
 		from

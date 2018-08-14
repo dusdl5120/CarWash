@@ -6,7 +6,7 @@
 <head>
 	<!-- Header -->
 	<jsp:include page="../../../common/header.jsp"></jsp:include>
-	<base href="http://localhost:8181/">
+	<base href="http://localhost:8080/">
 	<!-- Header -->
 </head> 
 
@@ -21,7 +21,7 @@
 			
 			<div class="col-md-2"></div>
 			<div class="col-md-8" style="text-align: center; color: #6c757d;">
-				<label style="font-size: 20px;">&nbsp;&nbsp;<strong>가입하기</strong>&nbsp;</label>
+				<label style="font-size: 15px;">&nbsp;&nbsp;<strong>가입하기</strong>&nbsp;</label>
 			</div>
 			<div class="col-md-2"></div>
 			

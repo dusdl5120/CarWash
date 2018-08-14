@@ -27,7 +27,7 @@ import kr.green.carwash.vo.admin.AdminMemberVO;
 public class AdminMemberController {
 
 	@Resource(name="adminMemberService")
-	AdminMemberService adminMemberSerivice;
+	AdminMemberService adminMemberService;
 	
 	@Autowired
 	BCryptPasswordEncoder passwordEncoder;
@@ -37,15 +37,15 @@ public class AdminMemberController {
 	public String joinForm(AdminMemberVO adMemberVO, Model model, Criteria cri) throws Exception {
 		
 		/* 사업장업종코드 정보 불러오기 */
-		ArrayList<AdminMemberVO> placeCodeList = (ArrayList) adminMemberSerivice.placeCodeAll();
+		ArrayList<AdminMemberVO> placeCodeList = (ArrayList) adminMemberService.placeCodeAll();
 		model.addAttribute("placeCodeList", placeCodeList);
 		
 		/* 세차유형 정보 불러오기 */
-		ArrayList<AdminMemberVO> carwashTypeList = (ArrayList) adminMemberSerivice.carwashTypeAll();
+		ArrayList<AdminMemberVO> carwashTypeList = (ArrayList) adminMemberService.carwashTypeAll();
 		model.addAttribute("carwashTypeList", carwashTypeList);
 		
 		/* 휴무일 정보 불러오기 */
-		ArrayList<AdminMemberVO> closedDateList = (ArrayList) adminMemberSerivice.closedDateAll();
+		ArrayList<AdminMemberVO> closedDateList = (ArrayList) adminMemberService.closedDateAll();
 		model.addAttribute("closedDateList", closedDateList);
 		
 		return "/admin/join/join";
@@ -59,7 +59,7 @@ public class AdminMemberController {
 		String encPw = passwordEncoder.encode(adMemberVO.getAdmin_passwd());
 
 		adMemberVO.setAdmin_passwd(encPw);
-	    adminMemberSerivice.insertAdminJoin(adMemberVO);
+		adminMemberService.insertAdminJoin(adMemberVO);
 		
 		return "redirect:/";
 	}
@@ -73,7 +73,7 @@ public class AdminMemberController {
 	    int count = 0;
 	    Map<Object, Object> map = new HashMap<Object, Object>();
 	    
-	    if(adminMemberSerivice.loginById(id) != null) 
+	    if(adminMemberService.loginById(id) != null) 
 	        count = 1;
 	    
 	    map.put("cnt", count);
@@ -102,7 +102,7 @@ public class AdminMemberController {
 	    String pw = request.getParameter("admin_passwd");
 	    
 	    /* 로그인할때 id의 값을 가져와서 user객체에 담아 */
-	    AdminMemberVO user = adminMemberSerivice.loginById(id);
+	    AdminMemberVO user = adminMemberService.loginById(id);
 	    
 	    /* id를 가져온 정보가 null이 아니고 , 입력한 비밀번호와 암호화된 비밀번호와 일치했을 경우 모델에 담아서 메인으로 리다이렉트 */
 	    if(user != null && passwordEncoder.matches(pw, user.getAdmin_passwd())) {
@@ -143,7 +143,7 @@ public class AdminMemberController {
 		adMemberVO.setAdmin_id(user.getAdmin_id());
 		System.out.println("---------" + adMemberVO.getAdmin_id()); 
 		
-		AdminMemberVO my = adminMemberSerivice.myPageRead(adMemberVO);
+		AdminMemberVO my = adminMemberService.myPageRead(adMemberVO);
 		
 		model.addAttribute("admin", admin);
 		model.addAttribute("my", my);
@@ -176,18 +176,18 @@ public class AdminMemberController {
 		model.addAttribute("admin", admin);
 		
 		/* 사업장업종코드 정보 불러오기 */
-		ArrayList<AdminMemberVO> placeCodeList = (ArrayList) adminMemberSerivice.placeCodeAll();
+		ArrayList<AdminMemberVO> placeCodeList = (ArrayList) adminMemberService.placeCodeAll();
 		model.addAttribute("placeCodeList", placeCodeList);
 		
 		/* 세차유형 정보 불러오기 */
-		ArrayList<AdminMemberVO> carwashTypeList = (ArrayList) adminMemberSerivice.carwashTypeAll();
+		ArrayList<AdminMemberVO> carwashTypeList = (ArrayList) adminMemberService.carwashTypeAll();
 		model.addAttribute("carwashTypeList", carwashTypeList);
 		
 		/* 휴무일 정보 불러오기 */
-		ArrayList<AdminMemberVO> closedDateList = (ArrayList) adminMemberSerivice.closedDateAll();
+		ArrayList<AdminMemberVO> closedDateList = (ArrayList) adminMemberService.closedDateAll();
 		model.addAttribute("closedDateList", closedDateList);
 		
-		AdminMemberVO my = adminMemberSerivice.myPageRead(adMemberVO);
+		AdminMemberVO my = adminMemberService.myPageRead(adMemberVO);
 		model.addAttribute("my", my);
 		
 		return "/admin/mypage/update";
@@ -213,7 +213,7 @@ public class AdminMemberController {
 		if(adMemberVO.getAdmin_passwd() == null || adMemberVO.getAdmin_passwd().length() == 0) {
 			
 			/* 비밀번호를 제외한 쿼리문을 실행 */
-			adminMemberSerivice.myUpdateExceptPasswd(adMemberVO);
+			adminMemberService.myUpdateExceptPasswd(adMemberVO);
 	
 		} else {
 			
@@ -222,7 +222,7 @@ public class AdminMemberController {
 			adMemberVO.setAdmin_passwd(encPw);
 			
 			/* 비밀번호를 포함한 쿼리문을 실행 */
-			adminMemberSerivice.myUpdate(adMemberVO);
+			adminMemberService.myUpdate(adMemberVO);
 			
 	    }
 		
@@ -263,7 +263,7 @@ public class AdminMemberController {
 		adMemberVO.setAdmin_id(user.getAdmin_id());
 		model.addAttribute("admin", admin);
 		
-		adminMemberSerivice.myDelete(adMemberVO);
+		adminMemberService.myDelete(adMemberVO);
 		
 		return "redirect:/";
 	}

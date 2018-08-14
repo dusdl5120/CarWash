@@ -54,8 +54,32 @@
 	</select>
 	
 	
+	<!-- 예약하기 -->
+	<select id="sidoListAll" resultType="kr.green.carwash.vo.user.ReserveVO">
+		select
+			code
+			, sido_name
+		from
+			sido
+	</select>
 	
+	<select id="cityListAll" resultType="kr.green.carwash.vo.user.ReserveVO">
+		select
+			code
+			, city_name
+		from
+			city
+	</select>
 	
+	<select id="businNameListAll" resultType="kr.green.carwash.vo.user.ReserveVO">
+		select
+			busin_place_name
+		from
+			carwash
+		where 
+			busin_place_name is not null 
+		group by busin_place_name
+	</select>
 	
 	
 	

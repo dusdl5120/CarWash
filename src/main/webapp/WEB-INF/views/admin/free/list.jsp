@@ -30,7 +30,7 @@
 				<div style="width: 100%;">
 					<div class="col-md-4 "></div>
 					<div class="col-md-4" style="text-align: center; color: #6c757d;">
-						<h4 style="font-size: 20px;">&nbsp;&nbsp;<strong>자유게시판</strong></h4>
+						<h4 style="font-size: 15px;">&nbsp;&nbsp;<strong>자유게시판</strong></h4>
 					</div>
 					<div class="col-md-4"></div>
 				</div>
@@ -72,8 +72,8 @@
 							<c:forEach var="list" items="${list}" varStatus="status">
 								<tr>
 									<td>${list.id }</td>
-									<td><a href="/carwash/admin/free/read?id=${list.id }">${list.title }
-										<span class="badge badge-primary" style="margin-left: 5px;">${list.reply_cnt }</span></a></td> 
+									<td><a href="/carwash/admin/free/read?id=${list.id }">${list.title }</a>
+										<a href="#"><span class="badge badge-primary" style="margin-left: 5px;">${list.reply_cnt }</span></a></td> 
 									<td>${list.registered_id }</td>
 									<td>${list.cnt }</td>
 									<!-- <td>첨부파일</td> -->
@@ -116,11 +116,11 @@
 		<jsp:include page="../../../common/footer.jsp"></jsp:include>
 	<!-- Footer -->
 
-	<script>
-		$(document).ready(function() {
+<script>
+$(document).ready(function() {
 
 
-		});
-	</script>
+});
+</script>
 </body>
 </html>

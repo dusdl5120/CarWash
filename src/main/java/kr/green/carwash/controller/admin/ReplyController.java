@@ -113,7 +113,7 @@ public class ReplyController {
 		     해당게시글의 댓글수를 저장
 		 
 		 * 일단 자유게시판의 일련번호를 가져와서 댓글목록의 개수를 호출하여
-		 * 자유게시판 목록에 댓글수를 표시할 reply_cnt에 담는다 */
+		   자유게시판 목록에 댓글수를 표시할 reply_cnt에 담는다 */
 		int reply_cnt = replyService.replyListCnt(freeNo);
 		
 		/* 자유게시판VO freeVO객체를 새로 생성하여 자유게시판 일련번호를 가져와서 freeVO에 저장하고 */
@@ -202,7 +202,24 @@ public class ReplyController {
 	}
 	
 	
-	
+	/* 댓글 목록 */
+	@ResponseBody
+	@RequestMapping(value="/popup")
+	public HashMap<String,Object> replyPopup(Model model, Integer freeNo, Criteria cri) throws Exception {
+		
+		/* 자유게시판 일련번호와 페이징처리하는 매개변수 받아서 list와 CNT로 담기 */
+		ArrayList<ReplyVO> list = (ArrayList)replyService.replyList(freeNo, cri);
+		int cnt = replyService.replyListCnt(cri, freeNo);
+		
+		/* HashMap으로 String과 Object로 list와 CNT를 저장할 map 객체를 생성 */
+		HashMap<String, Object> map = new HashMap();
+		
+		/* map에 list와 CNT를 담고 화면단으로 넘겨 */
+		map.put("list", list);
+		map.put("cnt",cnt);
+		
+		return  map;
+	}
 	
 	
 	

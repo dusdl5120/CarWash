@@ -24,7 +24,7 @@
 				<div style="width: 100%;">
 					<div class="col-md-4 "></div>
 					<div class="col-md-4" style="text-align: center; color: #6c757d;">
-						<label style="font-size: 20px;">&nbsp;&nbsp;<strong>공지사항</strong></label>
+						<label style="font-size: 15px;">&nbsp;&nbsp;<strong>공지사항</strong></label>
 					</div>
 					<div class="col-md-4"></div>
 				</div>

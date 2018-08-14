@@ -20,6 +20,8 @@
 
 <!-- Bootstrap core JavaScript -->
 <script src="<c:url value='/resources/vendor/jquery/jquery.min.js'/>"></script>
+<script src="<c:url value='/resources/vendor/bootstrap/js/bootstrap-datepicker.js'/>"></script>
+<script src="<c:url value='/resources/vendor/bootstrap/js/bootstrap-timepicker.min.js'/>"></script>
 <script src="<c:url value='/resources/js/scrolling-nav.js'/>"></script> 
 <script src="<c:url value='/resources/vendor/bootstrap/js/bootstrap.bundle.min.js'/>"></script>
 <script src="<c:url value='/resources/vendor/bootstrap/js/bootstrap.min.js'/>"></script>
@@ -27,6 +29,7 @@
 <!-- 유효성검사 -->
 <script src="<c:url value='/resources/js/jquery.validate.js'/>"></script>
 <script src="<c:url value='/resources/js/additional-methods.js'/>"></script>
+
 
 <!-- 번호 마스크기능 -->
 <script src="<c:url value='/resources/vendor/jquery/jquery.mask.js'/>"></script>
@@ -37,9 +40,4 @@
 <!-- Plugin JavaScript -->
 <script src="<c:url value='/resources/vendor/jquery-easing/jquery.easing.min.js'/>"></script>
 
-<!-- DataTable 관련 라이브러리 --> 
-<!-- <script type="text/javascript" language="javascript" src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
-<script type="text/javascript" language="javascript" src="https://cdn.datatables.net/1.10.19/js/dataTables.semanticui.min.js"></script>
-<script type="text/javascript" language="javascript" src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.3.1/semantic.min.js"></script>
-<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.3.1/semantic.min.css">
-<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.19/css/dataTables.semanticui.min.css"> -->
+
