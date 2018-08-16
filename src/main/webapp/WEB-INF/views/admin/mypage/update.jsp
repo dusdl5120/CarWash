@@ -16,27 +16,25 @@
 	<!-- Menu -->
 	
 	<!-- Contents -->
-	<div class="container" style="height: 950px;">
-		<div class="row" style="margin-top: 16%;">  
+	<div class="container">
+		<div class="row container-rows">  
 			
-			<div class="col-md-2"></div>
-			<div class="col-md-8" style="text-align: center; color: #6c757d;">
-				<label style="font-size: 15px;">&nbsp;&nbsp;<strong>회원정보 수정</strong>&nbsp;</label>
+			<div class="col-md-4"></div>
+			<div class="col-md-4 text-center text-title">
+				<label>&nbsp;&nbsp;<strong>회원정보 수정</strong>&nbsp;</label>
 			</div>
-			<div class="col-md-2"></div>
+			<div class="col-md-4"></div>
 			
 				<br><br>
 			
-			<hr class="hr-2"> <br><br>
-			
-			<form method="post" style="width: 100%;" id="form"> 
-				<div style="width:100%; padding-top: 30px;">
-					<div class="row" style="margin-bottom: -30px;"> 
+			<form method="post" id="form" class="form"> 
+				<div class="form-div">
+					<div class="row form-row">
 						<div class="col-md-1"></div>
-						<div class="col-md-2" style="text-align: right; padding-top: 6px;">
+						<div class="col-md-2 text-right col-top">
 							<label class="control-label" for="admin_id">관리자ID</label>
 						</div>
-						<div class="col-md-7" style="text-align: left;"> 
+						<div class="col-md-7 text-left"> 
 							 <input type="text" class="input form-control" id="admin_id" name="admin_id" value="${my.admin_id }" readonly>
 						</div>
 						<div class="col-md-2"></div>
@@ -44,12 +42,12 @@
 					<br> <br>
 	
 	
-					<div class="row" style="margin-bottom: -30px;"> 
+					<div class="row form-row">
 						<div class="col-md-1"></div>
-						<div class="col-md-2" style="text-align: right; padding-top: 6px;">
+						<div class="col-md-2 text-right col-top">
 							<label class="control-label" for="admin_passwd">관리자비밀번호</label>
 						</div>
-						<div class="col-md-7" style="text-align: left;"> 
+						<div class="col-md-7 text-left">
 							<input type="password" class="input form-control" id="admin_passwd" name="admin_passwd" > 
 						</div>
 						<div class="col-md-2"></div>
@@ -57,12 +55,12 @@
 					<br> <br>
 					
 					
-					<div class="row" style="margin-bottom: -30px;"> 
+					<div class="row form-row">
 						<div class="col-md-1"></div>
-						<div class="col-md-2" style="text-align: right; padding-top: 6px;">
+						<div class="col-md-2 text-right col-top">
 							<label class="control-label" for="admin_passwd">관리자비밀번호 확인</label>
 						</div>
-						<div class="col-md-7" style="text-align: left;"> 
+						<div class="col-md-7 text-left"> 
 							<input type="password" class="input form-control" id="admin_passwd_confirm" name="admin_passwd_confirm" >
 						</div>
 						<div class="col-md-2"></div>
@@ -70,12 +68,12 @@
 					<br> <br>
 	
 	
-					<div class="row" style="margin-bottom: -30px;"> 
+					<div class="row form-row">
 						<div class="col-md-1"></div>
-						<div class="col-md-2" style="text-align: right; padding-top: 6px;"> 
+						<div class="col-md-2 text-right col-top"> 
 							<label class="control-label" for="busin_place_name">사업장명</label>
 						</div>
-						<div class="col-md-7" style="text-align: left;"> 
+						<div class="col-md-7 text-left"> 
 							<input type="text" class="input form-control" id="busin_place_name" name="busin_place_name" value="${my.busin_place_name }" >
 						</div>
 						<div class="col-md-2"></div>
@@ -83,10 +81,10 @@
 					<br> <br>
 					
 					
-					<div class="row" style="margin-bottom: -30px;"> 
+					<div class="row form-row">
 						<div class="col-md-1"></div>
-						<div class="col-md-2" style="text-align: right; padding-top: 6px;">
-							<label class="control-label" for="busin_place_code_name">사업장업종명<b style="color: red;">&nbsp;*</b></label>
+						<div class="col-md-2 text-right col-top">
+							<label class="control-label" for="busin_place_code_name">사업장업종명<b>&nbsp;*</b></label>
 						</div>
 						<div class="col-md-7"> 
 							<c:if test="${!empty placeCodeList}" >
@@ -102,12 +100,12 @@
 					<br> <br>
 					
 					
-					<div class="row" style="margin-bottom: -30px;">  
+					<div class="row form-row">
 						<div class="col-md-1"></div>
-						<div class="col-md-2" style="text-align: right; padding-top: 6px;">
+						<div class="col-md-2 text-right col-top">
 							<label class="control-label" for="busin_place_tele_num">사업장전화번호</label>
 						</div>
-						<div class="col-md-7" style="text-align: left;"> 
+						<div class="col-md-7 text-left">
 							<input type="text" class="input form-control" id="busin_place_tele_num" name="busin_place_tele_num" value="${my.busin_place_tele_num }" >
 						</div>
 						<div class="col-md-2"></div>
@@ -115,12 +113,12 @@
 					<br> <br>
 					
 					
-					<div class="row" style="margin-bottom: -30px;"> 
+					<div class="row form-row">
 						<div class="col-md-1"></div>
-						<div class="col-md-2" style="text-align: right; padding-top: 6px;">
+						<div class="col-md-2 text-right col-top">
 							<label class="control-label" for="ceo_name">대표자명</label>
 						</div>
-						<div class="col-md-7" style="text-align: left;"> 
+						<div class="col-md-7 text-left"> 
 							<input type="text" class="input form-control" id="ceo_name" name="ceo_name" value="${my.ceo_name }">
 						</div>
 						<div class="col-md-2"></div>
@@ -128,10 +126,10 @@
 					<br> <br>
 					
 					
-					<div class="row" style="margin-bottom: -30px;"> 
+					<div class="row form-row">
 						<div class="col-md-1"></div>
-						<div class="col-md-2" style="text-align: right; padding-top: 6px;">
-							<label class="control-label" for="carwash_type">세차유형<b style="color: red;">&nbsp;*</b></label>
+						<div class="col-md-2 text-right col-top">
+							<label class="control-label" for="carwash_type">세차유형<b>&nbsp;*</b></label>
 						</div>
 						<div class="col-md-7"> 
 							<c:if test="${!empty carwashTypeList}" >
@@ -147,10 +145,10 @@
 					<br> <br>
 					
 					
-					<div class="row" style="margin-bottom: -30px;"> 
+					<div class="row form-row">
 						<div class="col-md-1"></div>
-						<div class="col-md-2" style="text-align: right; padding-top: 6px;">
-							<label class="control-label" for="closed_date">휴무일<b style="color: red;">&nbsp;*</b></label>
+						<div class="col-md-2 text-right col-top">
+							<label class="control-label" for="closed_date">휴무일<b>&nbsp;*</b></label>
 						</div>
 						<div class="col-md-7"> 
 							<c:if test="${!empty closedDateList}" >
@@ -166,12 +164,12 @@
 					<br> <br>
 					
 					
-					<div class="row" style="margin-bottom: -30px;"> 
+					<div class="row form-row">
 						<div class="col-md-1"></div>
-						<div class="col-md-2" style="text-align: right; padding-top: 6px;">
-							<label class="control-label" for="road_name_addr">우편번호<b style="color: red;">&nbsp;*</b></label>
+						<div class="col-md-2 text-right col-top">
+							<label class="control-label" for="road_name_addr">우편번호<b>&nbsp;*</b></label>
 						</div>
-						<div class="col-md-5"> 
+						<div class="col-md-5 text-left"> 
 							<input type="text" class="input form-control" id="zip_code" name="zip_code" value="${my.zip_code }" readonly>
 						</div>
 						<div class="col-md-2">
@@ -182,38 +180,33 @@
 					<br> <br>
 					
 					
-					<div class="row" style="margin-bottom: -30px;"> 
+					<div class="row form-row">
 						<div class="col-md-1"></div>
-						<div class="col-md-2" style="text-align: right; padding-top: 6px;">소재지주소<b style="color: red;">&nbsp;*</b></div>
-						<div class="col-md-7"> 
+						<div class="col-md-2 text-right col-top">소재지주소<b>&nbsp;*</b></div>
+						<div class="col-md-7 text-left"> 
 							<input type="text" class="input form-control" id="road_name_addr" name="road_name_addr" value="${my.road_name_addr }" readonly>
-							<span id="guide" style="color:#999"></span>
 						</div>
 						<div class="col-md-2"></div>
 					</div>
 					<br> <br>
 					
 					
-					<div class="row" style="margin-bottom: -30px;"> 
+					<div class="row form-row">
 						<div class="col-md-1"></div>
-						<div class="col-md-2" style="text-align: right; padding-top: 6px;">상세주소<b style="color: red;">&nbsp;*</b></div>
-						<div class="col-md-7"> 
+						<div class="col-md-2 text-right col-top">상세주소<b>&nbsp;*</b></div>
+						<div class="col-md-7 text-left"> 
 							<input type="text" class="input form-control" id="road_detail_addr" name="road_detail_addr" value="${my.road_detail_addr }">
-							<span id="guide" style="color:#999"></span>
 						</div>
 						<div class="col-md-2"></div>
 					</div>
 					<br> <br>
 					
 					
-					<div class="row" style="margin-top: 25px;"> 
-						<div class="col-md-1"></div>
-						<div class="col-md-2"></div>
-						<div class="col-md-7"> 
-							<button type="submit" class="btn btn-dark" onclick="location.href='/carwash/admin/member/myUpdate'" id="save" style="width:15%;">수정하기</button>
-							<button type="button" class="btn btn-dark" onclick="location.href='/carwash'" style="width:15%; margin-left: 10px;">취소</button>
+					<div class="row form-row-button"> 
+						<div class="col-md-12"> 
+							<button type="submit" class="btn btn-dark" onclick="location.href='/carwash/admin/member/myUpdate'" id="save">수정하기</button>
+							<button type="button" class="btn btn-dark" onclick="location.href='/carwash'" style="margin-left: 10px;">취소</button>
 						</div>
-						<div class="col-md-2"></div>
 					</div>
 					<br> <br>
 					

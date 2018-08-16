@@ -167,6 +167,7 @@ public class AdminFreeBoardController {
 			admin = true;
 		
 		//adFreeVO.setRegistered_id(user.getAdmin_id());
+		model.addAttribute("user", user);
 		model.addAttribute("admin", admin);
 		
 		/* 조회수 증가 */

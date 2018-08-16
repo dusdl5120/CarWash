@@ -19,12 +19,12 @@
 	
 	<!-- Contents -->
 
-	<div class="container" style="height: 820px;">
-		<div class="rows">
+	<div class="container">
+		<div class="rows container-rows">  
 
-			<div class="col-md-4 "></div>
-			<div class="col-md-4" style="text-align: center; color: #6c757d;">
-				<label style="font-size: 15px;">&nbsp;&nbsp;<strong>수정하기</strong></label>
+			<div class="col-md-4"></div>
+			<div class="col-md-4 text-center text-title">
+				<label>&nbsp;&nbsp;<strong>수정하기</strong></label>
 			</div>
 			<div class="col-md-4"></div>
 
@@ -33,25 +33,25 @@
 		</div>
 		
 		
-		<form method="post" style="width: 100%; text-align: webkit-center;"> 
-			<div style="width:100%; padding-top: 30px;">
+		<form method="post" class="form"> 
+			<div class="form-div">
 			
 			 	<input type="hidden" name="id" value="${board.id }" />
 			 	
-				<div class="row" style="margin-bottom: -30px;"> 
-					<div class="col-md-1" style="text-align: right; padding-top: 6px;"> 
-						<label class="control-label" for="registered_id">작성자<b style="color: red;">&nbsp;*</b></label>
+				<div class="row form-row"> 
+					<div class="col-md-1 text-right col-top"> 
+						<label class="control-label" for="registered_id">작성자</label>
 					</div>
 					<div class="col-md-11"> 
-						<input type="text" class="input form-control" style="border: none;" id="registered_id" name="registered_id" value="${board.registered_id }" disabled>
+						<input type="text" class="input form-control" style="border: none;" id="registered_id" name="registered_id" value="${board.registered_id }" readonly>
 					</div>
 				</div>
 				<br> <br>
 				
 				
-				<div class="row" style="margin-bottom: -30px;"> 
-					<div class="col-md-1" style="text-align: right; padding-top: 6px;"> 
-						<label class="control-label" for="title">제목<b style="color: red;">&nbsp;*</b></label>
+				<div class="row form-row"> 
+					<div class="col-md-1 text-right col-top"> 
+						<label class="control-label" for="title">제목<b>&nbsp;*</b></label>
 					</div>
 					<div class="col-md-11"> 
 						<input type="text" class="input form-control" id="title" name="title" value="${board.title }"/> 
@@ -60,9 +60,9 @@
 				<br> <br>
 				
 				
-				<div class="row" style="margin-bottom: -30px;"> 
-					<div class="col-md-1" style="text-align: right; padding-top: 6px;"> 
-						<label class="control-label" for="contents">내용<b style="color: red;">&nbsp;*</b></label>
+				<div class="row form-row"> 
+					<div class="col-md-1 text-right col-top"> 
+						<label class="control-label" for="contents">내용<b>&nbsp;*</b></label>
 					</div>
 					<div class="col-md-11"> 
 						<textarea class="input form-control" id="contents" name="contents" rows="10">${board.contents }</textarea>
@@ -71,8 +71,8 @@
 				<br> <br>
 				
 				
-				<div class="row" style="margin-bottom: -30px;"> 
-					<div class="col-md-1" style="text-align: right; padding-top: 6px;"> 
+				<div class="row form-row"> 
+					<div class="col-md-1 text-right col-top"> 
 						<label class="control-label" for="contents">첨부파일</label>
 					</div>
 					<div class="col-md-11"> 
@@ -84,8 +84,8 @@
 				
 				<div class="row"> 
 					<div class="col-md-12"> 
-						<button type="button" class="btn btn-dark" style="float: right; margin-top: 50px; margin-left: 10px;" onclick="location.href='/carwash/admin/free/list'">취소</button>
-						<button type="submit" class="btn btn-dark" style="float: right; margin-top: 50px;" onclick="location.href='/carwash/admin/free/update?id=${board.id}'">수정</button>
+						<button type="button" class="btn btn-dark btn-cancel" onclick="location.href='/carwash/admin/free/list'">취소</button>
+						<button type="submit" class="btn btn-dark btn-update" onclick="location.href='/carwash/admin/free/update?id=${board.id}'">수정</button>
 					</div>
 				</div>
 				<br> <br>

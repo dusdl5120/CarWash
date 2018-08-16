@@ -13,16 +13,8 @@
 </head>
 
 <style>
-	label.input{
-		border: none;	
-	}
-	.container{
-		min-height:850px;
-		
-	}
-	.container::-webkit-scrollbar { 
-	    display: none; 
-	}
+
+
 </style>
 
 <body>
@@ -37,8 +29,8 @@
 		<div class="rows">
 
 			<div class="col-md-4"></div>
-			<div class="col-md-4" style="text-align: center; color: #6c757d;">
-				<label style="font-size: 15px;">&nbsp;&nbsp;<strong>상세정보</strong></label>
+			<div class="col-md-4 text-center text-title">
+				<label>&nbsp;&nbsp;<strong>상세정보</strong></label>
 			</div>
 			<div class="col-md-4"></div>
 

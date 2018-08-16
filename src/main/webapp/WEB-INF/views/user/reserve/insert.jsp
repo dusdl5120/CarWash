@@ -10,19 +10,6 @@
 <!-- Header -->
 
 <style>
-	label.input{
-		border: none;	
-	}
-	.container{
-		min-height:850px;
-		
-	}
-	.container::-webkit-scrollbar { 
-	    display: none; 
-	}
-	.input.form-control {
-		font-size: 13px;
-	}
 	
 </style>
 
@@ -32,12 +19,12 @@
 	<!-- Menu -->
 	
 	<!-- Contents -->
-	<div class="container" >
+	<div class="container">
 		<div class="rows">
 
 			<div class="col-md-4 "></div>
-			<div class="col-md-4" style="text-align: center; color: #6c757d;">
-				<label style="font-size: 15px;">&nbsp;&nbsp;<strong>예약하기</strong></label>
+			<div class="col-md-4 text-center text-title">
+				<label>&nbsp;&nbsp;<strong>예약하기</strong></label>
 			</div>
 			<div class="col-md-4"></div>
 
@@ -46,23 +33,23 @@
 		</div>
 		
 		<!-- 예약하기 -->
-		<form method="post" id="form" style="width: 100%; text-align: webkit-center;"> 
-			<div class="row" style="border-top:1px solid #e8e8e8; background-color:#fafafa; margin-top:10px; font-size: 13px;font-weight: bold;"> 
+		<form method="post" id="form" class="form"> 
+			<div class="row reserv-form-div"> 
 				<div class="col-md-12"> 
 			
-					<div class="text-left" style=" border-bottom: 1px solid #e8e8e8;">
-						<label style="margin-top: 10px;">&nbsp; 고객정보입력 <img style="margin-bottom: 3px;" src="<c:url value='/resources/images/info.png'/>"></label>
+					<div class="text-left reserv-label">
+						<label>&nbsp; 고객정보입력 <img src="<c:url value='/resources/images/info.png'/>"></label>
 					</div>
 					
-					<div class="row" style="margin-top: 15px;"> 
-						<div class="col-md-2 text-right" style="padding-top: 6px;"> 
-							<label class="control-label" for="reserv_name">예약자이름<b style="color: red;">&nbsp;*</b></label>
+					<div class="row reserv-form-row"> 
+						<div class="col-md-2 text-right col-top"> 
+							<label class="control-label" for="reserv_name">예약자이름<b>&nbsp;*</b></label>
 						</div>
 						<div class="col-md-3 text-left"> 
 							<input type="text" class="input form-control" id="reserv_name" name="reserv_name">
 						</div>
-						<div class="col-md-2 text-right" style="padding-top: 6px;"> 
-							<label class="control-label" for="reserv_phone">예약자 휴대폰번호<b style="color: red;">&nbsp;*</b></label>
+						<div class="col-md-2 text-right col-top">
+							<label class="control-label" for="reserv_phone">예약자 휴대폰번호<b>&nbsp;*</b></label>
 						</div>
 						<div class="col-md-3 text-left"> 
 							<input type="text" class="input form-control" id="reserv_phone" name="reserv_phone">
@@ -71,14 +58,14 @@
 					</div><br>
 					
 					<div class="row"> 
-						<div class="col-md-2 text-right" style="padding-top: 6px;"> 
+						<div class="col-md-2 text-right col-top"> 
 							<label class="control-label" for="reserv_email">이메일(선택사항)</label>
 						</div>
 						<div class="col-md-3 text-left"> 
 							<input type="text" class="input form-control" id="reserv_email" name="reserv_email">
 						</div>
-						<div class="col-md-2 text-right" style="padding-top: 6px;"> 
-							<label class="control-label" for="reserve_passwd">비밀번호<b style="color: red;">&nbsp;*</b></label>
+						<div class="col-md-2 text-right col-top">
+							<label class="control-label" for="reserve_passwd">비밀번호<b>&nbsp;*</b></label>
 						</div>
 						<div class="col-md-3 text-left"> 
 							<input type="password" class="input form-control" id="reserve_passwd" name="reserve_passwd">
@@ -91,16 +78,16 @@
 			<br> <br>
 			
 			
-			<div class="row" style="border-top:1px solid #e8e8e8; background-color:#fafafa; margin-top:10px; font-size: 13px; font-weight: bold;"> 
+			<div class="row reserv-form-div"> 
 				<div class="col-md-12"> 
 			
-					<div class="text-left" style="padding-top: 6px; border-bottom: 1px solid #e8e8e8;">
-						<label style="margin-top: 10px;">&nbsp; 예약정보입력 <img style="margin-bottom: 3px;" src="<c:url value='/resources/images/reserved.png'/>"></label>
+					<div class="text-left reserv-label">
+						<label>&nbsp; 예약정보입력 <img src="<c:url value='/resources/images/reserved.png'/>"></label>
 					</div>
 					
-					<div class="row" style="margin-top: 15px;"> 
-						<div class="col-md-2 text-right" style="padding-top: 6px;"> 
-							<label class="control-label" for="sido_name">지역선택<b style="color: red;">&nbsp;*</b></label>
+					<div class="row reserv-form-row"> 
+						<div class="col-md-2 text-right col-top">
+							<label class="control-label" for="sido_name">지역선택<b>&nbsp;*</b></label>
 						</div>
 						<div class="col-md-2 text-left"> 
 							<c:if test="${!empty sidoList}" >
@@ -124,8 +111,8 @@
 					 
 					 
 					<div class="row"> 
-						<div class="col-md-2 text-right" style="padding-top: 6px;"> 
-							<label class="control-label" for="busin_place_name">사업장명<b style="color: red;">&nbsp;*</b></label>
+						<div class="col-md-2 text-right col-top">
+							<label class="control-label" for="busin_place_name">사업장명<b>&nbsp;*</b></label>
 						</div>
 						<div class="col-md-5 text-left"> 
 						    <c:if test="${!empty businNameList}" >
@@ -141,14 +128,14 @@
 					 
 					 
 					<div class="row"> 
-						<div class="col-md-2 text-right" style="padding-top: 6px;"> 
-							<label class="control-label" for="reserv_date">예약날짜<b style="color: red;">&nbsp;*</b></label>
+						<div class="col-md-2 text-right col-top">
+							<label class="control-label" for="reserv_date">예약날짜<b>&nbsp;*</b></label>
 						</div>
 						<div class="col-md-3 text-left"> 
 							<input type="text" class="input form-control datepicker" id="datepicker" name="reserv_date" data-date-format="yyyy-mm-dd">
 						</div>
-						<div class="col-md-2 text-right" style="padding-top: 6px;"> 
-							<label class="control-label" for="busin_place_name">예약시간<b style="color: red;">&nbsp;*</b></label>
+						<div class="col-md-2 text-right col-top">
+							<label class="control-label" for="busin_place_name">예약시간<b>&nbsp;*</b></label>
 						</div>
 						<div class="col-md-3 text-left"> 
 							<input type="text" class="input form-control" id="timepicker" name="reserv_time">
@@ -158,16 +145,16 @@
 					
 					
 					<div class="row"> 
-						<div class="col-md-2 text-right" style="padding-top: 6px;"> 
-							<label class="control-label" for="car_company">차량회사<b style="color: red;">&nbsp;*</b></label>
+						<div class="col-md-2 text-right col-top">
+							<label class="control-label" for="car_company">차량회사<b>&nbsp;*</b></label>
 						</div>
 						<div class="col-md-3 text-left"> 
 							<select class="custom-select" name="car_company">
 						    	<option value=""></option>
 						   	</select>
 						</div>
-						<div class="col-md-2 text-right" style="padding-top: 6px;"> 
-							<label class="control-label" for="car_model">차량모델<b style="color: red;">&nbsp;*</b></label>
+						<div class="col-md-2 text-right col-top">
+							<label class="control-label" for="car_model">차량모델<b>&nbsp;*</b></label>
 						</div>
 						<div class="col-md-3 text-left"> 
 							<select class="custom-select" name="car_model" id="car_model">
@@ -179,19 +166,19 @@
 					
 					
 					<div class="row"> 
-						<div class="col-md-2 text-right" style="padding-top: 6px;"> 
-							<label class="control-label" for="carwash_type">서비스유형<b style="color: red;">&nbsp;*</b></label>
+						<div class="col-md-2 text-right col-top">
+							<label class="control-label" for="carwash_type">서비스유형<b>&nbsp;*</b></label>
 						</div>
 						<div class="col-md-3 text-left"> 
 							<select class="custom-select" name="carwash_type" id="carwash_type">
-								<option value="0">선택하세요</option>
+								<option value="0">선택하세요</option> 
 								<option value="1">손세차</option>
 								<option value="2">스팀세차</option>
 								<option value="3">정비업소</option>
 							</select>
 						</div>
-						<div class="col-md-2 text-right" style="padding-top: 6px;"> 
-							<label class="control-label" for="car_number">차량번호<b style="color: red;">&nbsp;*</b></label>
+						<div class="col-md-2 text-right col-top">
+							<label class="control-label" for="car_number">차량번호<b>&nbsp;*</b></label>
 						</div>
 						<div class="col-md-3 text-left"> 
 							<input type="text" class="input form-control" name="car_number" placeholder="예) 12가1234로 입력하세요">
@@ -203,35 +190,31 @@
 			<br> <br>
 			
 			
-			<div class="row" style="border-top:1px solid #e8e8e8; background-color:#fafafa; margin-top:10px; font-size: 13px;"> 
+			<div class="row reserv-form-warn"> 
 				<div class="col-md-12"> 
 			
-					<div class="text-left" style=" border-bottom: 1px solid #e8e8e8; font-weight: bold;">
-						<label style="margin-top: 10px;">&nbsp; 유의사항 <img style="margin-bottom: 3px;" src="<c:url value='/resources/images/warning.png'/>"></label>
+					<div class="text-left reserv-label-warn">
+						<label>&nbsp; 유의사항 <img src="<c:url value='/resources/images/warning.png'/>"></label>
 					</div>
 					
-					<div class="row" style="margin-top: 15px;"> 
-						<div class="col-md-12 text-left" style="padding-top: 6px;"> 
-							<p><img style="margin-bottom: 3px;" src="<c:url value='/resources/images/checked.png'/>"> &nbsp;카워시는 전국 세차장의 손세차와 스팀세차, 정비서비스를 온라인으로 예약만 할 뿐, 결제시스템은 운영하지 않으니 참고하시기 바랍니다.</p>
-							<p><img style="margin-bottom: 3px;" src="<c:url value='/resources/images/checked.png'/>"> &nbsp;회원만 예약이 가능하오니, 회원이 아니실 경우에는 회원가입 후 예약서비스를 이용해주시기 바랍니다.</p>
-							<p><img style="margin-bottom: 3px;" src="<c:url value='/resources/images/checked.png'/>"> &nbsp;예약수정과 취소는 예약한 날짜의 1일 전 18시까지만 가능합니다. </p>
-							<p><img style="margin-bottom: 3px;" src="<c:url value='/resources/images/checked.png'/>"> &nbsp;온라인으로 예약하기 어려우신 분들은 카워시 고객센터나 해당 세차장에 문의하시면 조금 더 빠른 예약이 가능합니다.</p>
-							<p><img style="margin-bottom: 3px;" src="<c:url value='/resources/images/checked.png'/>"> &nbsp;전화예약의 경우 09~17시까지 가능하오니 예약하실 때 유의하시기 바랍니다.</p>
+					<div class="row reserv-form-row"> 
+						<div class="col-md-12 text-left col-top"> 
+							<p><span class="div-check"></span>&nbsp;카워시는 전국 세차장의 손세차와 스팀세차, 정비서비스를 온라인으로 예약만 할 뿐, 결제시스템은 운영하지 않으니 참고하시기 바랍니다.</p>
+							<p><span class="div-check"></span>&nbsp;회원만 예약이 가능하오니, 회원이 아니실 경우에는 회원가입 후 예약서비스를 이용해주시기 바랍니다.</p>
+							<p><span class="div-check"></span>&nbsp;예약수정과 취소는 예약한 날짜의 1일 전 18시까지만 가능합니다.</p>
+							<p><span class="div-check"></span>&nbsp;온라인으로 예약하기 어려우신 분들은 카워시 고객센터나 해당 세차장에 문의하시면 조금 더 빠른 예약이 가능합니다.</p>
+							<p><span class="div-check"></span>&nbsp;전화예약의 경우 09~17시까지 가능하오니 예약하실 때 유의하시기 바랍니다.</p>
 						</div>
 					</div><br>
 				</div>
 			</div><br>
 			
-			
-			<div class="col-md-12 text-right"> 
-				<button type="button" class="btn btn-dark" style="float: right; margin-top: 50px; margin-left: 10px;" onclick="location.href='#'">목록</button>
-				<button type="button" class="btn btn-primary" style="float: right; margin-top: 50px; margin-left: 10px; background-color: #004080;" onclick="location.href='/carwash/admin/free/list'">예약하기</button>
-				<%-- <c:if test="${admin}">
-					<button type="button" class="btn btn-dark" style="float: right; margin-top: 50px; margin-left: 10px;" onclick="location.href='/carwash/admin/free/update?id=${board.id}'">수정</button>
-					<button type="button" class="btn btn-danger" id="delete" style="float: right; margin-top: 50px;" onclick="location.href='/carwash/admin/free/delete?id=${board.id}'">삭제</button>
-				</c:if> --%>
+			<div class="row"> 
+				<div class="col-md-12 text-right"> 
+					<button type="button" class="btn btn-insert-join" onclick="location.href='/carwash/admin/free/list'">예약하기</button>
+					<button type="button" class="btn btn-dark btn-cancel-join " onclick="location.href='#'">목록</button>
+				</div>
 			</div>
-		
 		</form>
 		
 	</div>
@@ -268,20 +251,10 @@
 			alert($(this).val());
 		});
 		
-		
-		
-		
-		
 
 	});
 	
 	
 </script>
-
-
-
-
-
-
-
-</html>
+ 
+</html> 

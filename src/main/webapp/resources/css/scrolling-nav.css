@@ -5,20 +5,19 @@
  */
 
 /* @import url("//netdna.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap-glyphicons.css"); */
-
 header {
 	padding: 154px 0 100px;
 }
 
-@media (min-width: 992px) {
-  header {
-  	padding: 156px 0 100px;
-  }
+@media ( min-width : 992px) {
+	header {
+		padding: 156px 0 100px;
+	}
 }
 
 section {
 	padding: 80px 0 50px 0;
-   -webkit-logical-height: 400px; 
+	-webkit-logical-height: 400px;
 }
 
 #lead {
@@ -35,85 +34,389 @@ section {
 	text-align: center;
 }
 
-.rows { 
-  display: -ms-flexbox;
-  text-align: -webkit-center;
-  display: flex;
-  -ms-flex-wrap: wrap;
-  flex-wrap: wrap;
-  margin-right: -15px;
-  margin-left: -15px;
-  margin-top: 12%;
+.rows {
+	display: -ms-flexbox;
+	text-align: -webkit-center;
+	display: flex;
+	-ms-flex-wrap: wrap;
+	flex-wrap: wrap;
+	margin-right: -15px;
+	margin-left: -15px;
+	margin-top: 12%;
 }
 
+/* 컨테이너 사이즈 (스크롤바 포함) */
+label.input {
+	border: none;
+}
+
+.container {
+	min-height: 850px;
+}
+
+.container::-webkit-scrollbar {
+	display: none;
+}
+
+/* 각 화면 제목 */
+.text-title {
+	font-size: 15px;
+	text-align: center;
+	color: #000;
+}
+
+/* list 등록버튼 */
+.btn-list-insert {
+	float: right;
+	margin-left: 20px;
+	background-color: #0c7da3;
+	color: #fff;
+}
+
+/* list 검색버튼 */
+.btn-list-search {
+	float: right;
+	margin-left: 5px;
+}
+
+/* form에서 취소버튼 */
+.btn-cancel {
+	float: right;
+	margin-top: 50px;
+	margin-left: 10px;
+}
+
+/* form에서 등록버튼 */
+.btn-insert {
+	float: right;
+	margin-top: 50px;
+	background-color: #0c7da3;
+	color: #fff;
+}
+
+/* form에서 수정버튼 */
+.btn-update {
+	float: right;
+	margin-top: 50px;
+}
+
+
+/* form에서 button 감싸는 row */
+.form-row-button {
+	margin-top: 25px;
+}
+
+/* form row col-md-1 style */
+.col-top {
+	padding-top: 6px;
+}
+
+/* list 검색 span 중 ADMIN인 경우 */
+.span-search {
+	display: inline-block;
+	width: 897px;
+	margin-bottom: 4px;
+}
+
+/* list 검색 span 중 ADMIN이 아닌경우 */
+.span-search-not {
+	display: inline-block;
+	width: 970px;
+	margin-bottom: 4px;
+}
+
+/* list 검색 입력창 */
+.input-search {
+	padding-top: 3px;
+	padding-bottom: 7px;
+}
+
+/* list 검색 div 그리드 */
+.search-grid {
+	width: 100%;
+	margin-top: 6%;
+	margin-bottom: -16px;
+}
+
+/* list 검색 form */
+.search-form {
+	float: left;
+}
+
+/* list 검색 select */
+.search-select {
+	margin-right: 5px;
+	width: 100px;
+	font-size: 14px;
+}
+
+/* list table 상위 div 태그 */
+.width-div {
+	width: 100%;
+}
+
+/* list page부분 최상위 div 태그 */
+.page-div {
+	width: 100%;
+	margin-top: 2%;
+}
+
+/* insert form */
+.form {
+	width: 100%;
+	text-align: webkit-center;
+}
+
+/* insert form row */
+.form-row {
+	margin-bottom: -30px;
+}
+
+/* form 밑에 div 태그 style */
+.form-div {
+	width: 100%;
+	padding-top: 30px;
+}
+
+/* 댓글등록하는 row */
+.reply-form {
+	border-top: 1px solid #e8e8e8;
+	background-color: #fafafa;
+	margin-top: 20px;
+}
+
+/* 댓글등록 작성자 */
+.reply-input-id {
+	background-color: #fafafa;
+	border: none;
+	width: 171px;
+	height: 36px;
+	margin-top: 20px;
+	padding: 0 13px;
+}
+
+/* 댓글등록하는 버튼을 감싸는 div */
+.btn-reply {
+	margin-top: 20px;
+	margin-bottom: 20px;
+}
+
+/* 댓글등록하는 버튼 */
+.btn-reply-insert {
+	background-color: #0c7da3;
+	color: #fff;
+}
+
+/* 댓글목록 id 그리드박스 */
+.reply-idbox {
+	border: 1px solid #C8CACC;
+	line-height: 30px;
+	vertical-align: middle;
+	font-size: 13px;
+	font-weight: bold;
+}
+
+/* 댓글목록(CNT) 부분 */
+.reply-cnt {
+	padding-top: 6px;
+	color: #006393;
+	font-size: 16px;
+	font-weight: bold;
+}
+
+/* 댓글목록 */
+.reply-list {
+	margin-top: -20px;
+}
+
+/* 댓글목록페이징 */
+.reply-paging {
+	justify-content: center;
+	margin-top: 50px;
+}
+
+/* 댓글목록 contents 그리드박스 */
+.reply-contentbox {
+	border: 1px solid #C8CACC;
+	border-top: 0px;
+	line-height: 70px;
+	vertical-align: middle;
+}
+
+/* 회원가입 가입하기 버튼 */
+.btn-insert-join {
+	margin-top: 25px;
+	background-color: #0c7da3;
+	color: #fff;
+}
+
+/* 회원가입 취소 버튼 */
+.btn-cancel-join {
+	margin-top: 25px;
+	margin-left: 10px;
+	
+}
+
+/* container 하위태그 rows 그리드박스 */
+.container-rows {
+	margin-top: 16%;
+}
+
+/* 가입자유형 버튼 */
+.admin-yn {
+	width: 170px;
+	height: 100px;
+}
+
+/* 가입자유형 중간 그리드박스 padding */
+.pd-top {
+	padding: 50px;
+}
+
+/* 가입자유형 상단 그리드박스 margin */
+.mg-top {
+	margin-top: 100px;
+}
+
+/* 회원탈퇴 폼 margin */
+.delete-margin {
+	margin-bottom: 50px;
+}
+
+/* 회원탈퇴 비밀번호 입력창 */
+.mydelete-form {
+	width: 150px;
+}
+
+/* 예약등록 form-div */
+.reserv-form-div {
+	border-top:1px solid #e8e8e8; 
+	background-color:#fafafa; 
+	margin-top:10px; 
+	font-size: 13px;
+	font-weight: bold;
+}
+
+.reserv-form-warn {
+	border-top:1px solid #e8e8e8; 
+	background-color:#fafafa; 
+	margin-top:10px; 
+	font-size: 13px;
+}
+
+/* 예약등록 제목 라벨 아래 밑줄 */
+.reserv-label {
+	border-bottom: 1px solid #e8e8e8;
+	padding-top: 6px; 
+}
+
+.reserv-label-warn {
+	border-bottom: 1px solid #e8e8e8;
+	padding-top: 6px;
+	font-weight: bold; 
+}
+
+/* 예약 타이틀라벨 margin */
+.reserv-label label , .reserv-label-warn label{
+	margin-top: 10px;
+}
+
+.reserv-label label img , .reserv-label-warn label img{
+	margin-bottom: 3px;
+}
+
+/* 예약 form-row */
+.reserv-form-row{
+	margin-top: 15px;
+}
+
+/* 필수항목 빨간 별표 */
+.reserv-form-row div.col-top label.control-label b , .row div.col-top label.control-label b
+, .form-row div.col-top label.control-label b, .form-row div.col-top b {
+	color: red;
+}
+
+/* 예약등록 유의사항 p태그 margin */
+.div-check{
+	display: inline-block;
+	width : 16px;
+	height : 16px;
+	background-image : url("/carwash/resources/images/checked.png");
+	vertical-align: sub;
+}
+
+
+/* 페이지네이션 */
 .pagination {
-  width: 100%;
-  margin: 10px 0px;
+	width: 100%;
+	margin: 10px 0px;
 }
-.pagination > li > a,
-.pagination > li > span {
-  margin-left: 3px;
-  -moz-border-radius: 3px;
-  -webkit-border-radius: 3px;
-  border-radius: 3px;
-  color: #22262e;
-  border-color: #E5E5E5;
+
+.pagination>li>a, .pagination>li>span {
+	margin-left: 3px;
+	-moz-border-radius: 3px;
+	-webkit-border-radius: 3px;
+	border-radius: 3px;
+	color: #22262e;
+	border-color: #E5E5E5;
 }
-.pagination > li > a:hover,
-.pagination > li > span:hover {
-  color: #222;
+
+.pagination>li>a:hover, .pagination>li>span:hover {
+	color: #222;
 }
-.pagination > li.active > a,
-.pagination > li.active > a:hover {
-  background: #1b1e24;
-  color: #FFF;
-  border-color: #1b1e24;
+
+.pagination>li.active>a, .pagination>li.active>a:hover {
+	background: #1b1e24;
+	color: #FFF;
+	border-color: #1b1e24;
 }
+
 .pagination.pagination-sm {
-  margin: 0px;
-  width: auto;
+	margin: 0px;
+	width: auto;
 }
+
 .pagination.pagination-sm.push-down-20 {
-  margin-bottom: 20px;
+	margin-bottom: 20px;
 }
+
 .pagination.pagination-sm.push-up-20 {
-  margin-top: 20px;
+	margin-top: 20px;
 }
 
 .main-image {
 	background-image: url("../images/main.png");
 	background-repeat: no-repeat;
-    background-size: cover;
-    -webkit-logical-height: 1170px;
+	background-size: cover;
+	-webkit-logical-height: 1170px;
 }
 
 .col-md-3.bg-fee {
 	background-image: url(../images/fee.png);
 	background-repeat: no-repeat;
-    -webkit-logical-height: 200px;
-    background-position: center center;
-	
+	-webkit-logical-height: 200px;
+	background-position: center center;
 }
 
 .col-md-3.bg-calendar {
 	background-image: url(../images/calendar.png);
 	background-repeat: no-repeat;
-    -webkit-logical-height: 200px;
-    background-position: center center;
+	-webkit-logical-height: 200px;
+	background-position: center center;
 }
 
 .col-md-3.bg-list {
 	background-image: url(../images/list.png);
 	background-repeat: no-repeat;
-    -webkit-logical-height: 200px;
-    background-position: center center;
+	-webkit-logical-height: 200px;
+	background-position: center center;
 }
 
 .col-md-3.bg-faq {
 	background-image: url(../images/faq.png);
 	background-repeat: no-repeat;
-    -webkit-logical-height: 200px;
-    background-position: center center;
+	-webkit-logical-height: 200px;
+	background-position: center center;
 }
 
 .icon-phone {
@@ -123,7 +426,7 @@ section {
 	background-position: center center;
 }
 
-.icon-envelope{
+.icon-envelope {
 	background-image: url(../images/envelope.png);
 	background-repeat: no-repeat;
 	-webkit-logical-height: 120px;
@@ -136,209 +439,278 @@ section {
 	-webkit-logical-height: 200px;
 	background-position: center center;
 }
-label.error{
-	float:left;
-	color:red;
+
+label.error {
+	float: left;
+	color: red;
 }
 
 /* 자유게시판 목록 댓글 수 뱃지 CSS */
 .badge {
-  font-size: 11px;
-  line-height: 20px;
-  font-weight: 500;
-  -moz-border-radius: 3px;
-  -webkit-border-radius: 3px;
-  border-radius: 3px;
-  padding: 0px 8px;
+	font-size: 11px;
+	line-height: 20px;
+	font-weight: 500;
+	-moz-border-radius: 3px;
+	-webkit-border-radius: 3px;
+	border-radius: 3px;
+	padding: 0px 8px;
 }
 
 .badge-primary {
-  background-color: #006595; 
-  /* background-color: #006393; */
+	background-color: #006595;
+	/* background-color: #006393; */
 }
 
 /* BOOTSTRAP DATEPICKER */
-div.datepicker > div {
-  display: none;
+div.datepicker>div {
+	display: none;
 }
+
 div.datepicker table {
-  width: 100%;
-  margin: 0;
+	width: 100%;
+	margin: 0;
 }
-div.datepicker td,
-div.datepicker th {
-  text-align: center;
-  width: 20px;
-  height: 20px;
+
+div.datepicker td, div.datepicker th {
+	text-align: center;
+	width: 20px;
+	height: 20px;
 }
+
 div.datepicker td.day:hover {
-  background: #F5F5F5;
-  cursor: pointer;
+	background: #F5F5F5;
+	cursor: pointer;
 }
+
 div.datepicker td.day.disabled {
-  color: #CCC;
+	color: #CCC;
 }
-div.datepicker td.old,
-div.datepicker td.new {
-  color: #999;
+
+div.datepicker td.old, div.datepicker td.new {
+	color: #999;
 }
-div.datepicker td.active,
-div.datepicker td.active:hover {
-  background: #1b1e24;
-  color: #fff;
-  -moz-border-radius: 3px;
-  -webkit-border-radius: 3px;
-  border-radius: 3px;
+
+div.datepicker td.active, div.datepicker td.active:hover {
+	background: #1b1e24;
+	color: #fff;
+	-moz-border-radius: 3px;
+	-webkit-border-radius: 3px;
+	border-radius: 3px;
 }
+
 div.datepicker td span {
-  display: block;
-  width: 31%;
-  height: 54px;
-  line-height: 54px;
-  float: left;
-  margin: 2px;
-  cursor: pointer;
+	display: block;
+	width: 31%;
+	height: 54px;
+	line-height: 54px;
+	float: left;
+	margin: 2px;
+	cursor: pointer;
 }
+
 div.datepicker td span:hover {
-  background: #F5F5F5;
+	background: #F5F5F5;
 }
+
 div.datepicker td span.active {
-  background: #1b1e24;
-  color: #fff;
-  -moz-border-radius: 3px;
-  -webkit-border-radius: 3px;
-  border-radius: 3px;
+	background: #1b1e24;
+	color: #fff;
+	-moz-border-radius: 3px;
+	-webkit-border-radius: 3px;
+	border-radius: 3px;
 }
+
 div.datepicker td span.old {
-  color: #999;
+	color: #999;
 }
+
 div.datepicker th.switch {
-  width: 145px;
+	width: 145px;
 }
-div.datepicker th.next,
-div.datepicker th.prev {
-  font-size: 12px;
+
+div.datepicker th.next, div.datepicker th.prev {
+	font-size: 12px;
 }
+
 div.datepicker thead tr:first-child th {
-  cursor: pointer;
-  padding: 8px 0px;
+	cursor: pointer;
+	padding: 8px 0px;
 }
+
 div.datepicker thead tr:first-child th:hover {
-  background: #F5F5F5;
-  -moz-border-radius: 3px;
-  -webkit-border-radius: 3px;
-  border-radius: 3px;
+	background: #F5F5F5;
+	-moz-border-radius: 3px;
+	-webkit-border-radius: 3px;
+	border-radius: 3px;
 }
-.input-append.date .add-on i,
-.input-prepend.date .add-on i {
-  display: block;
-  cursor: pointer;
-  width: 16px;
-  height: 16px;
+
+.input-append.date .add-on i, .input-prepend.date .add-on i {
+	display: block;
+	cursor: pointer;
+	width: 16px;
+	height: 16px;
 }
-.datepicker.dropdown-menu:after,
-.datepicker.dropdown-menu:before {
-  left: 16px;
+
+.datepicker.dropdown-menu:after, .datepicker.dropdown-menu:before {
+	left: 16px;
 }
-.datepicker.datepicker-orient-left.dropdown-menu:after,
-.datepicker.datepicker-orient-left.dropdown-menu:before {
-  left: auto;
-  right: 16px;
+
+.datepicker.datepicker-orient-left.dropdown-menu:after, .datepicker.datepicker-orient-left.dropdown-menu:before
+	{
+	left: auto;
+	right: 16px;
 }
 /* EOF BOOTSTRAP DATEPICKER */
 
 /* BOOTSTRAP TIMEPICKER */
 .bootstrap-timepicker {
-  position: relative;
+	position: relative;
 }
-.bootstrap-timepicker.pull-right .bootstrap-timepicker-widget.dropdown-menu {
-  left: auto;
-  right: 0;
+
+.bootstrap-timepicker.pull-right .bootstrap-timepicker-widget.dropdown-menu
+	{
+	left: auto;
+	right: 0;
 }
+
 .bootstrap-timepicker .add-on {
-  cursor: pointer;
+	cursor: pointer;
 }
+
 .bootstrap-timepicker .add-on i {
-  display: inline-block;
-  width: 16px;
-  height: 16px;
+	display: inline-block;
+	width: 16px;
+	height: 16px;
 }
+
 .bootstrap-timepicker-widget.dropdown-menu.timepicker-orient-top:before,
-.bootstrap-timepicker-widget.dropdown-menu.timepicker-orient-top:after {
-  left: 15px;
+	.bootstrap-timepicker-widget.dropdown-menu.timepicker-orient-top:after
+	{
+	left: 15px;
 }
+
 .bootstrap-timepicker-widget.timepicker-orient-bottom:before {
-  bottom: -7px;
-  border-bottom: 0;
-  border-top: 7px solid #E5E5E5;
+	bottom: -7px;
+	border-bottom: 0;
+	border-top: 7px solid #E5E5E5;
 }
+
 .bootstrap-timepicker-widget.timepicker-orient-bottom:after {
-  bottom: -6px;
-  border-bottom: 0;
-  border-top: 6px solid #ffffff;
+	bottom: -6px;
+	border-bottom: 0;
+	border-top: 6px solid #ffffff;
 }
-.bootstrap-timepicker-widget a.btn,
-.bootstrap-timepicker-widget input {
-  border-radius: 4px;
+
+.bootstrap-timepicker-widget a.btn, .bootstrap-timepicker-widget input {
+	border-radius: 4px;
 }
+
 .bootstrap-timepicker-widget table {
-  width: 100%;
-  margin: 0;
+	width: 100%;
+	margin: 0;
 }
+
 .bootstrap-timepicker-widget table td {
-  text-align: center;
-  height: 30px;
-  margin: 0;
-  padding: 2px;
+	text-align: center;
+	height: 30px;
+	margin: 0;
+	padding: 2px;
 }
+
 .bootstrap-timepicker-widget table td:not(.separator) {
-  min-width: 30px;
+	min-width:30px;
 }
+
 .bootstrap-timepicker-widget table td span {
-  width: 100%;
+	width: 100%;
 }
+
 .bootstrap-timepicker-widget table td a {
-  border: 1px transparent solid;
-  width: 100%;
-  display: inline-block;
-  margin: 0;
-  padding: 8px 0;
-  outline: 0;
-  color: #333;
+	border: 1px transparent solid;
+	width: 100%;
+	display: inline-block;
+	margin: 0;
+	padding: 8px 0;
+	outline: 0;
+	color: #333;
 }
+
 .bootstrap-timepicker-widget table td a:hover {
-  text-decoration: none;
-  background-color: #F5F5F5;
+	text-decoration: none;
+	background-color: #F5F5F5;
 }
+
 .bootstrap-timepicker-widget table td a i {
-  margin-top: 2px;
-  font-size: 6px;
-  color: #333;
+	margin-right: 15px;
+	margin-top: 2px;
+	font-size: 13px;
+	color: #333;
 }
+
 .bootstrap-timepicker-widget table td input {
-  width: 50px;
-  margin: 0;
-  text-align: center;
-  margin: 0px;
-  padding: 0px;
+	width: 50px;
+	margin: 0;
+	text-align: center;
+	margin: 0px;
+	padding: 0px;
 }
+
 .bootstrap-timepicker-widget {
-  display: block;
+	display: block;
 }
+
 .bootstrap-timepicker-widget .modal-content {
-  padding: 4px;
+	padding: 4px;
 }
 /* EOF BOOTSTRAP TIMEPICKER */
 
+/* iCheck */
+.checks {
+	font-weight: 400;
+	line-height: 20px;
+	margin: 5px 0px;
+	cursor: pointer;
+}
 
+.checks .icheckbox_minimal-grey, .checks .iradio_minimal-grey {
+	margin-right: 5px;
+	margin-top: -2px;
+}
 
+.checks.disabled {
+	color: #AAA;
+}
 
+.icheck{
+	display: inline-block;
+	*display: inline;
+	vertical-align: middle;
+	margin: 0;
+	padding: 0;
+	width: 18px;
+	height: 18px;
+	background: url(../images/grey.png) no-repeat;
+	border: none;
+	cursor: pointer;
+	background-position: 0 0;
+}
 
+.icheck.hover {
+	background-position: -20px 0;
+}
 
+.icheck.checked {
+	background-position: -40px 0;
+}
 
+.icheck.disabled {
+	background-position: -60px 0;
+	cursor: default;
+}
 
-
-
+.icheck.checked.disabled {
+	background-position: -80px 0;
+}
 
 
 

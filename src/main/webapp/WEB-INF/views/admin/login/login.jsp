@@ -6,13 +6,6 @@
 
 <head>
 <style>
-	.container{
-		min-height:850px;
-		
-	}
-	.container::-webkit-scrollbar { 
-	    display: none; 
-	}
 </style>
 
 	<!-- Header -->
@@ -28,25 +21,23 @@
 	<!-- Contents -->
 
 	<div class="container">
-		<div class="rows">
+		<div class="rows container-rows">  
 
 			<div class="col-md-4 "></div>
-			<div class="col-md-4" style="text-align: center; color: #6c757d;">
-				<label style="font-size: 15px;">&nbsp;&nbsp;<strong>로그인</strong></label>
+			<div class="col-md-4 text-center text-title">
+				<label>&nbsp;&nbsp;<strong>로그인</strong></label>
 			</div>
 			<div class="col-md-4"></div>
 
 			<br><br>
 
-			<hr class="hr-2">
-			
 		</div>
 		 
-		<form method="post" id="loginForm" name="loginForm" style="width: 100%; text-align: webkit-center;"> 
-			<div style="width:100%; padding-top: 30px;">
+		<form method="post" id="loginForm" name="loginForm" class="form"> 
+			<div class="form-div">
 			 
-				<div class="row" style="margin-bottom: -30px;"> 
-					<div class="col-md-2" style="text-align: right; padding-top: 6px;"> 
+				<div class="row form-row"> 
+					<div class="col-md-2 text-right col-top"> 
 						<label class="control-label" for="admin_id">아이디</label>
 					</div>
 					<div class="col-md-10"> 
@@ -55,8 +46,8 @@
 				</div>
 				<br> <br>
 				
-				<div class="row" style="margin-bottom: -30px;"> 
-					<div class="col-md-2" style="text-align: right; padding-top: 6px;"> 
+				<div class="row form-row"> 
+					<div class="col-md-2 text-right col-top"> 
 						<label class="control-label" for="admin_passwd">비밀번호</label>
 					</div>
 					<div class="col-md-10"> 
@@ -65,26 +56,26 @@
 				</div>
 				<br> <br>
 				
-				<div class="row" style="margin-bottom: -30px;"> 
-					<div class="col-md-2" style="padding-top: 6px;"></div>
-					<div class="col-md-10 text-left" style="font-size: 12px;"> 
-						<input type="checkbox" name="idSave" value="saveOk"/>&nbsp;아이디저장
+				<div class="row form-row"> 
+					<div class="col-md-2 col-top"></div>
+					<div class="col-md-10 text-left checks"> 
+						<label class="check"><input type="checkbox" class="icheck" name="idSave" value="saveOk"/>&nbsp;아이디저장</label>
 					</div>
 				</div><br></br>
 				
 				
-				<div class="row" style="margin-bottom: -30px;"> 
-					<div class="col-md-2" style="padding-top: 6px;"></div>
-					<div class="col-md-10 text-left" style="padding-top: 6px;"> 
+				<div class="row form-row"> 
+					<div class="col-md-2 col-top"></div>
+					<div class="col-md-10 text-left col-top"> 
 						 <a href="/carwash/admin/member/forgot" id="forgotPw">비밀번호를 잊어버리셨어요?</a><br>
 						 <a href="/carwash/admin/member/adminYn">아직 회원이 아니신가요?</a>
 					</div>
 				</div>
 				
-				<div class="row" style="margin-top: 25px;"> 
+				<div class="row form-row-button"> 
 					<div class="col-md-12 text-right"> 
-						<button type="button" class="btn btn-dark" style="float: right; margin-top: 50px; margin-left: 10px;" onclick="location.href='/carwash/admin/member/adminYn'">회원가입</button>
-						<a href="/carwash/admin/member/login"><button type="submit" onclick="sendit()" class="btn btn-dark" style="float: right; margin-top: 50px;" >로그인</button></a>
+						<button type="button" class="btn btn-dark btn-cancel" onclick="location.href='/carwash/admin/member/adminYn'">회원가입</button>
+						<a href="/carwash/admin/member/login"><button type="submit" onclick="sendit()" class="btn btn-secondary btn-update">로그인</button></a>
 					</div>
 				</div>
 				<br> <br>

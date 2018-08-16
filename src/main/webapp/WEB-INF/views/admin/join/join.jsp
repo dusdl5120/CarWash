@@ -16,25 +16,23 @@
 	<!-- Menu -->
 	
 	<!-- Contents -->
-	<div class="container" style="height: 950px;">
-		<div class="row" style="margin-top: 16%;">  
+	<div class="container">
+		<div class="rows container-rows">  
 			
-			<div class="col-md-2"></div>
-			<div class="col-md-8" style="text-align: center; color: #6c757d;">
-				<label style="font-size: 15px;">&nbsp;&nbsp;<strong>가입하기</strong>&nbsp;</label>
+			<div class="col-md-4"></div>
+			<div class="col-md-4 text-center text-title">
+				<label>&nbsp;&nbsp;<strong>가입하기</strong>&nbsp;</label>
 			</div>
-			<div class="col-md-2"></div>
+			<div class="col-md-4"></div>
 			
 				<br><br>
 			
-			<hr class="hr-2"> <br><br>
-			
-			<form method="post" style="width: 100%;" id="form"> 
-				<div style="width:100%; padding-top: 30px;">
-					<div class="row" style="margin-bottom: -30px;"> 
+			<form method="post" id="form" class="form"> 
+				<div class="form-div">
+					<div class="row form-row"> 
 						<div class="col-md-1"></div>
-						<div class="col-md-2" style="text-align: right; padding-top: 6px;">
-							<label class="control-label" for="admin_id">관리자ID<b style="color: red;">&nbsp;*</b></label>
+						<div class="col-md-2 text-right col-top">
+							<label class="control-label" for="admin_id">관리자ID<b>&nbsp;*</b></label>
 						</div>
 						<div class="col-md-5"> 
 							<input type="text" class="input form-control" id="admin_id" name="admin_id">
@@ -47,10 +45,10 @@
 					<br> <br>
 	
 	
-					<div class="row" style="margin-bottom: -30px;"> 
+					<div class="row form-row"> 
 						<div class="col-md-1"></div>
-						<div class="col-md-2" style="text-align: right; padding-top: 6px;">
-							<label class="control-label" for="admin_passwd">관리자비밀번호<b style="color: red;">&nbsp;*</b></label>
+						<div class="col-md-2 text-right col-top">
+							<label class="control-label" for="admin_passwd">관리자비밀번호<b>&nbsp;*</b></label>
 						</div>
 						<div class="col-md-7"> 
 							<input type="password" class="input form-control" id="admin_passwd" name="admin_passwd">
@@ -60,10 +58,10 @@
 					<br> <br>
 					
 					
-					<div class="row" style="margin-bottom: -30px;"> 
+					<div class="row form-row"> 
 						<div class="col-md-1"></div>
-						<div class="col-md-2" style="text-align: right; padding-top: 6px;">
-							<label class="control-label" for="admin_passwd">관리자비밀번호 확인<b style="color: red;">&nbsp;*</b></label>
+						<div class="col-md-2 text-right col-top">
+							<label class="control-label" for="admin_passwd">관리자비밀번호 확인<b>&nbsp;*</b></label>
 						</div>
 						<div class="col-md-7"> 
 							<input type="password" class="input form-control" id="admin_passwd_confirm" name="admin_passwd_confirm"> 
@@ -73,10 +71,10 @@
 					<br> <br>
 	
 	
-					<div class="row" style="margin-bottom: -30px;"> 
+					<div class="row form-row"> 
 						<div class="col-md-1"></div>
-						<div class="col-md-2" style="text-align: right; padding-top: 6px;"> 
-							<label class="control-label" for="busin_place_name">사업장명<b style="color: red;">&nbsp;*</b></label>
+						<div class="col-md-2 text-right col-top">
+							<label class="control-label" for="busin_place_name">사업장명<b>&nbsp;*</b></label>
 						</div>
 						<div class="col-md-7"> 
 							<input type="text" class="input form-control" id="busin_place_name" name="busin_place_name">
@@ -86,10 +84,10 @@
 					<br> <br>
 					
 					
-					<div class="row" style="margin-bottom: -30px;"> 
+					<div class="row form-row"> 
 						<div class="col-md-1"></div>
-						<div class="col-md-2" style="text-align: right; padding-top: 6px;">
-							<label class="control-label" for="busin_place_code_name">사업장업종명<b style="color: red;">&nbsp;*</b></label>
+						<div class="col-md-2 text-right col-top">
+							<label class="control-label" for="busin_place_code_name">사업장업종명<b>&nbsp;*</b></label>
 						</div>
 						<div class="col-md-7"> 
 							<c:if test="${!empty placeCodeList}" >
@@ -105,10 +103,10 @@
 					<br> <br>
 					
 					
-					<div class="row" style="margin-bottom: -30px;">  
+					<div class="row form-row">  
 						<div class="col-md-1"></div>
-						<div class="col-md-2" style="text-align: right; padding-top: 6px;">
-							<label class="control-label" for="busin_place_tele_num">사업장전화번호<b style="color: red;">&nbsp;*</b></label>
+						<div class="col-md-2 text-right col-top">
+							<label class="control-label" for="busin_place_tele_num">사업장전화번호<b>&nbsp;*</b></label>
 						</div>
 						<div class="col-md-7"> 
 							<input type="text" class="input form-control" id="busin_place_tele_num" name="busin_place_tele_num">
@@ -118,23 +116,10 @@
 					<br> <br>
 					
 					
-					<div class="row" style="margin-bottom: -30px;"> 
+					<div class="row form-row">  
 						<div class="col-md-1"></div>
-						<div class="col-md-2" style="text-align: right; padding-top: 6px;">
-							<label class="control-label" for="water_quality_permi_num">수질허가번호<b style="color: red;">&nbsp;*</b></label>
-						</div>
-						<div class="col-md-7"> 
-							<input type="text" class="input form-control" id="water_quality_permi_num" name="water_quality_permi_num">
-						</div>
-						<div class="col-md-2"></div>
-					</div>
-					<br> <br>
-					
-					
-					<div class="row" style="margin-bottom: -30px;"> 
-						<div class="col-md-1"></div>
-						<div class="col-md-2" style="text-align: right; padding-top: 6px;">
-							<label class="control-label" for="ceo_name">대표자명<b style="color: red;">&nbsp;*</b></label>
+						<div class="col-md-2 text-right col-top">
+							<label class="control-label" for="ceo_name">대표자명<b>&nbsp;*</b></label>
 						</div>
 						<div class="col-md-7"> 
 							<input type="text" class="input form-control" id="ceo_name" name="ceo_name">
@@ -144,10 +129,10 @@
 					<br> <br>
 					
 					
-					<div class="row" style="margin-bottom: -30px;"> 
+					<div class="row form-row"> 
 						<div class="col-md-1"></div>
-						<div class="col-md-2" style="text-align: right; padding-top: 6px;">
-							<label class="control-label" for="carwash_type">세차유형<b style="color: red;">&nbsp;*</b></label>
+						<div class="col-md-2 text-right col-top">
+							<label class="control-label" for="carwash_type">세차유형<b>&nbsp;*</b></label>
 						</div>
 						<div class="col-md-7"> 
 							<c:if test="${!empty carwashTypeList}" >
@@ -163,10 +148,10 @@
 					<br> <br>
 					
 					
-					<div class="row" style="margin-bottom: -30px;"> 
+					<div class="row form-row"> 
 						<div class="col-md-1"></div>
-						<div class="col-md-2" style="text-align: right; padding-top: 6px;">
-							<label class="control-label" for="closed_date">휴무일<b style="color: red;">&nbsp;*</b></label>
+						<div class="col-md-2 text-right col-top">
+							<label class="control-label" for="closed_date">휴무일<b>&nbsp;*</b></label>
 						</div>
 						<div class="col-md-7"> 
 							<c:if test="${!empty closedDateList}" >
@@ -182,10 +167,10 @@
 					<br> <br>
 					
 					
-					<div class="row" style="margin-bottom: -30px;"> 
+					<div class="row form-row"> 
 						<div class="col-md-1"></div>
-						<div class="col-md-2" style="text-align: right; padding-top: 6px;">
-							<label class="control-label" for="road_name_addr">소재지도로명주소<b style="color: red;">&nbsp;*</b></label>
+						<div class="col-md-2 text-right col-top">
+							<label class="control-label" for="road_name_addr">소재지도로명주소<b>&nbsp;*</b></label>
 						</div>
 						<div class="col-md-5"> 
 							<input type="text" class="input form-control" id="zip_code" name="zip_code">
@@ -198,9 +183,9 @@
 					<br> <br>
 					
 					
-					<div class="row" style="margin-bottom: -30px;"> 
+					<div class="row form-row"> 
 						<div class="col-md-1"></div>
-						<div class="col-md-2" style="text-align: right; padding-top: 6px;"></div>
+						<div class="col-md-2 text-right col-top"></div>
 						<div class="col-md-7"> 
 							<input type="text" class="input form-control" id="road_name_addr" name="road_name_addr">
 							<span id="guide" style="color:#999"></span>
@@ -210,9 +195,9 @@
 					<br> <br>
 					
 					
-					<div class="row" style="margin-bottom: -30px;"> 
+					<div class="row form-row"> 
 						<div class="col-md-1"></div>
-						<div class="col-md-2" style="text-align: right; padding-top: 6px;"></div>
+						<div class="col-md-2 text-right col-top"></div>
 						<div class="col-md-7"> 
 							<input type="text" class="input form-control" id="road_detail_addr" name="road_detail_addr" placeholder="상세주소">
 						</div>
@@ -221,14 +206,11 @@
 					<br> <br>
 					
 					
-					<div class="row" style="margin-top: 25px;"> 
-						<div class="col-md-1"></div>
-						<div class="col-md-2"></div>
-						<div class="col-md-7"> 
-							<button type="submit" class="btn btn-dark" onclick="location.href='/carwash/admin/member/join'" id="save" style="width:15%;">가입하기</button>
-							<button type="button" class="btn btn-dark" style="width:15%; margin-left: 10px;">취소</button>
+					<div class="row form-row-button"> 
+						<div class="col-md-12 text-center"> 
+							<button type="submit" class="btn btn-insert-join" onclick="location.href='/carwash/admin/member/join'" id="save">가입하기</button>
+							<button type="button" class="btn btn-dark btn-cancel-join">취소</button>
 						</div>
-						<div class="col-md-2"></div>
 					</div>
 					<br> <br>
 					
@@ -259,13 +241,6 @@ $(document).ready(function(){
 		placeholder : "(___)-___-____"
 	});
 	
-	/* $('#busin_place_tele_num').keyup(function() {
-		
-		if($(this))
-		
-        alert($(this).val());
-    }); */
-
     
     $('#save').click(function() {
     	var str = document.getElementById('form');
@@ -273,21 +248,8 @@ $(document).ready(function(){
     	alert("회원가입이 성공적으로 완료되었습니다.");
     });
 });	
-	/* 
-function save() {
 
-//		alert($("#password_hint").val());
 
-//		alert($("#member_HP").val());
-
-	var str3 = document.getElementById('join');
-
-	str3.submit();
-
-	alert("가입이 완료되었습니다.")
-
-}
- */
 $(document).ready(function(){
 	
 	/* 컬럼 유효성검사 */
@@ -299,12 +261,12 @@ $(document).ready(function(){
 			},
 			admin_passwd : {
 				required : true,
-				minlength : 8,
-				regex : /^(?=\w{8,15}$)\w*(\d[A-z]|[A-z]\d)\w*$/
+				minlength : 5,
+				regex : /^(?=\w{5,15}$)\w*(\d[A-z]|[A-z]\d)\w*$/
 			},
 			admin_passwd_confirm : {
 				required : true,
-				minlength : 8,
+				minlength : 5,
 				equalTo : admin_passwd
 			},
 			busin_place_name : { 

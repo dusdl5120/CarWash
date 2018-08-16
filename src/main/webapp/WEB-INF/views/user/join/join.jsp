@@ -16,24 +16,22 @@
 	<!-- Menu -->
 	
 	<!-- Contents -->
-	<div class="container" style="height: 950px;">
+	<div class="container">
 		<div class="row" style="margin-top: 16%;">  
 			
-			<div class="col-md-2"></div>
-			<div class="col-md-8" style="text-align: center; color: #6c757d;">
-				<label style="font-size: 15px;">&nbsp;&nbsp;<strong>가입하기</strong>&nbsp;</label>
+			<div class="col-md-4"></div>
+			<div class="col-md-4 text-center text-title">
+				<label>&nbsp;&nbsp;<strong>가입하기</strong>&nbsp;</label>
 			</div>
-			<div class="col-md-2"></div>
+			<div class="col-md-4"></div>
 			
 				<br><br>
 			
-			<hr class="hr-2"> <br><br>
-			
-			<form method="post" style="width: 100%;" id="form"> 
-				<div style="width:100%; padding-top: 30px;">
-					<div class="row" style="margin-bottom: -30px;"> 
+			<form method="post" id="form" class="form"> 
+				<div class="form-div">
+					<div class="row form-row"> 
 						<div class="col-md-1"></div>
-						<div class="col-md-2" style="text-align: right; padding-top: 6px;">
+						<div class="col-md-2 text-right col-top">
 							<label class="control-label" for="user_id">사용자ID<b style="color: red;">&nbsp;*</b></label>
 						</div>
 						<div class="col-md-5"> 
@@ -47,9 +45,9 @@
 					<br> <br>
 	
 	
-					<div class="row" style="margin-bottom: -30px;"> 
+					<div class="row form-row">  
 						<div class="col-md-1"></div>
-						<div class="col-md-2" style="text-align: right; padding-top: 6px;">
+						<div class="col-md-2 text-right col-top">
 							<label class="control-label" for="user_passwd">사용자비밀번호<b style="color: red;">&nbsp;*</b></label>
 						</div>
 						<div class="col-md-7"> 
@@ -60,9 +58,9 @@
 					<br> <br>
 					
 					
-					<div class="row" style="margin-bottom: -30px;"> 
+					<div class="row form-row"> 
 						<div class="col-md-1"></div>
-						<div class="col-md-2" style="text-align: right; padding-top: 6px;">
+						<div class="col-md-2 text-right col-top">
 							<label class="control-label" for="user_passwd">비밀번호 확인<b style="color: red;">&nbsp;*</b></label>
 						</div>
 						<div class="col-md-7"> 
@@ -73,9 +71,9 @@
 					<br> <br>
 	
 	
-					<div class="row" style="margin-bottom: -30px;"> 
+					<div class="row form-row"> 
 						<div class="col-md-1"></div>
-						<div class="col-md-2" style="text-align: right; padding-top: 6px;"> 
+						<div class="col-md-2 text-right col-top">
 							<label class="control-label" for="user_name">사용자이름<b style="color: red;">&nbsp;*</b></label>
 						</div>
 						<div class="col-md-7"> 
@@ -86,25 +84,25 @@
 					<br> <br>
 					
 						
-					<div class="row" style="margin-bottom: -30px;">  
+					<div class="row form-row"> 
 						<div class="col-md-1"></div>
-						<div class="col-md-2" style="text-align: right; padding-top: 6px;">
+						<div class="col-md-2 text-right col-top">
 							<label class="control-label" for="phoneNumber">휴대폰번호<b style="color: red;">&nbsp;*</b></label>
 						</div>
 						<div class="col-md-5"> 
 							<input type="text" class="input form-control" id="phoneNumber" name="phoneNumber">
 						</div>
 						<div class="col-md-2">
-							<input type="checkbox" id="phoneCheckYn" name="phoneCheckYn" />SMS 수신여부
+							<label class="check"><input type="checkbox" class="icheck" name="phoneCheckYn" name="phoneCheckYn"/>&nbsp;SMS 수신여부</label>
 						</div>
 						<div class="col-md-2"></div>
 					</div>
 					<br> <br>
 					
 					
-					<div class="row" style="margin-bottom: -30px;"> 
+					<div class="row form-row"> 
 						<div class="col-md-1"></div>
-						<div class="col-md-2" style="text-align: right; padding-top: 6px;">
+						<div class="col-md-2 text-right col-top">
 							<label class="control-label" for="birth">생년월일</label>
 						</div>
 						<div class="col-md-7">
@@ -115,25 +113,25 @@
 					<br> <br>
 					
 					
-					<div class="row" style="margin-bottom: -30px;"> 
+					<div class="row form-row">  
 						<div class="col-md-1"></div>
-						<div class="col-md-2" style="text-align: right; padding-top: 6px;">
+						<div class="col-md-2 text-right col-top">
 							<label class="control-label" for="email">이메일주소</label>
 						</div>
 						<div class="col-md-5"> 
 							<input type="text" class="input form-control" id="email" name="email">
 						</div>
 						<div class="col-md-2">
-							<input type="checkbox" id="emailCheckYn" name="emailCheckYn" />EMAIL 수신여부
+							<label class="check"><input type="checkbox" class="icheck" name="emailCheckYn" name="emailCheckYn"/>&nbsp;EMAIL 수신여부</label>
 						</div>
 						<div class="col-md-2"></div>
 					</div>
 					<br> <br>
 					
 					
-					<div class="row" style="margin-bottom: -30px;"> 
+					<div class="row form-row"> 
 						<div class="col-md-1"></div>
-						<div class="col-md-2" style="text-align: right; padding-top: 6px;">
+						<div class="col-md-2 text-right col-top">
 							<label class="control-label" for="address">도로명주소</label>
 						</div>
 						<div class="col-md-5"> 
@@ -147,21 +145,20 @@
 					<br> <br>
 					
 					
-					<div class="row" style="margin-bottom: -30px;"> 
+					<div class="row form-row"> 
 						<div class="col-md-1"></div>
-						<div class="col-md-2" style="text-align: right; padding-top: 6px;"></div>
+						<div class="col-md-2 text-right col-top"></div>
 						<div class="col-md-7"> 
 							<input type="text" class="input form-control" id="address" name="address">
-							<span id="guide" style="color:#999"></span>
 						</div>
 						<div class="col-md-2"></div>
 					</div>
 					<br> <br>
 					
 					
-					<div class="row" style="margin-bottom: -30px;"> 
+					<div class="row form-row"> 
 						<div class="col-md-1"></div>
-						<div class="col-md-2" style="text-align: right; padding-top: 6px;"></div>
+						<div class="col-md-2 text-right col-top"></div>
 						<div class="col-md-7"> 
 							<input type="text" class="input form-control" id="address_detail" name="address_detail" placeholder="상세주소">
 						</div>
@@ -169,18 +166,13 @@
 					</div>
 					<br> <br>
 					
-					
-					<div class="row" style="margin-top: 25px;"> 
-						<div class="col-md-1"></div>
-						<div class="col-md-2"></div>
-						<div class="col-md-7"> 
-							<button type="submit" class="btn btn-dark" onclick="location.href='/carwash/user/member/join'" style="width:15%;">가입하기</button>
-							<button type="button" class="btn btn-dark" style="width:15%; margin-left: 10px;">취소</button>
+					<div class="row form-row-button"> 
+						<div class="col-md-12 text-center"> 
+							<button type="submit" class="btn btn-insert-join" onclick="location.href='/carwash/user/member/join'">가입하기</button>
+							<button type="button" class="btn btn-dark btn-cancel-join">취소</button>
 						</div>
-						<div class="col-md-2"></div>
 					</div>
 					<br> <br>
-					
 					
 				</div>
 			</form>

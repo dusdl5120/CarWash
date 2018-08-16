@@ -17,41 +17,31 @@
 	
 	<!-- Contents -->
 
-	<div class="container" style="height: 820px;">
-		<div class="rows" style="margin-top: 16%;">
+	<div class="container">
+		<div class="rows container-rows">  
 
 			<div class="col-md-4 "></div>
-			<div class="col-md-4" style="text-align: center; color: #6c757d;">
-				<label style="font-size: 15px;">&nbsp;&nbsp;<strong>가입자 유형 선택</strong></label>
+			<div class="col-md-4 text-center text-title">
+				<label>&nbsp;&nbsp;<strong>가입자 유형 선택</strong></label>
 			</div>
 			<div class="col-md-4"></div>
 
 			<br><br>
-
-			<hr class="hr-2">
-			
 		</div>
 		
 		
 		<div class="row">
 			<div class="col-md-12">	
-				<div class="row" style="margin-top: 100px;">	
-					<div class="col-md-2">
+				<div class="row mg-top">	
+					<div class="col-md-2"></div>
 					
-					</div>
-					<div class="col-md-8" style="padding: 50px;">
+					<div class="col-md-8 pd-top">
 						<div class="row text-center">
 						
 							<div class="col-md-1"></div>
-							
-							<div class="col-md-4"><button type="button" class="btn btn-dark" onclick="location.href='/carwash/user/member/join'" 
-							style="width:170px; height: 150px;">사용자</button></div>
-							
+							<div class="col-md-4"><button type="button" class="btn btn-secondary admin-yn" onclick="location.href='/carwash/user/member/join'">사용자</button></div>
 							<div class="col-md-2"></div>
-							
-							<div class="col-md-4"><button type="button" class="btn btn-dark" onclick="location.href='/carwash/admin/member/join'" 
-							style="width:170px; height: 150px;">관리자</button></div>
-							
+							<div class="col-md-4"><button type="button" class="btn btn-secondary admin-yn" onclick="location.href='/carwash/admin/member/join'">관리자</button></div>
 							<div class="col-md-1"></div>
 							 
 						</div>

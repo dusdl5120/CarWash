@@ -9,23 +9,6 @@
 	<jsp:include page="../../../common/header.jsp"></jsp:include>
 <!-- Header -->
 <style>
-	label.input{
-		border: none;	
-	}
-	.container{
-		min-height:850px;
-		
-	}
-	.container::-webkit-scrollbar { 
-	    display: none; 
-	}
-	.reply-box{
-		border:1px solid #C8CACC; 
-		line-height: 30px; 
-		vertical-align: middle; 
-		font-size:13px; 
-		font-weight: bold;
-	}
 	
 </style>
 </head>
@@ -38,12 +21,12 @@
 
 	<!-- Contents -->
 	
-	<div class="container" >
-		<div class="rows">
+	<div class="container">
+		<div class="rows container-rows">  
 
-			<div class="col-md-4 "></div>
-			<div class="col-md-4" style="text-align: center; color: #6c757d;">
-				<label style="font-size: 15px;">&nbsp;&nbsp;<strong>상세정보</strong></label>
+			<div class="col-md-4"></div>
+			<div class="col-md-4 text-center text-title">
+				<label>&nbsp;&nbsp;<strong>상세정보</strong></label>
 			</div>
 			<div class="col-md-4"></div>
 
@@ -52,19 +35,18 @@
 		</div>
 		
 		<!-- 자유게시판 상세정보 -->
-		<form method="post" id="form" style="width: 100%; text-align: webkit-center;"> 
-			<div style="width:100%; padding-top: 30px;">
-			 
+		<form method="post" id="form" class="form"> 
+			<div class="form-div">
 				
-				<div class="row" style="margin-bottom: -30px; "> 
-					<div class="col-md-1 text-right" style="padding-top: 6px;"> 
+				<div class="row form-row"> 
+					<div class="col-md-1 text-right col-top"> 
 						<label class="control-label" for="cnt">조회수</label>
 					</div>
 					<div class="col-md-6 text-left"> 
 						<label class="input form-control" id="cnt">${board.cnt }</label>
 					</div>
-					<div class="col-md-2 text-right" style="padding-top: 6px;"> 
-						<label class="control-label" for="cnt">등록일시</label>
+					<div class="col-md-2 text-right col-top"> 
+						<label class="control-label" for="registered_date">등록일시</label>
 					</div>
 					<div class="col-md-3 text-left"> 
 						<label class="input form-control" id="registered_date"><fmt:formatDate value="${board.registered_date}" pattern="yyyy-MM-dd HH:mm:ss" /></label>
@@ -73,56 +55,56 @@
 				<br> <br>
 				
 				
-				<div class="row" style="margin-bottom: -30px;"> 
-					<div class="col-md-1 text-right" style="padding-top: 6px;"> 
+				<div class="row form-row"> 
+					<div class="col-md-1 text-right col-top"> 
 						<label class="control-label" for="registered_id">작성자</label>
 					</div>
 					<div class="col-md-11 text-left"> 
-						<input type="text" class="input form-control" style="border: none;" id="registered_id" name="registered_id" value="${board.registered_id }" disabled>
+						<input type="text" class="input form-control" style="border: none;" id="registered_id" name="registered_id" value="${board.registered_id }" readonly>
 					</div>
 				</div>
 				<br> <br>
 				
 				
-				<div class="row" style="margin-bottom: -30px;"> 
-					<div class="col-md-1 text-right" style="padding-top: 6px;"> 
+				<div class="row form-row"> 
+					<div class="col-md-1 text-right col-top"> 
 						<label class="control-label" for="title">제목</label>
 					</div>
 					<div class="col-md-11 text-left"> 
-						<input type="text" class="input form-control" id="title" name="title" value="${board.title }" disabled>
+						<input type="text" class="input form-control" id="title" name="title" value="${board.title }" readonly>
 					</div>
 				</div>
 				<br> <br>
 				
 				
-				<div class="row" style="margin-bottom: -30px;"> 
-					<div class="col-md-1 text-right" style="padding-top: 6px;"> 
+				<div class="row form-row"> 
+					<div class="col-md-1 text-right col-top"> 
 						<label class="control-label" for="contents">내용</label>
 					</div>
 					<div class="col-md-11 text-left"> 
-						<textarea class="input form-control" id="contents" name="contents" rows="10" disabled>${board.contents }</textarea>
+						<textarea class="input form-control" id="contents" name="contents" rows="10" readonly>${board.contents }</textarea>
 					</div>
 				</div>
 				
-				<!-- <div class="row" style="margin-bottom: -30px;"> 
+				<!-- <div class="row form-row">  
 					<div class="col-md-1"></div>
-					<div class="col-md-2" style="text-align: right; padding-top: 6px;"> 
+					<div class="col-md-1 text-right col-top"> 
 						<label class="control-label" for="file_name">첨부파일<b style="color: red;">&nbsp;*</b></label>
 					</div>
 					<div class="col-md-7" style="text-align: left;"> 
-						<input class="input form-control" id="file_name" name="file_name" disabled /> 
+						<input class="input form-control" id="file_name" name="file_name" readonly /> 
 					</div>
 					<div class="col-md-2"></div>
 				</div>
 				<br> <br> -->
 				
 				
-				<div class="row" style="margin-top: 25px;"> 
+				<div class="row form-row-button"> 
 					<div class="col-md-12 text-right"> 
-						<button type="button" class="btn btn-dark" style="float: right; margin-top: 50px; margin-left: 10px;" onclick="location.href='/carwash/admin/free/list'">목록</button>
+						<button type="button" class="btn btn-dark btn-cancel" onclick="location.href='/carwash/admin/free/list'">목록</button>
 						<c:if test="${admin}">
-							<button type="button" class="btn btn-dark" style="float: right; margin-top: 50px; margin-left: 10px;" onclick="location.href='/carwash/admin/free/update?id=${board.id}'">수정</button>
-							<button type="button" class="btn btn-danger" id="delete" style="float: right; margin-top: 50px;" onclick="location.href='/carwash/admin/free/delete?id=${board.id}'">삭제</button>
+							<button type="button" class="btn btn-dark btn-cancel" onclick="location.href='/carwash/admin/free/update?id=${board.id}'">수정</button>
+							<button type="button" class="btn btn-danger btn-update" id="delete" onclick="location.href='/carwash/admin/free/delete?id=${board.id}'">삭제</button>
 						</c:if>
 					</div>
 				</div><br>
@@ -132,14 +114,14 @@
 		
 		<!-- 댓글등록 -->
 		<form name="replyInsertForm">
-			<div class="row" style="border-top:1px solid #e8e8e8; background-color:#fafafa; margin-top:20px;"> 
+			<div class="row reply-form"> 
 				<div class="col-md-12"> 
 			
 					<input type="hidden" name="freeNo" value="${board.id}"/>
 					
-					<div class="text-left" style="padding-top: 6px;">
+					<div class="text-left col-top">
 						<c:if test="${admin}">
-							<input type="text" name="registered_id" value="${user.admin_id}" style="background-color:#fafafa; border: none; width: 171px; height: 36px; margin-top:20px; padding: 0 13px;" placeholder="작성자" readonly>
+							<input type="text" class="reply-input-id" name="registered_id" value="${user.admin_id}" placeholder="작성자" readonly>
 						</c:if>
 						<c:if test="${!admin}">
 							<label style="margin-top: 10px;">&nbsp; 회원만 댓글을 작성하실 수 있어요<img style="margin-bottom: 5px;" src="<c:url value='/resources/images/smile.png'/>"></label>
@@ -148,40 +130,40 @@
 					
 					<div style="margin-top: 10px;"> 
 						<c:if test="${admin}">
-							<textarea class="input form-control" name="short_reply" rows="3"  placeholder="댓글내용을 작성하세요" id="short_reply"></textarea>
+							<textarea class="input form-control" name="short_reply" rows="3" placeholder="댓글내용을 작성하세요" id="short_reply"></textarea>
 						</c:if>
 						<c:if test="${!admin}">
 							<textarea class="input form-control" name="short_reply" rows="3" onfocus="myFunction(this)" placeholder="로그인하고 오세요" id="short_reply"></textarea>
 						</c:if>
 					</div>
 					
-					<div style="margin-top: 20px; margin-bottom: 20px; text-align: right;">
+					<div class="text-right btn-reply">
 						<c:if test="${admin}">
-							<button type="button" class="btn btn-primary" name="replyInsert" style="background-color: #004080;">등록</button>
+							<button type="button" class="btn btn-primary btn-reply-insert" name="replyInsert">등록</button>
 						</c:if>
 						<c:if test="${!admin}">
-							<a href="/carwash/admin/member/needLogin"><button type="button" class="btn btn-primary" name="replyInsert" style="background-color: #006595;">등록</button></a>
+							<a href="/carwash/admin/member/needLogin"><button type="button" class="btn  btn-reply-insert" name="replyInsert">등록</button></a>
 						</c:if>
 					</div>
 				</div>
 			</div>
 			<br> <br>
 		</form>
-					
+
 		<!-- 댓글목록 전체카운트 -->		
 		<div class="row">
 		 
-			<div class="col-md-2 text-left" style="padding-top: 6px; color: #006393; font-size:16px; font-weight: bold; ">
+			<div class="col-md-2 text-left reply-cnt">
 				댓글목록 (<span id="replyCnt"></span>)</div>
 			<div class="col-md-10"></div>
 			
 		</div><br><br>
        
         <!-- 댓글목록 -->
-		<div class="row" id="replyList" style="margin-top: -20px; font-size: 14px;"></div>
+		<div class="row reply-list" id="replyList"></div>
 		
 		<!-- 댓글목록 페이징 -->
-		<div class="row" id="replyPaging" style="font-size: 14px; justify-content:center; margin-top: 50px;"></div>
+		<div class="row reply-paging" id="replyPaging"></div>
 	</div>
 
 	<!-- Contents -->
@@ -271,7 +253,7 @@
 					var value = data['list'][i];	
 					
 					a += '<div class="col-md-12" style="margin-bottom: 10px;">'
-					a += '<div class="row reply-box"><div class="col-md-1">'+ value["registered_id"]  + '</div>'
+					a += '<div class="row reply-idbox"><div class="col-md-1">'+ value["registered_id"]  + '</div>'
                        + '<div class="col-md-10 text-right">' + value["registered_date"] + '</div>'
                        
                        + '<div class="col-md-1 text-right">' 
@@ -281,7 +263,7 @@
                        + '&nbsp;&nbsp; <a onclick="replyDelete('+value["reply_no"]+');">'
                        + '<img src="<c:url value='/resources/images/deleted.png'/>"></a> </div></div>';
                         
-                    a += '<div class="row" style="border:1px solid #C8CACC; border-top:0px; line-height: 70px; vertical-align: middle;">'
+                    a += '<div class="row reply-contentbox">'
                        + '<div class="col-md-12 short_reply'+value["reply_no"]+'" style="text-align:left; font-size:13px;">'+ value["short_reply"] + '</div></div>';
                     a += '</div>'   
 					
