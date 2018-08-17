@@ -58,6 +58,14 @@ label.input {
 	display: none;
 }
 
+#go_top {
+	display:none;
+	position:fixed;
+	bottom:10px;
+	right:10px;
+	z-index:99999999;
+}
+
 /* 각 화면 제목 */
 .text-title {
 	font-size: 15px;
@@ -243,7 +251,7 @@ label.input {
 	vertical-align: middle;
 }
 
-/*  */
+/* 마우스포인터 손가락으로 변경 (이벤트동작) */
 .pointer {
 	cursor: pointer;
 }

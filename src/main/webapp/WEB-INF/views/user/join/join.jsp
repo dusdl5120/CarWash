@@ -193,6 +193,9 @@
 </body>
 
 <script>
+
+var dup = -1;	/* 아이디 중복확인을 위한 초기값 */
+
 $(document).ready(function(){
 	
 	/* 전화번호 마스크 기능 */	
@@ -218,12 +221,12 @@ $(document).ready(function(){
 			},
 			user_passwd : {
 				required : true,
-				minlength : 8,
-				regex : /^(?=\w{8,15}$)\w*(\d[A-z]|[A-z]\d)\w*$/
+				minlength : 5,
+				regex : /^(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{5,}$/
 			},
 			user_passwd_confirm : {
 				required : true,
-				minlength : 8,
+				minlength : 5,
 				equalTo : user_passwd
 			},
 			user_name : { 
@@ -244,7 +247,7 @@ $(document).ready(function(){
 			user_passwd : {
 				required : "필수입력사항입니다",
 				minlength : "최소 {0}글자 이상이어야 합니다",
-				regex : "영문자와 숫자로 이루어져있으며 최소 하나이상 포함되어야 합니다"
+				regex : "영문자, 숫자, 특수문자로 이루어져있으며 최소 하나이상 포함해야 합니다."
 			},
 			user_passwd_confirm : {
 				required : "필수입력사항입니다",
@@ -271,6 +274,8 @@ $(document).ready(function(){
 });
 
 $(document).ready(function(){
+	
+	/* 아이디 중복확인 */
 	$("#dup").on("click",function(){
 		var id = $("#user_id").val();//id가 id인 input 태그에 입력된 id 가져오기
 		$.ajax({
@@ -283,11 +288,33 @@ $(document).ready(function(){
 			success : function(data){
 				if(data.cnt > 0){
 					alert("동일한 아이디가 존재합니다. 다시 입력해주세요.");
+					dup = 1;		/* 아이디가 존재할 경우 dup의 값은 1 */
 				}else{
 					alert("사용가능한 아이디입니다.");
+					dup = 0;		/* 아이디가 사용가능할 경우 dup의 값은 0 */
 				}
 			}
 		});
+	});
+	
+	/* dup의 값으로 form 전송 */
+	$('#form').on('submit',function(event){
+		if(dup == 0){
+			alert('회원가입이 성공적으로 완료되었습니다.');
+			return true;
+		}
+		
+		if(dup == -1){		
+			alert('아이디 중복확인을 해주세요');
+			event.preventDefault();
+			return false;
+		}
+		
+		if(dup == 1){
+			alert('동일한 아이디가 존재합니다. 다시 입력해주세요.');
+			event.preventDefault();
+			return false;
+		}
 	});
 });
 

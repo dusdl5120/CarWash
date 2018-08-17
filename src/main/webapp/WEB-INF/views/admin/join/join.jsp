@@ -27,7 +27,7 @@
 			
 				<br><br>
 			
-			<form method="post" id="form" class="form"> 
+			<form method="post" id="form" class="form" action="/carwash/admin/member/join"> 
 				<div class="form-div">
 					<div class="row form-row"> 
 						<div class="col-md-1"></div>
@@ -173,7 +173,7 @@
 							<label class="control-label" for="road_name_addr">소재지도로명주소<b>&nbsp;*</b></label>
 						</div>
 						<div class="col-md-5"> 
-							<input type="text" class="input form-control" id="zip_code" name="zip_code">
+							<input type="text" class="input form-control" id="zip_code" name="zip_code" onclick="postCode()" readonly>
 						</div>
 						<div class="col-md-2">
 							<button type="button" class="btn btn-dark" onclick="postCode()" style="width:100%;">우편번호찾기</button>
@@ -208,16 +208,14 @@
 					
 					<div class="row form-row-button"> 
 						<div class="col-md-12 text-center"> 
-							<button type="submit" class="btn btn-insert-join" onclick="location.href='/carwash/admin/member/join'" id="save">가입하기</button>
+							<button type="submit" class="btn btn-insert-join" id="save">가입하기</button>
 							<button type="button" class="btn btn-dark btn-cancel-join">취소</button>
 						</div>
 					</div>
 					<br> <br>
 					
-					
 				</div>
 			</form>
-			
 		</div>
 	</div>
 
@@ -234,6 +232,8 @@
 </body>
 
 <script>
+var dup = -1;	/* 아이디 중복확인을 위한 초기값 */
+
 $(document).ready(function(){
 	
 	/* 전화번호 마스크 기능 */	
@@ -241,12 +241,6 @@ $(document).ready(function(){
 		placeholder : "(___)-___-____"
 	});
 	
-    
-    $('#save').click(function() {
-    	var str = document.getElementById('form');
-    	str.submit();
-    	alert("회원가입이 성공적으로 완료되었습니다.");
-    });
 });	
 
 
@@ -254,7 +248,7 @@ $(document).ready(function(){
 	
 	/* 컬럼 유효성검사 */
 	$("#form").validate({
-		rules : { // 규칙 정해줘야햠
+		rules : { 			/*  규칙 정해줘야햠 */
 			admin_id : { 
 				required : true,
 				minlength : 4
@@ -262,7 +256,7 @@ $(document).ready(function(){
 			admin_passwd : {
 				required : true,
 				minlength : 5,
-				regex : /^(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{5,}$/
+				regex : /^(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{5,}$/		/* 영문자, 숫자, 특수문자가 포함된 비밀번호 설정 */
 			},
 			admin_passwd_confirm : {
 				required : true,
@@ -278,7 +272,8 @@ $(document).ready(function(){
 				minlength : 6
 			}
 		},
-		//규칙체크 실패시 출력될 메시지
+		
+		/* 규칙체크 실패시 출력될 메시지 */
 		messages : {
 			admin_id : {
 				required : "필수입력사항입니다.",
@@ -287,7 +282,7 @@ $(document).ready(function(){
 			admin_passwd : {
 				required : "필수입력사항입니다",
 				minlength : "최소 {0}글자이상이어야 합니다",
-				regex : "영문자와 숫자, 특수문자로 이루어져있으며 최소 하나이상 포함"
+				regex : "영문자, 숫자, 특수문자로 이루어져있으며 최소 하나이상 포함해야 합니다."
 			},
 			admin_passwd_confirm : {
 				required : "필수입력사항입니다",
@@ -313,8 +308,10 @@ $(document).ready(function(){
 });
 
 $(document).ready(function(){
+	
+	/* 아이디 중복확인 */
 	$("#dup").on("click",function(){
-		var id = $("#admin_id").val();//id가 id인 input 태그에 입력된 id 가져오기
+		var id = $("#admin_id").val(); 	/* id가 id인 input 태그에 입력된 id 가져오기 */
 		$.ajax({
 			async:true,
 			type:'POST',
@@ -325,11 +322,33 @@ $(document).ready(function(){
 			success : function(data){
 				if(data.cnt > 0){
 					alert("동일한 아이디가 존재합니다. 다시 입력해주세요.");
+					dup = 1;		/* 아이디가 존재할 경우 dup의 값은 1 */
 				}else{
 					alert("사용가능한 아이디입니다.");
+					dup = 0;		/* 아이디가 사용가능할 경우 dup의 값은 0 */
 				}
 			}
 		});
+	});
+	
+	/* dup의 값으로 form 전송 */
+	$('#form').on('submit',function(event){
+		if(dup == 0){
+			alert('회원가입이 성공적으로 완료되었습니다.');
+			return true;
+		}
+		
+		if(dup == -1){		
+			alert('아이디 중복확인을 해주세요');
+			event.preventDefault();
+			return false;
+		}
+		
+		if(dup == 1){
+			alert('동일한 아이디가 존재합니다. 다시 입력해주세요.');
+			event.preventDefault();
+			return false;
+		}
 	});
 });
 
@@ -382,10 +401,7 @@ function postCode() {
             }
         }
     }).open();
-}
+};
+
 </script>
-
 </html>
-
-
-
