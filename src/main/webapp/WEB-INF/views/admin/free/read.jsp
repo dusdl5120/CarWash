@@ -257,10 +257,10 @@
                        + '<div class="col-md-10 text-right">' + value["registered_date"] + '</div>'
                        
                        + '<div class="col-md-1 text-right">' 
-                       + '<a onclick="replyUpdate('+value["reply_no"]+',\''+value["short_reply"]+'\');">'            /* \' 는 따옴표를 의미 */
+                       + '<a class="pointer" onclick="replyUpdate('+value["reply_no"]+',\''+value["short_reply"]+'\');">'            /* \' 는 따옴표를 의미 */
                        + '<img src="<c:url value='/resources/images/edit.png'/>"></a>' 
                        
-                       + '&nbsp;&nbsp; <a onclick="replyDelete('+value["reply_no"]+');">'
+                       + '&nbsp;&nbsp; <a class="pointer" onclick="replyDelete('+value["reply_no"]+');">'
                        + '<img src="<c:url value='/resources/images/deleted.png'/>"></a> </div></div>';
                         
                     a += '<div class="row reply-contentbox">'

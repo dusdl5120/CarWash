@@ -243,6 +243,12 @@ label.input {
 	vertical-align: middle;
 }
 
+/*  */
+.pointer {
+	cursor: pointer;
+}
+
+
 /* 회원가입 가입하기 버튼 */
 .btn-insert-join {
 	margin-top: 25px;

@@ -262,7 +262,7 @@ $(document).ready(function(){
 			admin_passwd : {
 				required : true,
 				minlength : 5,
-				regex : /^(?=\w{5,15}$)\w*(\d[A-z]|[A-z]\d)\w*$/
+				regex : /^(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{5,}$/
 			},
 			admin_passwd_confirm : {
 				required : true,
@@ -287,7 +287,7 @@ $(document).ready(function(){
 			admin_passwd : {
 				required : "필수입력사항입니다",
 				minlength : "최소 {0}글자이상이어야 합니다",
-				regex : "영문자와 숫자로 이루어져있으며 최소 하나이상 포함"
+				regex : "영문자와 숫자, 특수문자로 이루어져있으며 최소 하나이상 포함"
 			},
 			admin_passwd_confirm : {
 				required : "필수입력사항입니다",
