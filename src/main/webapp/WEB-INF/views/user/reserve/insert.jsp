@@ -91,7 +91,7 @@
 						</div>
 						<div class="col-md-2 text-left"> 
 							<c:if test="${!empty sidoList}" >
-							   <select class="form-control select" name="sido_name" id="sido_name" onchange="cityChange(this)">
+							   <select class="form-control select" name="sido_name" id="sido_name" onchange="loadCity(this.value)">
 							      <c:forEach var="sido" items="${sidoList}">
 							         <option value="${sido.sido_name}">${sido.sido_name}</option>
 							      </c:forEach>
@@ -101,23 +101,11 @@
 						<div class="col-md-2 text-left"> 
 						   <c:if test="${!empty sidoList}" >
 							   <select class="form-control select" name="city_name" id="city_name">
-							      <c:forEach var="city" items="${cityList}">
+							      <%-- <c:forEach var="city" items="${cityList}">
 							         <option value="${city.city_name}">${city.city_name}</option>
-							      </c:forEach>
+							      </c:forEach> --%>
 							   </select>
 							</c:if> 
-						</div>
-						
-						<div class="col-md-1 text-right col-top">
-							<label class="control-label" for="carwash_type">세차유형<b>&nbsp;*</b></label>
-						</div>
-						<div class="col-md-2 text-left"> 
-							<select class="custom-select" name="carwash_type" id="carwash_type">
-								<option value="0">선택하세요</option> 
-								<option value="1">손세차</option>
-								<option value="2">스팀세차</option>
-								<option value="3">정비업소</option>
-							</select>
 						</div>
 					</div><br>    
 					 
@@ -156,15 +144,38 @@
 					</div><br>
 					
 
+					<div class="row"> 
+						<div class="col-md-2 text-right col-top"> 
+							<label class="control-label" for="carwash_type">서비스유형<b>&nbsp;*</b></label>
+						</div>
+						<div class="col-md-3 text-left"> 
+							<select class="custom-select" name="carwash_type" id="carwash_type">
+								<option value="1">손세차</option>
+								<option value="2">스팀세차</option>
+							</select>
+						</div>
+						<div class="col-md-2 text-right col-top">
+							<label class="control-label" for="car_model">차량모델명<b>&nbsp;*</b></label>
+						</div>
+						<div class="col-md-3 text-left"> 
+							<input type="text" class="input form-control" id="car_model" name="car_model" placeholder="예) 아반떼MD">
+						</div>
+						<div class="col-md-2"></div>
+					</div><br>
+					
 										
 					<div class="row"> 
 						<div class="col-md-2 text-right col-top">
-							<label class="control-label" for="car_company">차량분류<b>&nbsp;*</b></label>
+							<label class="control-label" for="category">차량분류<b>&nbsp;*</b></label>
 						</div>
 						<div class="col-md-3 text-left"> 
-							<select class="custom-select" name="car_company">
-						    	<option value=""></option>
-						   	</select>
+							<c:if test="${!empty categoryList}" >
+							   <select class="form-control select" name="category" id="category">
+							      <c:forEach var="ctg" items="${categoryList}">
+							         <option value="${ctg.category}">${ctg.category}</option>
+							      </c:forEach>
+							   </select>
+							</c:if> 
 						</div>
 						<div class="col-md-2 text-right col-top">
 							<label class="control-label" for="car_number">차량번호<b>&nbsp;*</b></label>
@@ -173,6 +184,20 @@
 							<input type="text" class="input form-control" name="car_number" placeholder="예) 12가1234로 입력하세요">
 						</div>
 						<div class="col-md-2"></div>	
+					</div><br>
+					
+					
+					<div class="row"> 
+						<div class="col-md-2 text-right col-top">
+							<label class="control-label" for="category"></label>
+						</div>
+						<div class="col-md-8 text-left">  
+							<p class="category-guide"> ※ 대형 : 승용차량 - 배기량 2,000cc이상 / 화물차량 또는 특수차량 - 총충량 10톤이상 </p>
+							<p class="category-guide"> ※ 중형 : 승용차량 배기량 1,600cc cc ~ 2,000cc / 화물차 또는 특수차 총중량 3.5톤이상 10톤미만 </p>
+							<p class="category-guide"> ※ 준중형 : 승용차량 - 배기량 1,300cc ~ 1,600cc</p>
+							<p class="category-guide"> ※ 소형 : 승용차량 배기량 1,600cc 미만 / 화물차량 또는 특수차량 총중량 3.5톤 이하 </p>
+							<p class="category-guide"> ※ 경차 : 승용차량 배기량 1,000cc 미만 / 화물차량 또는 특수차량 배기량 1,000cc 미만 </p>
+						</div>
 					</div><br>
 					
 				</div> 
@@ -189,13 +214,15 @@
 					
 					<div class="row reserv-form-row"> 
 						<div class="col-md-12 text-left col-top"> 
-							<p><span class="div-check"></span>&nbsp;카워시는 전국 세차장의 손세차와 스팀세차, 정비서비스를 온라인으로 예약만 할 뿐, 결제시스템은 운영하지 않으니 참고하시기 바랍니다.</p>
+							<p><span class="div-check"></span>&nbsp;카워시는 전국 세차장의 손세차와 스팀세차를 온라인으로 예약만 할 뿐, 결제시스템은 운영하지 않으니 참고하시기 바랍니다.</p>
 							<p><span class="div-check"></span>&nbsp;회원만 예약이 가능하오니, 회원이 아니실 경우에는 회원가입 후 예약서비스를 이용해주시기 바랍니다.</p>
+							<p><span class="div-check"></span>&nbsp;당일예약은 불가하오니 최소 1일 전에 예약해주시기 바랍니다.</p>
 							<p><span class="div-check"></span>&nbsp;예약수정과 취소는 예약한 날짜의 1일 전 18시까지만 가능합니다.</p>
 							<p><span class="div-check"></span>&nbsp;온라인으로 예약하기 어려우신 분들은 카워시 고객센터나 해당 세차장에 문의하시면 조금 더 빠른 예약이 가능합니다.</p>
 							<p><span class="div-check"></span>&nbsp;전화예약의 경우 09~17시까지 가능하오니 예약하실 때 유의하시기 바랍니다.</p>
 						</div>
 					</div><br>
+ 
 				</div>
 			</div><br>
 			
@@ -245,8 +272,31 @@
 			//alert($(this).val());
 		});
 		
-
+		loadCity("강원도");
+		
+		
 	});
+	
+	
+	function loadCity(sido) {
+		
+		$.ajax({
+			url : '/carwash/reserve/city?sido=' + sido, 		
+			type : 'get',
+			success : function(data) {
+				
+				var a = "";
+				
+				$.each(data,function(eky,value){
+					a += '<option value="'+ value.city_name + '">' + value.city_name + '</option>'
+				});
+				
+		   		$('#city_name').html(a);
+			}
+			
+		});
+	}
+	
 	
 	
 </script>

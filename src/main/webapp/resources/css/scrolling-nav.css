@@ -390,6 +390,12 @@ label.input {
 	vertical-align: sub;
 }
 
+/* 차량분류 가이드 */
+.category-guide {
+	font-size: 13px;
+	color: #5f5a52;
+    margin-bottom: 0px;
+}
 
 /* 페이지네이션 */
 .pagination {

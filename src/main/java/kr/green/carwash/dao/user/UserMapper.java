@@ -23,6 +23,9 @@ public interface UserMapper {
 	public List<ReserveVO> sidoListAll() throws Exception;			/* 시도명 정보 불러오기 */
 	public List<ReserveVO> cityListAll() throws Exception;			/* 시군구명 정보 불러오기 */
 	public List<ReserveVO> businNameListAll() throws Exception;		/* 사업장명 정보 불러오기 */
+	public List<ReserveVO> categoryListAll() throws Exception;		/* 차량분류 정보 불러오기 */
+	
+	public List<ReserveVO> cityList(String sido) throws Exception;
 	
 	
 	

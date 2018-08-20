@@ -1,6 +1,7 @@
 package kr.green.carwash.controller.user;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
@@ -9,6 +10,7 @@ import javax.servlet.http.HttpSession;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import kr.green.carwash.service.user.ReserveService;
 import kr.green.carwash.vo.admin.AdminMemberVO;
@@ -36,6 +38,10 @@ public class ReserveController {
 		ArrayList<ReserveVO> businNameList = (ArrayList) reserveService.businNameListAll();
 		model.addAttribute("businNameList", businNameList);
 		
+		/* 차량분류 정보 불러오기 */
+		ArrayList<ReserveVO> categoryList = (ArrayList) reserveService.categoryListAll();
+		model.addAttribute("categoryList", categoryList);
+		
 		HttpSession session = request.getSession();
 		AdminMemberVO user = (AdminMemberVO) session.getAttribute("user");	 
 		
@@ -48,6 +54,31 @@ public class ReserveController {
 		
 		return "/user/reserve/insert";
 	}
+	
+	
+	@RequestMapping(value="/city")
+	@ResponseBody
+	public ArrayList<ReserveVO> reserveSido(Model model, HttpServletRequest request, String sido) throws Exception {
+
+		/* 시군구명 정보 불러오기 */
+		ArrayList<ReserveVO> cityList = (ArrayList) reserveService.cityList(sido);
+
+		return cityList;
+	}
+	
+	
+	
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	
 	
 }

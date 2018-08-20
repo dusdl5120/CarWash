@@ -31,4 +31,14 @@ public class ReserveServiceImpl implements ReserveService {
 		return userMapper.businNameListAll();
 	}
 
+	@Override
+	public List<ReserveVO> categoryListAll() throws Exception {
+		return userMapper.categoryListAll();
+	}
+
+	@Override
+	public List<ReserveVO> cityList(String sido) throws Exception {
+		return userMapper.cityList(sido);
+	}
+
 }

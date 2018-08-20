@@ -15,7 +15,7 @@ public class ReserveVO {
 	private String carwash_type;		// 세차유형
 	private Date reserv_date;			// 예약날짜
 	private Time reserv_time;			// 예약시간
-	private String car_company;			// 차량회사
+	private String category;			// 차량분류
 	private String car_model;			// 차량모델
 	private Integer car_number;			// 차량번호
 	private String agree_info;			// 개인정보수집동의
@@ -85,11 +85,11 @@ public class ReserveVO {
 	public void setReserv_time(Time reserv_time) {
 		this.reserv_time = reserv_time;
 	}
-	public String getCar_company() {
-		return car_company;
+	public String getCategory() {
+		return category;
 	}
-	public void setCar_company(String car_company) {
-		this.car_company = car_company;
+	public void setCategory(String category) {
+		this.category = category;
 	}
 	public String getCar_model() {
 		return car_model;
@@ -139,7 +139,7 @@ public class ReserveVO {
 		return "ReserveVO [reserv_name=" + reserv_name + ", reserv_phone=" + reserv_phone + ", reserv_email="
 				+ reserv_email + ", reserv_passwd=" + reserv_passwd + ", sido_name=" + sido_name + ", city_name="
 				+ city_name + ", busin_place_name=" + busin_place_name + ", carwash_type=" + carwash_type
-				+ ", reserv_date=" + reserv_date + ", reserv_time=" + reserv_time + ", car_company=" + car_company
+				+ ", reserv_date=" + reserv_date + ", reserv_time=" + reserv_time + ", category=" + category
 				+ ", car_model=" + car_model + ", car_number=" + car_number + ", request_message=" + request_message
 				+ "]";
 	}

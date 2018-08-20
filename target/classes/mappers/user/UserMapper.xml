@@ -82,6 +82,26 @@
 	</select>
 	
 	
+	<select id="categoryListAll" resultType="kr.green.carwash.vo.user.ReserveVO">
+		select
+			category
+		from
+			car_category
+	</select>
+	
+	
+	<select id="cityList" resultType="kr.green.carwash.vo.user.ReserveVO">
+		select
+			city_name
+		from
+			carwash
+		where
+			sido_name = #{sido}
+		and city_name is not null
+		group by city_name
+	</select>
+	
+	
 	
 	
 	
