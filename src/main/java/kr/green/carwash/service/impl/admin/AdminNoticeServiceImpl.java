@@ -57,6 +57,11 @@ public class AdminNoticeServiceImpl implements AdminNoticeService {
 		return adminMapper.searchNoticeListPage(cri, search, type);
 	}
 
+	@Override
+	public List<AdminNoticeVO> noticeMainList(int cnt) throws Exception {
+		return adminMapper.noticeMainList(cnt);
+	}
+
 	
 
 }

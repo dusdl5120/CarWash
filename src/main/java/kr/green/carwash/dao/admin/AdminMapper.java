@@ -70,6 +70,9 @@ public interface AdminMapper {
 	public List<ReplyVO> replyPageList(@Param("cri") Criteria cri, @Param("freeNo") Integer freeNo) throws Exception;
 	public int replyListCnt(@Param("cri") Criteria cri, @Param("freeNo") Integer freeNo);
 	
+	/* index에 표시할 공지사항 목록 */
+	public List<AdminNoticeVO> noticeMainList(int cnt) throws Exception;
+	
 	
 	
 	

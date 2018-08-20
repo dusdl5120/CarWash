@@ -107,6 +107,18 @@
 							   </select>
 							</c:if> 
 						</div>
+						
+						<div class="col-md-1 text-right col-top">
+							<label class="control-label" for="carwash_type">세차유형<b>&nbsp;*</b></label>
+						</div>
+						<div class="col-md-2 text-left"> 
+							<select class="custom-select" name="carwash_type" id="carwash_type">
+								<option value="0">선택하세요</option> 
+								<option value="1">손세차</option>
+								<option value="2">스팀세차</option>
+								<option value="3">정비업소</option>
+							</select>
+						</div>
 					</div><br>    
 					 
 					 
@@ -132,21 +144,22 @@
 							<label class="control-label" for="reserv_date">예약날짜<b>&nbsp;*</b></label>
 						</div>
 						<div class="col-md-3 text-left"> 
-							<input type="text" class="input form-control datepicker" id="datepicker" name="reserv_date" data-date-format="yyyy-mm-dd">
+							<input type="text" class="input form-control datepicker" id="datepicker" name="reserv_date" data-date-format="yyyy-mm-dd" readonly>
 						</div>
 						<div class="col-md-2 text-right col-top">
 							<label class="control-label" for="busin_place_name">예약시간<b>&nbsp;*</b></label>
 						</div>
 						<div class="col-md-3 text-left"> 
-							<input type="text" class="input form-control" id="timepicker" name="reserv_time">
+							<input type="text" class="input form-control" id="timepicker" name="reserv_time" readonly>
 						</div>
 						<div class="col-md-2"></div>
 					</div><br>
 					
-					
+
+										
 					<div class="row"> 
 						<div class="col-md-2 text-right col-top">
-							<label class="control-label" for="car_company">차량회사<b>&nbsp;*</b></label>
+							<label class="control-label" for="car_company">차량분류<b>&nbsp;*</b></label>
 						</div>
 						<div class="col-md-3 text-left"> 
 							<select class="custom-select" name="car_company">
@@ -154,35 +167,12 @@
 						   	</select>
 						</div>
 						<div class="col-md-2 text-right col-top">
-							<label class="control-label" for="car_model">차량모델<b>&nbsp;*</b></label>
-						</div>
-						<div class="col-md-3 text-left"> 
-							<select class="custom-select" name="car_model" id="car_model">
-								<option value=""></option>
-							</select>
-						</div>
-						<div class="col-md-2"></div>	
-					</div><br>
-					
-					
-					<div class="row"> 
-						<div class="col-md-2 text-right col-top">
-							<label class="control-label" for="carwash_type">서비스유형<b>&nbsp;*</b></label>
-						</div>
-						<div class="col-md-3 text-left"> 
-							<select class="custom-select" name="carwash_type" id="carwash_type">
-								<option value="0">선택하세요</option> 
-								<option value="1">손세차</option>
-								<option value="2">스팀세차</option>
-								<option value="3">정비업소</option>
-							</select>
-						</div>
-						<div class="col-md-2 text-right col-top">
 							<label class="control-label" for="car_number">차량번호<b>&nbsp;*</b></label>
 						</div>
 						<div class="col-md-3 text-left"> 
 							<input type="text" class="input form-control" name="car_number" placeholder="예) 12가1234로 입력하세요">
 						</div>
+						<div class="col-md-2"></div>	
 					</div><br>
 					
 				</div> 
@@ -209,7 +199,7 @@
 				</div>
 			</div><br>
 			
-			<div class="row"> 
+			<div class="row footer-mb"> 
 				<div class="col-md-12 text-right"> 
 					<button type="button" class="btn btn-insert-join" onclick="location.href='/carwash/admin/free/list'">예약하기</button>
 					<button type="button" class="btn btn-dark btn-cancel-join " onclick="location.href='#'">목록</button>
@@ -239,16 +229,20 @@
 
 		
 		/* 예약날짜 Datepicker */
-		$("#datepicker").datepicker();
+		$("#datepicker").datepicker({
+			autoclose: true,
+	        todayBtn: 'linked',
+	        todayHighlight: true
+		});
 		
-
+		
 		/* 예약시간 Timepicker */
 		$("#timepicker").timepicker();
-		
+			
 		
 		/* 시도명 시군구명 onchange */
 		$('#sido_name').change(function() {
-			alert($(this).val());
+			//alert($(this).val());
 		});
 		
 

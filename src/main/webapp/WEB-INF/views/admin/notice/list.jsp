@@ -63,10 +63,10 @@
 							</tr>
 						</thead>
 						<tbody>
-							<c:forEach var="list" items="${list}" varStatus="status">
+							<c:forEach var="list" items="${list}">
 								<tr>
 									<td>${list.id }</td>
-									<td><a href="/carwash/admin/notice/read?id=${list.id }">${list.title }</a></td>
+									<td class="ellipsis"><a href="/carwash/admin/notice/read?id=${list.id }">${list.title }</a></td>
 									<td>${list.admin_name}</td>
 									<td>${list.cnt }</td>
 									<td><fmt:formatDate value="${list.registered_date}" pattern="yyyy-MM-dd" /></td>

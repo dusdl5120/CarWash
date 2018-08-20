@@ -16,8 +16,11 @@ header {
 }
 
 section {
-	padding: 80px 0 50px 0;
-	-webkit-logical-height: 400px;
+	-webkit-logical-height: 370px;
+}
+
+#bg-gray {
+	background-color: #e0e0e0;
 }
 
 #lead {
@@ -45,6 +48,33 @@ section {
 	margin-top: 12%;
 }
 
+.footer-mb {
+    margin-bottom: 50px;
+}
+
+/* index section */
+.section-margin {
+	margin-top: 45px;
+}
+
+/* 글이 길어 두줄로 될 경우 ...으로 표시 */
+.ellipsis {
+	text-overflow: ellipsis;	/* ...으로 표시 */
+	overflow: hidden;  			/* 두줄로 표시되는 경우 내용 숨기기 */
+	white-space: nowrap;		/* 두줄이 될 경우 두줄까지 안가고 한줄로 표시 */
+	
+}
+
+/* 테이블 간격 고정 */
+.table {
+	table-layout: fixed;
+}
+
+/* 테이블 border 표시안함 */
+.table td.border-none {
+	border:none;
+}
+
 /* 컨테이너 사이즈 (스크롤바 포함) */
 label.input {
 	border: none;
@@ -58,12 +88,13 @@ label.input {
 	display: none;
 }
 
+/* 최상위로 가는 버튼 */
 #go_top {
 	display:none;
 	position:fixed;
 	bottom:10px;
 	right:10px;
-	z-index:99999999;
+	z-index:9999;
 }
 
 /* 각 화면 제목 */
@@ -405,50 +436,62 @@ label.input {
 	-webkit-logical-height: 1170px;
 }
 
-.col-md-3.bg-fee {
-	background-image: url(../images/fee.png);
+.col-md-3.bg-inform {
+	background-image: url("../images/inform.png");
 	background-repeat: no-repeat;
 	-webkit-logical-height: 200px;
 	background-position: center center;
+	color: #817c7c;
+	font-weight: bold;
+	font-size: 18px;
 }
 
 .col-md-3.bg-calendar {
-	background-image: url(../images/calendar.png);
+	background-image: url("../images/calendar.png");
 	background-repeat: no-repeat;
 	-webkit-logical-height: 200px;
 	background-position: center center;
+	color: #817c7c;
+	font-weight: bold;
+	font-size: 18px;
 }
 
-.col-md-3.bg-list {
-	background-image: url(../images/list.png);
+.col-md-3.bg-review {
+	background-image: url("../images/review.png");
 	background-repeat: no-repeat;
 	-webkit-logical-height: 200px;
 	background-position: center center;
+	color: #817c7c;
+	font-weight: bold;
+	font-size: 18px;
 }
 
 .col-md-3.bg-faq {
-	background-image: url(../images/faq.png);
+	background-image: url("../images/faq.png");
 	background-repeat: no-repeat;
 	-webkit-logical-height: 200px;
 	background-position: center center;
+	color: #817c7c;
+	font-weight: bold;
+	font-size: 18px;
 }
 
 .icon-phone {
-	background-image: url(../images/phone.png);
+	background-image: url("../images/phone.png");
 	background-repeat: no-repeat;
 	-webkit-logical-height: 120px;
 	background-position: center center;
 }
 
 .icon-envelope {
-	background-image: url(../images/envelope.png);
+	background-image: url("../images/envelope.png");
 	background-repeat: no-repeat;
 	-webkit-logical-height: 120px;
 	background-position: center center;
 }
 
 .icon-notice {
-	background-image: url(../images/notice.png);
+	background-image: url("../images/notice.png");
 	background-repeat: no-repeat;
 	-webkit-logical-height: 200px;
 	background-position: center center;
@@ -574,6 +617,11 @@ div.datepicker thead tr:first-child th:hover {
 	left: auto;
 	right: 16px;
 }
+
+.today {
+	cursor: pointer;
+}
+
 /* EOF BOOTSTRAP DATEPICKER */
 
 /* BOOTSTRAP TIMEPICKER */

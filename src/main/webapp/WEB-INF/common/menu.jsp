@@ -8,7 +8,7 @@
 		aria-expanded="false" aria-label="Toggle navigation">
 		<span class="navbar-toggler-icon"></span>
 	</button>
-	<div class="collapse navbar-collapse" id="navbarResponsive" style="color: #fff;">
+	<div class="collapse navbar-collapse text-center" id="navbarResponsive" style="color: #fff;">
 		<ul class="navbar-nav ml-auto">
 			<li class="nav-item"><a class="nav-link js-scroll-trigger" href="/carwash">Home</a></li>
 			<li class="nav-item"><a class="nav-link js-scroll-trigger" href="/carwash/admin/notice/list">공지사항</a></li>
@@ -20,8 +20,14 @@
 				<li class="nav-item"><a class="nav-link js-scroll-trigger" href="/carwash/reserve/insert" onfocus="myFunction(this)">예약하기</a></li>
 			</c:if>
 			<li class="nav-item"><a class="nav-link js-scroll-trigger" href="/carwash/admin/free/list">자유게시판</a></li>
+		</ul>
+	</div>
+	
+	<div class="collapse navbar-collapse text-right" id="navbarResponsive" style="color: #fff;">
+		<ul class="navbar-nav ml-auto">
 			<c:if test="${admin}">
-				<li class="nav-item"><a class="nav-link js-scroll-trigger" href="/carwash/admin/member/myPage" style="magrin-left: 50px;">마이페이지</a></li>  
+				<li class="nav-item"><a class="nav-link js-scroll-trigger"><b>${ user.ceo_name}</b>&nbsp;님!</a></li>   
+				<li class="nav-item"><a class="nav-link js-scroll-trigger" href="/carwash/admin/member/myPage">마이페이지</a></li>  
 				<li class="nav-item">
 					<a class="nav-link js-scroll-trigger" href="/carwash/admin/member/logout">로그아웃</a>
 				</li>

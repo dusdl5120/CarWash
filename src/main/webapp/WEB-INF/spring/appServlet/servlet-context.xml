@@ -33,20 +33,27 @@
 	<beans:bean id="adminInterceptor" class="kr.green.carwash.common.interceptor.AdminInterceptor"></beans:bean>
 	
 	<interceptors>
+		<!-- ADMIN -->
 		<interceptor>
 			<mapping path="/admin/member/login"/>
 			<beans:ref bean="adminLoginInterceptor"/>
 		</interceptor>
+	
+		<interceptor>
+			<mapping path="/admin/free/insert"/>         
+			<beans:ref bean="adminInterceptor"/>
+      	</interceptor>
 		
+		<!-- USER -->
 		<interceptor>
 			<mapping path="/admin/member/login"/>
 			<beans:ref bean="userLoginInterceptor"/>
 		</interceptor>
-	
+		
 		<interceptor>
-         <mapping path="/admin/free/insert"/>         <!-- 인터셉터가 수행될 페이지 -->
-         <beans:ref bean="adminInterceptor"/>
-      </interceptor>
+			<mapping path="/user/reserve/insert"/>         
+			<beans:ref bean="adminInterceptor"/>
+      	</interceptor>
 	
 	</interceptors>
 	

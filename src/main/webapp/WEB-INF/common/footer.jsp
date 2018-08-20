@@ -1,18 +1,15 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
-<footer class="py-5 bg-dark"style="margin-top: 100px;">
+<footer class="py-5 bg-dark">
 
 	<div>
-		<div class="row" style="margin-bottom: -30px;"> 
+		<div class="row form-row"> 
 			<div class="col-md-1"></div>
-			<div class="col-md-3" style="text-align: right; padding-top: 6px;">
-				<p class="m-0 text-right text-white">페이스북</p>
-				<p class="m-0 text-right text-white">인스타그램</p>
-				<p class="m-0 text-right text-white">카카오톡</p>
-<%-- 				<p class="m-0 text-right text-white">페이스북<img src="<c:url value='/resources/images/facebook.png' />"></p>
-				<p class="m-0 text-right text-white">인스타그램<img src="../../../resources/images/instar.png"></p>
-				<p class="m-0 text-right text-white">카카오톡<img src="/resources/images/kakao.png"></p> --%>
+			<div class="col-md-3 text-right col-top">
+				<p class="m-0 text-right text-white">페이스북<img src="<c:url value='/resources/images/facebook.png' />"></p>
+				<p class="m-0 text-right text-white">인스타그램<%-- <img src="<c:url value='/resources/images/instar.png' />"> --%></p>
+				<p class="m-0 text-right text-white">카카오톡<%-- <img src="<c:url value='/resources/images/kakao.png' />"> --%></p>
 			</div>
 			<div class="col-md-4"> 
 				<p class="m-0 text-center text-white">고객센터 : 1234 - 5678</p>
@@ -28,18 +25,18 @@
 		<br> <br>
 		
 		
-		<div class="row" style="margin-bottom: -30px; margin-top: 30px;"> 
+		<div class="row form-row" style="margin-top: 30px;"> 
 			<div class="col-md-1"></div>
-			<div class="col-md-3" style="text-align: right; padding-top: 6px;">
-			</div>
+			<div class="col-md-3 text-right col-top"></div>
 			<div class="col-md-4"> 
 				<p class="m-0 text-center text-white">Copyright &copy; CarWash 2018</p>
 			</div>
-			<div class="col-md-3"> 
-			</div>
+			<div class="col-md-3"></div>
 			<div class="col-md-1"></div>
+		
+			<br> <br>	
 		</div>
-		<br> <br>
+		
 	</div>
 	
 </footer>

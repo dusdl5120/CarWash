@@ -22,6 +22,7 @@
 <script src="<c:url value='/resources/vendor/jquery/jquery.min.js'/>"></script>
 <script src="<c:url value='/resources/vendor/bootstrap/js/bootstrap-datepicker.js'/>"></script>
 <script src="<c:url value='/resources/vendor/bootstrap/js/bootstrap-timepicker.min.js'/>"></script>
+<script src="<c:url value='/resources/vendor/bootstrap/js/bootstrap-datetimepicker.js'/>"></script>
 <script src="<c:url value='/resources/vendor/bootstrap/js/icheck.min.js'/>"></script>
 <script src="<c:url value='/resources/js/scrolling-nav.js'/>"></script> 
 <script src="<c:url value='/resources/vendor/bootstrap/js/bootstrap.bundle.min.js'/>"></script>

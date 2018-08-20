@@ -3,6 +3,16 @@
 
 <mapper namespace="kr.green.carwash.dao.admin.AdminMapper">
 
+	<!-- index에 표시할 공지사항 목록 -->
+	<select id="noticeMainList" resultType="kr.green.carwash.vo.admin.AdminNoticeVO"> 	
+ 	select 
+ 		* 
+ 	from 
+ 		notice
+ 	order by 
+ 		registered_date desc limit #{cnt};
+ 	</select>
+ 
  
 	<!-- 공지사항 -->
 	<select id="searchNoticeListPage" resultType="kr.green.carwash.vo.admin.AdminNoticeVO">
@@ -34,6 +44,7 @@
 		LIMIT #{pageStart}, #{perPageNum}
 	</select>
 	
+	
 	<select id="countNotice" resultType="int">
 		SELECT
 			COUNT(*)
@@ -51,8 +62,6 @@
 			</if>
 	</select>
 	
-
-
 
 	<insert id="noticeInsert" parameterType="kr.green.carwash.vo.admin.AdminNoticeVO"> 
 		INSERT INTO notice (

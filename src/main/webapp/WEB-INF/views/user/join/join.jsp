@@ -32,7 +32,7 @@
 					<div class="row form-row"> 
 						<div class="col-md-1"></div>
 						<div class="col-md-2 text-right col-top">
-							<label class="control-label" for="user_id">사용자ID<b style="color: red;">&nbsp;*</b></label>
+							<label class="control-label" for="user_id">사용자ID<b>&nbsp;*</b></label>
 						</div>
 						<div class="col-md-5"> 
 							<input type="text" class="input form-control" id="user_id" name="user_id">
@@ -48,7 +48,7 @@
 					<div class="row form-row">  
 						<div class="col-md-1"></div>
 						<div class="col-md-2 text-right col-top">
-							<label class="control-label" for="user_passwd">사용자비밀번호<b style="color: red;">&nbsp;*</b></label>
+							<label class="control-label" for="user_passwd">사용자비밀번호<b>&nbsp;*</b></label>
 						</div>
 						<div class="col-md-7"> 
 							<input type="password" class="input form-control" id="user_passwd" name="user_passwd">
@@ -61,7 +61,7 @@
 					<div class="row form-row"> 
 						<div class="col-md-1"></div>
 						<div class="col-md-2 text-right col-top">
-							<label class="control-label" for="user_passwd">비밀번호 확인<b style="color: red;">&nbsp;*</b></label>
+							<label class="control-label" for="user_passwd">비밀번호 확인<b>&nbsp;*</b></label>
 						</div>
 						<div class="col-md-7"> 
 							<input type="password" class="input form-control" id="user_passwd_confirm" name="user_passwd_confirm"> 
@@ -74,7 +74,7 @@
 					<div class="row form-row"> 
 						<div class="col-md-1"></div>
 						<div class="col-md-2 text-right col-top">
-							<label class="control-label" for="user_name">사용자이름<b style="color: red;">&nbsp;*</b></label>
+							<label class="control-label" for="user_name">사용자이름<b>&nbsp;*</b></label>
 						</div>
 						<div class="col-md-7"> 
 							<input type="text" class="input form-control" id="user_name" name="user_name">
@@ -87,7 +87,7 @@
 					<div class="row form-row"> 
 						<div class="col-md-1"></div>
 						<div class="col-md-2 text-right col-top">
-							<label class="control-label" for="phoneNumber">휴대폰번호<b style="color: red;">&nbsp;*</b></label>
+							<label class="control-label" for="phoneNumber">휴대폰번호<b>&nbsp;*</b></label>
 						</div>
 						<div class="col-md-5"> 
 							<input type="text" class="input form-control" id="phoneNumber" name="phoneNumber">
@@ -135,7 +135,7 @@
 							<label class="control-label" for="address">도로명주소</label>
 						</div>
 						<div class="col-md-5"> 
-							<input type="text" class="input form-control" id="zip_code" name="zip_code">
+							<input type="text" class="input form-control" id="zip_code" name="zip_code" onclick="postCode()" readonly>
 						</div>
 						<div class="col-md-2">
 							<button type="button" class="btn btn-dark" onclick="postCode()" style="width:100%;">우편번호찾기</button>
@@ -149,7 +149,7 @@
 						<div class="col-md-1"></div>
 						<div class="col-md-2 text-right col-top"></div>
 						<div class="col-md-7"> 
-							<input type="text" class="input form-control" id="address" name="address">
+							<input type="text" class="input form-control" id="address" name="address" readonly>
 						</div>
 						<div class="col-md-2"></div>
 					</div>

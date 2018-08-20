@@ -25,7 +25,7 @@
 			</div>
 			<div class="col-md-4"></div>
 			
-				<br><br>
+			<br><br>
 			
 			<form method="post" id="form" class="form" action="/carwash/admin/member/join"> 
 				<div class="form-div">
@@ -187,7 +187,7 @@
 						<div class="col-md-1"></div>
 						<div class="col-md-2 text-right col-top"></div>
 						<div class="col-md-7"> 
-							<input type="text" class="input form-control" id="road_name_addr" name="road_name_addr">
+							<input type="text" class="input form-control" id="road_name_addr" name="road_name_addr" readonly>
 							<span id="guide" style="color:#999"></span>
 						</div>
 						<div class="col-md-2"></div>

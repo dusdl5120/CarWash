@@ -63,6 +63,8 @@ public class AdminNoticeController {
 		return "/admin/notice/list";
 	}
 	
+
+	
 	/* 공지사항 등록 폼화면 */
 	@RequestMapping(value="/insert", method=RequestMethod.GET)
 	public String noticeInsertForm(Model model, HttpServletRequest request, AdminNoticeVO adNoticeVO) {

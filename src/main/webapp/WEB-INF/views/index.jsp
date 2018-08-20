@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -25,9 +26,9 @@
 	</header>
 	
 
-	<section id="notice"> 
+	<section> 
 		<div class="row">
-			<div class="col-md-12 text-center">
+			<div class="col-md-12 text-center section-margin">
 				<h4 class="h4Size">CARWASH의 서비스!</h4><br><br><br>
 			</div>
 		</div>
@@ -38,12 +39,15 @@
 					<div class="col-md-2"></div>
 					<div class="col-md-8">
 						<div class="row text-center">
-							<div class="col-md-3 bg-fee">
-								<p style="margin-top: 59%;">요금안내</p>
-							</div>
-							<div class="col-md-3 bg-calendar"></div>
-							<div class="col-md-3 bg-list"></div>
-							<div class="col-md-3 bg-faq"></div> 
+							<div class="col-md-3 bg-inform pointer"><a href="#">이용안내</a></div>
+							<c:if test="${admin}">
+								<div class="col-md-3 bg-calendar pointer" onclick="myFunction(0)"><a href="#">예약하기</a></div>
+							</c:if>
+							<c:if test="${!admin}">
+								<div class="col-md-3 bg-calendar pointer" onclick="myFunction(1)"><a href="#">예약하기</a></div>
+							</c:if>
+							<div class="col-md-3 bg-review pointer"><a href="#">사용자리뷰</a></div>
+							<div class="col-md-3 bg-faq pointer"><a href="#">자주하는질문</a></div>
 						</div>
 					</div>
 					<div class="col-md-2"></div>
@@ -52,43 +56,37 @@
 		</div>
 	</section>
 
-	<section id="services" class="bg-secondary"> 
+
+	<section id="bg-gray"> 
 		<div class="row">
-			<div class="col-md-12 text-center">
-				<h4 class="h4Size">세차에 대한 모든 것!</h4><br><br><br>
+			<div class="col-md-12 text-center section-margin">
+				<h4 class="h4Size">공지사항</h4><br><br><br>
 			</div>
 		</div>
 		
-		<div class="row ">
+		<div class="row">
 			<div class="col-md-12">	
 				<div class="row">	
-					<div class="col-md-2"></div>
-					<div class="col-md-8">
+					<div class="offset-md-4 col-md-4">
 						<div class="row text-center">
-							<div class="col-md-4"></div>
-							<div class="col-md-4">
-								<button type="button" class="btn btn-primary" onclick="location.href='admin/notice/list'">공지사항</button>
-							</div>
-							<div class="col-md-4"></div> 
-						</div> 
+							<jsp:include page="../views/admin/notice/list2.jsp"  />
+						</div>
 					</div>
-					<div class="col-md-2"></div>
-						
 				</div>
 			</div>	
 		</div>
 	</section>
 	
 	
-	<section id="contact"> 
+	<section> 
 		<div class="row">
-			<div class="col-md-12 text-center">
+			<div class="col-md-12 text-center section-margin">
 				<h4 class="h4Size">관리자에게 물어보세요!</h4><br><br>
 				<h5 class="lead">세차예약 또는 궁금한 사항 있으시면 문의주세요!<br><br></h5>
 			</div>
 		</div>
 		
-		<div class="row ">
+		<div class="row">
 			<div class="col-md-12">	
 				<div class="row">	
 					<div class="col-md-3"></div>
@@ -106,86 +104,43 @@
 		</div>	
 	</section>
 	
-	<a href="#" id="go_top" style="" title="Top">
-	<img src="https://tistory4.daumcdn.net/tistory/1655542/skin/images/top2.png" border="0"/></a>
+	<a href="#" id="go_top"><img src="<c:url value='/resources/images/up.png'/>" border="0"/></a>
+	
 	<!-- Contents -->
-	
-	<!-- Fee Modal -->
-	<div class="modal fade" id="feeModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-		<div class="modal-dialog">
-			<div class="modal-content">
-				<div class="modal-header">
-					<h5 class="modal-title" style="text-align: left;"><strong>세차가 가능한 지역과 요금안내</strong></h5>
-					<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-				</div><br />
-	            <div class="form-group">
-	               <div class="col-md-12" style="text-align: center;">
-	                   <button type="button" class="btn btn-dark" onclick="location.href='/carwash/feeInfo'">요금안내 바로가기</button>
-	               </div>
-	           </div>
-			</div>
-		</div>
-	</div>
-	<!-- Fee Modal -->
-	
-	<!-- Reserve Modal -->
-	<div class="modal fade" id="reserveModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-		<div class="modal-dialog">
-			<div class="modal-content">
-				<div class="modal-header">
-					<h5 class="modal-title" style="text-align: left;"><strong>실시간예약과 예약현황 정보</strong></h5>
-					<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-				</div><br />
-	            <div class="form-group">
-	               <div class="col-md-12" style="text-align: center;">
-	                   <button type="button" class="btn btn-dark" onclick="location.href='/carwash/feeInfo'">손세차예약 바로가기</button>
-	               </div>
-	           </div>
-			</div>
-		</div>
-	</div>
-	<!-- Reserve Modal -->
-	
-	<!-- Info Modal -->
-	<div class="modal fade" id="infoModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-		<div class="modal-dialog">
-			<div class="modal-content">
-				<div class="modal-header">
-					<h5 class="modal-title" style="text-align: left;"><strong>사용자 간의 다양한 정보공유</strong></h5>
-					<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-				</div><br />
-	            <div class="form-group">
-	               <div class="col-md-12" style="text-align: center;">
-	                   <button type="button" class="btn btn-dark" onclick="location.href='/carwash/feeInfo'">자유게시판 바로가기</button>
-	               </div>
-	           </div>
-			</div>
-		</div>
-	</div>
-	<!-- Info Modal -->
-	
-	<!-- F&A Modal -->
-	<div class="modal fade" id="fnaModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-		<div class="modal-dialog">
-			<div class="modal-content">
-				<div class="modal-header">
-					<h5 class="modal-title" style="text-align: left;"><strong>무엇이든지 물어보세요!</strong></h5>
-					<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-				</div><br />
-	            <div class="form-group">
-	               <div class="col-md-12" style="text-align: center;">
-	                   <button type="button" class="btn btn-dark" onclick="location.href='/carwash/feeInfo'">고객센터</button>
-	               </div>
-	           </div>
-			</div>
-		</div>
-	</div>
-	<!-- F&A Modal -->
+
 </body>
 
 <!-- Footer --> 
 <jsp:include page="../common/footer.jsp"></jsp:include>
 <!-- Footer -->
 
+
+<script>
+	$(document).ready(function(){
+		
+		/* 이용안내 클릭 시 페이지이동 */
+		$('.bg-inform').click(function(){
+			location.href = "/carwash/inform/insert"
+		});	
+		
+		/* 리뷰 클릭 시 페이지이동 */
+		$('.bg-review').click(function(){
+			location.href = "/carwash/review/list"
+		});	
+		
+		/* 자주하는질문 클릭 시 페이지이동 */
+		$('.bg-faq').click(function(){
+			location.href = "/carwash/faq/list"
+		});	
+	});
+	
+	/* 회원만 등록가능, 비회원은 로그인페이지로 */
+	function myFunction(x) {
+		if(x == 1)
+			window.location.href = "/carwash/admin/member/needLogin";
+		else
+			window.location.href = "/carwash/reserve/insert";
+	}
+</script>
 
 </html>

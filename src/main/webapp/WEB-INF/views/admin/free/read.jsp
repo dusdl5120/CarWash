@@ -163,7 +163,7 @@
 		<div class="row reply-list" id="replyList"></div>
 		
 		<!-- 댓글목록 페이징 -->
-		<div class="row reply-paging" id="replyPaging"></div>
+		<div class="row reply-paging footer-mb" id="replyPaging"></div>
 	</div>
 
 	<!-- Contents -->

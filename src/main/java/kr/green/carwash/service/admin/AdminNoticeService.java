@@ -15,5 +15,7 @@ public interface AdminNoticeService {
 	public int noticeCnt(AdminNoticeVO vo) throws Exception;
 	
 	public List<AdminNoticeVO> searchNoticeListPage(Criteria cri, String search, Integer type) throws Exception;
+	
+	public List<AdminNoticeVO> noticeMainList(int cnt) throws Exception;
 
 }

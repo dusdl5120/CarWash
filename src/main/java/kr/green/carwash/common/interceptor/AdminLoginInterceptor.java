@@ -30,7 +30,7 @@ public class AdminLoginInterceptor extends HandlerInterceptorAdapter{
 	public void postHandle(HttpServletRequest request, HttpServletResponse response, Object handler, ModelAndView modelAndView) throws Exception {
 		
 		ModelMap modelMap = modelAndView.getModelMap();
-		AdminMemberVO user = (AdminMemberVO)modelMap.get("user");
+		AdminMemberVO user = (AdminMemberVO)modelMap.get("user");		/* adminMemberController login 메소드에서 아이디랑 비번정보를 모델에 담았던 user 가져오는 부분 */
 			
 		// 로그인이 되었을 때 그 세션을 가져와서 저장해라
 		if (user != null) {
