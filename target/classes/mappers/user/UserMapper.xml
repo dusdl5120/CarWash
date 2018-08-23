@@ -102,13 +102,106 @@
 	</select>
 	
 	
+	<select id="businNameList" resultType="kr.green.carwash.vo.user.ReserveVO">
+		select
+			city_name, busin_place_name
+		from
+			carwash
+		where
+			sido_name = #{sido}
+		and city_name = #{city}
+		and busin_place_name is not null
+		group by busin_place_name
+	</select> 
+	
+	
+	<insert id="reserveInsert" parameterType="kr.green.carwash.vo.user.ReserveVO">
+		INSERT INTO reserve (
+			reserv_name
+			, reserv_phone
+			, reserv_email
+			, reserv_passwd
+			, sido_name
+			, city_name
+			, busin_place_name
+			, carwash_type
+			, reserv_date
+			, reserv_time
+			, category
+			, car_model
+			, car_number
+			, request_message
+			, registered_id
+			, registered_date
+		)VALUES(
+			#{reserv_name}
+			, #{reserv_phone}
+			, #{reserv_email}
+			, #{reserv_passwd}
+			, #{sido_name}
+			, #{city_name}
+			, #{busin_place_name}
+			, #{carwash_type}
+			, #{reserv_date}
+			, #{reserv_time}
+			, #{category}
+			, #{car_model}
+			, #{car_number}
+			, #{request_message}
+			, #{registered_id}
+			, now()
+		)
+	</insert> 
+	
+	<select id="reserveList" resultType="kr.green.carwash.vo.user.ReserveVO">
+		select
+			*
+		from
+			reserve
+		order by registered_date desc
+	</select>
+	
+	
+	<select id="reserveRead" resultType="kr.green.carwash.vo.user.ReserveVO">
+		select
+			*
+		from
+			reserve
+		where
+			reserv_no = #{reserv_no}
+	</select>
 	
 	
 	
+	<update id="reserveUpdate">
+		UPDATE reserve 
+		SET
+			reserv_name = #{reserv_name}
+			, reserv_phone = #{reserv_phone}
+			, reserv_email = #{reserv_email}
+			, reserv_passwd = #{reserv_passwd}
+			, sido_name = #{sido_name}
+			, city_name = #{city_name}
+			, busin_place_name = #{busin_place_name}
+			, carwash_type = #{carwash_type}
+			, reserv_date = #{reserv_date}
+			, reserv_time = #{reserv_time}
+			, category = #{category}
+			, car_model = #{car_model}
+			, car_number = #{car_number}
+			, request_message = #{request_message}
+			, registered_id = #{registered_id}
+			, registered_date = now()
+		WHERE
+			reserv_no = #{reserv_no}
+	</update> 
 	
 	
-	
-	
+	<delete id="reserveDelete">
+		delete from reserve
+		where
+			reserv_no = #{reserv_no}
+	</delete>
 	
 	
 	

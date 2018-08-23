@@ -50,10 +50,6 @@
 			<beans:ref bean="userLoginInterceptor"/>
 		</interceptor>
 		
-		<interceptor>
-			<mapping path="/user/reserve/insert"/>         
-			<beans:ref bean="adminInterceptor"/>
-      	</interceptor>
 	
 	</interceptors>
 	

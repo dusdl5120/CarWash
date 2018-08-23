@@ -1,11 +1,14 @@
 package kr.green.carwash.controller.admin;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
+import org.junit.experimental.theories.ParameterSignature;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -16,7 +19,6 @@ import kr.green.carwash.common.pagination.PageMaker;
 import kr.green.carwash.service.admin.AdminNoticeService;
 import kr.green.carwash.vo.admin.AdminMemberVO;
 import kr.green.carwash.vo.admin.AdminNoticeVO;
-import kr.green.carwash.vo.admin.SuperMemberVO;
 
 @Controller
 @RequestMapping(value="/admin/notice/*")
@@ -52,7 +54,28 @@ public class AdminNoticeController {
 		
 		System.out.println("******** pageMaker : " + pageMaker + ", totCnt : " + totCnt + " ********");
 		
+		Date date = new Date(); 
+		SimpleDateFormat simpleDate = new SimpleDateFormat("yyyy-MM-dd");
+		String inputDate = (String)simpleDate.format(date); 
 		
+		boolean regDate[] = new boolean[list.size()];
+		int cnt = 0;
+		
+		System.out.println("//////////////////////"+inputDate);
+		
+		for(AdminNoticeVO tmp : list) {
+			
+			String noticeDate = (String)simpleDate.format(tmp.getRegistered_date());
+			
+			if (inputDate.compareTo(noticeDate) == 0) {
+				regDate[cnt++] = true;
+			} 
+			else
+				regDate[cnt++] = false;
+		}
+		
+		model.addAttribute("regDate", regDate);
+
 		model.addAttribute("admin", admin);
 		model.addAttribute("list", list);
 		model.addAttribute("pageMaker", pageMaker);

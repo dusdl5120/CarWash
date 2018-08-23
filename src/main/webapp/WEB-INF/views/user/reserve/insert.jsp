@@ -59,20 +59,19 @@
 					
 					<div class="row"> 
 						<div class="col-md-2 text-right col-top"> 
-							<label class="control-label" for="reserv_email">이메일(선택사항)</label>
+							<label class="control-label" for="reserv_email">이메일(선택)</label>
 						</div>
 						<div class="col-md-3 text-left"> 
 							<input type="text" class="input form-control" id="reserv_email" name="reserv_email">
 						</div>
 						<div class="col-md-2 text-right col-top">
-							<label class="control-label" for="reserve_passwd">비밀번호<b>&nbsp;*</b></label>
+							<label class="control-label" for="reserv_passwd">비밀번호<b>&nbsp;*</b></label>
 						</div>
 						<div class="col-md-3 text-left"> 
-							<input type="password" class="input form-control" id="reserve_passwd" name="reserve_passwd">
+							<input type="password" class="input form-control" id="reserv_passwd" name="reserv_passwd">
 						</div>
 						<div class="col-md-2"></div>
 					</div><br>
-					 
 				</div>
 			</div>
 			<br> <br>
@@ -91,7 +90,7 @@
 						</div>
 						<div class="col-md-2 text-left"> 
 							<c:if test="${!empty sidoList}" >
-							   <select class="form-control select" name="sido_name" id="sido_name" onchange="loadCity(this.value)">
+							   <select class="custom-select" name="sido_name" id="sido_name" onchange="loadCity(this.value)">
 							      <c:forEach var="sido" items="${sidoList}">
 							         <option value="${sido.sido_name}">${sido.sido_name}</option>
 							      </c:forEach>
@@ -99,8 +98,8 @@
 							</c:if> 
 						</div> 
 						<div class="col-md-2 text-left"> 
-						   <c:if test="${!empty sidoList}" >
-							   <select class="form-control select" name="city_name" id="city_name">
+						   <c:if test="${!empty cityList}" > 
+							   <select class="custom-select" name="city_name" id="city_name" onchange="loadBusiName(this.value)">
 							      <%-- <c:forEach var="city" items="${cityList}">
 							         <option value="${city.city_name}">${city.city_name}</option>
 							      </c:forEach> --%>
@@ -116,10 +115,10 @@
 						</div>
 						<div class="col-md-5 text-left"> 
 						    <c:if test="${!empty businNameList}" >
-							   <select class="form-control select" name="busin_place_name" id="busin_place_name">
-							      <c:forEach var="bn" items="${businNameList}">
+							   <select class="custom-select" name="busin_place_name" id="busin_place_name">
+							      <%-- <c:forEach var="bn" items="${businNameList}">
 							         <option value="${bn.busin_place_name}">${bn.busin_place_name}</option>
-							      </c:forEach>
+							      </c:forEach> --%>
 							   </select>
 							</c:if> 
 						</div>
@@ -150,8 +149,8 @@
 						</div>
 						<div class="col-md-3 text-left"> 
 							<select class="custom-select" name="carwash_type" id="carwash_type">
-								<option value="1">손세차</option>
-								<option value="2">스팀세차</option>
+								<option value="손세차">손세차</option>
+								<option value="손세차">스팀세차</option>
 							</select>
 						</div>
 						<div class="col-md-2 text-right col-top">
@@ -164,13 +163,13 @@
 					</div><br>
 					
 										
-					<div class="row"> 
+					<div class="row">  
 						<div class="col-md-2 text-right col-top">
 							<label class="control-label" for="category">차량분류<b>&nbsp;*</b></label>
 						</div>
 						<div class="col-md-3 text-left"> 
 							<c:if test="${!empty categoryList}" >
-							   <select class="form-control select" name="category" id="category">
+							   <select class="custom-select" name="category" id="category">
 							      <c:forEach var="ctg" items="${categoryList}">
 							         <option value="${ctg.category}">${ctg.category}</option>
 							      </c:forEach>
@@ -181,7 +180,7 @@
 							<label class="control-label" for="car_number">차량번호<b>&nbsp;*</b></label>
 						</div>
 						<div class="col-md-3 text-left"> 
-							<input type="text" class="input form-control" name="car_number" placeholder="예) 12가1234로 입력하세요">
+							<input type="text" class="input form-control" id="car_number" name="car_number" placeholder="예) 12가1234로 입력하세요">
 						</div>
 						<div class="col-md-2"></div>	
 					</div><br>
@@ -200,6 +199,17 @@
 						</div>
 					</div><br>
 					
+
+					<div class="row"> 
+						<div class="col-md-2 text-right col-top"> 
+							<label class="control-label" for="request_message">추가 요청사항</label>
+						</div>
+						<div class="col-md-8 text-left"> 
+							<input type="text" class="input form-control" id="request_message" name="request_message">
+						</div>
+						<div class="col-md-2"></div>
+					</div><br>
+					 
 				</div> 
 			</div>
 			<br> <br>
@@ -216,7 +226,7 @@
 						<div class="col-md-12 text-left col-top"> 
 							<p><span class="div-check"></span>&nbsp;카워시는 전국 세차장의 손세차와 스팀세차를 온라인으로 예약만 할 뿐, 결제시스템은 운영하지 않으니 참고하시기 바랍니다.</p>
 							<p><span class="div-check"></span>&nbsp;회원만 예약이 가능하오니, 회원이 아니실 경우에는 회원가입 후 예약서비스를 이용해주시기 바랍니다.</p>
-							<p><span class="div-check"></span>&nbsp;당일예약은 불가하오니 최소 1일 전에 예약해주시기 바랍니다.</p>
+							<p><span class="div-check"></span>&nbsp;당일예약은 불가하오니 원하시는 날짜의 최소 1일 전까지 예약해주시기 바랍니다.</p>
 							<p><span class="div-check"></span>&nbsp;예약수정과 취소는 예약한 날짜의 1일 전 18시까지만 가능합니다.</p>
 							<p><span class="div-check"></span>&nbsp;온라인으로 예약하기 어려우신 분들은 카워시 고객센터나 해당 세차장에 문의하시면 조금 더 빠른 예약이 가능합니다.</p>
 							<p><span class="div-check"></span>&nbsp;전화예약의 경우 09~17시까지 가능하오니 예약하실 때 유의하시기 바랍니다.</p>
@@ -228,8 +238,8 @@
 			
 			<div class="row footer-mb"> 
 				<div class="col-md-12 text-right"> 
-					<button type="button" class="btn btn-insert-join" onclick="location.href='/carwash/admin/free/list'">예약하기</button>
-					<button type="button" class="btn btn-dark btn-cancel-join " onclick="location.href='#'">목록</button>
+					<button type="submit" class="btn btn-insert-join" onclick="location.href='/carwash/user/reserve/insert'">예약하기</button>
+					<button type="button" class="btn btn-dark btn-cancel-join " onclick="location.href='/carwash/user/reserve/list'">목록</button>
 				</div>
 			</div>
 		</form>
@@ -253,7 +263,6 @@
 		$('#reserv_phone').mask('(000)-0000-0000', {
 			placeholder : "(___)-____-____"
 		});
-
 		
 		/* 예약날짜 Datepicker */
 		$("#datepicker").datepicker({
@@ -262,40 +271,88 @@
 	        todayHighlight: true
 		});
 		
-		
 		/* 예약시간 Timepicker */
 		$("#timepicker").timepicker();
 			
 		
-		/* 시도명 시군구명 onchange */
-		$('#sido_name').change(function() {
-			//alert($(this).val());
-		});
-		
+		/* 지역선택 화면에 뿌려줄 때 처음 값 자동으로 강원도로 세팅 */
 		loadCity("강원도");
+		loadBusiName("강원도", "강릉시");
+		
+		/* 차량모델명 글자수 제한 */
+		$("#car_model").keyup(function(){
+			
+			if($(this).val().length > 13) {
+		         $(this).val($(this).val().substring(0, 13));
+		         alert('최대 13글자까지 입력할 수 있습니다.');
+		     };
+        });
+		
+		/* 차량번호 글자수 제한 */
+		$("#car_number").keyup(function(){
+			
+			if($(this).val().length > 9) {
+		         $(this).val($(this).val().substring(0, 9));
+		         alert('최대 9글자까지 입력할 수 있습니다.');
+		     };
+        });
+		
+		/* 추가 요청사항 글자수 제한 */
+		$("#request_message").keyup(function(){
+			
+			if($(this).val().length > 50) {
+		         $(this).val($(this).val().substring(0, 50));
+		         alert('최대 50글자까지 입력할 수 있습니다.');
+		     };
+        });
+		
 		
 		
 	});
 	
 	
+	/* 지역선택 SELECT 부분 처음 시도명 선택했을 때 그에 해당하는 시군구명 출력 */
 	function loadCity(sido) {
 		
 		$.ajax({
-			url : '/carwash/reserve/city?sido=' + sido, 		
-			type : 'get',
-			success : function(data) {
+			url : '/carwash/user/reserve/city?sido=' + sido, 		
+			type : 'get',									/* "data: " => 이 data는 보내는 값  */
+			async: false, 
+			success : function(data) {						/* 이 data는 받아오는 값 */
 				
 				var a = "";
 				
-				$.each(data,function(eky,value){
+				$.each(data, function(key,value){
 					a += '<option value="'+ value.city_name + '">' + value.city_name + '</option>'
 				});
 				
 		   		$('#city_name').html(a);
 			}
-			
 		});
-	}
+	};
+	
+	
+	/* 지역선택 시도명과 시군구명을 SELECT 했을 경우 그에 해당하는 사업장명을 출력 */
+	function loadBusiName() {
+		
+		var sido = $('#sido_name').val();
+		var city = $('#city_name').val(); 
+		
+		$.ajax({
+			url : '/carwash/user/reserve/businName?sido=' + sido + '&city=' + city,		
+			type : 'get',									
+			success : function(data) {						
+				
+				var a = "";
+				
+				$.each(data,function(key, value){
+					a += '<option value="'+ value.busin_place_name + '">' + value.busin_place_name + '</option>'
+				});
+				
+		   		$('#busin_place_name').html(a);
+			}
+		});
+	};
 	
 	
 	

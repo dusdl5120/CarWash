@@ -1,6 +1,8 @@
 package kr.green.carwash.controller.admin;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -21,6 +23,7 @@ import kr.green.carwash.service.admin.AdminFreeBoardService;
 import kr.green.carwash.service.admin.ReplyService;
 import kr.green.carwash.vo.admin.AdminFreeBoardVO;
 import kr.green.carwash.vo.admin.AdminMemberVO;
+import kr.green.carwash.vo.admin.AdminNoticeVO;
 import kr.green.carwash.vo.admin.ReplyVO;
 
 @Controller
@@ -65,24 +68,33 @@ public class AdminFreeBoardController {
 		
 		System.out.println("******** pageMaker : " + pageMaker + ", totCnt : " + totCnt + " ********");
 		
+		Date date = new Date(); 
+		SimpleDateFormat simpleDate = new SimpleDateFormat("yyyy-MM-dd");
+		String inputDate = (String)simpleDate.format(date); 
+		
+		boolean regDate[] = new boolean[list.size()];
+		int cnt = 0;
+		
+		System.out.println("//////////////////////"+inputDate);
+		
+		for(AdminFreeBoardVO tmp : list) {
+			
+			String freeDate = (String)simpleDate.format(tmp.getRegistered_date());
+			
+			if (inputDate.compareTo(freeDate) == 0) {
+				regDate[cnt++] = true;
+			} 
+			else
+				regDate[cnt++] = false;
+		}
+		
+		model.addAttribute("regDate", regDate);
 		
 		model.addAttribute("admin", admin);
 		model.addAttribute("list", list);
 		model.addAttribute("pageMaker", pageMaker);
 		model.addAttribute("search", search);
 		model.addAttribute("type", type);
-		
-		/*totCnt = adminFreeBoardService.countBoard(cri);
-		pageMaker.setCriteria(cri);
-		pageMaker.setTotalCount(totCnt);
-		
-		ArrayList<AdminFreeBoardVO> list = (ArrayList) adminFreeBoardService.boardListPage(pageMaker.getCriteria());
-		
-		
-		System.out.println("******** pageMaker : " + pageMaker + ", totCnt : " + totCnt + " ********");
-  
-		model.addAttribute("list", list);
-		model.addAttribute("pageMaker", pageMaker);*/
 		
 		return "/admin/free/list";
 	}
@@ -208,7 +220,7 @@ public class AdminFreeBoardController {
 	
 	/* 자유게시판 게시글 삭제 */
 	@RequestMapping(value="/delete")
-	public String freeBoardDeletePost(Model model, Criteria cri, AdminFreeBoardVO adFreeVO, HttpServletRequest request) throws Exception {
+	public String freeBoardDeletePost(Model model, Criteria cri, AdminFreeBoardVO adFreeVO, HttpServletRequest request, Integer id) throws Exception {
 		
 		HttpSession session = request.getSession();
 		AdminMemberVO user = (AdminMemberVO) session.getAttribute("user");

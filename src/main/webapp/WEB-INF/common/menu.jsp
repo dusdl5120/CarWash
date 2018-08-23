@@ -13,11 +13,11 @@
 			<li class="nav-item"><a class="nav-link js-scroll-trigger" href="/carwash">Home</a></li>
 			<li class="nav-item"><a class="nav-link js-scroll-trigger" href="/carwash/admin/notice/list">공지사항</a></li>
 			<li class="nav-item"><a class="nav-link js-scroll-trigger" href="#">이용안내</a></li>
-			<c:if test="${admin}">
-				<li class="nav-item"><a class="nav-link js-scroll-trigger" href="/carwash/reserve/insert">예약하기</a></li>
+			<c:if test="${users}">
+				<li class="nav-item"><a class="nav-link js-scroll-trigger pointer" onclick="myFunction(0)">예약하기</a></li>
 			</c:if>
-			<c:if test="${!admin}">
-				<li class="nav-item"><a class="nav-link js-scroll-trigger" href="/carwash/reserve/insert" onfocus="myFunction(this)">예약하기</a></li>
+			<c:if test="${!users}">
+				<li class="nav-item"><a class="nav-link js-scroll-trigger pointer" onclick="myFunction(1)">예약하기</a></li>
 			</c:if>
 			<li class="nav-item"><a class="nav-link js-scroll-trigger" href="/carwash/admin/free/list">자유게시판</a></li>
 		</ul>
@@ -32,7 +32,14 @@
 					<a class="nav-link js-scroll-trigger" href="/carwash/admin/member/logout">로그아웃</a>
 				</li>
 			</c:if>
-			<c:if test="${!admin }">
+			<c:if test="${users}">
+				<li class="nav-item"><a class="nav-link js-scroll-trigger"><b>${ user.user_name}</b>&nbsp;님!</a></li>   
+				<li class="nav-item"><a class="nav-link js-scroll-trigger" href="/carwash/admin/member/myPage">마이페이지</a></li>  
+				<li class="nav-item">
+					<a class="nav-link js-scroll-trigger" href="/carwash/admin/member/logout">로그아웃</a>
+				</li>
+			</c:if>
+			<c:if test="${!(admin || users)}">
 				<li class="nav-item"><a class="nav-link js-scroll-trigger" data-toggle="modal" href="#loginModal" style="magrin-left: 50px;">로그인</a></li>
 				<li class="nav-item"><a class="nav-link js-scroll-trigger" data-toggle="modal" href="#joinModal">회원가입</a></li>
 			</c:if>
@@ -47,21 +54,27 @@
 	<div class="modal-dialog">
 		<div class="modal-content">
 			<div class="modal-header">
-				<h5 class="modal-title" style="text-align: left;"><strong>Welcome</strong>, Please login</h5>
+				<h5 class="modal-title text-left"><strong>Welcome</strong>, Please login</h5>
 				<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
 			</div><br />
 			
 			<form method="post" action="/carwash/admin/member/login">
 				<div class="form-group">
 	                <div class="col-md-12">
-	                    <input type="text" class="form-control" id="loginId" name="admin_id" placeholder="로그인ID"/>
+	                    <input type="text" class="form-control" id="loginId" name="loginId" placeholder="로그인ID"/>
 	                </div>
 	            </div>
 	            <div class="form-group">
 	                <div class="col-md-12">
-	                    <input type="password" class="form-control" id="loginPw" name="admin_passwd" placeholder="비밀번호"/>
+	                    <input type="password" class="form-control" id="loginPw" name="loginPw" placeholder="비밀번호"/>
 	                </div>
 	            </div>
+	            <div class="form-group">
+	                <div class="col-md-12">
+	                    <label for="user1"><input type="radio" class="icheck" id="user1" name="mode" checked value="1"/>&nbsp;사용자</label>
+	                    <label for="admin1"><input type="radio" class="icheck" id="admin1" name="mode" value="0" style="margin-left: 20px;"/>&nbsp;관리자</label>
+	                </div>
+                </div>
 	            <div class="form-group">
 	                <div class="col-md-6">
 	                    <a href="#" id="forgotPw">비밀번호를 깜빡하셨어요?</a>
@@ -84,11 +97,11 @@
 	<div class="modal-dialog">
 		<div class="modal-content">
 			<div class="modal-header">
-				<h5 class="modal-title" style="text-align: left;"><strong>Welcome</strong>, Please choice</h5>
+				<h5 class="modal-title text-left"><strong>Welcome</strong>, Please choice</h5>
 				<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
 			</div><br />
             <div class="form-group">
-               <div class="col-md-12" style="text-align: center;">
+               <div class="col-md-12 text-center">
                    <button type="button" class="btn btn-dark" onclick="location.href='/carwash/user/member/join'">사용자</button>
                    <button type="button" class="btn btn-dark" onclick="location.href='/carwash/admin/member/join'" style="margin-left: 10%;">관리자</button>
                </div>
@@ -101,6 +114,9 @@
 <script>
 /* 회원만 등록가능, 비회원은 로그인페이지로 */
 function myFunction(x) {
-	window.location.href = "/carwash/admin/member/needLogin"
-}
+	if(x == 1)
+		window.location.href = "/carwash/admin/member/needLogin";
+	else 
+		window.location.href = "/carwash/user/reserve/insert";
+};
 </script>

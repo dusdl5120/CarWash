@@ -20,7 +20,9 @@ import org.springframework.web.servlet.ModelAndView;
 
 import kr.green.carwash.common.pagination.Criteria;
 import kr.green.carwash.service.admin.AdminMemberService;
+import kr.green.carwash.service.user.UserMemberService;
 import kr.green.carwash.vo.admin.AdminMemberVO;
+import kr.green.carwash.vo.user.MemberVO;
 
 @Controller
 @RequestMapping(value="/admin/member/*")
@@ -28,6 +30,9 @@ public class AdminMemberController {
 
 	@Resource(name="adminMemberService")
 	AdminMemberService adminMemberService;
+
+	@Resource(name="userMemberService")
+	UserMemberService userMemberService;
 	
 	@Autowired
 	BCryptPasswordEncoder passwordEncoder;
@@ -95,19 +100,43 @@ public class AdminMemberController {
 	
 	/* 로그인 */
 	@RequestMapping(value = "/login", method = RequestMethod.POST)
-	public String login(Model model, HttpServletRequest request) throws Exception {
+	public String login(Model model, HttpServletRequest request, Integer mode) throws Exception {
 		
-		/* 관리자로 로그인했을 때의 아이디랑 비번 정보를 가져옴 */
-	    String id = request.getParameter("admin_id");
-	    String pw = request.getParameter("admin_passwd");
+		/* 로그인했을 때의 아이디랑 비번 정보를 가져옴 */
+	    String id = request.getParameter("loginId");
+	    String pw = request.getParameter("loginPw");
 	    
-	    /* 로그인할때 id의 값을 가져와서 user객체에 담아 */
-	    AdminMemberVO user = adminMemberService.loginById(id);
-	    
-	    /* id를 가져온 정보가 null이 아니고 , 입력한 비밀번호와 암호화된 비밀번호와 일치했을 경우 모델에 담아서 메인으로 리다이렉트 */
-	    if(user != null && passwordEncoder.matches(pw, user.getAdmin_passwd())) {
-	        model.addAttribute("user", user);
-	        return "redirect:/"; 
+	    /* 로그인한 사람이 관리자일 경우 */
+	    if(mode == 0) {
+	    	
+		    /* 로그인할때 관리자ID의 값을 가져와서 user객체에 담는다 */
+		    AdminMemberVO user = adminMemberService.loginById(id);
+		    
+		    /* id를 가져온 정보가 null이 아니고 , 입력한 비밀번호와 암호화된 비밀번호와 일치했을 경우 모델에 담아서 메인으로 리다이렉트 */
+		    if(user != null && passwordEncoder.matches(pw, user.getAdmin_passwd())) {
+		    	
+		    	/* 로그인한 관리자계정의 정보를 MODEL에 담고,
+		    	 * MODE를 관리자로 설정 후 메인으로 리턴 */
+		        model.addAttribute("user", user);
+		        model.addAttribute("mode", 0);
+		        return "redirect:/"; 
+		    }
+		    
+		/* 로그인한 사람이 사용자일 경우 */    
+	    } else {
+	    	
+	    	/* 로그인할때 사용자ID의 값을 가져와서 user객체에 담는다 */
+		    MemberVO user = userMemberService.loginById(id);
+		    
+		    /* id를 가져온 정보가 null이 아니고 , 입력한 비밀번호와 암호화된 비밀번호와 일치했을 경우 모델에 담아서 메인으로 리다이렉트 */
+		    if(user != null && passwordEncoder.matches(pw, user.getUser_passwd())) {
+		    	
+		    	/* 로그인한 사용자계정의 정보를 MODEL에 담고,
+		    	 * MODE를 사용자로 설정 후 메인으로 리턴 */
+		        model.addAttribute("user", user);
+		        model.addAttribute("mode", 1);
+		        return "redirect:/"; 
+		    }
 	    }
 	    
 	    /* 일치하지 않을 경우 로그인 페이지로 이동 */
@@ -262,14 +291,23 @@ public class AdminMemberController {
 		
 		adMemberVO.setAdmin_id(user.getAdmin_id());
 		model.addAttribute("admin", admin);
+		model.addAttribute("adMemberVO", adMemberVO);
 		
-		adminMemberService.myDelete(adMemberVO);
 		
-		return "redirect:/";
+		String pw = request.getParameter("admin_passwd");
+		
+		if(user != null && passwordEncoder.matches(pw, user.getAdmin_passwd())) {
+			
+			adminMemberService.myDelete(adMemberVO);
+			session.removeAttribute("user");
+			return "redirect:/";
+	    }
+		
+		return "/admin/mypage/delete";
 	}
 	
 	
-	// 로그인 후 글쓰기
+	 /* 로그인 후 글쓰기 */
 	   @RequestMapping(value = "/needLogin")
 	   public ModelAndView needLogin() throws Exception {
 	      

@@ -59,9 +59,21 @@
 
 	<section id="bg-gray"> 
 		<div class="row">
-			<div class="col-md-12 text-center section-margin">
+			<div class="col-md-12 text-center section-margin margin-bt15">
 				<h4 class="h4Size">공지사항</h4><br><br><br>
 			</div>
+		</div>
+		
+		<div class="row">
+			<div class="col-md-12">	
+				<div class="row">	
+					<div class="offset-md-4 col-md-4">
+						<div class="text-right">
+							<a class="label-bold" href="/carwash/admin/notice/list">[more..]</a>
+						</div>
+					</div>
+				</div>
+			</div>	
 		</div>
 		
 		<div class="row">
@@ -139,7 +151,7 @@
 		if(x == 1)
 			window.location.href = "/carwash/admin/member/needLogin";
 		else
-			window.location.href = "/carwash/reserve/insert";
+			window.location.href = "/carwash/user/reserve/insert";
 	}
 </script>
 

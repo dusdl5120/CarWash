@@ -31,7 +31,9 @@
 		 
 		<form method="post" class="form" id="form"> 
 			<div class="form-div">
-			 
+			 	
+			 	<input type="hidden" id="adminId" value="${adMemberVO.admin_id }"/>
+			 	
 				<div class="row delete-margin"> 
 					<div class="col-md-12 text-center col-top"> 
 						 <p>지금 탈퇴하시면 예약내역 및 개인정보가 모두 삭제됩니다.</p>
@@ -47,7 +49,7 @@
 						<input type="password" class="input form-control mydelete-form" id="admin_passwd" name="admin_passwd">
 					</div>
 					<div class="col-md-3 text-left">
-						<button type="submit" class="btn btn-danger" id="save" onclick="location.href='/carwash/admin/member/myDelete'">탈퇴</button>
+						<button type="submit" class="btn btn-danger" id="delete">탈퇴</button>
 					</div>
 				</div>
 				<br> <br>
@@ -65,12 +67,23 @@
 </body>
 
 <script>
-	$(function() {
-		$('#save').click(function() {
-	    	var str = document.getElementById('form');
-	    	str.submit();
-	    	alert("회원탈퇴가 성공적으로 완료되었습니다.");
-	    });
+	$(document).ready(function() {
+		
+		$('#delete').click(function() {
+			
+			var adminId = '${adMemberVO.admin_id}';
+			var str = ('#form');
+
+			if (confirm("정말 탈퇴하시겠습니까?") == true) { 	
+				
+				location.href='/carwash/admin/member/myDelete?admin_id=' + adminId;
+				alert("회원탈퇴가 성공적으로 완료되었습니다.");
+				str.submit();
+				
+			} else { 			
+				return false;
+			}	
+		});
 	});
 </script>
 

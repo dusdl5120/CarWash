@@ -1,12 +1,12 @@
 package kr.green.carwash.vo.user;
 
-import java.sql.Time;
-import java.util.Date;
+import java.sql.Date;
 
 public class ReserveVO {
 
+	private Integer reserv_no;			// 예약번호
 	private String reserv_name;			// 예약자성명
-	private Integer reserv_phone;		// 예약자폰번호
+	private String reserv_phone;		// 예약자폰번호
 	private String reserv_email;		// 예약자이메일주소
 	private String reserv_passwd;		// 예약비밀번호
 	private String sido_name;			// 시도명
@@ -14,27 +14,33 @@ public class ReserveVO {
 	private String busin_place_name;	// 사업장명 
 	private String carwash_type;		// 세차유형
 	private Date reserv_date;			// 예약날짜
-	private Time reserv_time;			// 예약시간
+	private String reserv_time;			// 예약시간
 	private String category;			// 차량분류
 	private String car_model;			// 차량모델
-	private Integer car_number;			// 차량번호
+	private String car_number;			// 차량번호
 	private String agree_info;			// 개인정보수집동의
 	private String request_message;		// 추가요청메시지
+	private String registered_id;		// 등록자ID
 	private Date registered_date;		// 등록일시
 	private String updated_id;			// 수정자ID
 	private Date updated_date;			// 수정일시
 	
-	
+	public Integer getReserv_no() {
+		return reserv_no;
+	}
+	public void setReserv_no(Integer reserv_no) {
+		this.reserv_no = reserv_no;
+	}
 	public String getReserv_name() {
 		return reserv_name;
 	}
 	public void setReserv_name(String reserv_name) {
 		this.reserv_name = reserv_name;
 	}
-	public Integer getReserv_phone() {
+	public String getReserv_phone() {
 		return reserv_phone;
 	}
-	public void setReserv_phone(Integer reserv_phone) {
+	public void setReserv_phone(String reserv_phone) {
 		this.reserv_phone = reserv_phone;
 	}
 	public String getReserv_email() {
@@ -79,10 +85,10 @@ public class ReserveVO {
 	public void setReserv_date(Date reserv_date) {
 		this.reserv_date = reserv_date;
 	}
-	public Time getReserv_time() {
+	public String getReserv_time() {
 		return reserv_time;
 	}
-	public void setReserv_time(Time reserv_time) {
+	public void setReserv_time(String reserv_time) {
 		this.reserv_time = reserv_time;
 	}
 	public String getCategory() {
@@ -97,10 +103,10 @@ public class ReserveVO {
 	public void setCar_model(String car_model) {
 		this.car_model = car_model;
 	}
-	public Integer getCar_number() {
+	public String getCar_number() {
 		return car_number;
 	}
-	public void setCar_number(Integer car_number) {
+	public void setCar_number(String car_number) {
 		this.car_number = car_number;
 	}
 	public String getAgree_info() {
@@ -114,6 +120,12 @@ public class ReserveVO {
 	}
 	public void setRequest_message(String request_message) {
 		this.request_message = request_message;
+	}
+	public String getRegistered_id() {
+		return registered_id;
+	}
+	public void setRegistered_id(String registered_id) {
+		this.registered_id = registered_id;
 	}
 	public Date getRegistered_date() {
 		return registered_date;
@@ -143,5 +155,6 @@ public class ReserveVO {
 				+ ", car_model=" + car_model + ", car_number=" + car_number + ", request_message=" + request_message
 				+ "]";
 	}
+	
 	
 }

@@ -26,7 +26,7 @@
 
 			<div class="col-md-4"></div>
 			<div class="col-md-4 text-center text-title">
-				<label>&nbsp;&nbsp;<strong>상세정보</strong></label>
+				<label>&nbsp;&nbsp;<strong>자유게시판</strong></label>
 			</div>
 			<div class="col-md-4"></div>
 
@@ -36,95 +36,93 @@
 		
 		<!-- 자유게시판 상세정보 -->
 		<form method="post" id="form" class="form"> 
-			<div class="form-div">
-				
-				<div class="row form-row"> 
-					<div class="col-md-1 text-right col-top"> 
-						<label class="control-label" for="cnt">조회수</label>
+			<div class="row reserv-form-div"> 
+				<div class="col-md-12"> 
+					
+					<div class="text-left reserv-label">
+						<label>&nbsp; 상세정보 <img src="<c:url value='/resources/images/detail.png'/>"></label>
 					</div>
-					<div class="col-md-6 text-left"> 
-						<label class="input form-control" id="cnt">${board.cnt }</label>
-					</div>
-					<div class="col-md-2 text-right col-top"> 
-						<label class="control-label" for="registered_date">등록일시</label>
-					</div>
-					<div class="col-md-3 text-left"> 
-						<label class="input form-control" id="registered_date"><fmt:formatDate value="${board.registered_date}" pattern="yyyy-MM-dd HH:mm:ss" /></label>
-					</div>
+					
+					<div class="row detail-margin"> 
+						<div class="col-md-2 text-right col-top"> 
+							<label class="control-label" for="cnt">조회수</label>
+						</div>
+						<div class="col-md-5 text-left"> 
+							<input type="text" class="input form-control input-read" id="cnt" name="cnt" value="${board.cnt }" readonly>
+						</div>
+						<div class="col-md-2 text-right col-top">
+							<label class="control-label" for="registered_date">작성일시</label>
+						</div>
+						<div class="col-md-2 text-left"> 
+							<label class="input form-control input-read" id="registered_date"><fmt:formatDate value="${board.registered_date}" pattern="yyyy-MM-dd HH:mm:ss" /></label>
+						</div>
+					</div><br>
+					
+					
+					<div class="row ">  
+						<div class="col-md-2 text-right col-top"> 
+							<label class="control-label" for="registered_id">작성자</label>
+						</div>
+						<div class="col-md-9 text-left"> 
+							<input type="text" class="input form-control input-read" id="registered_id" name="registered_id" value="${board.registered_id }" readonly>
+						</div> 
+					</div><br>
+					
+					
+					<div class="row "> 
+						<div class="col-md-2 text-right col-top"> 
+							<label class="control-label" for="title">제목</label>
+						</div>
+						<div class="col-md-9 text-left"> 
+							<input type="text" class="input form-control" id="title" name="title" value="${board.title }" readonly>
+						</div>
+					</div><br>
+ 
+					
+					<div class="row"> 
+						<div class="col-md-2 text-right col-top"> 
+							<label class="control-label" for="contents">내용</label>
+						</div>
+						<div class="col-md-9 text-left"> 
+							<textarea class="input form-control" id="contents" name="contents" rows="10" readonly>${board.contents }</textarea>
+						</div>
+					</div><br>
+					
 				</div>
-				<br> <br>
-				
-				
-				<div class="row form-row"> 
-					<div class="col-md-1 text-right col-top"> 
-						<label class="control-label" for="registered_id">작성자</label>
-					</div>
-					<div class="col-md-11 text-left"> 
-						<input type="text" class="input form-control" style="border: none;" id="registered_id" name="registered_id" value="${board.registered_id }" readonly>
-					</div>
+			</div>
+			<br> <br> 
+			
+			<div class="row footer-mb"> 
+				<div class="col-md-12 text-right">
+					<c:if test="${admin}"> 
+						<button type="button" class="btn btn-danger btn-cancel-reserve" id="delete">삭제</button>
+						<button type="button" class="btn btn-insert-join" onclick="location.href='/carwash/admin/free/update?id=${board.id}'">수정</button>
+					</c:if>
+					<button type="button" class="btn btn-dark btn-cancel-join" onclick="location.href='/carwash/admin/free/list'">목록</button>
 				</div>
-				<br> <br>
-				
-				
-				<div class="row form-row"> 
-					<div class="col-md-1 text-right col-top"> 
-						<label class="control-label" for="title">제목</label>
-					</div>
-					<div class="col-md-11 text-left"> 
-						<input type="text" class="input form-control" id="title" name="title" value="${board.title }" readonly>
-					</div>
-				</div>
-				<br> <br>
-				
-				
-				<div class="row form-row"> 
-					<div class="col-md-1 text-right col-top"> 
-						<label class="control-label" for="contents">내용</label>
-					</div>
-					<div class="col-md-11 text-left"> 
-						<textarea class="input form-control" id="contents" name="contents" rows="10" readonly>${board.contents }</textarea>
-					</div>
-				</div>
-				
-				<!-- <div class="row form-row">  
-					<div class="col-md-1"></div>
-					<div class="col-md-1 text-right col-top"> 
-						<label class="control-label" for="file_name">첨부파일<b style="color: red;">&nbsp;*</b></label>
-					</div>
-					<div class="col-md-7" style="text-align: left;"> 
-						<input class="input form-control" id="file_name" name="file_name" readonly /> 
-					</div>
-					<div class="col-md-2"></div>
-				</div>
-				<br> <br> -->
-				
-				
-				<div class="row form-row-button"> 
-					<div class="col-md-12 text-right"> 
-						<button type="button" class="btn btn-dark btn-cancel" onclick="location.href='/carwash/admin/free/list'">목록</button>
-						<c:if test="${admin}">
-							<button type="button" class="btn btn-dark btn-cancel" onclick="location.href='/carwash/admin/free/update?id=${board.id}'">수정</button>
-							<button type="button" class="btn btn-danger btn-update" id="delete" onclick="location.href='/carwash/admin/free/delete?id=${board.id}'">삭제</button>
-						</c:if>
-					</div>
-				</div><br>
-				
 			</div>
 		</form>
+				
 		
 		<!-- 댓글등록 -->
 		<form name="replyInsertForm">
 			<div class="row reply-form"> 
 				<div class="col-md-12"> 
+				
+					<div class="text-left reserv-label">
+						<label class="label-bold">&nbsp; 댓글등록 <img src="<c:url value='/resources/images/comment.png'/>"></label>
+					</div>
 			
 					<input type="hidden" name="freeNo" value="${board.id}"/>
 					
 					<div class="text-left col-top">
-						<c:if test="${admin}">
+						
+						<c:if test="${admin}"> 
+							<label class="control-label label-bold" for="registered_id">&nbsp; 작성자 : </label>
 							<input type="text" class="reply-input-id" name="registered_id" value="${user.admin_id}" placeholder="작성자" readonly>
 						</c:if>
 						<c:if test="${!admin}">
-							<label style="margin-top: 10px;">&nbsp; 회원만 댓글을 작성하실 수 있어요<img style="margin-bottom: 5px;" src="<c:url value='/resources/images/smile.png'/>"></label>
+							<label class="label-bold" style="margin-top: 10px;">&nbsp; 회원만 댓글을 작성하실 수 있어요<img style="margin-bottom: 5px;" src="<c:url value='/resources/images/smile.png'/>"></label>
 						</c:if>
 					</div>
 					
@@ -139,7 +137,7 @@
 					
 					<div class="text-right btn-reply">
 						<c:if test="${admin}">
-							<button type="button" class="btn btn-primary btn-reply-insert" name="replyInsert">등록</button>
+							<button type="button" class="btn btn-reply-insert" name="replyInsert">등록</button>
 						</c:if>
 						<c:if test="${!admin}">
 							<a href="/carwash/admin/member/needLogin"><button type="button" class="btn  btn-reply-insert" name="replyInsert">등록</button></a>
@@ -207,14 +205,16 @@
 		
 		/* 댓글삭제 버튼을 클릭 시 삭제여부 확인창 띄우기 */
 		$('#delete').click(function() {
-			var freeNo = '${board.id}';
 			
-			var str = document.getElementById('form');
-			str.submit();
+			var id = '${board.id}';
+			var str = ('#form');
 
-			if (confirm("정말 삭제하시겠습니까?") == true) { 	/* 확인 */
-				document.form.submit();
-			} else { 											/* 취소 */
+			if (confirm("정말 삭제하시겠습니까?") == true) {
+				
+				location.href='/carwash/admin/free/delete?id=' + id;
+				str.submit();
+				
+			} else { 											
 				return false;
 			}
 		});

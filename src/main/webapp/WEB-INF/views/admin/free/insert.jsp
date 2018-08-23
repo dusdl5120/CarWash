@@ -30,72 +30,74 @@
 
 			<div class="col-md-4"></div>
 			<div class="col-md-4 text-center text-title">
-				<label>&nbsp;&nbsp;<strong>글쓰기</strong></label>
+				<label>&nbsp;&nbsp;<strong>자유게시판</strong></label>
 			</div>
 			<div class="col-md-4"></div>
 
 			<br><br>
 		</div>
 
-
-		<form method="post" class="form"> 
-			<div class="form-div">
-			 
-				<div class="row form-row"> 
-					<div class="col-md-1 text-right col-top"> 
-						<label class="control-label" for="registered_id">작성자</label>
+		
+		<form method="post" id="form" class="form"> 
+			<div class="row reserv-form-div"> 
+				<div class="col-md-12"> 
+					
+					<div class="text-left reserv-label">
+						<label>&nbsp; 등록하기 <img src="<c:url value='/resources/images/insert.png'/>"></label>
 					</div>
-					<div class="col-md-11 text-left"> 
-						<input type="text" class="input form-control" style="border: none;" id="registered_id" name="registered_id" value="${adFreeVO.registered_id }" disabled>
-					</div>
+					
+					
+					<div class="row detail-margin">  
+						<div class="col-md-2 text-right col-top"> 
+							<label class="control-label" for="registered_id">작성자</label>
+						</div>
+						<div class="col-md-9 text-left"> 
+							<input type="text" class="input form-control input-read" id="registered_id" name="registered_id" value="${adFreeVO.registered_id }" readonly>
+						</div> 
+					</div><br>
+					
+					
+					<div class="row detail-margin"> 
+						<div class="col-md-2 text-right col-top"> 
+							<label class="control-label" for="title">제목<b>&nbsp;*</b></label>
+						</div>
+						<div class="col-md-9 text-left"> 
+							<input type="text" class="input form-control" id="title" name="title">
+						</div>
+					</div><br>
+ 
+					
+					<div class="row detail-margin"> 
+						<div class="col-md-2 text-right col-top"> 
+							<label class="control-label" for="contents">내용<b>&nbsp;*</b></label>
+						</div>
+						<div class="col-md-9 text-left"> 
+							<textarea class="input form-control" id="contents" name="contents" rows="10"></textarea>
+						</div>
+					</div><br>
+					
+					
+					<div class="row detail-margin"> 
+						<div class="col-md-2 text-right col-top"> 
+							<label class="control-label" for="file_name">첨부파일</label>
+						</div>
+						<div class="col-md-9 text-left"> 
+							<input type="file" class="input form-control" id="file_name" name="file_name"/>
+						</div>
+					</div><br>
+					
 				</div>
-				<br> <br>
-				
-				
-				<div class="row form-row"> 
-					<div class="col-md-1 text-right col-top"> 
-						<label class="control-label" for="title">제목<b>&nbsp;*</b></label>
-					</div>
-					<div class="col-md-11 text-left"> 
-						<input type="text" class="input form-control" id="title" name="title">
-					</div>
+			</div>
+			<br> <br> 
+			
+			<div class="row footer-mb"> 
+				<div class="col-md-12 text-right"> 
+					<button type="submit" class="btn btn-insert-join" onclick="location.href='/carwash/admin/free/insert'">등록</button>
+					<button type="button" class="btn btn-dark btn-cancel-join" onclick="location.href='/carwash/admin/free/list'">목록</button>
 				</div>
-				<br> <br>
-				
-				
-				<div class="row form-row"> 
-					<div class="col-md-1 text-right col-top"> 
-						<label class="control-label" for="contents">내용<b>&nbsp;*</b></label>
-					</div>
-					<div class="col-md-11 text-left"> 
-						<textarea class="input form-control" id="contents" name="contents" rows="10"></textarea>
-					</div>
-				</div>
-				<br> <br>
-				
-				
-				<div class="row form-row"> 
-					<div class="col-md-1 text-right col-top"> 
-						<label class="control-label" for="file_name">첨부파일</label>
-					</div>
-					<div class="col-md-11 text-left"> 
-						<input type="file" class="input form-control" name="file_name"/>
-					</div>
-				</div>
-				<br> <br>
-				
-				
-				<div class="row form-row-button"> 
-					<div class="col-md-12 text-right"> 
-						<button type="button" class="btn btn-dark btn-cancel" onclick="location.href='/carwash/admin/free/list'">취소</button>
-						<button type="submit" class="btn btn-insert" onclick="location.href='/carwash/admin/free/insert'">등록</button>
-					</div>
-				</div>
-				<br> <br>
-				
-				
 			</div>
 		</form>
+		
 	</div>
 
 	<!-- Contents -->
@@ -107,8 +109,25 @@
 </body>
 
 <script>
-	$(function() {
+	$(document).ready(function() {
+		
+		/* 제목 글자수 제한 */
+		$("#title").keyup(function() {
 
+			if ($(this).val().length > 50) {
+				$(this).val($(this).val().substring(0, 50));
+				alert('최대 50글자까지 입력할 수 있습니다.');
+			};
+		});
+
+		/* 내용 글자수 제한 */
+		$("#title").keyup(function() {
+
+			if ($(this).val().length > 3000) {
+				$(this).val($(this).val().substring(0, 3000));
+				alert('최대 3000글자까지 입력할 수 있습니다.');
+			};
+		});
 	});
 </script>
 

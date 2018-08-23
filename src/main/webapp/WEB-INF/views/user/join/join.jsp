@@ -17,163 +17,186 @@
 	
 	<!-- Contents -->
 	<div class="container">
-		<div class="row" style="margin-top: 16%;">  
+		<div class="row container-rows">  
 			
 			<div class="col-md-4"></div>
 			<div class="col-md-4 text-center text-title">
-				<label>&nbsp;&nbsp;<strong>가입하기</strong>&nbsp;</label>
+				<label>&nbsp;&nbsp;<strong>회원가입</strong>&nbsp;</label>
 			</div>
 			<div class="col-md-4"></div>
 			
-				<br><br>
+			<br><br>
+			
 			
 			<form method="post" id="form" class="form"> 
-				<div class="form-div">
-					<div class="row form-row"> 
-						<div class="col-md-1"></div>
-						<div class="col-md-2 text-right col-top">
-							<label class="control-label" for="user_id">사용자ID<b>&nbsp;*</b></label>
+				<div class="row reserv-form-div"> 
+					<div class="col-md-12"> 
+				
+						<div class="text-left reserv-label">
+							<label>&nbsp; 회원정보입력 <img src="<c:url value='/resources/images/insert.png'/>"></label>
 						</div>
-						<div class="col-md-5"> 
-							<input type="text" class="input form-control" id="user_id" name="user_id">
-						</div>
-						<div class="col-md-2">
-							<button type="button" class="btn btn-dark" id="dup" style="width:100%;">중복확인</button> 
-						</div>
-						<div class="col-md-2"></div>
-					</div>
-					<br> <br>
-	
-	
-					<div class="row form-row">  
-						<div class="col-md-1"></div>
-						<div class="col-md-2 text-right col-top">
-							<label class="control-label" for="user_passwd">사용자비밀번호<b>&nbsp;*</b></label>
-						</div>
-						<div class="col-md-7"> 
-							<input type="password" class="input form-control" id="user_passwd" name="user_passwd">
-						</div>
-						<div class="col-md-2"></div>
-					</div>
-					<br> <br>
-					
-					
-					<div class="row form-row"> 
-						<div class="col-md-1"></div>
-						<div class="col-md-2 text-right col-top">
-							<label class="control-label" for="user_passwd">비밀번호 확인<b>&nbsp;*</b></label>
-						</div>
-						<div class="col-md-7"> 
-							<input type="password" class="input form-control" id="user_passwd_confirm" name="user_passwd_confirm"> 
-						</div>
-						<div class="col-md-2"></div>
-					</div>
-					<br> <br>
-	
-	
-					<div class="row form-row"> 
-						<div class="col-md-1"></div>
-						<div class="col-md-2 text-right col-top">
-							<label class="control-label" for="user_name">사용자이름<b>&nbsp;*</b></label>
-						</div>
-						<div class="col-md-7"> 
-							<input type="text" class="input form-control" id="user_name" name="user_name">
-						</div>
-						<div class="col-md-2"></div>
-					</div>
-					<br> <br>
-					
 						
-					<div class="row form-row"> 
-						<div class="col-md-1"></div>
-						<div class="col-md-2 text-right col-top">
-							<label class="control-label" for="phoneNumber">휴대폰번호<b>&nbsp;*</b></label>
-						</div>
-						<div class="col-md-5"> 
-							<input type="text" class="input form-control" id="phoneNumber" name="phoneNumber">
-						</div>
-						<div class="col-md-2">
-							<label class="check"><input type="checkbox" class="icheck" name="phoneCheckYn" name="phoneCheckYn"/>&nbsp;SMS 수신여부</label>
-						</div>
-						<div class="col-md-2"></div>
+						<div class="row reserv-form-row"> 
+							<div class="offset-md-2 col-md-8 margin-bt15">  
+								<div class="row">
+									<div class="col-md-3 text-right col-top"> 
+										<label class="control-label" for="user_id">사용자ID<b>&nbsp;*</b></label>
+									</div>
+									<div class="col-md-6 text-left"> 
+										<input type="text" class="input form-control" id="user_id" name="user_id">
+									</div>
+									<div class="col-md-2">
+										<button type="button" class="btn btn-dark" id="dup" style="width:100%;">중복확인</button> 
+									</div>
+								</div>
+							</div>
+						</div><br>  
+						
+						
+						<div class="row reserv-form-row"> 
+							<div class="offset-md-2 col-md-8 margin-bt15">  
+								<div class="row">
+									<div class="col-md-3 text-right col-top"> 
+										<label class="control-label" for="user_passwd">비밀번호<b>&nbsp;*</b></label>
+									</div>
+									<div class="col-md-8 text-left"> 
+										<input type="password" class="input form-control" id="user_passwd" name="user_passwd">
+									</div>
+								</div>
+							</div>
+						</div><br>  
+						
+						
+						<div class="row reserv-form-row"> 
+							<div class="offset-md-2 col-md-8 margin-bt15">  
+								<div class="row">
+									<div class="col-md-3 text-right col-top"> 
+										<label class="control-label" for="user_passwd">비밀번호확인<b>&nbsp;*</b></label>
+									</div>
+									<div class="col-md-8 text-left"> 
+										<input type="password" class="input form-control" id="user_passwd_confirm" name="user_passwd_confirm">
+									</div>
+								</div>
+							</div>
+						</div><br>  
+						
+						
+						
+						<div class="row reserv-form-row"> 
+							<div class="offset-md-2 col-md-8 margin-bt15">  
+								<div class="row">
+									<div class="col-md-3 text-right col-top"> 
+										<label class="control-label" for="user_name">사용자이름<b>&nbsp;*</b></label>
+									</div>
+									<div class="col-md-8 text-left"> 
+										<input type="text" class="input form-control" id="user_name" name="user_name">
+									</div>
+								</div>
+							</div>
+						</div><br>  
+						
+							
+						<div class="row reserv-form-row"> 
+							<div class="offset-md-2 col-md-8 margin-bt15">  
+								<div class="row">
+									<div class="col-md-3 text-right col-top"> 
+										<label class="control-label" for="phoneNumber">휴대폰번호<b>&nbsp;*</b></label>
+									</div>
+									<div class="col-md-5 text-left"> 
+										<input type="text" class="input form-control" id="phoneNumber" name="phoneNumber">
+									</div>
+									<div class="col-md-3 text-left"> 
+										<label class="check"><input type="checkbox" class="icheck" name="phoneCheckYn" name="phoneCheckYn"/>&nbsp;SMS 수신여부</label>
+									</div>
+								</div>
+							</div>
+						</div><br>  
+						
+						
+						<div class="row reserv-form-row"> 
+							<div class="offset-md-2 col-md-8 margin-bt15">  
+								<div class="row">
+									<div class="col-md-3 text-right col-top"> 
+										<label class="control-label" for="birth">생년월일</label>
+									</div>
+									<div class="col-md-8 text-left"> 
+										<input type="text" class="input form-control" id="birth" name="birth">
+									</div>
+								</div>
+							</div>
+						</div><br>  
+						
+						
+						<div class="row reserv-form-row"> 
+							<div class="offset-md-2 col-md-8 margin-bt15">  
+								<div class="row">
+									<div class="col-md-3 text-right col-top"> 
+										<label class="control-label" for="email">이메일주소</label>
+									</div>
+									<div class="col-md-5 text-left"> 
+										<input type="text" class="input form-control" id="email" name="email">
+									</div>
+									<div class="col-md-3 text-left"> 
+										<label class="check"><input type="checkbox" class="icheck" name="emailCheckYn" name="emailCheckYn"/>&nbsp;EMAIL 수신여부</label>
+									</div>
+								</div>
+							</div>
+						</div><br>  
+						
+						
+						<div class="row reserv-form-row"> 
+							<div class="offset-md-2 col-md-8 margin-bt15">  
+								<div class="row">
+									<div class="col-md-3 text-right col-top"> 
+										<label class="control-label" for="road_name_addr">도로명주소<b>&nbsp;*</b></label>
+									</div>
+									<div class="col-md-6 text-left"> 
+										<input type="text" class="input form-control" id="zip_code" name="zip_code" onclick="postCode()" readonly>
+									</div>
+									<div class="col-md-2">
+										<button type="button" class="btn btn-dark" onclick="postCode()" style="width:100%;">우편번호</button>
+									</div>
+								</div>
+							</div>
+						</div><br>  
+						
+						
+						<div class="row reserv-form-row"> 
+							<div class="offset-md-2 col-md-8 margin-bt15">  
+								<div class="row">
+									<div class="col-md-3 text-right col-top"> 
+										<label class="control-label" for="address"></label>
+									</div>
+									<div class="col-md-8 text-left"> 
+										<input type="text" class="input form-control" id="address" name="address">
+									</div>
+								</div>
+							</div>
+						</div><br>  
+						
+						
+						<div class="row reserv-form-row"> 
+							<div class="offset-md-2 col-md-8">  
+								<div class="row">
+									<div class="col-md-3 text-right col-top"> 
+										<label class="control-label" for="address_detail"></label>
+									</div>
+									<div class="col-md-8 text-left"> 
+										<input type="text" class="input form-control" id="address_detail" name="address_detail" placeholder="상세주소를 입력하세요">
+									</div>
+								</div>
+							</div>
+						</div><br>  
+						
 					</div>
-					<br> <br>
-					
-					
-					<div class="row form-row"> 
-						<div class="col-md-1"></div>
-						<div class="col-md-2 text-right col-top">
-							<label class="control-label" for="birth">생년월일</label>
-						</div>
-						<div class="col-md-7">
-							<input type="text" class="input form-control" id="birth" name="birth">
-						</div>
-						<div class="col-md-2"></div>
+				</div>
+				<br> <br>
+				
+				<div class="row footer-mb"> 
+					<div class="col-md-12 text-right"> 
+						<button type="submit" class="btn btn-insert-join" id="save" onclick="location.href='/carwash/user/member/join'">가입하기</button>
+						<button type="button" class="btn btn-dark btn-cancel-join " onclick="location.href='/carwash'">홈으로</button>
 					</div>
-					<br> <br>
-					
-					
-					<div class="row form-row">  
-						<div class="col-md-1"></div>
-						<div class="col-md-2 text-right col-top">
-							<label class="control-label" for="email">이메일주소</label>
-						</div>
-						<div class="col-md-5"> 
-							<input type="text" class="input form-control" id="email" name="email">
-						</div>
-						<div class="col-md-2">
-							<label class="check"><input type="checkbox" class="icheck" name="emailCheckYn" name="emailCheckYn"/>&nbsp;EMAIL 수신여부</label>
-						</div>
-						<div class="col-md-2"></div>
-					</div>
-					<br> <br>
-					
-					
-					<div class="row form-row"> 
-						<div class="col-md-1"></div>
-						<div class="col-md-2 text-right col-top">
-							<label class="control-label" for="address">도로명주소</label>
-						</div>
-						<div class="col-md-5"> 
-							<input type="text" class="input form-control" id="zip_code" name="zip_code" onclick="postCode()" readonly>
-						</div>
-						<div class="col-md-2">
-							<button type="button" class="btn btn-dark" onclick="postCode()" style="width:100%;">우편번호찾기</button>
-						</div>
-						<div class="col-md-2"></div>
-					</div>
-					<br> <br>
-					
-					
-					<div class="row form-row"> 
-						<div class="col-md-1"></div>
-						<div class="col-md-2 text-right col-top"></div>
-						<div class="col-md-7"> 
-							<input type="text" class="input form-control" id="address" name="address" readonly>
-						</div>
-						<div class="col-md-2"></div>
-					</div>
-					<br> <br>
-					
-					
-					<div class="row form-row"> 
-						<div class="col-md-1"></div>
-						<div class="col-md-2 text-right col-top"></div>
-						<div class="col-md-7"> 
-							<input type="text" class="input form-control" id="address_detail" name="address_detail" placeholder="상세주소">
-						</div>
-						<div class="col-md-2"></div>
-					</div>
-					<br> <br>
-					
-					<div class="row form-row-button"> 
-						<div class="col-md-12 text-center"> 
-							<button type="submit" class="btn btn-insert-join" onclick="location.href='/carwash/user/member/join'">가입하기</button>
-							<button type="button" class="btn btn-dark btn-cancel-join">취소</button>
-						</div>
-					</div>
-					<br> <br>
-					
 				</div>
 			</form>
 			
@@ -351,20 +374,6 @@ function postCode() {
             // 우편번호와 주소 정보를 해당 필드에 넣는다.
             document.getElementById('zip_code').value = data.zonecode; //5자리 새우편번호 사용
             document.getElementById('address').value = fullRoadAddr;
-
-            // 사용자가 '선택 안함'을 클릭한 경우, 예상 주소라는 표시를 해준다.
-            if(data.autoRoadAddress) {
-                //예상되는 도로명 주소에 조합형 주소를 추가한다.
-                var expRoadAddr = data.autoRoadAddress + extraRoadAddr;
-                document.getElementById('guide').innerHTML = '(예상 도로명 주소 : ' + expRoadAddr + ')';
-
-            } else if(data.autoJibunAddress) {
-                var expJibunAddr = data.autoJibunAddress;
-                document.getElementById('guide').innerHTML = '(예상 지번 주소 : ' + expJibunAddr + ')';
-
-            } else {
-                document.getElementById('guide').innerHTML = '';
-            }
         }
     }).open();
 }

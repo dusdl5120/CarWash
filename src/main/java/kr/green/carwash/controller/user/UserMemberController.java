@@ -68,49 +68,5 @@ public class UserMemberController {
 	    return map;
 	}
 	
-	 /*
-	 로그인 
-	@RequestMapping(value = "/login", method = RequestMethod.POST)
-	public String login(Model model, HttpServletRequest request) throws Exception {
-		
-		 관리자로 로그인했을 때의 아이디랑 비번 정보를 가져옴 
-	    String id = request.getParameter("admin_id");
-	    String pw = request.getParameter("admin_passwd");
-	    
-	     로그인할때 id의 값을 가져와서 user객체에 담아 
-	    AdminMemberVO user = adminMemberSerivice.loginById(id);
-	    
-	     id를 가져온 정보가 null이 아니고 , 입력한 비밀번호와 암호화된 비밀번호와 일치했을 경우 모델에 담아서 메인으로 리다이렉트 
-	    if(user != null && passwordEncoder.matches(pw, user.getAdmin_passwd())) {
-	        model.addAttribute("user", user);
-	        return "redirect:/"; 
-	    }
-	    
-	     일치하지 않을 경우 로그인 페이지로 이동 
-	    return "/admin/login/login";
-	}
-	
-	
-	 로그아웃 
-	@RequestMapping(value = "/logout")
-	public String logut(Model model, HttpServletRequest request) {
-		
-		HttpSession session = request.getSession();
-		AdminMemberVO user = (AdminMemberVO) session.getAttribute("user");	 
-		
-		if(user != null) 
-			session.removeAttribute("user");
-		
-		return "redirect:/";
-	}
-	
-	*/
-	
-	
-	
-	
-	
-	
-	
 }
  

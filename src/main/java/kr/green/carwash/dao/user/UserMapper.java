@@ -2,6 +2,7 @@ package kr.green.carwash.dao.user;
 
 import java.util.List;
 
+import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Repository;
 
 import kr.green.carwash.vo.user.MemberVO;
@@ -26,7 +27,14 @@ public interface UserMapper {
 	public List<ReserveVO> categoryListAll() throws Exception;		/* 차량분류 정보 불러오기 */
 	
 	public List<ReserveVO> cityList(String sido) throws Exception;
+	public List<ReserveVO> businNameList(@Param("sido") String sido, @Param("city") String city) throws Exception;
 	
+	public void reserveInsert(ReserveVO vo) throws Exception;
+	public List<ReserveVO> reserveList(ReserveVO vo) throws Exception;
+	public ReserveVO reserveRead(ReserveVO vo) throws Exception;
+	public void reserveUpdate(ReserveVO vo) throws Exception;
+	public void reserveDelete(ReserveVO vo) throws Exception;
+	 
 	
 	
 	

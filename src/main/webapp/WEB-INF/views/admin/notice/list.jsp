@@ -63,10 +63,13 @@
 							</tr>
 						</thead>
 						<tbody>
-							<c:forEach var="list" items="${list}">
+							<c:forEach var="list" items="${list}" varStatus="i">
 								<tr>
 									<td>${list.id }</td>
-									<td class="ellipsis"><a href="/carwash/admin/notice/read?id=${list.id }">${list.title }</a></td>
+									<td class="ellipsis"><a href="/carwash/admin/notice/read?id=${list.id }">${list.title }</a>
+										<c:if test="${regDate[i.index] }">
+											<img src="<c:url value='/resources/images/new.png'/>">
+										</c:if></td>
 									<td>${list.admin_name}</td>
 									<td>${list.cnt }</td>
 									<td><fmt:formatDate value="${list.registered_date}" pattern="yyyy-MM-dd" /></td>
@@ -111,14 +114,6 @@
 <script>
 	$(document).ready(function() {
 
-		/* checkbox 전체선택/해제 */
-		$("#allCheck").click(function() {
-			if ($("#allCheck").prop("checked")) {
-				$("input[name=chkYn]").prop("checked", true);
-			} else {
-				$("input[name=chkYn]").prop("checked", false);
-			}
-		});
 
 	});
 </script>

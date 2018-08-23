@@ -59,11 +59,16 @@
 							</tr>
 						</thead>
 						<tbody>
-							<c:forEach var="list" items="${list}" varStatus="status">
+							<c:forEach var="list" items="${list}" varStatus="i">
 								<tr>
 									<td>${list.id }</td>
-									<td><a href="/carwash/admin/free/read?id=${list.id }">${list.title }</a>
-										<a href="#"><span class="badge badge-primary" style="margin-left: 5px;">${list.reply_cnt }</span></a></td> 
+									<td class="ellipsis"><a href="/carwash/admin/free/read?id=${list.id }">${list.title }</a>
+										<a href="#"><%-- <span class="badge badge-primary" style="margin-left: 5px;">${list.reply_cnt }</span> --%>
+										<span class="label-bold" style="margin-left: 5px;">[${list.reply_cnt }]</span></a>
+										<c:if test="${regDate[i.index] }">
+											<img src="<c:url value='/resources/images/new.png'/>">
+										</c:if>
+									</td> 
 									<td>${list.registered_id }</td>
 									<td>${list.cnt }</td>
 									<!-- <td>첨부파일</td> -->

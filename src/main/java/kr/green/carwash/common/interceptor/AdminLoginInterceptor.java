@@ -9,6 +9,7 @@ import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.handler.HandlerInterceptorAdapter;
 
 import kr.green.carwash.vo.admin.AdminMemberVO;
+import kr.green.carwash.vo.user.MemberVO;
 
 public class AdminLoginInterceptor extends HandlerInterceptorAdapter{
 	
@@ -30,12 +31,28 @@ public class AdminLoginInterceptor extends HandlerInterceptorAdapter{
 	public void postHandle(HttpServletRequest request, HttpServletResponse response, Object handler, ModelAndView modelAndView) throws Exception {
 		
 		ModelMap modelMap = modelAndView.getModelMap();
-		AdminMemberVO user = (AdminMemberVO)modelMap.get("user");		/* adminMemberController login 메소드에서 아이디랑 비번정보를 모델에 담았던 user 가져오는 부분 */
+		
+		/* 클래스의 가장 최상위 부모객체 OBJECT로 USER를 선언하고, 로그인 JSP에서 NAME값 MODE의 값
+		 * (VALUE = 1 : 사용자 / VALUE = 0 : 관리자)을 가져와서 정수타입 MODE에 저장 */
+		Integer mode = (Integer)modelMap.get("mode");
+		Object user;
+		
+		/* 관리자세션 */
+		if (mode != null && mode == 0) {
+			user = (AdminMemberVO)modelMap.get("user");		/* adminMemberController login 메소드에서 아이디랑 비번정보를 모델에 담았던 user 가져오는 부분 */
+		
+		/* 사용자세션 */
+		} else {
+			user = (MemberVO)modelMap.get("user");
+		}
 			
-		// 로그인이 되었을 때 그 세션을 가져와서 저장해라
+		/* 로그인이 되었을 때 그 세션을 가져와서 USER와 MODE를 저장해라 */
 		if (user != null) {
+			
 			HttpSession session = request.getSession();
-			session.setAttribute("user", user);		
+			
+			session.setAttribute("user", user);	
+			session.setAttribute("mode", mode);	
 		}
 	}
 }

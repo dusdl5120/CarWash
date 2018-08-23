@@ -41,4 +41,34 @@ public class ReserveServiceImpl implements ReserveService {
 		return userMapper.cityList(sido);
 	}
 
+	@Override
+	public List<ReserveVO> businNameList(String sido, String city) throws Exception {
+		return userMapper.businNameList(sido, city); 
+	}
+
+	
+	@Override
+	public void reserveInsert(ReserveVO vo) throws Exception {
+		userMapper.reserveInsert(vo);
+	}
+
+	@Override
+	public List<ReserveVO> reserveList(ReserveVO vo) throws Exception {
+		return userMapper.reserveList(vo); 
+	}
+
+	@Override
+	public ReserveVO reserveRead(ReserveVO vo) throws Exception {
+		return userMapper.reserveRead(vo); 
+	}
+
+	@Override
+	public void reserveUpdate(ReserveVO vo) throws Exception {
+		userMapper.reserveUpdate(vo);
+	}
+
+	@Override
+	public void reserveDelete(ReserveVO vo) throws Exception {
+		userMapper.reserveDelete(vo);
+	}
 }
