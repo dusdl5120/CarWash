@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
 @RequestMapping(value="/review/*")
-public class ReivewController {
+public class UserReivewController {
 	
 	/*@Resource(name="reviewService")
 	ReviewService reviewService;*/

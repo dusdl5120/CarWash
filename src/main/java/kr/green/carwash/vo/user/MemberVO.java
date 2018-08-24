@@ -13,8 +13,8 @@ public class MemberVO {
 	private Date birth;						// 생년월일
 	private String phone_num;				// 휴대폰번호
 	private String email;					// 이메일주소
-	private String phone_yn;				// SMS수신여부
-	private String email_yn;				// 이메일수신여부
+	private Boolean phone_yn;				// SMS수신여부
+	private Boolean email_yn;				// 이메일수신여부
 	private Date registered_date;			// 등록일시
 	private Date updated_id;				// 수정자ID
 	private Date updated_date;				// 수정일시
@@ -74,16 +74,16 @@ public class MemberVO {
 	public void setEmail(String email) {
 		this.email = email;
 	}
-	public String getPhone_yn() {
+	public Boolean getPhone_yn() {
 		return phone_yn;
 	}
-	public void setPhone_yn(String phone_yn) {
+	public void setPhone_yn(Boolean phone_yn) {
 		this.phone_yn = phone_yn;
 	}
-	public String getEmail_yn() {
+	public Boolean getEmail_yn() {
 		return email_yn;
 	}
-	public void setEmail_yn(String email_yn) {
+	public void setEmail_yn(Boolean email_yn) {
 		this.email_yn = email_yn;
 	}
 	public Date getRegistered_date() {

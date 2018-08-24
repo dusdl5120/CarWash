@@ -151,9 +151,11 @@ public class AdminMemberController {
 		HttpSession session = request.getSession();
 		AdminMemberVO user = (AdminMemberVO) session.getAttribute("user");	 
 		
-		if(user != null) 
+		/* 세션에 정보를 저장해놓기 때문에 user와 mode를 같이 제거해야함!! */
+		if(user != null) {
 			session.removeAttribute("user");
-		
+			session.removeAttribute("mode");
+		}
 		return "redirect:/";
 	}
 	
@@ -169,13 +171,8 @@ public class AdminMemberController {
 		if(user != null)
 			admin = true;
 		
-		adMemberVO.setAdmin_id(user.getAdmin_id());
-		System.out.println("---------" + adMemberVO.getAdmin_id()); 
-		
-		AdminMemberVO my = adminMemberService.myPageRead(adMemberVO);
-		
 		model.addAttribute("admin", admin);
-		model.addAttribute("my", my);
+		model.addAttribute("my", user);
 		
 		return "/admin/mypage/mypage";
 	}
@@ -254,6 +251,9 @@ public class AdminMemberController {
 			adminMemberService.myUpdate(adMemberVO);
 			
 	    }
+		
+		session.removeAttribute("user");
+		session.setAttribute("user", adMemberVO);
 		
 		return "redirect:/";
 	}

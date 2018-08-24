@@ -30,4 +30,24 @@ public class UserMemberServiceImpl implements UserMemberService {
 		
 	}
 
+	@Override
+	public MemberVO myPageRead(MemberVO memberVO) throws Exception {
+		return userMapper.myPageRead(memberVO);
+	}
+
+	@Override
+	public void myUpdateExceptPasswd(MemberVO vo) throws Exception {
+		userMapper.myUpdateExceptPasswd(vo);
+	}
+
+	@Override
+	public void myUpdate(MemberVO vo) throws Exception {
+		userMapper.myUpdate(vo);
+	}
+
+	@Override
+	public void myDelete(MemberVO vo) throws Exception {
+		userMapper.myDelete(vo);
+	}
+
 }

@@ -1,54 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
-<!-- Navigation -->
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" id="mainNav">
-	<a class="navbar-brand js-scroll-trigger" href="/carwash">CARWASH</a>
-	<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive"
-		aria-expanded="false" aria-label="Toggle navigation">
-		<span class="navbar-toggler-icon"></span>
-	</button>
-	<div class="collapse navbar-collapse text-center" id="navbarResponsive" style="color: #fff;">
-		<ul class="navbar-nav ml-auto">
-			<li class="nav-item"><a class="nav-link js-scroll-trigger" href="/carwash">Home</a></li>
-			<li class="nav-item"><a class="nav-link js-scroll-trigger" href="/carwash/admin/notice/list">공지사항</a></li>
-			<li class="nav-item"><a class="nav-link js-scroll-trigger" href="#">이용안내</a></li>
-			<c:if test="${users}">
-				<li class="nav-item"><a class="nav-link js-scroll-trigger pointer" onclick="myFunction(0)">예약하기</a></li>
-			</c:if>
-			<c:if test="${!users}">
-				<li class="nav-item"><a class="nav-link js-scroll-trigger pointer" onclick="myFunction(1)">예약하기</a></li>
-			</c:if>
-			<li class="nav-item"><a class="nav-link js-scroll-trigger" href="/carwash/admin/free/list">자유게시판</a></li>
-		</ul>
-	</div>
-	
-	<div class="collapse navbar-collapse text-right" id="navbarResponsive" style="color: #fff;">
-		<ul class="navbar-nav ml-auto">
-			<c:if test="${admin}">
-				<li class="nav-item"><a class="nav-link js-scroll-trigger"><b>${ user.ceo_name}</b>&nbsp;님!</a></li>   
-				<li class="nav-item"><a class="nav-link js-scroll-trigger" href="/carwash/admin/member/myPage">마이페이지</a></li>  
-				<li class="nav-item">
-					<a class="nav-link js-scroll-trigger" href="/carwash/admin/member/logout">로그아웃</a>
-				</li>
-			</c:if>
-			<c:if test="${users}">
-				<li class="nav-item"><a class="nav-link js-scroll-trigger"><b>${ user.user_name}</b>&nbsp;님!</a></li>   
-				<li class="nav-item"><a class="nav-link js-scroll-trigger" href="/carwash/admin/member/myPage">마이페이지</a></li>  
-				<li class="nav-item">
-					<a class="nav-link js-scroll-trigger" href="/carwash/admin/member/logout">로그아웃</a>
-				</li>
-			</c:if>
-			<c:if test="${!(admin || users)}">
-				<li class="nav-item"><a class="nav-link js-scroll-trigger" data-toggle="modal" href="#loginModal" style="magrin-left: 50px;">로그인</a></li>
-				<li class="nav-item"><a class="nav-link js-scroll-trigger" data-toggle="modal" href="#joinModal">회원가입</a></li>
-			</c:if>
-		</ul>
-	</div>
-</nav>
-<!-- Navigation -->
-
-
 <!-- Login Modal -->
 <div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
 	<div class="modal-dialog">
@@ -110,6 +62,102 @@
 	</div>
 </div>
 <!-- Join Modal -->
+
+<!-- 관리자 메뉴 -->
+<c:if test="${admin }">
+	<!-- Navigation -->
+	<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" id="mainNav">
+		<a class="navbar-brand js-scroll-trigger" href="/carwash">CARWASH</a>
+		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive"
+			aria-expanded="false" aria-label="Toggle navigation">
+			<span class="navbar-toggler-icon"></span>
+		</button>
+		<div class="collapse navbar-collapse text-center" id="navbarResponsive" style="color: #fff;">
+			<ul class="navbar-nav ml-auto">
+				<li class="nav-item"><a class="nav-link js-scroll-trigger" href="/carwash">Home</a></li>
+				<li class="nav-item"><a class="nav-link js-scroll-trigger" href="/carwash/admin/notice/list">공지사항</a></li>
+				<li class="nav-item"><a class="nav-link js-scroll-trigger" href="#">이용안내</a></li>
+				<li class="nav-item"><a class="nav-link js-scroll-trigger pointer" onclick="myFunction(1)">예약하기</a></li>
+				<li class="nav-item"><a class="nav-link js-scroll-trigger" href="/carwash/admin/free/list">자유게시판</a></li>
+			</ul>
+		</div>
+		
+		<div class="collapse navbar-collapse text-right" id="navbarResponsive" style="color: #fff;">
+			<ul class="navbar-nav ml-auto">
+				<li class="nav-item"><a class="nav-link js-scroll-trigger"><b>${ user.ceo_name}</b>&nbsp;님!</a></li>   
+				<li class="nav-item"><a class="nav-link js-scroll-trigger" href="/carwash/admin/member/myPage">마이페이지</a></li>  
+				<li class="nav-item">
+					<a class="nav-link js-scroll-trigger" href="/carwash/admin/member/logout">로그아웃</a>
+				</li>
+			</ul>
+		</div>
+	</nav>
+	<!-- Navigation -->
+</c:if>	
+
+
+<!-- 사용자 메뉴 -->	
+<c:if test="${users }">	
+	<!-- Navigation -->
+	<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" id="mainNav">
+		<a class="navbar-brand js-scroll-trigger" href="/carwash">CARWASH</a>
+		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive"
+			aria-expanded="false" aria-label="Toggle navigation">
+			<span class="navbar-toggler-icon"></span>
+		</button>
+		<div class="collapse navbar-collapse text-center" id="navbarResponsive" style="color: #fff;">
+			<ul class="navbar-nav ml-auto">
+				<li class="nav-item"><a class="nav-link js-scroll-trigger" href="/carwash">Home</a></li>
+				<li class="nav-item"><a class="nav-link js-scroll-trigger" href="/carwash/user/notice/list">공지사항</a></li>
+				<li class="nav-item"><a class="nav-link js-scroll-trigger" href="#">이용안내</a></li>
+				<li class="nav-item"><a class="nav-link js-scroll-trigger pointer" onclick="myFunction(0)">예약하기</a></li>
+				<li class="nav-item"><a class="nav-link js-scroll-trigger" href="/carwash/user/free/list">자유게시판</a></li>
+			</ul>
+		</div>
+		
+		<div class="collapse navbar-collapse text-right" id="navbarResponsive" style="color: #fff;">
+			<ul class="navbar-nav ml-auto">
+				<li class="nav-item"><a class="nav-link js-scroll-trigger"><b>${ user.user_name}</b>&nbsp;님!</a></li>   
+				<li class="nav-item"><a class="nav-link js-scroll-trigger" href="/carwash/user/member/myPage">마이페이지</a></li>  
+				<li class="nav-item">
+					<a class="nav-link js-scroll-trigger" href="/carwash/user/member/logout">로그아웃</a>
+				</li>
+			</ul>
+		</div>
+	</nav>
+	<!-- Navigation -->
+</c:if>
+
+
+<!-- 둘다 아닐 때 -->
+<c:if test="${!users && !admin }">	
+	<!-- Navigation -->
+	<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" id="mainNav">
+		<a class="navbar-brand js-scroll-trigger" href="/carwash">CARWASH</a>
+		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive"
+			aria-expanded="false" aria-label="Toggle navigation">
+			<span class="navbar-toggler-icon"></span>
+		</button>
+		<div class="collapse navbar-collapse text-center" id="navbarResponsive" style="color: #fff;">
+			<ul class="navbar-nav ml-auto">
+				<li class="nav-item"><a class="nav-link js-scroll-trigger" href="/carwash">Home</a></li>
+				<li class="nav-item"><a class="nav-link js-scroll-trigger" href="/carwash/admin/notice/list">공지사항</a></li>
+				<li class="nav-item"><a class="nav-link js-scroll-trigger" href="#">이용안내</a></li>
+				<li class="nav-item"><a class="nav-link js-scroll-trigger pointer" onclick="myFunction(0)">예약하기</a></li>
+				<li class="nav-item"><a class="nav-link js-scroll-trigger" href="/carwash/admin/free/list">자유게시판</a></li>
+			</ul>
+		</div>
+		
+		<div class="collapse navbar-collapse text-right" id="navbarResponsive" style="color: #fff;">
+			<ul class="navbar-nav ml-auto">
+				<li class="nav-item"><a class="nav-link js-scroll-trigger" data-toggle="modal" href="#loginModal" style="magrin-left: 50px;">로그인</a></li>
+				<li class="nav-item"><a class="nav-link js-scroll-trigger" data-toggle="modal" href="#joinModal">회원가입</a></li>
+			</ul>
+		</div>
+	</nav>
+	<!-- Navigation -->
+</c:if>
+
 
 <script>
 /* 회원만 등록가능, 비회원은 로그인페이지로 */

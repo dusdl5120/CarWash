@@ -109,7 +109,6 @@
 			title = #{title}
 			, contents = #{contents}
 			, admin_id = #{admin_id}
-			, registered_date = now()
 			, updated_id = #{admin_id}
 			, updated_date = now()
 		where
@@ -218,7 +217,6 @@
 			, contents = #{contents}
 			, reply_cnt = #{reply_cnt}
 			, registered_id = #{registered_id}
-			, registered_date = now()
 			, updated_id = #{registered_id}
 			, updated_date = now()
 		where

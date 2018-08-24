@@ -27,10 +27,11 @@
 	<context:component-scan base-package="kr.green.carwash" />
 	
 	
-	<beans:bean id="userLoginInterceptor" class="kr.green.carwash.common.interceptor.UserLoginInterceptor"></beans:bean>
+	<!-- <beans:bean id="userLoginInterceptor" class="kr.green.carwash.common.interceptor.UserLoginInterceptor"></beans:bean> -->
 	<beans:bean id="adminLoginInterceptor" class="kr.green.carwash.common.interceptor.AdminLoginInterceptor"></beans:bean>
 	
 	<beans:bean id="adminInterceptor" class="kr.green.carwash.common.interceptor.AdminInterceptor"></beans:bean>
+	<beans:bean id="userInterceptor" class="kr.green.carwash.common.interceptor.UserInterceptor"></beans:bean>
 	
 	<interceptors>
 		<!-- ADMIN -->
@@ -40,15 +41,15 @@
 		</interceptor>
 	
 		<interceptor>
-			<mapping path="/admin/free/insert"/>         
+			<mapping path="/admin/*"/>         
 			<beans:ref bean="adminInterceptor"/>
       	</interceptor>
 		
 		<!-- USER -->
 		<interceptor>
-			<mapping path="/admin/member/login"/>
-			<beans:ref bean="userLoginInterceptor"/>
-		</interceptor>
+			<mapping path="/user/*"/>
+			<beans:ref bean="userInterceptor"/>
+		</interceptor> 
 		
 	
 	</interceptors>

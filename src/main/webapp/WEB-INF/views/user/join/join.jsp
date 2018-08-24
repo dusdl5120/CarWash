@@ -52,7 +52,23 @@
 							</div>
 						</div><br>  
 						
+
 						
+						<div class="row reserv-form-row"> 
+							<div class="offset-md-2 col-md-8 margin-bt15">  
+								<div class="row">
+									<div class="col-md-3 text-right col-top"> 
+										<label class="control-label" for="user_name">사용자이름</label>
+									</div>
+									<div class="col-md-8 text-left"> 
+										<input type="text" class="input form-control input-read" id="user_name" name="user_name" value="${my.user_name }" disabled>
+									</div>
+								</div>
+							</div>
+						</div><br>  		
+						
+						
+										
 						<div class="row reserv-form-row"> 
 							<div class="offset-md-2 col-md-8 margin-bt15">  
 								<div class="row">
@@ -80,33 +96,18 @@
 							</div>
 						</div><br>  
 						
-						
-						
-						<div class="row reserv-form-row"> 
-							<div class="offset-md-2 col-md-8 margin-bt15">  
-								<div class="row">
-									<div class="col-md-3 text-right col-top"> 
-										<label class="control-label" for="user_name">사용자이름<b>&nbsp;*</b></label>
-									</div>
-									<div class="col-md-8 text-left"> 
-										<input type="text" class="input form-control" id="user_name" name="user_name">
-									</div>
-								</div>
-							</div>
-						</div><br>  
-						
 							
 						<div class="row reserv-form-row"> 
 							<div class="offset-md-2 col-md-8 margin-bt15">  
 								<div class="row">
 									<div class="col-md-3 text-right col-top"> 
-										<label class="control-label" for="phoneNumber">휴대폰번호<b>&nbsp;*</b></label>
+										<label class="control-label" for="phone_num">휴대폰번호<b>&nbsp;*</b></label>
 									</div>
 									<div class="col-md-5 text-left"> 
-										<input type="text" class="input form-control" id="phoneNumber" name="phoneNumber">
+										<input type="text" class="input form-control" id="phone_num" name="phone_num">
 									</div>
 									<div class="col-md-3 text-left"> 
-										<label class="check"><input type="checkbox" class="icheck" name="phoneCheckYn" name="phoneCheckYn"/>&nbsp;SMS 수신여부</label>
+										<label class="check"><input type="checkbox" class="icheck" id="phone_yn" name="phone_yn"/>&nbsp;SMS 수신여부</label>
 									</div>
 								</div>
 							</div>
@@ -137,7 +138,7 @@
 										<input type="text" class="input form-control" id="email" name="email">
 									</div>
 									<div class="col-md-3 text-left"> 
-										<label class="check"><input type="checkbox" class="icheck" name="emailCheckYn" name="emailCheckYn"/>&nbsp;EMAIL 수신여부</label>
+										<label class="check"><input type="checkbox" class="icheck" id="email_yn" name="emailCheckYn"/>&nbsp;EMAIL 수신여부</label>
 									</div>
 								</div>
 							</div>
@@ -179,10 +180,10 @@
 							<div class="offset-md-2 col-md-8">  
 								<div class="row">
 									<div class="col-md-3 text-right col-top"> 
-										<label class="control-label" for="address_detail"></label>
+										<label class="control-label" for="detail_address"></label>
 									</div>
 									<div class="col-md-8 text-left"> 
-										<input type="text" class="input form-control" id="address_detail" name="address_detail" placeholder="상세주소를 입력하세요">
+										<input type="text" class="input form-control" id="detail_address" name="detail_address" placeholder="상세주소를 입력하세요">
 									</div>
 								</div>
 							</div>
@@ -222,9 +223,9 @@ var dup = -1;	/* 아이디 중복확인을 위한 초기값 */
 $(document).ready(function(){
 	
 	/* 전화번호 마스크 기능 */	
-	$('#phoneNumber').mask('(000)-0000-0000', {
+	$('#phone_num').mask('(000)-0000-0000', {
 		placeholder : "(___)-____-____"
-	});
+	}); 
 	
 	/* 생년월일 마스크 기능 */
 	$('#birth').mask('0000/00/00', {

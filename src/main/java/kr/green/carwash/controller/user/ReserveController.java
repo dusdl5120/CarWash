@@ -1,7 +1,6 @@
 package kr.green.carwash.controller.user;
 
 import java.util.ArrayList;
-import java.util.List;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
@@ -15,6 +14,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import kr.green.carwash.service.user.ReserveService;
 import kr.green.carwash.vo.admin.AdminMemberVO;
+import kr.green.carwash.vo.user.MemberVO;
 import kr.green.carwash.vo.user.ReserveVO;
 
 @Controller
@@ -45,14 +45,14 @@ public class ReserveController {
 		model.addAttribute("categoryList", categoryList);
 		
 		HttpSession session = request.getSession();
-		AdminMemberVO user = (AdminMemberVO) session.getAttribute("user");	 
+		MemberVO user = (MemberVO) session.getAttribute("user");	 
 		
 		boolean admin = false;
 		if(user != null)
 			admin = true;
 		
 		//reserveVO.setReserv_name(user.getUser_name());
-		model.addAttribute("admin", admin);
+		model.addAttribute("users", admin);
 		
 		return "/user/reserve/insert";
 	}
@@ -85,15 +85,15 @@ public class ReserveController {
 	public String reserveInsertPost(Model model, HttpServletRequest request, ReserveVO reserveVO) throws Exception {
 		
 		HttpSession session = request.getSession();
-		AdminMemberVO user = (AdminMemberVO) session.getAttribute("user");
+		MemberVO user = (MemberVO) session.getAttribute("user");
 		
 		boolean admin = false;
 		if(user != null)
 			admin = true;
 		
-		model.addAttribute("admin", admin);
+		model.addAttribute("users", admin);
 		
-		reserveVO.setRegistered_id(user.getAdmin_id());
+		reserveVO.setRegistered_id(user.getUser_id());
 		reserveService.reserveInsert(reserveVO);
 		
 		return "redirect:/user/reserve/list";
@@ -104,13 +104,13 @@ public class ReserveController {
 	public String reserveList(Model model, HttpServletRequest request, ReserveVO reserveVO) throws Exception {
 		
 		HttpSession session = request.getSession();
-		AdminMemberVO user = (AdminMemberVO) session.getAttribute("user");
+		MemberVO user = (MemberVO) session.getAttribute("user");
 		
 		boolean admin = false;
 		if(user != null)
 			admin = true;
 		
-		model.addAttribute("admin", admin );
+		model.addAttribute("users", admin );
 		 
 		ArrayList<ReserveVO> list = (ArrayList) reserveService.reserveList(reserveVO);
 		
@@ -125,13 +125,13 @@ public class ReserveController {
 	public String reserveRead(Model model, HttpServletRequest request, ReserveVO reserveVO) throws Exception {
 		
 		HttpSession session = request.getSession();
-		AdminMemberVO user = (AdminMemberVO) session.getAttribute("user");
+		MemberVO user = (MemberVO) session.getAttribute("user");
 		
 		boolean admin = false;
 		if(user != null)
 			admin = true;
 		
-		model.addAttribute("admin", admin);
+		model.addAttribute("users", admin);
 		
 		ReserveVO reserve = reserveService.reserveRead(reserveVO);
 		model.addAttribute("reserve", reserve);
@@ -145,13 +145,13 @@ public class ReserveController {
 	public String reserveUpdate(Model model, HttpServletRequest request, ReserveVO reserveVO, Integer reserv_no) throws Exception {
 		
 		HttpSession session = request.getSession();
-		AdminMemberVO user = (AdminMemberVO) session.getAttribute("user");
+		MemberVO user = (MemberVO) session.getAttribute("user");
 		
 		boolean admin = false;
 		if(user != null)
 			admin = true;
 		
-		model.addAttribute("admin", admin);
+		
 		
 		/* 시도명 정보 불러오기 */
 		ArrayList<ReserveVO> sidoList = (ArrayList) reserveService.sidoListAll();
@@ -171,9 +171,10 @@ public class ReserveController {
 		
 		ReserveVO reserve = reserveService.reserveRead(reserveVO);
 		reserve.setReserv_no(reserv_no);
-		reserve.setRegistered_id(user.getAdmin_id());
+		reserve.setRegistered_id(user.getUser_id());
 		
 		model.addAttribute("reserve", reserve);
+		model.addAttribute("users", admin);
 		
 		return "/user/reserve/update";
 	}
@@ -184,15 +185,15 @@ public class ReserveController {
 	public String reserveUpdatePost(Model model, HttpServletRequest request, ReserveVO reserveVO, Integer reserv_no) throws Exception {
 		
 		HttpSession session = request.getSession();
-		AdminMemberVO user = (AdminMemberVO) session.getAttribute("user");
+		MemberVO user = (MemberVO) session.getAttribute("user");
 		
 		boolean admin = false;
 		if(user != null)
 			admin = true;
 		
 		
-		reserveVO.setRegistered_id(user.getAdmin_id());
-		model.addAttribute("admin", admin);
+		reserveVO.setRegistered_id(user.getUser_id());
+		model.addAttribute("users", admin);
 		
 		reserveService.reserveUpdate(reserveVO);
 		
@@ -205,13 +206,13 @@ public class ReserveController {
 	public String reserveDelete(Model model, HttpServletRequest request, ReserveVO reserveVO, Integer reserv_no) throws Exception {
 		
 		HttpSession session = request.getSession();
-		AdminMemberVO user = (AdminMemberVO) session.getAttribute("user");
+		MemberVO user = (MemberVO) session.getAttribute("user");
 		
 		boolean admin = false;
 		if(user != null)
 			admin = true;
 		
-		model.addAttribute("admin", admin);
+		model.addAttribute("users", admin);
 		
 		reserveService.reserveDelete(reserveVO);
 		

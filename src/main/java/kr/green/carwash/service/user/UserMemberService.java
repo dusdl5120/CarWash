@@ -8,7 +8,15 @@ public interface UserMemberService {
 	public MemberVO loginById(String id) throws Exception;
 	public MemberVO login(String id, String passwd) throws Exception;
 	
+	
 	/* 회원가입 */
 	public void insertUserJoin(MemberVO vo) throws Exception;
+	
+	
+	/* 마이페이지 */
+	public MemberVO myPageRead(MemberVO memberVO) throws Exception;
+	public void myUpdateExceptPasswd(MemberVO vo) throws Exception;
+	public void myUpdate(MemberVO vo) throws Exception;
+	public void myDelete(MemberVO vo) throws Exception;
 
 }

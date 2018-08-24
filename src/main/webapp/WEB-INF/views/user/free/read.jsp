@@ -96,9 +96,9 @@
 				<div class="col-md-12 text-right">
 					<c:if test="${user.admin_id.compareTo(board.registered_id) == 0}"> 
 						<button type="button" class="btn btn-danger btn-cancel-reserve" id="delete">삭제</button>
-						<button type="button" class="btn btn-insert-join" onclick="location.href='/carwash/admin/free/update?id=${board.id}'">수정</button>
+						<button type="button" class="btn btn-insert-join" onclick="location.href='/carwash/user/free/update?id=${board.id}'">수정</button>
 					</c:if>
-					<button type="button" class="btn btn-dark btn-cancel-join" onclick="location.href='/carwash/admin/free/list'">목록</button>
+					<button type="button" class="btn btn-dark btn-cancel-join" onclick="location.href='/carwash/user/free/list'">목록</button>
 				</div>
 			</div>
 		</form>
