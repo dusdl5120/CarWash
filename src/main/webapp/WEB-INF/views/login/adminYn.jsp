@@ -6,13 +6,13 @@
 
 <head>
 	<!-- Header -->
-		<jsp:include page="../../../common/header.jsp"></jsp:include>
+		<jsp:include page="../../common/header.jsp"></jsp:include>
 	<!-- Header -->
 </head>
 
 <body>
 	<!-- Menu -->
-		<jsp:include page="../../../common/menu.jsp"></jsp:include>
+		<jsp:include page="../../common/menu.jsp"></jsp:include>
 	<!-- Menu -->
 	
 	<!-- Contents -->
@@ -56,7 +56,7 @@
 	<!-- Contents -->
 
 	<!-- Footer -->
-	<jsp:include page="../../../common/footer.jsp"></jsp:include>
+	<jsp:include page="../../common/footer.jsp"></jsp:include>
 	<!-- Footer -->
 
 </body>

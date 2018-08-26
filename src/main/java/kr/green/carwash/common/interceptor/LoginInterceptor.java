@@ -11,7 +11,7 @@ import org.springframework.web.servlet.handler.HandlerInterceptorAdapter;
 import kr.green.carwash.vo.admin.AdminMemberVO;
 import kr.green.carwash.vo.user.MemberVO;
 
-public class AdminLoginInterceptor extends HandlerInterceptorAdapter{
+public class LoginInterceptor extends HandlerInterceptorAdapter{
 	
 	/*
 		****  로그인 전체적인 흐름  ****

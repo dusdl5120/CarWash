@@ -87,62 +87,7 @@ public class AdminMemberController {
 	    return map;
 	}
 	
-	
-	/* 로그인 */
-	@RequestMapping(value = "/login", method = RequestMethod.GET)
-	public String loginGet(Model model, HttpServletRequest request) throws Exception {
-		
-	    
-	    return "/admin/login/login";
-	}
-	
-	
-	
-	/* 로그인 */
-	@RequestMapping(value = "/login", method = RequestMethod.POST)
-	public String login(Model model, HttpServletRequest request, Integer mode) throws Exception {
-		
-		/* 로그인했을 때의 아이디랑 비번 정보를 가져옴 */
-	    String id = request.getParameter("loginId");
-	    String pw = request.getParameter("loginPw");
-	    
-	    /* 로그인한 사람이 관리자일 경우 */
-	    if(mode == 0) {
-	    	
-		    /* 로그인할때 관리자ID의 값을 가져와서 user객체에 담는다 */
-		    AdminMemberVO user = adminMemberService.loginById(id);
-		    
-		    /* id를 가져온 정보가 null이 아니고 , 입력한 비밀번호와 암호화된 비밀번호와 일치했을 경우 모델에 담아서 메인으로 리다이렉트 */
-		    if(user != null && passwordEncoder.matches(pw, user.getAdmin_passwd())) {
-		    	
-		    	/* 로그인한 관리자계정의 정보를 MODEL에 담고,
-		    	 * MODE를 관리자로 설정 후 메인으로 리턴 */
-		        model.addAttribute("user", user);
-		        model.addAttribute("mode", 0);
-		        return "redirect:/"; 
-		    }
-		    
-		/* 로그인한 사람이 사용자일 경우 */    
-	    } else {
-	    	
-	    	/* 로그인할때 사용자ID의 값을 가져와서 user객체에 담는다 */
-		    MemberVO user = userMemberService.loginById(id);
-		    
-		    /* id를 가져온 정보가 null이 아니고 , 입력한 비밀번호와 암호화된 비밀번호와 일치했을 경우 모델에 담아서 메인으로 리다이렉트 */
-		    if(user != null && passwordEncoder.matches(pw, user.getUser_passwd())) {
-		    	
-		    	/* 로그인한 사용자계정의 정보를 MODEL에 담고,
-		    	 * MODE를 사용자로 설정 후 메인으로 리턴 */
-		        model.addAttribute("user", user);
-		        model.addAttribute("mode", 1);
-		        return "redirect:/"; 
-		    }
-	    }
-	    
-	    /* 일치하지 않을 경우 로그인 페이지로 이동 */
-	    return "/admin/login/login";
-	}
-	
+
 	
 	/* 로그아웃 */
 	@RequestMapping(value = "/logout")

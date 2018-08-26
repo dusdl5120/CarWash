@@ -61,7 +61,7 @@
 										<label class="control-label" for="user_name">사용자이름</label>
 									</div>
 									<div class="col-md-8 text-left"> 
-										<input type="text" class="input form-control input-read" id="user_name" name="user_name" value="${my.user_name }" disabled>
+										<input type="text" class="input form-control" id="user_name" name="user_name" value="${my.user_name }">
 									</div>
 								</div>
 							</div>

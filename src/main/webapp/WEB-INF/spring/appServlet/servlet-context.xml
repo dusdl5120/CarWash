@@ -28,7 +28,7 @@
 	
 	
 	<!-- <beans:bean id="userLoginInterceptor" class="kr.green.carwash.common.interceptor.UserLoginInterceptor"></beans:bean> -->
-	<beans:bean id="adminLoginInterceptor" class="kr.green.carwash.common.interceptor.AdminLoginInterceptor"></beans:bean>
+	<beans:bean id="loginInterceptor" class="kr.green.carwash.common.interceptor.LoginInterceptor"></beans:bean>
 	
 	<beans:bean id="adminInterceptor" class="kr.green.carwash.common.interceptor.AdminInterceptor"></beans:bean>
 	<beans:bean id="userInterceptor" class="kr.green.carwash.common.interceptor.UserInterceptor"></beans:bean>
@@ -36,20 +36,20 @@
 	<interceptors>
 		<!-- ADMIN -->
 		<interceptor>
-			<mapping path="/admin/member/login"/>
-			<beans:ref bean="adminLoginInterceptor"/>
+			<mapping path="/lgoin/admin"/>
+			<beans:ref bean="loginInterceptor"/>
 		</interceptor>
 	
-		<interceptor>
+		<!-- <interceptor>
 			<mapping path="/admin/*"/>         
 			<beans:ref bean="adminInterceptor"/>
       	</interceptor>
 		
-		<!-- USER -->
+		USER
 		<interceptor>
 			<mapping path="/user/*"/>
 			<beans:ref bean="userInterceptor"/>
-		</interceptor> 
+		</interceptor>  -->
 		
 	
 	</interceptors>

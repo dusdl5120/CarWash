@@ -13,12 +13,12 @@
 			<form method="post" action="/carwash/admin/member/login">
 				<div class="form-group">
 	                <div class="col-md-12">
-	                    <input type="text" class="form-control" id="loginId" name="loginId" placeholder="로그인ID"/>
+	                    <input type="text" class="form-control" name="loginId" placeholder="로그인ID"/>
 	                </div>
 	            </div>
 	            <div class="form-group">
 	                <div class="col-md-12">
-	                    <input type="password" class="form-control" id="loginPw" name="loginPw" placeholder="비밀번호"/>
+	                    <input type="password" class="form-control"  name="loginPw" placeholder="비밀번호"/>
 	                </div>
 	            </div>
 	            <div class="form-group">
@@ -150,7 +150,8 @@
 		
 		<div class="collapse navbar-collapse text-right" id="navbarResponsive" style="color: #fff;">
 			<ul class="navbar-nav ml-auto">
-				<li class="nav-item"><a class="nav-link js-scroll-trigger" data-toggle="modal" href="#loginModal" style="magrin-left: 50px;">로그인</a></li>
+				<!-- <li class="nav-item"><a class="nav-link js-scroll-trigger" data-toggle="modal" href="#loginModal" style="magrin-left: 50px;">로그인</a></li> -->
+				<li class="nav-item"><a class="nav-link js-scroll-trigger" href="/carwash/login" style="magrin-left: 50px;">로그인</a></li>
 				<li class="nav-item"><a class="nav-link js-scroll-trigger" data-toggle="modal" href="#joinModal">회원가입</a></li>
 			</ul>
 		</div>

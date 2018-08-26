@@ -9,13 +9,13 @@
 </style>
 
 	<!-- Header -->
-		<jsp:include page="../../../common/header.jsp"></jsp:include>
+		<jsp:include page="../../common/header.jsp"></jsp:include>
 	<!-- Header -->
 </head>
 
 <body>
 	<!-- Menu -->
-		<jsp:include page="../../../common/menu.jsp"></jsp:include>
+		<jsp:include page="../../common/menu.jsp"></jsp:include>
 	<!-- Menu -->
 	
 	<!-- Contents -->
@@ -34,26 +34,26 @@
 		</div>
 		
 		
-		<form method="post" id="loginForm" name="loginForm" class="form"> 
+		<form method="post" id="loginForm" name="loginForm" class="form" action="/carwash/login/admin"> 
 			<div class="row reserv-form-div"> 
 				<div class="offset-md-3 col-md-6"> 
 					
 					<div class="row detail-margin margin-30">  
 						<div class="col-md-2 text-right col-top"> 
-							<label class="control-label" for="admin_id">아이디</label>
+							<label class="control-label" for="loginId">아이디</label>
 						</div>
 						<div class="col-md-9 text-left"> 
-							<input type="text" class="input form-control" id="admin_id" name="loginId">
+							<input type="text" class="input form-control" id="loginId" name="loginId">
 						</div> 
 					</div><br>
 					
 					
 					<div class="row detail-margin"> 
 						<div class="col-md-2 text-right col-top"> 
-							<label class="control-label" for="admin_passwd">비밀번호</label>
+							<label class="control-label" for="loginPw">비밀번호</label>
 						</div>
 						<div class="col-md-9 text-left"> 
-							<input type="password" class="input form-control" id="admin_passwd" name="loginPw">
+							<input type="password" class="input form-control" id="loginPw" name="loginPw">
 						</div>
 					</div><br>
 					
@@ -89,7 +89,7 @@
 			
 			<div class="row footer-mb"> 
 				<div class="col-md-12 text-right"> 
-					<button type="submit" class="btn btn-insert-join" onclick="location.href='/carwash/admin/member/adminYn'">회원가입</button>
+					<button type="button" class="btn btn-insert-join" onclick="location.href='/carwash/admin/member/adminYn'">회원가입</button>
 					<button type="button" class="btn btn-dark btn-cancel-join" onclick="sendit()" class="btn btn-secondary btn-update">로그인</button>
 				</div>
 			</div>
@@ -101,7 +101,7 @@
 	<!-- Contents -->
 
 	<!-- Footer -->
-	<jsp:include page="../../../common/footer.jsp"></jsp:include>
+	<jsp:include page="../../common/footer.jsp"></jsp:include>
 	<!-- Footer -->
 
 </body>
@@ -111,7 +111,7 @@
 	window.onload = function() {
 	
 	    if (getCookie("id")) { // getCookie함수로 id라는 이름의 쿠키를 불러와서 있을경우
-	        document.loginForm.admin_id.value = getCookie("id"); //input 이름이 id인곳에 getCookie("id")값을 넣어줌
+	        document.loginForm.loginId.value = getCookie("id"); //input 이름이 id인곳에 getCookie("id")값을 넣어줌
 	        document.loginForm.idSave.checked = true; // 체크는 체크됨으로
 	    }
 	
@@ -140,24 +140,30 @@
 	
 	function sendit() {
 	    var frm = document.loginForm;
-	    if (!frm.admin_id.value) { //아이디를 입력하지 않으면.
+	    if (!frm.loginId.value) { //아이디를 입력하지 않으면.
 	        alert("아이디를 입력 해주세요!");
-	        frm.admin_id.focus();
+	        frm.loginId.focus();
 	        return;
 	    }
-	    if (!frm.admin_passwd.value) { //패스워드를 입력하지 않으면.
+	    if (!frm.loginPw.value) { //패스워드를 입력하지 않으면.
 	        alert("패스워드를 입력 해주세요!");
-	        frm.admin_passwd.focus();
+	        frm.loginPw.focus();
 	        return;
 	    }
 	
 	    if (document.loginForm.idSave.checked == true) { // 아이디 저장을 체크 하였을때
-	        setCookie("id", document.loginForm.admin_id.value, 7); //쿠키이름을 id로 아이디입력필드값을 7일동안 저장
+	        setCookie("id", document.loginForm.loginId.value, 7); //쿠키이름을 id로 아이디입력필드값을 7일동안 저장
 	    } else { // 아이디 저장을 체크 하지 않았을때
-	        setCookie("id", document.loginForm.admin_id.value, 0); //날짜를 0으로 저장하여 쿠키삭제
+	        setCookie("id", document.loginForm.loginId.value, 0); //날짜를 0으로 저장하여 쿠키삭제
 	    }
-	
-	    document.loginForm.submit(); //유효성 검사가 통과되면 서버로 전송.
+		
+	    /* if($('input:radio[id=admin]').is(':checked')){
+	    	$('#loginForm').attr('action','/carwash/login/admins');
+	    	
+	    } else {
+	    	$('#loginForm').attr('action','/carwash/login/admin');
+	    } */
+	    $('#loginForm').submit(); //유효성 검사가 통과되면 서버로 전송.
 	
 	}
 </script>
